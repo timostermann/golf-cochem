@@ -1,8 +1,6 @@
 export default {
-  extends: [
-    "plugin:astro/recommended",
-    "plugin:astro/jsx-a11y-recommended"
-  ],
+  extends: ["plugin:astro/recommended", "plugin:astro/jsx-a11y-recommended"],
+  ignorePatterns: ["node_modules", "cms", "public"],
   overrides: [
     {
       files: ["*.astro"],
@@ -11,8 +9,7 @@ export default {
         parser: "@typescript-eslint/parser",
         extraFileExtensions: [".astro"],
       },
-      rules: {
-      },
+      rules: {},
     },
     {
       files: ["**/*.tsx", "**/*.ts"],
@@ -69,4 +66,4 @@ export default {
       },
     },
   ],
-}
+};
