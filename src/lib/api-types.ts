@@ -3,6 +3,7 @@ export type Blogpost = {
   attributes: {
     title: string;
     content: string;
+    teaser: string;
     slug: string;
     createdAt: string;
     updatedAt: string;

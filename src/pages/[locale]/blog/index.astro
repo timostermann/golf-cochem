@@ -18,17 +18,15 @@ export const getStaticPaths = (async () => {
       ),
     )
   ).flat();
-  console.log(blogposts);
 
   return blogposts.map((blogpost) => ({
     params: {
       locale: blogpost.attributes.locale,
-      slug: blogpost.attributes.slug,
     },
   }));
 }) satisfies GetStaticPaths;
 
-const { locale, slug } = Astro.params;
+const { locale } = Astro.params;
 
 const blogposts = await fetchApi<Blogpost[]>({
   endpoint: "blogposts",
@@ -36,26 +34,16 @@ const blogposts = await fetchApi<Blogpost[]>({
     locale,
   },
 });
-
-const blogpost = blogposts.find(
-  (blogpost) => blogpost.attributes.slug === slug,
-);
-
-if (!blogpost) {
-  throw new Error(`No blogpost found for slug: ${slug}`);
-}
-
-const {
-  id,
-  attributes: { content, createdAt, title },
-} = blogpost;
 ---
 
-<Layout title={title}>
-  <h1>Blogpost</h1>
-  <p>id: {id}</p>
-  <p>slug: {slug}</p>
-  <p>title: {title}</p>
-  <p>createdAt: {createdAt}</p>
-  <p>content: {content}</p>
+<Layout title="News & Blog">
+  {
+    blogposts.map((blogpost) => (
+      <div class="mb-12">
+        <h2>{blogpost.attributes.title}</h2>
+        <p>{blogpost.attributes.teaser}</p>
+        <a href={`/${locale}/blog/${blogpost.attributes.slug}`}>Learn more</a>
+      </div>
+    ))
+  }
 </Layout>

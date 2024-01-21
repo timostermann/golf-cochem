@@ -1,4 +1,7 @@
 ---
+import i18next from "i18next";
+import { LanguageSelector } from "astro-i18next/components";
+
 interface Props {
   title: string;
 }
@@ -7,7 +10,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html>
+<html lang={i18next.language}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -17,6 +20,7 @@ const { title } = Astro.props;
     <title>{title} | Golf Cochem</title>
   </head>
   <body>
+    <LanguageSelector showFlag={true} class="my-select-class" />
     <slot />
   </body>
 </html>

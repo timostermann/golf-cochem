@@ -1,4 +1,17 @@
 module.exports = {
+  settings: {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"],
+    },
+    "import/resolver": {
+      typescript: {
+        directory: "./tsconfig.json",
+      },
+      node: {
+        extensions: [".js", ".jsx", ".ts", ".tsx", ".mjs"],
+      },
+    },
+  },
   extends: ["plugin:astro/recommended", "plugin:astro/jsx-a11y-recommended"],
   overrides: [
     {
@@ -33,33 +46,12 @@ module.exports = {
           },
         },
       },
-      plugins: ["import"],
-      rules: {
-        "no-undef": "off",
-        "react/prop-types": "off",
-        "@typescript-eslint/consistent-type-definitions": ["error", "type"],
-        "@typescript-eslint/consistent-type-exports": "error",
-        "@typescript-eslint/consistent-type-imports": "error",
-        "@typescript-eslint/no-floating-promises": "error",
-        quotes: [
-          "error",
-          "double",
-          { avoidEscape: true, allowTemplateLiterals: false },
-        ],
-        "import/order": [
-          "error",
-          {
-            groups: [
-              "builtin",
-              "external",
-              "internal",
-              "parent",
-              "sibling",
-              "index",
-            ],
-            "newlines-between": "always",
-          },
-        ],
+    },
+    {
+      files: ["*.mjs"],
+      parserOptions: {
+        sourceType: "module",
+        ecmaVersion: 2022,
       },
     },
   ],
