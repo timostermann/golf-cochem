@@ -1,8 +1,5 @@
-export default {
-  extends: [
-    "plugin:astro/recommended",
-    "plugin:astro/jsx-a11y-recommended"
-  ],
+module.exports = {
+  extends: ["plugin:astro/recommended", "plugin:astro/jsx-a11y-recommended"],
   overrides: [
     {
       files: ["*.astro"],
@@ -11,8 +8,7 @@ export default {
         parser: "@typescript-eslint/parser",
         extraFileExtensions: [".astro"],
       },
-      rules: {
-      },
+      rules: {},
     },
     {
       files: ["**/*.tsx", "**/*.ts"],
@@ -41,8 +37,6 @@ export default {
       rules: {
         "no-undef": "off",
         "react/prop-types": "off",
-        "no-anonymous-exports-page-templates": "warn",
-        "limited-exports-page-templates": "warn",
         "@typescript-eslint/consistent-type-definitions": ["error", "type"],
         "@typescript-eslint/consistent-type-exports": "error",
         "@typescript-eslint/consistent-type-imports": "error",
@@ -69,4 +63,4 @@ export default {
       },
     },
   ],
-}
+};
