@@ -12,6 +12,9 @@ export default {
           800: "#0B4A6F",
         },
       },
+      screens: {
+        xs: "420px",
+      },
     },
   },
   plugins: [],
