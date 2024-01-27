@@ -31,6 +31,25 @@ const { title } = Astro.props;
     font-weight: 100 1000;
   }
 
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
+
+  @media (forced-colors: none) {
+    * {
+      outline-offset: 0;
+      outline: 2px solid transparent;
+    }
+  }
+
+  *:focus-visible {
+    outline-color: #2238df;
+    outline-offset: 2px;
+    transition: outline-offset 150ms ease-out;
+  }
+
   html {
     font-family: "Rubik", system-ui, sans-serif;
   }

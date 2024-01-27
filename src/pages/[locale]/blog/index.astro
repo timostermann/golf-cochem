@@ -4,6 +4,7 @@ import { fetchApi } from "@lib/strapi";
 import type { Blogpost } from "@lib/api-types";
 import Layout from "@layouts/Layout.astro";
 import { LOCALES } from "@lib/constants";
+import { Button, ButtonVariant } from "@components/Button";
 
 export const getStaticPaths = (async () => {
   const blogposts = (
@@ -38,11 +39,20 @@ const blogposts = await fetchApi<Blogpost[]>({
 
 <Layout title="News & Blog">
   {
-    blogposts.map((blogpost) => (
-      <div class="mb-12">
-        <h2>{blogpost.attributes.title}</h2>
-        <p>{blogpost.attributes.teaser}</p>
-        <a href={`/${locale}/blog/${blogpost.attributes.slug}`}>Learn more</a>
+    blogposts.map((blogpost, i) => (
+      <div class="mb-12 flex flex-col gap-4">
+        <div>
+          <h2>{blogpost.attributes.title}</h2>
+          <p>{blogpost.attributes.teaser}</p>
+        </div>
+        <Button
+          variant={
+            i % 2 === 0 ? ButtonVariant.PRIMARY : ButtonVariant.SECONDARY
+          }
+          href={`/${locale}/blog/${blogpost.attributes.slug}`}
+        >
+          Learn more
+        </Button>
       </div>
     ))
   }
