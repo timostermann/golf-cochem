@@ -45,8 +45,7 @@ export const Headline = ({
             variant === HeadlineVariant.TERTIARY,
           "text-xl font-semibold lg:text-2xl":
             variant === HeadlineVariant.QUATERNARY,
-          "text-lg font-semibold lg:text-xl":
-            variant === HeadlineVariant.QUINARY,
+          "text-lg font-medium lg:text-xl": variant === HeadlineVariant.QUINARY,
         },
         className,
       )}
