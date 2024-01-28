@@ -11,11 +11,11 @@ interface Props {
 const { title } = Astro.props;
 
 const headerData: HeaderProps = {
+  navAriaLabel: "Open main menu",
   homeHref: "/",
   items: [
     {
       label: "Golfclub",
-      href: "/golfclub",
       subItems: [
         {
           label: "News & Blog",
@@ -37,7 +37,6 @@ const headerData: HeaderProps = {
     },
     {
       label: "Golfplatz",
-      href: "/golfplatz",
       subItems: [
         {
           label: "Mosel Course",
@@ -67,7 +66,6 @@ const headerData: HeaderProps = {
     },
     {
       label: "Golfkurse",
-      href: "/golfkurse",
       subItems: [
         {
           label: "Trainer",
@@ -199,10 +197,6 @@ const footerData: FooterProps = {
   ],
   lastRowLinks: [
     {
-      label: "Kontakt",
-      href: "/ueber-uns",
-    },
-    {
       label: "Impressum",
       href: "/impressum",
     },
@@ -225,7 +219,12 @@ const footerData: FooterProps = {
     <title>{title} | Golf Cochem</title>
   </head>
   <body>
-    <Header homeHref={headerData.homeHref} items={headerData.items} />
+    <Header
+      homeHref={headerData.homeHref}
+      items={headerData.items}
+      navAriaLabel={headerData.navAriaLabel}
+      client:load
+    />
     <main>
       <LanguageSelector showFlag={true} class="my-select-class" />
       <slot />
