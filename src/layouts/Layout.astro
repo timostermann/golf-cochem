@@ -136,6 +136,10 @@ const footerData: FooterProps = {
   </body>
 </html>
 <style is:global>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
   @font-face {
     font-family: "Rubik";
     src: url("/fonts/Rubik.ttf") format("truetype-variations");
@@ -175,5 +179,11 @@ const footerData: FooterProps = {
       Bitstream Vera Sans Mono,
       Courier New,
       monospace;
+  }
+
+  @layer components {
+    .underline-effect {
+      @apply before:bg-primary-700 relative before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-full before:origin-right before:scale-x-0 before:transition-transform before:duration-300 before:ease-[ease-in-out] before:content-[''] hover:before:origin-left hover:before:scale-x-100;
+    }
   }
 </style>

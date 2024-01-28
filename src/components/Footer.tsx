@@ -38,7 +38,7 @@ export const Footer = ({
                     <li key={link.label}>
                       <a
                         href={link.href}
-                        className="text-gray-600 transition-colors duration-300 hover:text-gray-900"
+                        className="underline-effect text-gray-600"
                       >
                         {link.label}
                       </a>
@@ -58,10 +58,7 @@ export const Footer = ({
           <ul className="flex flex-col gap-2 xs:flex-row xs:gap-4">
             {lastRowLinks.map((link) => (
               <li key={link.label}>
-                <a
-                  href={link.href}
-                  className="text-gray-600 transition-colors duration-300 hover:text-gray-900"
-                >
+                <a href={link.href} className="underline-effect text-gray-600">
                   {link.label}
                 </a>
               </li>
