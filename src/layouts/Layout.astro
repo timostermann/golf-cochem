@@ -2,12 +2,109 @@
 import i18next from "i18next";
 import { LanguageSelector } from "astro-i18next/components";
 import { Footer, type FooterProps } from "@components/Footer";
+import { Header, type HeaderProps } from "@components/Header";
 
 interface Props {
   title: string;
 }
 
 const { title } = Astro.props;
+
+const headerData: HeaderProps = {
+  homeHref: "/",
+  items: [
+    {
+      label: "Golfclub",
+      href: "/golfclub",
+      subItems: [
+        {
+          label: "News & Blog",
+          href: "/blog",
+        },
+        {
+          label: "Mitgliedschaft",
+          href: "/mitgliedschaft",
+        },
+        {
+          label: "Mannschaften",
+          href: "/mannschaften",
+        },
+        {
+          label: "Events & Turniere",
+          href: "/events",
+        },
+      ],
+    },
+    {
+      label: "Golfplatz",
+      href: "/golfplatz",
+      subItems: [
+        {
+          label: "Mosel Course",
+          href: "/mosel-course",
+        },
+        {
+          label: "Eifel Course",
+          href: "/eifel-course",
+        },
+        {
+          label: "Footgolf",
+          href: "/footgolf",
+        },
+        {
+          label: "Driving Range",
+          href: "/driving-range",
+        },
+        {
+          label: "Platzinformationen",
+          href: "/platzinformationen",
+        },
+      ],
+    },
+    {
+      label: "Jugend",
+      href: "/jugend",
+    },
+    {
+      label: "Golfkurse",
+      href: "/golfkurse",
+      subItems: [
+        {
+          label: "Trainer",
+          href: "/trainer",
+        },
+        {
+          label: "DGV Platzreife",
+          href: "/dgv-platzreife",
+        },
+        {
+          label: "Schnupperkurse",
+          href: "/schnupperkurse",
+        },
+        {
+          label: "Elterntraining",
+          href: "/elterntraining",
+        },
+        {
+          label: "Gruppentraining",
+          href: "/gruppentraining",
+        },
+        {
+          label: "Bundeswehr",
+          href: "/bundeswehr",
+        },
+      ],
+    },
+    {
+      label: "Gäste",
+      href: "/gaeste",
+    },
+    {
+      label: "Über uns",
+      href: "/ueber-uns",
+    },
+  ],
+};
 
 const footerData: FooterProps = {
   columns: [
@@ -102,6 +199,10 @@ const footerData: FooterProps = {
   ],
   lastRowLinks: [
     {
+      label: "Kontakt",
+      href: "/ueber-uns",
+    },
+    {
       label: "Impressum",
       href: "/impressum",
     },
@@ -124,13 +225,13 @@ const footerData: FooterProps = {
     <title>{title} | Golf Cochem</title>
   </head>
   <body>
+    <Header homeHref={headerData.homeHref} items={headerData.items} />
     <main>
       <LanguageSelector showFlag={true} class="my-select-class" />
       <slot />
     </main>
     <Footer
       columns={footerData.columns}
-      ,
       lastRowLinks={footerData.lastRowLinks}
     />
   </body>

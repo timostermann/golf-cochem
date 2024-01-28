@@ -18,7 +18,7 @@ export enum ContainerMargin {
 export type ContainerProps = ComponentPropsWithoutRef<"div"> & {
   innerClassName?: string;
   innerProps?: Omit<ComponentPropsWithoutRef<"div">, "className">;
-  tag?: "div" | "section";
+  tag?: "div" | "section" | "header";
   size?: ContainerSize;
   margin?: ContainerMargin;
   useCustomPadding?: boolean;
@@ -29,7 +29,7 @@ export const Container = ({
   innerClassName,
   innerProps,
   tag: Tag = "section",
-  size = ContainerSize.LG,
+  size = ContainerSize.MD,
   margin = ContainerMargin.LG,
   useCustomPadding = false,
   children,
