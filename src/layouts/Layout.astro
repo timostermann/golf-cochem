@@ -3,6 +3,36 @@ import i18next from "i18next";
 import { LanguageSelector } from "astro-i18next/components";
 import { Footer, type FooterProps } from "@components/Footer";
 import { Header, type HeaderProps } from "@components/Header";
+import address from "@icons/address.svg?raw";
+import arrowRight from "@icons/arrow-right.svg?raw";
+import blog from "@icons/blog.svg?raw";
+import calendar from "@icons/calendar.svg?raw";
+import certificate from "@icons/certificate.svg?raw";
+import contact from "@icons/contact.svg?raw";
+import cooperations from "@icons/cooperations.svg?raw";
+import costs from "@icons/costs.svg?raw";
+import downloadArea from "@icons/download-area.svg?raw";
+import eifelCourse from "@icons/eifel-course.svg?raw";
+import email from "@icons/email.svg?raw";
+import golfBag from "@icons/golf-bag.svg?raw";
+import golfFlag from "@icons/golf-flag.svg?raw";
+import golf from "@icons/golf.svg?raw";
+import greenkeeper from "@icons/greenkeeper.svg?raw";
+import group from "@icons/group.svg?raw";
+import guests from "@icons/guests.svg?raw";
+import holiday from "@icons/holiday.svg?raw";
+import member from "@icons/member.svg?raw";
+import moselCourse from "@icons/mosel-course.svg?raw";
+import opening from "@icons/opening.svg?raw";
+import parentTraining from "@icons/parent-training.svg?raw";
+import polo from "@icons/polo.svg?raw";
+import soccer from "@icons/soccer.svg?raw";
+import star from "@icons/star.svg?raw";
+import start from "@icons/start.svg?raw";
+import team from "@icons/team.svg?raw";
+import temperature from "@icons/temperature.svg?raw";
+import trainer from "@icons/trainer.svg?raw";
+import weather from "@icons/weather.svg?raw";
 
 interface Props {
   title: string;
@@ -20,18 +50,22 @@ const headerData: HeaderProps = {
         {
           label: "News & Blog",
           href: "/blog",
+          icon: blog,
         },
         {
           label: "Mitgliedschaft",
           href: "/mitgliedschaft",
+          icon: member,
         },
         {
           label: "Mannschaften",
           href: "/mannschaften",
+          icon: team,
         },
         {
           label: "Events & Turniere",
           href: "/events",
+          icon: calendar,
         },
       ],
     },
@@ -41,22 +75,27 @@ const headerData: HeaderProps = {
         {
           label: "Mosel Course",
           href: "/mosel-course",
+          icon: moselCourse,
         },
         {
           label: "Eifel Course",
           href: "/eifel-course",
+          icon: eifelCourse,
         },
         {
           label: "Footgolf",
           href: "/footgolf",
+          icon: soccer,
         },
         {
           label: "Driving Range",
           href: "/driving-range",
+          icon: golf,
         },
         {
           label: "Platzinformationen",
           href: "/platzinformationen",
+          icon: greenkeeper,
         },
       ],
     },
@@ -70,26 +109,32 @@ const headerData: HeaderProps = {
         {
           label: "Trainer",
           href: "/trainer",
+          icon: trainer,
         },
         {
           label: "DGV Platzreife",
           href: "/dgv-platzreife",
+          icon: certificate,
         },
         {
           label: "Schnupperkurse",
           href: "/schnupperkurse",
+          icon: golfBag,
         },
         {
           label: "Elterntraining",
           href: "/elterntraining",
+          icon: parentTraining,
         },
         {
           label: "Gruppentraining",
           href: "/gruppentraining",
+          icon: group,
         },
         {
           label: "Bundeswehr",
           href: "/bundeswehr",
+          icon: star,
         },
       ],
     },
@@ -283,7 +328,7 @@ const footerData: FooterProps = {
 
   @layer components {
     .underline-effect {
-      @apply before:bg-primary-700 relative before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-full before:origin-right before:scale-x-0 before:transition-transform before:duration-300 before:ease-[ease-in-out] before:content-[''] hover:before:origin-left hover:before:scale-x-100;
+      @apply relative before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-full before:origin-right before:scale-x-0 before:bg-primary-700 before:transition-transform before:duration-300 before:ease-[ease-in-out] before:content-[''] hover:before:origin-left hover:before:scale-x-100;
     }
   }
 </style>
