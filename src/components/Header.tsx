@@ -46,7 +46,11 @@ export const Header = ({
       margin={ContainerMargin.NONE}
       {...props}
     >
-      <a className="text-xl font-medium text-gray-900" href={homeHref}>
+      <a
+        className="inline-flex items-center gap-3 text-xl font-medium text-gray-900"
+        href={homeHref}
+      >
+        <img src="/logo.png" alt="Golfclub Cochem" className="w-[30px]" />
         Golfclub Cochem
       </a>
       <nav className="hidden lg:flex lg:gap-8">
