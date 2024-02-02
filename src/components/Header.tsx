@@ -14,6 +14,7 @@ type NavItem = {
   subItems?: Array<{
     label: string;
     href: string;
+    description?: string;
     icon?: string;
   }>;
 };
@@ -73,12 +74,12 @@ export const Header = ({
                 >
                   <path d="M16.59 8.59L12 13.17L7.41 8.59L6 10L12 16L18 10L16.59 8.59Z" />
                 </svg>
-                <ul className="invisible absolute left-0 top-full flex w-56 -translate-y-4 flex-col gap-2 rounded-lg border border-gray-100 bg-white py-4 opacity-0 shadow-md transition-[opacity,_transform] group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                <ul className="invisible absolute left-0 top-full flex w-80 -translate-y-4 flex-col gap-2 rounded-lg border border-gray-100 bg-white py-4 opacity-0 shadow-md transition-[opacity,_transform] group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
                   {item.subItems.map((subItem) => (
                     <li key={subItem.label}>
                       <a
                         href={subItem.href}
-                        className="flex items-center gap-4 px-4 py-2 text-gray-900 hover:bg-gray-100"
+                        className="flex gap-4 px-4 py-2 text-gray-900 hover:bg-gray-100"
                       >
                         {subItem.icon && (
                           <span
@@ -86,7 +87,14 @@ export const Header = ({
                             dangerouslySetInnerHTML={{ __html: subItem.icon }}
                           />
                         )}
-                        {subItem.label}
+                        <span className="inline-flex flex-col">
+                          <span>{subItem.label}</span>
+                          {subItem.description && (
+                            <span className="block text-sm font-light text-gray-500">
+                              {subItem.description}
+                            </span>
+                          )}
+                        </span>
                       </a>
                     </li>
                   ))}
@@ -202,7 +210,14 @@ const MobileNavItem = ({ label, href, subItems }: NavItem) => {
                       dangerouslySetInnerHTML={{ __html: subItem.icon }}
                     />
                   )}
-                  {subItem.label}
+                  <span className="inline-flex flex-col">
+                    <span>{subItem.label}</span>
+                    {subItem.description && (
+                      <span className="block text-sm font-light text-gray-500">
+                        {subItem.description}
+                      </span>
+                    )}
+                  </span>
                 </a>
               </li>
             ))}
