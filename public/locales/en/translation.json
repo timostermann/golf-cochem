@@ -1,5 +1,46 @@
 {
-  "global": {
-    "test": "Test EN"
+  "nav": {
+    "open": "Open main navigation",
+    "close": "Close main navigation",
+    "labels": {
+      "golfClub": "Golf Club",
+      "blog": "News & Blog",
+      "membership": "Membership",
+      "teams": "Teams",
+      "events": "Events & Tournaments",
+      "golfField": "Golf Course",
+      "moselCourse": "Mosel Course",
+      "eifelCourse": "Eifel Course",
+      "footgolf": "Footgolf",
+      "drivingRange": "Driving Range",
+      "fieldInformation": "Course Information",
+      "youth": "Youth",
+      "golfCourses": "Golf Courses",
+      "trainer": "Trainer",
+      "license": "DVG License",
+      "tasterCourse": "Taster Course",
+      "parentalTraining": "Parental Training",
+      "groupTraining": "Group Training",
+      "bundeswehr": "Bundeswehr",
+      "guests": "Guests",
+      "about": "About us"
+    },
+    "descriptions": {
+      "blog": "Learn the latest from the Golf Club Cochem / Mosel e.V.",
+      "membership": "All about membership in our golf club",
+      "teams": "Get to know our four active teams",
+      "events": "All the interesting events of the current golf year",
+      "moselCourse": "Professional, nature-oriented 18-hole course",
+      "eifelCourse": "9-hole course that can be played without DGV identification",
+      "footgolf": "The perfect mix of football and golf",
+      "drivingRange": "Hit a few balls",
+      "fieldInformation": "Current information about the course",
+      "trainer": "Get to know our committed and trained trainers",
+      "license": "Get the license now",
+      "tasterCourse": "Get to know golf",
+      "parentalTraining": "Get children and parents excited about golf together",
+      "groupTraining": "Train together and have fun",
+      "bundeswehr": "Special offers for Bundeswehr members"
+    }
   }
 }

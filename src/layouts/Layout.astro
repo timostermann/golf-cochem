@@ -1,5 +1,5 @@
 ---
-import i18next from "i18next";
+import i18next, { t } from "i18next";
 import { LanguageSelector } from "astro-i18next/components";
 import { Footer, type FooterProps } from "@components/Footer";
 import { Header, type HeaderProps } from "@components/Header";
@@ -26,131 +26,131 @@ interface Props {
 const { title } = Astro.props;
 
 const headerData: HeaderProps = {
-  navAriaLabel: "Open main menu",
+  navAriaLabelOpen: t("nav.open"),
+  navAriaLabelClose: t("nav.close"),
   homeHref: "/",
   items: [
     {
-      label: "Golfclub",
+      label: t("nav.labels.golfClub"),
       subItems: [
         {
-          label: "News & Blog",
+          label: t("nav.labels.blog"),
           href: "/blog",
-          description: "Erfahre das Neuste aus dem Golfclub Cochem/Mosel e.V.",
+          description: t("nav.descriptions.blog"),
           icon: blog,
         },
         {
-          label: "Mitgliedschaft",
+          label: t("nav.labels.membership"),
           href: "/mitgliedschaft",
-          description: "Alles über eine Mitgliedschaft in unserem Golfclub",
+          description: t("nav.descriptions.membership"),
           icon: member,
         },
         {
-          label: "Mannschaften",
+          label: t("nav.labels.teams"),
           href: "/mannschaften",
-          description: "Lerne unsere vier aktiven Mannschaften kennen",
+          description: t("nav.descriptions.teams"),
           icon: team,
         },
         {
-          label: "Events & Turniere",
+          label: t("nav.labels.events"),
           href: "/events",
-          description: "Alle interessanten Events des Golfjahrs 2023",
+          description: t("nav.descriptions.events"),
           icon: calendar,
         },
       ],
     },
     {
-      label: "Golfplatz",
+      label: t("nav.labels.golfField"),
       subItems: [
         {
-          label: "Mosel Course",
+          label: t("nav.labels.moselCourse"),
           href: "/mosel-course",
-          description: "Professioneller, naturnaher 18-Loch Platz",
+          description: t("nav.descriptions.moselCourse"),
           icon: moselCourse,
         },
         {
-          label: "Eifel Course",
+          label: t("nav.labels.eifelCourse"),
           href: "/eifel-course",
-          description:
-            "9-Loch Platz, der ohne DGV-Ausweis gespielt werden kann",
+          description: t("nav.descriptions.eifelCourse"),
           icon: eifelCourse,
         },
         {
-          label: "Footgolf",
+          label: t("nav.labels.footgolf"),
           href: "/footgolf",
-          description: "Die perfekte Mischung aus Fußball und Golf",
+          description: t("nav.descriptions.footgolf"),
           icon: soccer,
         },
         {
-          label: "Driving Range",
+          label: t("nav.labels.drivingRange"),
           href: "/driving-range",
-          description: "Ein paar Bälle schlagen",
+          description: t("nav.descriptions.drivingRange"),
           icon: golf,
         },
         {
-          label: "Platzinformationen",
+          label: t("nav.labels.fieldInformation"),
           href: "/platzinformationen",
-          description: "Aktuelle Informationen zum Platz",
+          description: t("nav.descriptions.fieldInformation"),
           icon: greenkeeper,
         },
       ],
     },
     {
-      label: "Jugend",
+      label: t("nav.labels.youth"),
       href: "/jugend",
     },
     {
-      label: "Golfkurse",
+      label: t("nav.labels.golfCourses"),
       subItems: [
         {
-          label: "Trainer",
+          label: t("nav.labels.trainer"),
           href: "/trainer",
-          description:
-            "Lerne unsere engagierten und ausgebildeten Trainer kennen",
+          description: t("nav.descriptions.trainer"),
           icon: trainer,
         },
         {
-          label: "DGV Platzreife",
+          label: t("nav.labels.license"),
           href: "/dgv-platzreife",
-          description: "Jetzt die Platzreife machen",
+          description: t("nav.descriptions.license"),
           icon: certificate,
         },
         {
-          label: "Schnupperkurse",
+          label: t("nav.labels.tasterCourse"),
           href: "/schnupperkurse",
-          description: "Den Golfsport kennen lernen ",
+          description: t("nav.descriptions.tasterCourse"),
           icon: golfBag,
         },
         {
-          label: "Elterntraining",
+          label: t("nav.labels.parentalTraining"),
           href: "/elterntraining",
-          description:
-            "Kinder und Eltern gemeinsam für den Golfsport begeistern",
+          description: t("nav.descriptions.parentTraining"),
           icon: parentTraining,
         },
         {
-          label: "Gruppentraining",
+          label: t("nav.labels.groupTraining"),
           href: "/gruppentraining",
-          description: "Gemeinsam trainieren und Spaß haben",
+          description: t("nav.descriptions.groupTraining"),
           icon: group,
         },
         {
-          label: "Bundeswehr",
+          label: t("nav.labels.bundeswehr"),
           href: "/bundeswehr",
-          description: "Spezielle Angebote für Bundeswehrangehörige",
+          description: t("nav.descriptions.bundeswehr"),
           icon: star,
         },
       ],
     },
     {
-      label: "Gäste",
+      label: t("nav.labels.guests"),
       href: "/gaeste",
     },
     {
-      label: "Über uns",
+      label: t("nav.labels.about"),
       href: "/ueber-uns",
     },
   ],
 };
+
+console.log(headerData);
 
 const footerData: FooterProps = {
   columns: [
@@ -270,7 +270,8 @@ const footerData: FooterProps = {
     <Header
       homeHref={headerData.homeHref}
       items={headerData.items}
-      navAriaLabel={headerData.navAriaLabel}
+      navAriaLabelClose={headerData.navAriaLabelClose}
+      navAriaLabelOpen={headerData.navAriaLabelOpen}
       client:load
     />
     <main>

@@ -4,7 +4,6 @@ import {
   type ComponentPropsWithoutRef,
   useRef,
   useEffect,
-  Fragment,
 } from "react";
 import { Container, ContainerMargin } from "./Container";
 
@@ -14,7 +13,7 @@ type NavItem = {
   subItems?: Array<{
     label: string;
     href: string;
-    description?: string;
+    description?: string | null;
     icon?: string;
   }>;
 };
@@ -22,14 +21,16 @@ type NavItem = {
 export type HeaderProps = ComponentPropsWithoutRef<"header"> & {
   homeHref: string;
   items: Array<NavItem>;
-  navAriaLabel: string;
+  navAriaLabelOpen: string;
+  navAriaLabelClose: string;
 };
 
 // TODO: extract chevron icon into separate component
 export const Header = ({
   items,
   homeHref,
-  navAriaLabel,
+  navAriaLabelOpen,
+  navAriaLabelClose,
   className,
   ...props
 }: HeaderProps) => {
@@ -109,8 +110,8 @@ export const Header = ({
         ))}
       </nav>
       <button
-        title={navAriaLabel}
-        aria-label={navAriaLabel}
+        title={isMenuOpen ? navAriaLabelClose : navAriaLabelOpen}
+        aria-label={isMenuOpen ? navAriaLabelClose : navAriaLabelOpen}
         className={cn(
           "relative top-2 h-3 w-5 cursor-pointer items-center justify-center transition-all duration-300 ease-in-out lg:hidden",
         )}

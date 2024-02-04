@@ -1,5 +1,46 @@
 {
-  "global": {
-    "test": "Test DE"
+  "nav": {
+    "open": "Hauptnavigation öffnen",
+    "close": "Hauptnavigation schließen",
+    "labels": {
+      "golfClub": "Golfclub",
+      "blog": "News & Blog",
+      "membership": "Mitgliedschaft",
+      "teams": "Mannschaften",
+      "events": "Events & Turniere",
+      "golfField": "Golfplatz",
+      "moselCourse": "Mosel Course",
+      "eifelCourse": "Eifel Course",
+      "footgolf": "Footgolf",
+      "drivingRange": "Driving Range",
+      "fieldInformation": "Platzinformationen",
+      "youth": "Jugend",
+      "golfCourses": "Golfkurse",
+      "trainer": "Trainer",
+      "license": "DVG Platzreife",
+      "tasterCourse": "Schnupperkurs",
+      "parentalTraining": "Eltern-Training",
+      "groupTraining": "Gruppentraining",
+      "bundeswehr": "Bundeswehr",
+      "guests": "Gäste",
+      "about": "Über uns"
+    },
+    "descriptions": {
+      "blog": "Erfahre das Neuste aus dem Golfclub Cochem/Mosel e.V.",
+      "membership": "Alles über eine Mitgliedschaft in unserem Golfclub",
+      "teams": "Lerne unsere vier aktiven Mannschaften kennen",
+      "events": "Alle interessanten Events des aktuellen Golfjahrs",
+      "moselCourse": "Professioneller, naturnaher 18-Loch Platz",
+      "eifelCourse": "9-Loch Platz, der ohne DGV-Ausweis gespielt werden kann",
+      "footgolf": "Die perfekte Mischung aus Fußball und Golf",
+      "drivingRange": "Ein paar Bälle schlagen",
+      "fieldInformation": "Aktuelle Informationen zum Platz",
+      "trainer": "Lerne unsere engagierten und ausgebildeten Trainer kennen",
+      "license": "Jetzt die Platzreife machen",
+      "tasterCourse": "Den Golfsport kennen lernen",
+      "parentalTraining": "Kinder und Eltern gemeinsam für den Golfsport begeistern",
+      "groupTraining": "Gemeinsam trainieren und Spaß haben",
+      "bundeswehr": "Spezielle Angebote für Bundeswehrangehörige"
+    }
   }
 }
