@@ -51,8 +51,8 @@ export const Header = ({
         className="inline-flex items-center gap-3 text-xl font-medium text-gray-900"
         href={homeHref}
       >
-        <img src="/logo.png" alt="Golfclub Cochem" className="w-[30px]" />
-        Golfclub Cochem
+        <img src="/logo.png" alt="Golfclub Cochem/Mosel e.V." className="w-[30px]" />
+        Golfclub Cochem/Mosel e.V.
       </a>
       <nav className="hidden lg:flex lg:gap-8">
         {items.map((item) => (
