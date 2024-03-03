@@ -31,11 +31,11 @@ export const Button = ({
   ...props
 }: ButtonProps) => {
   const classes = cn(
-    "px-5 py-3 font-medium rounded-lg w-fit transition-colors duration-300 ease-out disabled:cursor-no-drop",
+    "px-6 py-3 rounded-lg w-fit text-center transition-colors duration-300 ease-out disabled:cursor-no-drop",
     {
-      "bg-primary-800 border border-primary-800 hover:bg-primary-700 hover:border-primary-700 text-white":
+      "bg-primary-700 border border-primary-700 hover:bg-primary-800 hover:border-primary-800 text-white":
         variant === ButtonVariant.PRIMARY,
-      "bg-gray-200 hover:bg-gray-300 text-gray-800":
+      "bg-gray-50 hover:bg-gray-100 text-gray-800":
         variant === ButtonVariant.SECONDARY,
     },
     className,

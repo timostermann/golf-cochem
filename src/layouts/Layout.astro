@@ -1,6 +1,5 @@
 ---
 import i18next, { t } from "i18next";
-import { LanguageSelector } from "astro-i18next/components";
 import { Footer, type FooterProps } from "@components/Footer";
 import { Header, type HeaderProps } from "@components/Header";
 import blog from "@icons/blog.svg?raw";
@@ -273,7 +272,6 @@ const footerData: FooterProps = {
       client:load
     />
     <main>
-      <LanguageSelector showFlag={true} class="my-select-class" />
       <slot />
     </main>
     <Footer

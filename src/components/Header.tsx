@@ -27,6 +27,7 @@ export type HeaderProps = ComponentPropsWithoutRef<"header"> & {
 
 // TODO: extract chevron icon into separate component
 // TODO: improve accessibility
+// TODO: fix svg console error
 export const Header = ({
   items,
   homeHref,
@@ -54,8 +55,11 @@ export const Header = ({
       >
         <img
           src="/logo.png"
-          alt="Golfclub Cochem/Mosel e.V."
-          className="w-[30px]"
+          alt=""
+          aria-hidden
+          height="30"
+          width="37"
+          tabIndex={-1}
         />
         Golfclub
         <wbr /> Cochem/Mosel&nbsp;e.V.

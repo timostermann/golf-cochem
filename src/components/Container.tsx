@@ -38,7 +38,7 @@ export const Container = ({
   return (
     <Tag
       className={cn("flex justify-center", className, {
-        "px-3 sm:px-6 lg:px-24": !useCustomPadding,
+        "px-4 sm:px-6 lg:px-24": !useCustomPadding,
         "mb-6 sm:mb-8 lg:mb-10": margin === ContainerMargin.SM,
         "mb-10 sm:mb-12 lg:mb-14": margin === ContainerMargin.MD,
         "mb-14 sm:mb-20 lg:mb-28": margin === ContainerMargin.LG,

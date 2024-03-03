@@ -14,13 +14,13 @@
     "lint": "npm run eslint . && npm run typecheck"
   },
   "dependencies": {
-    "@astrojs/check": "^0.4.1",
-    "@astrojs/react": "^3.0.9",
-    "@astrojs/sitemap": "^3.0.5",
+    "@astrojs/check": "^0.5.6",
+    "@astrojs/react": "^3.0.10",
+    "@astrojs/sitemap": "^3.1.1",
     "@astrojs/tailwind": "^5.1.0",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
-    "astro": "^4.2.1",
+    "astro": "^4.4.9",
     "astro-i18next": "^1.0.0-beta.21",
     "classnames": "^2.5.1",
     "react": "^18.2.0",
