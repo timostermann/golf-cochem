@@ -26,6 +26,7 @@ export type HeaderProps = ComponentPropsWithoutRef<"header"> & {
 };
 
 // TODO: extract chevron icon into separate component
+// TODO: improve accessibility
 export const Header = ({
   items,
   homeHref,
@@ -43,16 +44,21 @@ export const Header = ({
         "sticky top-0 z-40 h-[72px] items-center border-b border-gray-100 bg-white shadow-sm lg:h-20",
         className,
       )}
-      innerClassName="flex justify-between"
+      innerClassName="flex justify-between gap-3"
       margin={ContainerMargin.NONE}
       {...props}
     >
       <a
-        className="inline-flex items-center gap-3 text-xl font-medium text-gray-900"
+        className="inline-flex items-center gap-3 text-lg font-medium !leading-none text-gray-900"
         href={homeHref}
       >
-        <img src="/logo.png" alt="Golfclub Cochem/Mosel e.V." className="w-[30px]" />
-        Golfclub Cochem/Mosel e.V.
+        <img
+          src="/logo.png"
+          alt="Golfclub Cochem/Mosel e.V."
+          className="w-[30px]"
+        />
+        Golfclub
+        <wbr /> Cochem/Mosel&nbsp;e.V.
       </a>
       <nav className="hidden lg:flex lg:gap-8">
         {items.map((item) => (

@@ -25,10 +25,11 @@ export const Footer = ({
   return (
     <Container margin={ContainerMargin.SM}>
       <footer className={cn("mt-8 flex flex-col", className)} {...props}>
-        <div className="lg:gap-6s flex flex-col gap-12 lg:flex-row lg:justify-between">
-          <p className="flex items-center gap-3 self-start text-xl font-medium text-gray-900">
+        <div className="flex flex-col gap-12 lg:flex-row lg:justify-between lg:gap-3">
+          <p className="flex items-center gap-3 self-start text-lg font-medium !leading-none text-gray-900">
             <img src="/logo.png" alt="Golfclub Cochem" className="w-[30px]" />
-            Golfclub Cochem
+            Golfclub
+            <wbr /> Cochem/Mosel&nbsp;e.V.
           </p>
           <ul className="grid grid-cols-1 gap-6 xs:grid-cols-2 md:grid-cols-4 xl:gap-8">
             {columns.slice(0, 4).map((column) => (
