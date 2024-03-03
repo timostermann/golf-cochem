@@ -21,8 +21,8 @@ export const getStaticPaths = (async () => {
 
   return blogposts.map((blogpost) => ({
     params: {
-      locale: blogpost.attributes.locale,
-      slug: blogpost.attributes.slug,
+      locale: blogpost.locale,
+      slug: blogpost.slug,
     },
   }));
 }) satisfies GetStaticPaths;
@@ -36,18 +36,13 @@ const blogposts = await fetchApi<Blogpost[]>({
   },
 });
 
-const blogpost = blogposts.find(
-  (blogpost) => blogpost.attributes.slug === slug,
-);
+const blogpost = blogposts.find((blogpost) => blogpost.slug === slug);
 
 if (!blogpost) {
   throw new Error(`No blogpost found for slug: ${slug}`);
 }
 
-const {
-  id,
-  attributes: { content, createdAt, title },
-} = blogpost;
+const { id, content, createdAt, title } = blogpost;
 ---
 
 <Layout title={title}>

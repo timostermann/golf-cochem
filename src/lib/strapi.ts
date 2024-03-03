@@ -3,7 +3,7 @@ type Props = {
   query?: Record<string, string>;
   wrappedByKey?: string;
   wrappedByList?: boolean;
-}
+};
 
 export async function fetchApi<T>({
   endpoint,

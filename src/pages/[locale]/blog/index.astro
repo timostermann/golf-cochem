@@ -22,7 +22,7 @@ export const getStaticPaths = (async () => {
 
   return blogposts.map((blogpost) => ({
     params: {
-      locale: blogpost.attributes.locale,
+      locale: blogpost.locale,
     },
   }));
 }) satisfies GetStaticPaths;
@@ -42,14 +42,14 @@ const blogposts = await fetchApi<Blogpost[]>({
     blogposts.map((blogpost, i) => (
       <div class="mb-12 flex flex-col gap-4">
         <div>
-          <h2>{blogpost.attributes.title}</h2>
-          <p>{blogpost.attributes.teaser}</p>
+          <h2>{blogpost.title}</h2>
+          <p>{blogpost.teaser}</p>
         </div>
         <Button
           variant={
             i % 2 === 0 ? ButtonVariant.PRIMARY : ButtonVariant.SECONDARY
           }
-          href={`/${locale}/blog/${blogpost.attributes.slug}`}
+          href={`/${locale}/blog/${blogpost.slug}`}
         >
           Learn more
         </Button>
