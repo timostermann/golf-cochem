@@ -7,6 +7,11 @@ import { Image } from "astro:assets";
 import landscape from "@assets/landscape.png";
 import { Headline, HeadlineTag, HeadlineVariant } from "@components/Headline";
 import { Button, ButtonVariant } from "@components/Button";
+import { StatusCard } from "@components/StatusCard";
+import golf from "@icons/golf.svg?raw";
+import soccer from "@icons/soccer.svg?raw";
+import eifelCourse from "@icons/eifel-course.svg?raw";
+import moselCourse from "@icons/mosel-course.svg?raw";
 
 export const getStaticPaths = (() => {
   return LOCALES.map((locale) => ({
@@ -19,6 +24,30 @@ export const getStaticPaths = (() => {
 const { locale } = Astro.params;
 
 i18next.changeLanguage(locale);
+
+const statusCards = [
+  {
+    icon: moselCourse,
+    title: "Mosel Course",
+    open: true,
+  },
+  {
+    icon: eifelCourse,
+    title: "Eifel Course",
+    open: true,
+  },
+  {
+    icon: soccer,
+    title: "Footgolf",
+    open: false,
+    closedUntil: "11.09.",
+  },
+  {
+    icon: golf,
+    title: "Driving Range",
+    open: true,
+  },
+];
 ---
 
 <Layout title="Willkommen">
@@ -67,6 +96,22 @@ i18next.changeLanguage(locale);
           Platzinformationen
         </Button>
       </div>
+      <ul
+        class="mt-16 mb-32 lg:mb-20 lg:mt-32 flex flex-wrap items-center justify-center gap-4 lg:gap-10"
+      >
+        {
+          statusCards.map((card) => (
+            <li>
+              <StatusCard
+                icon={card.icon}
+                title={card.title}
+                open={card.open}
+                closedUntil={card.closedUntil}
+              />
+            </li>
+          ))
+        }
+      </ul>
     </div>
   </main>
 </Layout>

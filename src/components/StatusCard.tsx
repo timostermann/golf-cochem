@@ -2,11 +2,12 @@ import cn from "classnames";
 
 type StatusCardProps = {
   open: boolean;
-  closedUntil: string;
+  closedUntil?: string;
   title: string;
   icon: string;
 };
 
+// TODO: translation
 export const StatusCard = ({
   open,
   closedUntil,
@@ -24,12 +25,14 @@ export const StatusCard = ({
         {title}
       </p>
       <span
-        className={cn("rounded-2xl px-1 py-3", {
-          "border-px border-green-700 bg-green-200 text-green-700": open,
-          "border-px border-red-700 bg-red-200 text-red-700": !open,
+        className={cn("rounded-2xl px-3 py-1 text-xs lg:text-sm", {
+          "border border-green-700 bg-green-50 text-green-700": open,
+          "border border-red-700 bg-red-50 text-red-700": !open,
         })}
       >
-        {open ? "Geöffnet" : `Geschlossen bis ${closedUntil}`}
+        {open
+          ? "Geöffnet"
+          : `Geschlossen${closedUntil ? ` bis ${closedUntil}` : ""}`}
       </span>
     </div>
   );
