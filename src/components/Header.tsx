@@ -27,7 +27,6 @@ export type HeaderProps = ComponentPropsWithoutRef<"header"> & {
 
 // TODO: extract chevron icon into separate component
 // TODO: improve accessibility
-// TODO: fix svg console error
 export const Header = ({
   items,
   homeHref,
