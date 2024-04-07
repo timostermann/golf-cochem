@@ -1,4 +1,9 @@
 {
+  "global": {
+    "opened": "Geopend",
+    "closed": "Gesloten",
+    "until": "tot"
+  },
   "nav": {
     "open": "Hoofdnavigatie openen",
     "close": "Hoofdnavigatie sluiten",

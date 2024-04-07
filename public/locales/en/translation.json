@@ -1,4 +1,9 @@
 {
+  "global": {
+    "opened": "Opened",
+    "closed": "Closed",
+    "until": "until"
+  },
   "nav": {
     "open": "Open main navigation",
     "close": "Close main navigation",
