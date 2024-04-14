@@ -5,17 +5,17 @@ type Props = {
   wrappedByList?: boolean;
 };
 
-export async function fetchApi<T>({
+export const fetchApi = async <T>({
   endpoint,
   query,
   wrappedByKey = "data",
   wrappedByList,
-}: Props): Promise<T> {
+}: Props): Promise<T> => {
   if (endpoint.startsWith("/")) {
     endpoint = endpoint.slice(1);
   }
 
-  const url = new URL(`${import.meta.env.STRAPI_URL}/api/${endpoint}`);
+  const url = new URL(`${process.env.STRAPI_URL}/api/${endpoint}`);
 
   if (query) {
     Object.entries(query).forEach(([key, value]) => {
@@ -26,7 +26,7 @@ export async function fetchApi<T>({
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      Authorization: "Bearer " + import.meta.env.STRAPI_TOKEN,
+      Authorization: "Bearer " + process.env.STRAPI_TOKEN,
     },
   });
   let data = await res.json();
@@ -40,4 +40,4 @@ export async function fetchApi<T>({
   }
 
   return data as T;
-}
+};
