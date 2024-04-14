@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef } from "react";
 import cn from "classnames";
 
-import type { ButtonType } from "@lib/types";
+import type { ButtonType } from "golf-cochem/src/lib/types";
 
 export enum ButtonVariant {
   PRIMARY = "primary",

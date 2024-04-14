@@ -1,57 +1,4 @@
----
-import type { GetStaticPaths } from "astro";
-import Layout from "@layouts/Layout.astro";
-import i18next, { t } from "i18next";
-import { LOCALES } from "@lib/constants";
-import { Image } from "astro:assets";
-import landscape from "@assets/landscape.png";
-import { Headline, HeadlineTag, HeadlineVariant } from "@components/Headline";
-import { Button, ButtonVariant } from "@components/Button";
-import { StatusCard } from "@components/StatusCard";
-import golf from "@icons/golf.svg?raw";
-import soccer from "@icons/soccer.svg?raw";
-import eifelCourse from "@icons/eifel-course.svg?raw";
-import moselCourse from "@icons/mosel-course.svg?raw";
-
-export const getStaticPaths = (() => {
-  return LOCALES.map((locale) => ({
-    params: {
-      locale,
-    },
-  }));
-}) satisfies GetStaticPaths;
-
-const { locale } = Astro.params;
-
-i18next.changeLanguage(locale);
-
-const statusCards = [
-  {
-    icon: moselCourse,
-    title: "Mosel Course",
-    open: true,
-  },
-  {
-    icon: eifelCourse,
-    title: "Eifel Course",
-    open: true,
-  },
-  {
-    icon: soccer,
-    title: "Footgolf",
-    open: false,
-    closedUntil: "11.09.",
-  },
-  {
-    icon: golf,
-    title: "Driving Range",
-    open: true,
-  },
-];
----
-
-<Layout title="Willkommen">
-  <main>
+<main>
     <div class="relative flex flex-col items-center px-4 sm:px-6 lg:px-24">
       <Image
         src={landscape}
@@ -114,4 +61,3 @@ const statusCards = [
       </ul>
     </div>
   </main>
-</Layout>
