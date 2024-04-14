@@ -1,0 +1,51 @@
+{
+  "global": {
+    "opened": "Geopend",
+    "closed": "Gesloten",
+    "until": "tot"
+  },
+  "nav": {
+    "open": "Hoofdnavigatie openen",
+    "close": "Hoofdnavigatie sluiten",
+    "labels": {
+      "golfClub": "Clubleven",
+      "blog": "Nieuws & Blog",
+      "membership": "Lidmaatschap",
+      "teams": "Teams",
+      "events": "Evenementen & Toernooien",
+      "golfField": "Golfbaan",
+      "moselCourse": "Mosel Course",
+      "eifelCourse": "Eifel Course",
+      "footgolf": "Footgolf",
+      "drivingRange": "Driving Range",
+      "fieldInformation": "Plaats informatie",
+      "youth": "Jeugd",
+      "golfCourses": "Golfcursussen",
+      "trainer": "Trainer",
+      "license": "DGV Licentie",
+      "tasterCourse": "Proefcursus",
+      "parentalTraining": "Ouders training",
+      "groupTraining": "Groepstraining",
+      "bundeswehr": "Bundeswehr",
+      "guests": "Gasten",
+      "about": "Over ons"
+    },
+    "descriptions": {
+      "blog": "Lees het laatste nieuws van de Golfclub Cochem / Mosel e.V.",
+      "membership": "Alles over lidmaatschap van onze Golfclub Cochem / Mosel e.V.",
+      "teams": "Leer onze vier actieve teams kennen",
+      "events": "Alle interessante evenementen van het huidige golfjaar",
+      "moselCourse": "Professioneel, natuurgeoriënteerde 18-holes baan",
+      "eifelCourse": "9-holes baan die gespeeld kan worden zonder DGV identificatie",
+      "footgolf": "De perfecte mix van voetbal en golf",
+      "drivingRange": "Sla een paar ballen",
+      "fieldInformation": "Actuele informatie over de baan",
+      "trainer": "Leer onze toegewijde en opgeleide trainers kennen",
+      "license": "Haal nu het licentie",
+      "tasterCourse": "Leer golfen",
+      "parentalTraining": "Ouders en kinderen samen enthousiast maken voor golf",
+      "groupTraining": "Samen trainen en plezier hebben",
+      "bundeswehr": "Speciale aanbiedingen voor leden van de Bundeswehr"
+    }
+  }
+}
