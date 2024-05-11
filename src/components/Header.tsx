@@ -22,7 +22,7 @@ type NavItem = {
 export type HeaderProps = ComponentPropsWithoutRef<"header"> & {
   homeHref: string;
   items: Array<NavItem>;
-  navAriaLabelOpen: string;
+  navAriaLabelOpen: string; // TODO: follow toogle button pattern
   navAriaLabelClose: string;
 };
 
