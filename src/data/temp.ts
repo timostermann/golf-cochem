@@ -2,6 +2,7 @@ import { group } from "console";
 import { type FooterProps } from "@/components/Footer";
 import { type HeaderProps } from "@/components/Header";
 import { useTranslations } from "next-intl";
+import { Icons } from "@/icons/icons";
 
 const t = useTranslations("nav");
 
@@ -17,25 +18,25 @@ const headerData: HeaderProps = {
           label: t("labels.blog"),
           href: "/blog",
           description: t("descriptions.blog"),
-          icon: blog,
+          icon: Icons.blog,
         },
         {
           label: t("labels.membership"),
           href: "/mitgliedschaft",
           description: t("descriptions.membership"),
-          icon: member,
+          icon: Icons.member,
         },
         {
           label: t("labels.teams"),
           href: "/mannschaften",
           description: t("descriptions.teams"),
-          icon: team,
+          icon: Icons.team,
         },
         {
           label: t("labels.events"),
           href: "/events",
           description: t("descriptions.events"),
-          icon: calendar,
+          icon: Icons.calendar,
         },
       ],
     },
@@ -46,31 +47,31 @@ const headerData: HeaderProps = {
           label: t("labels.moselCourse"),
           href: "/mosel-course",
           description: t("descriptions.moselCourse"),
-          icon: moselCourse,
+          icon: Icons.moselCourse,
         },
         {
           label: t("labels.eifelCourse"),
           href: "/eifel-course",
           description: t("descriptions.eifelCourse"),
-          icon: eifelCourse,
+          icon: Icons.eifelCourse,
         },
         {
           label: t("labels.footgolf"),
           href: "/footgolf",
           description: t("descriptions.footgolf"),
-          icon: soccer,
+          icon: Icons.soccer,
         },
         {
           label: t("labels.drivingRange"),
           href: "/driving-range",
           description: t("descriptions.drivingRange"),
-          icon: golf,
+          icon: Icons.golf,
         },
         {
           label: t("labels.fieldInformation"),
           href: "/platzinformationen",
           description: t("descriptions.fieldInformation"),
-          icon: greenkeeper,
+          icon: Icons.greenkeeper,
         },
       ],
     },
@@ -85,25 +86,25 @@ const headerData: HeaderProps = {
           label: t("labels.trainer"),
           href: "/trainer",
           description: t("descriptions.trainer"),
-          icon: trainer,
+          icon: Icons.trainer,
         },
         {
           label: t("labels.license"),
           href: "/dgv-platzreife",
           description: t("descriptions.license"),
-          icon: certificate,
+          icon: Icons.certificate,
         },
         {
           label: t("labels.tasterCourse"),
           href: "/schnupperkurse",
           description: t("descriptions.tasterCourse"),
-          icon: golfBag,
+          icon: Icons.golfBag,
         },
         {
           label: t("labels.parentalTraining"),
           href: "/elterntraining",
           description: t("descriptions.parentTraining"),
-          icon: parentTraining,
+          icon: Icons.parentTraining,
         },
         {
           label: t("labels.groupTraining"),
@@ -115,7 +116,7 @@ const headerData: HeaderProps = {
           label: t("labels.bundeswehr"),
           href: "/bundeswehr",
           description: t("descriptions.bundeswehr"),
-          icon: star,
+          icon: Icons.star,
         },
       ],
     },
