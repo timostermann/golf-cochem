@@ -5,7 +5,8 @@
     "coverage",
     "*.cjs",
     "next.config.mjs",
-    "**/generated-component-types.d.ts"
+    "**/generated-component-types.d.ts",
+    "temp.ts"
   ],
   "parserOptions": {
     "parser": "@typescript-eslint/parser",
