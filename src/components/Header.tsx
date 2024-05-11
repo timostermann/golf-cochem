@@ -4,6 +4,7 @@ import {
   type ComponentPropsWithoutRef,
   useRef,
   useEffect,
+  type ReactNode,
 } from "react";
 import Image from "next/image";
 import { Container, ContainerMargin } from "./Container";
@@ -15,7 +16,7 @@ type NavItem = {
     label: string;
     href: string;
     description?: string | null;
-    icon?: string;
+    icon?: ReactNode | (Record<string, unknown> & { src: string }); // TODO: Remove object once all icons are replaced
   }>;
 };
 
@@ -94,12 +95,13 @@ export const Header = ({
                         href={subItem.href}
                         className="flex gap-4 px-4 py-2 text-gray-900 hover:bg-gray-100"
                       >
-                        {subItem.icon && (
-                          <span
-                            className="text-primary-700"
-                            dangerouslySetInnerHTML={{ __html: subItem.icon }}
-                          />
-                        )}
+                        {/* TODO: Remove checks once all icons are replaced */}
+                        {subItem.icon &&
+                          !(subItem.icon as Record<string, unknown>).src && (
+                            <span className="size-6 text-primary-700">
+                              {subItem.icon as ReactNode}
+                            </span>
+                          )}
                         <span className="inline-flex flex-col">
                           <span>{subItem.label}</span>
                           {subItem.description && (

@@ -1,4 +1,5 @@
 import { type HeaderProps } from "@/components/Header";
+import { Blog } from "@/icons";
 import { Icons } from "@/icons/icons";
 
 export const headerData: HeaderProps = {
@@ -13,7 +14,7 @@ export const headerData: HeaderProps = {
           label: "labels.blog",
           href: "/blog",
           description: "descriptions.blog",
-          icon: Icons.blog,
+          icon: <Blog />,
         },
         {
           label: "labels.membership",

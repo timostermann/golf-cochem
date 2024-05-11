@@ -1,6 +1,4 @@
-import address from "../icons/address.svg";
 import arrowRight from "../icons/arrow-right.svg";
-import blog from "../icons/blog.svg";
 import calendar from "../icons/calendar.svg";
 import certificate from "../icons/certificate.svg";
 import contact from "../icons/contact.svg";
@@ -30,9 +28,7 @@ import trainer from "../icons/trainer.svg";
 import weather from "../icons/weather.svg";
 
 export const Icons = {
-  address,
   arrowRight,
-  blog,
   calendar,
   certificate,
   contact,

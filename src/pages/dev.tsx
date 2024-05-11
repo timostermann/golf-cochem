@@ -3,7 +3,7 @@ import { Button, ButtonVariant } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
 import { StatusCard } from "@/components/StatusCard";
-import { Icons } from "@/icons/icons";
+import { Address, Blog } from "@/icons";
 
 const Dev: NextPage = () => {
   return (
@@ -33,10 +33,10 @@ const Dev: NextPage = () => {
         <Button variant={ButtonVariant.SECONDARY}>Secondary Button</Button>
       </div>
       <div className="flex gap-4 px-4">
-        <StatusCard open icon={Icons.address}>
+        <StatusCard open icon={<Address />}>
           Open Court
         </StatusCard>
-        <StatusCard open={false} closedUntil="22.06." icon={Icons.address}>
+        <StatusCard open={false} closedUntil="22.06." icon={<Blog />}>
           Closed Court
         </StatusCard>
       </div>

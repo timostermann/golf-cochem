@@ -1,10 +1,10 @@
 import cn from "classnames";
-import { type ComponentPropsWithoutRef } from "react";
+import { type ReactNode, type ComponentPropsWithoutRef } from "react";
 
 type StatusCardProps = ComponentPropsWithoutRef<"div"> & {
   open: boolean;
   closedUntil?: string;
-  icon: string; // TODO: handle as ReactNode
+  icon: ReactNode;
 };
 
 // TODO: translation
@@ -20,11 +20,7 @@ export const StatusCard = ({
       className="flex size-40 flex-col items-center rounded-2xl bg-primary-100 p-5 text-primary-800 shadow-md lg:size-60 lg:p-8"
       {...props}
     >
-      <span
-        className="size-12 lg:size-20"
-        aria-hidden
-        dangerouslySetInnerHTML={{ __html: icon }}
-      />
+      <span className="size-12 lg:size-20">{icon}</span>
       <p className="mb-5 mt-2 text-center text-base font-bold lg:mb-8 lg:mt-4 lg:text-2xl">
         {children}
       </p>
