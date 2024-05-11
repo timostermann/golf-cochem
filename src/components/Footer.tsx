@@ -28,7 +28,13 @@ export const Footer = ({
       <footer className={cn("mt-8 flex flex-col", className)} {...props}>
         <div className="flex flex-col gap-12 lg:flex-row lg:justify-between lg:gap-3">
           <p className="flex items-center gap-3 self-start text-lg font-medium !leading-none text-gray-900">
-            <Image src="/logo.png" alt="Golfclub Cochem" className="w-[30px]" />
+            <Image
+              src="/logo.png"
+              alt="Golfclub Cochem"
+              aria-hidden
+              height="37"
+              width="30"
+            />
             Golfclub
             <wbr /> Cochem/Mosel&nbsp;e.V.
           </p>

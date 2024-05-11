@@ -57,8 +57,8 @@ export const Header = ({
           src="/logo.png"
           alt=""
           aria-hidden
-          height="30"
-          width="37"
+          height="37"
+          width="30"
           tabIndex={-1}
         />
         Golfclub
