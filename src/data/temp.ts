@@ -1,4 +1,3 @@
-import { group } from "console";
 import { type FooterProps } from "@/components/Footer";
 import { type HeaderProps } from "@/components/Header";
 import { useTranslations } from "next-intl";
@@ -110,7 +109,7 @@ const headerData: HeaderProps = {
           label: t("labels.groupTraining"),
           href: "/gruppentraining",
           description: t("descriptions.groupTraining"),
-          icon: group,
+          icon: Icons.group,
         },
         {
           label: t("labels.bundeswehr"),
