@@ -1,123 +1,130 @@
+import { group } from "console";
+import { type FooterProps } from "@/components/Footer";
+import { type HeaderProps } from "@/components/Header";
+import { useTranslations } from "next-intl";
+
+const t = useTranslations("nav");
+
 const headerData: HeaderProps = {
-  navAriaLabelOpen: t("nav.open"),
-  navAriaLabelClose: t("nav.close"),
+  navAriaLabelOpen: t("open"),
+  navAriaLabelClose: t("close"),
   homeHref: "/",
   items: [
     {
-      label: t("nav.labels.golfClub"),
+      label: t("labels.golfClub"),
       subItems: [
         {
-          label: t("nav.labels.blog"),
+          label: t("labels.blog"),
           href: "/blog",
-          description: t("nav.descriptions.blog"),
+          description: t("descriptions.blog"),
           icon: blog,
         },
         {
-          label: t("nav.labels.membership"),
+          label: t("labels.membership"),
           href: "/mitgliedschaft",
-          description: t("nav.descriptions.membership"),
+          description: t("descriptions.membership"),
           icon: member,
         },
         {
-          label: t("nav.labels.teams"),
+          label: t("labels.teams"),
           href: "/mannschaften",
-          description: t("nav.descriptions.teams"),
+          description: t("descriptions.teams"),
           icon: team,
         },
         {
-          label: t("nav.labels.events"),
+          label: t("labels.events"),
           href: "/events",
-          description: t("nav.descriptions.events"),
+          description: t("descriptions.events"),
           icon: calendar,
         },
       ],
     },
     {
-      label: t("nav.labels.golfField"),
+      label: t("labels.golfField"),
       subItems: [
         {
-          label: t("nav.labels.moselCourse"),
+          label: t("labels.moselCourse"),
           href: "/mosel-course",
-          description: t("nav.descriptions.moselCourse"),
+          description: t("descriptions.moselCourse"),
           icon: moselCourse,
         },
         {
-          label: t("nav.labels.eifelCourse"),
+          label: t("labels.eifelCourse"),
           href: "/eifel-course",
-          description: t("nav.descriptions.eifelCourse"),
+          description: t("descriptions.eifelCourse"),
           icon: eifelCourse,
         },
         {
-          label: t("nav.labels.footgolf"),
+          label: t("labels.footgolf"),
           href: "/footgolf",
-          description: t("nav.descriptions.footgolf"),
+          description: t("descriptions.footgolf"),
           icon: soccer,
         },
         {
-          label: t("nav.labels.drivingRange"),
+          label: t("labels.drivingRange"),
           href: "/driving-range",
-          description: t("nav.descriptions.drivingRange"),
+          description: t("descriptions.drivingRange"),
           icon: golf,
         },
         {
-          label: t("nav.labels.fieldInformation"),
+          label: t("labels.fieldInformation"),
           href: "/platzinformationen",
-          description: t("nav.descriptions.fieldInformation"),
+          description: t("descriptions.fieldInformation"),
           icon: greenkeeper,
         },
       ],
     },
     {
-      label: t("nav.labels.youth"),
+      label: t("labels.youth"),
       href: "/jugend",
     },
     {
-      label: t("nav.labels.golfCourses"),
+      label: t("labels.golfCourses"),
       subItems: [
         {
-          label: t("nav.labels.trainer"),
+          label: t("labels.trainer"),
           href: "/trainer",
-          description: t("nav.descriptions.trainer"),
+          description: t("descriptions.trainer"),
           icon: trainer,
         },
         {
-          label: t("nav.labels.license"),
+          label: t("labels.license"),
           href: "/dgv-platzreife",
-          description: t("nav.descriptions.license"),
+          description: t("descriptions.license"),
           icon: certificate,
         },
         {
-          label: t("nav.labels.tasterCourse"),
+          label: t("labels.tasterCourse"),
           href: "/schnupperkurse",
-          description: t("nav.descriptions.tasterCourse"),
+          description: t("descriptions.tasterCourse"),
           icon: golfBag,
         },
         {
-          label: t("nav.labels.parentalTraining"),
+          label: t("labels.parentalTraining"),
           href: "/elterntraining",
-          description: t("nav.descriptions.parentTraining"),
+          description: t("descriptions.parentTraining"),
           icon: parentTraining,
         },
         {
-          label: t("nav.labels.groupTraining"),
+          label: t("labels.groupTraining"),
           href: "/gruppentraining",
-          description: t("nav.descriptions.groupTraining"),
+          description: t("descriptions.groupTraining"),
           icon: group,
         },
         {
-          label: t("nav.labels.bundeswehr"),
+          label: t("labels.bundeswehr"),
           href: "/bundeswehr",
-          description: t("nav.descriptions.bundeswehr"),
+          description: t("descriptions.bundeswehr"),
           icon: star,
         },
       ],
     },
     {
-      label: t("nav.labels.guests"),
+      label: t("labels.guests"),
       href: "/gaeste",
     },
     {
-      label: t("nav.labels.about"),
+      label: t("labels.about"),
       href: "/ueber-uns",
     },
   ],
