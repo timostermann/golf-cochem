@@ -5,6 +5,7 @@ import {
   useRef,
   useEffect,
 } from "react";
+import Image from "next/image";
 import { Container, ContainerMargin } from "./Container";
 
 type NavItem = {
@@ -52,7 +53,7 @@ export const Header = ({
         className="inline-flex items-center gap-3 text-lg font-medium !leading-none text-gray-900"
         href={homeHref}
       >
-        <img
+        <Image
           src="/logo.png"
           alt=""
           aria-hidden
@@ -74,9 +75,7 @@ export const Header = ({
                 {item.label}
               </a>
             ) : (
-              <p className="cursor-text text-gray-600" tabIndex={0}>
-                {item.label}
-              </p>
+              <p className="cursor-text text-gray-600">{item.label}</p>
             )}
             {item.subItems && (
               <>
