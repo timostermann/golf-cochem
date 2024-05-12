@@ -1,7 +1,10 @@
 import cn from "classnames";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { type ComponentPropsWithoutRef } from "react";
+import { useSanitizedId } from "@/lib/sanitizeString";
+import { Headline, HeadlineTag, HeadlineVariant } from "./Headline";
 
 type ImageTeaserCardProps = ComponentPropsWithoutRef<"article"> & {
   category?: string;
@@ -32,29 +35,39 @@ export const ImageTeaserCard = ({
   author,
   authorImage,
   date,
-  href,
+  href = "",
   className,
   ...props
 }: ImageTeaserCardProps) => {
   const router = useRouter();
+  const id = useSanitizedId();
 
   return (
     <article
       className={cn(
-        "flex w-full flex-col gap-2 rounded-3xl border border-gray-200 pb-6",
+        "group relative flex w-full flex-col gap-2 rounded-3xl border border-gray-200 pb-6 transition-colors duration-300 hover:border-primary-200",
         className,
       )}
       {...props}
     >
-      <h2 className="px-6 text-2xl font-bold text-gray-900">{title}</h2>
+      <Headline
+        tag={HeadlineTag.H3}
+        variant={HeadlineVariant.QUATERNARY}
+        className="px-6"
+        id={id}
+      >
+        {title}
+      </Headline>
       {image?.src && image.width && image.height && (
-        <Image
-          src={image.src}
-          alt={image.alt || ""}
-          width={image.width}
-          height={image.height}
-          className="-order-2 h-60 w-full rounded-t-3xl object-cover"
-        />
+        <div className="-order-2 h-60 overflow-hidden rounded-t-3xl">
+          <Image
+            src={image.src}
+            alt={image.alt || ""}
+            width={image.width}
+            height={image.height}
+            className="h-full w-full rounded-t-3xl object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+          />
+        </div>
       )}
       {category && (
         <p className="-order-1 px-6 pt-6 text-xs font-medium text-primary-500">
@@ -89,6 +102,7 @@ export const ImageTeaserCard = ({
           </div>
         </div>
       )}
+      <Link href={href} aria-labelledby={id} className="absolute inset-0" />
     </article>
   );
 };
