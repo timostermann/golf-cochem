@@ -6,7 +6,8 @@
     "*.cjs",
     "next.config.mjs",
     "**/generated-component-types.d.ts",
-    "temp.ts"
+    "temp.ts",
+    "icon-converter.js"
   ],
   "parserOptions": {
     "parser": "@typescript-eslint/parser",
