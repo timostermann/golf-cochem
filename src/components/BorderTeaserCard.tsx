@@ -1,8 +1,8 @@
 import cn from "classnames";
-import Link from "next/link";
 import { type ComponentPropsWithoutRef } from "react";
 import { useSanitizedId } from "@/lib/sanitizeString";
 import { Headline, HeadlineTag, HeadlineVariant } from "./Headline";
+import { ArrowLink } from "./ArrowLink";
 
 type BorderTeaserCardProps = ComponentPropsWithoutRef<"article"> & {
   title: string;
@@ -33,13 +33,13 @@ export const BorderTeaserCard = ({
         {title}
       </Headline>
       <p className="mb-2.5 text-gray-500">{summary}</p>
-      <Link
+      <ArrowLink
         href={href}
         aria-labelledby={id}
         className="w-fit after:absolute after:inset-0 after:content-['']"
       >
         {linkLabel}
-      </Link>
+      </ArrowLink>
     </article>
   );
 };
