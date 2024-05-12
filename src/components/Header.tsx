@@ -7,6 +7,7 @@ import {
   type ReactNode,
 } from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { Container, ContainerMargin } from "./Container";
 
 type NavItem = {
@@ -38,6 +39,7 @@ export const Header = ({
   ...props
 }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const t = useTranslations("nav");
 
   return (
     <Container
@@ -73,10 +75,10 @@ export const Header = ({
           >
             {item.href ? (
               <a href={item.href} className="underline-effect text-gray-600">
-                {item.label}
+                {t(item.label)}
               </a>
             ) : (
-              <p className="cursor-text text-gray-600">{item.label}</p>
+              <p className="cursor-text text-gray-600">{t(item.label)}</p>
             )}
             {item.subItems && (
               <>
@@ -99,10 +101,10 @@ export const Header = ({
                           {subItem.icon}
                         </span>
                         <span className="inline-flex flex-col">
-                          <span>{subItem.label}</span>
+                          <span>{t(subItem.label)}</span>
                           {subItem.description && (
                             <span className="block text-sm font-light text-gray-500">
-                              {subItem.description}
+                              {t(subItem.description)}
                             </span>
                           )}
                         </span>
@@ -116,8 +118,8 @@ export const Header = ({
         ))}
       </nav>
       <button
-        title={isMenuOpen ? navAriaLabelClose : navAriaLabelOpen}
-        aria-label={isMenuOpen ? navAriaLabelClose : navAriaLabelOpen}
+        title={t(isMenuOpen ? navAriaLabelClose : navAriaLabelOpen)}
+        aria-label={t(isMenuOpen ? navAriaLabelClose : navAriaLabelOpen)}
         className={cn(
           "relative top-2 h-3 w-5 cursor-pointer items-center justify-center transition-all duration-300 ease-in-out lg:hidden",
         )}
@@ -164,6 +166,7 @@ Header.displayName = "Header";
 const MobileNavItem = ({ label, href, subItems }: NavItem) => {
   const [accordionOpen, setAccordionOpen] = useState(false);
   const dropdownRef = useRef<HTMLUListElement>(null);
+  const t = useTranslations("nav");
 
   useEffect(() => {
     if (!dropdownRef.current) return;
@@ -178,7 +181,7 @@ const MobileNavItem = ({ label, href, subItems }: NavItem) => {
     <li key={label}>
       {href ? (
         <a href={href} className="w-full text-gray-600 hover:bg-gray-900">
-          {label}
+          {t(label)}
         </a>
       ) : (
         <div>
@@ -187,7 +190,7 @@ const MobileNavItem = ({ label, href, subItems }: NavItem) => {
             className="relative flex w-full justify-between"
             onClick={() => setAccordionOpen((prev) => !prev)}
           >
-            <p className="cursor-text text-gray-600">{label}</p>
+            <p className="cursor-text text-gray-600">{t(label)}</p>
             <svg
               className={cn(
                 "mr-2 size-6 transform text-gray-900 transition-transform duration-300",
@@ -216,16 +219,15 @@ const MobileNavItem = ({ label, href, subItems }: NavItem) => {
                   className="flex w-full items-center gap-4 py-2 text-gray-900 hover:bg-gray-100"
                 >
                   {subItem.icon && (
-                    <span
-                      className="text-primary-700"
-                      dangerouslySetInnerHTML={{ __html: subItem.icon }}
-                    />
+                    <span className="size-6 text-primary-700">
+                      {subItem.icon}
+                    </span>
                   )}
                   <span className="inline-flex flex-col">
-                    <span>{subItem.label}</span>
+                    <span>{t(subItem.label)}</span>
                     {subItem.description && (
                       <span className="block text-sm font-light text-gray-500">
-                        {subItem.description}
+                        {t(subItem.description)}
                       </span>
                     )}
                   </span>
