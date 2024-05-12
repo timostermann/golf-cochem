@@ -68,7 +68,7 @@ export const Header = ({
         Golfclub
         <wbr /> Cochem/Mosel&nbsp;e.V.
       </a>
-      <nav className="hidden lg:flex lg:gap-8">
+      <nav className="hidden lg:flex lg:gap-4 xl:gap-8">
         {items.map((item) => (
           <div
             key={item.label}
@@ -98,7 +98,7 @@ export const Header = ({
                         href={subItem.href}
                         className="flex gap-4 px-4 py-2 text-gray-900 hover:bg-gray-100"
                       >
-                        <span className="size-6 text-primary-700">
+                        <span className="size-6 shrink-0 text-primary-700">
                           {subItem.icon}
                         </span>
                         <span className="inline-flex flex-col">
@@ -122,7 +122,7 @@ export const Header = ({
         title={t(isMenuOpen ? navAriaLabelClose : navAriaLabelOpen)}
         aria-label={t(isMenuOpen ? navAriaLabelClose : navAriaLabelOpen)}
         className={cn(
-          "relative top-2 h-3 w-5 cursor-pointer items-center justify-center transition-all duration-300 ease-in-out lg:hidden",
+          "relative top-3 h-3 w-5 cursor-pointer items-center justify-center transition-all duration-300 ease-in-out lg:hidden",
         )}
         onClick={() => setIsMenuOpen((prev) => !prev)}
       >
@@ -144,7 +144,7 @@ export const Header = ({
       />
       <nav
         className={cn(
-          "absolute left-0 top-full -z-20 h-screen w-full bg-white shadow-md transition-transform duration-500 ease-in-out lg:hidden",
+          "absolute left-0 top-full -z-20 h-[calc(100vh-70px)] w-full bg-white shadow-md transition-transform duration-500 ease-in-out lg:hidden",
           {
             "translate-y-0": isMenuOpen,
             "-translate-y-full": !isMenuOpen,
@@ -156,8 +156,9 @@ export const Header = ({
             <MobileNavItem key={item.label} {...item} />
           ))}
         </ul>
+        <LanguageSwitch className="absolute bottom-4 left-1/2 -translate-x-1/2 lg:hidden" />
       </nav>
-      <LanguageSwitch className="absolute right-4 top-1" />
+      <LanguageSwitch className="absolute right-4 top-1 hidden lg:flex" />
     </Container>
   );
 };
