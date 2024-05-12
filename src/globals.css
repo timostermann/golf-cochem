@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  outline-offset: 0;
+  outline: 2px solid transparent;
+}
+
+*:focus-visible {
+  outline-color: #065986;
+  outline-offset: 2px;
+  transition: outline-offset 150ms ease-out;
+}
