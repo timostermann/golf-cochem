@@ -20,7 +20,7 @@ export const GolfFlag = ({ title, ...props }: SVGIconProps) => {
       <path
         d="M4.31995 0.23999V23.52H5.27995V14.73L21.2999 8.12999L22.3799 7.67999L21.2999 7.22999L4.97995 0.50999L4.31995 0.23999ZM5.27995 1.67999L19.8449 7.67999L5.27995 13.68V1.67999Z"
         fill="currentColor"
-        fill-opacity="0.2"
+        fillOpacity="0.2"
       />
     </svg>
   );
