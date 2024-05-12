@@ -16,7 +16,7 @@ type NavItem = {
     label: string;
     href: string;
     description?: string | null;
-    icon?: ReactNode | (Record<string, unknown> & { src: string }); // TODO: Remove object once all icons are replaced
+    icon?: ReactNode;
   }>;
 };
 
@@ -95,13 +95,9 @@ export const Header = ({
                         href={subItem.href}
                         className="flex gap-4 px-4 py-2 text-gray-900 hover:bg-gray-100"
                       >
-                        {/* TODO: Remove checks once all icons are replaced */}
-                        {subItem.icon &&
-                          !(subItem.icon as Record<string, unknown>).src && (
-                            <span className="size-6 text-primary-700">
-                              {subItem.icon as ReactNode}
-                            </span>
-                          )}
+                        <span className="size-6 text-primary-700">
+                          {subItem.icon}
+                        </span>
                         <span className="inline-flex flex-col">
                           <span>{subItem.label}</span>
                           {subItem.description && (
