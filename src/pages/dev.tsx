@@ -4,6 +4,7 @@ import { Container } from "@/components/Container";
 import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
 import { StatusCard } from "@/components/StatusCard";
 import { Address, Blog } from "@/icons";
+import { ImageTeaserCard } from "@/components/ImageTeaserCard";
 
 const Dev: NextPage = () => {
   return (
@@ -39,6 +40,68 @@ const Dev: NextPage = () => {
         <StatusCard open={false} closedUntil="22.06." icon={<Blog />}>
           Closed Court
         </StatusCard>
+      </div>
+      <div className="flex gap-4 px-4">
+        <ImageTeaserCard
+          category="Golfclub"
+          title="Glücklich und zufrieden! - Kanada brachte neue Erkenntnisse"
+          summary="Bundestrainer zufrieden und mit einem klaren Plan für das Wintertraining."
+          date="2023-10-07T00:00:00Z"
+          image={{
+            src: "https://picsum.photos/800/400",
+            alt: "Golfclub",
+            width: 800,
+            height: 400,
+          }}
+          href=""
+          author="Ulrike Rummel"
+          authorImage={{
+            src: "https://picsum.photos/100",
+            alt: "Ulrike Rummel",
+            width: 100,
+            height: 100,
+          }}
+        />
+        <ImageTeaserCard
+          category="Golfplatz"
+          title="Was ist Footgolf?"
+          summary="Die Trendsportart jetzt bei uns im Club. Komm noch heute vorbei uns probiere es aus."
+          date="2023-10-06T00:00:00Z"
+          image={{
+            src: "https://picsum.photos/800/400",
+            alt: "Golfplatz",
+            width: 800,
+            height: 400,
+          }}
+          href=""
+          author="Manuela Eiden"
+          authorImage={{
+            src: "https://picsum.photos/100",
+            alt: "Manuela Eiden",
+            width: 100,
+            height: 100,
+          }}
+        />
+        <ImageTeaserCard
+          category="Golfclub"
+          title="Unsere neue Website"
+          summary="Wir haben eine neue Website!"
+          date="2023-10-04T00:00:00Z"
+          image={{
+            src: "https://picsum.photos/800/400",
+            alt: "Golfclub",
+            width: 800,
+            height: 400,
+          }}
+          href=""
+          author="Ulrike Rummel"
+          authorImage={{
+            src: "https://picsum.photos/100",
+            alt: "Ulrike Rummel",
+            width: 100,
+            height: 100,
+          }}
+        />
       </div>
     </Container>
   );

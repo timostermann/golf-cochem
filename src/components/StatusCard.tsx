@@ -37,3 +37,5 @@ export const StatusCard = ({
     </div>
   );
 };
+
+StatusCard.displayName = "StatusCard";
