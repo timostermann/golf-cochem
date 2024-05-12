@@ -1,7 +1,7 @@
 import { Html, Head, Main, NextScript } from "next/document";
 
 const Document = () => (
-  <Html lang="de">
+  <Html>
     <Head />
     <body>
       <Main />
