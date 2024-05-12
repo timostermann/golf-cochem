@@ -5,11 +5,12 @@ import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
 import { StatusCard } from "@/components/StatusCard";
 import { Address, Blog } from "@/icons";
 import { ImageTeaserCard } from "@/components/ImageTeaserCard";
+import { BorderTeaserCard } from "@/components/BorderTeaserCard";
 
 const Dev: NextPage = () => {
   return (
     <Container innerClassName="flex flex-col gap-16 py-12">
-      <div className="flex flex-col gap-4 px-4">
+      <div className="flex flex-col gap-4">
         <Headline tag={HeadlineTag.H1} variant={HeadlineVariant.HERO}>
           Hero Headline
         </Headline>
@@ -29,11 +30,11 @@ const Dev: NextPage = () => {
           Quinary Headline
         </Headline>
       </div>
-      <div className="flex gap-4 px-4">
+      <div className="flex gap-4">
         <Button>Primary Button</Button>
         <Button variant={ButtonVariant.SECONDARY}>Secondary Button</Button>
       </div>
-      <div className="flex gap-4 px-4">
+      <div className="flex gap-4">
         <StatusCard open icon={<Address />}>
           Open Court
         </StatusCard>
@@ -41,7 +42,7 @@ const Dev: NextPage = () => {
           Closed Court
         </StatusCard>
       </div>
-      <div className="flex gap-4 px-4">
+      <div className="flex gap-4">
         <ImageTeaserCard
           category="Golfclub"
           title="Glücklich und zufrieden! - Kanada brachte neue Erkenntnisse"
@@ -101,6 +102,32 @@ const Dev: NextPage = () => {
             width: 100,
             height: 100,
           }}
+        />
+      </div>
+      <div className="flex flex-col gap-1">
+        <BorderTeaserCard
+          title="Mosel Course"
+          summary="Professioneller, naturnaher 18-Loch-Platz"
+          linkLabel="Mehr erfahren"
+          href=""
+        />
+        <BorderTeaserCard
+          title="Eifel Course"
+          summary="9-Loch Platz, der ohne DGV-Ausweis gespielt werden kann"
+          linkLabel="Mehr erfahren"
+          href=""
+        />
+        <BorderTeaserCard
+          title="Footgolf"
+          summary="Der Spaß für die gesamte Familie"
+          linkLabel="Mehr erfahren"
+          href=""
+        />
+        <BorderTeaserCard
+          title="Driving Range"
+          summary="Überdachte Abschlagboxen"
+          linkLabel="Mehr erfahren"
+          href=""
         />
       </div>
     </Container>
