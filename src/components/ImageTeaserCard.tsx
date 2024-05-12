@@ -45,7 +45,7 @@ export const ImageTeaserCard = ({
   return (
     <article
       className={cn(
-        "group relative flex w-full flex-col gap-2 rounded-3xl border border-gray-200 pb-6 transition-colors duration-300 hover:border-primary-200",
+        "group relative flex w-full max-w-[500px] flex-col gap-2 rounded-3xl border border-gray-200 pb-6 transition-colors duration-300 hover:border-primary-200",
         className,
       )}
       {...props}
