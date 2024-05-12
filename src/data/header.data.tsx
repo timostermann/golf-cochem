@@ -114,7 +114,7 @@ export const headerData: HeaderProps = {
         {
           label: "labels.parentalTraining",
           href: "/elterntraining",
-          description: "descriptions.parentTraining",
+          description: "descriptions.parentalTraining",
           icon: <ParentTraining />,
         },
         {

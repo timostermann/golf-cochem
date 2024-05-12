@@ -13,7 +13,11 @@ const App = ({ Component, pageProps }: AppProps) => {
   const dictionary = useDictionary();
 
   return (
-    <NextIntlClientProvider locale={router.locale} messages={dictionary}>
+    <NextIntlClientProvider
+      locale={router.locale}
+      messages={dictionary}
+      timeZone="Europe/Berlin"
+    >
       <Header {...headerData} />
       <main>
         <Component {...pageProps} />
