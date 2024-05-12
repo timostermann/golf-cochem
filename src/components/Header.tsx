@@ -9,6 +9,7 @@ import {
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Container, ContainerMargin } from "./Container";
+import { LanguageSwitch } from "./LanguageSwitch";
 
 type NavItem = {
   label: string;
@@ -156,6 +157,7 @@ export const Header = ({
           ))}
         </ul>
       </nav>
+      <LanguageSwitch className="absolute right-4 top-1" />
     </Container>
   );
 };
