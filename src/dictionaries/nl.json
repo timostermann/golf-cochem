@@ -2,7 +2,8 @@
   "global": {
     "opened": "Geopend",
     "closed": "Gesloten",
-    "until": "tot"
+    "until": "tot",
+    "perYear": "per jaar"
   },
   "nav": {
     "open": "Hoofdnavigatie openen",

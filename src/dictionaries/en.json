@@ -2,7 +2,8 @@
   "global": {
     "opened": "Opened",
     "closed": "Closed",
-    "until": "until"
+    "until": "until",
+    "perYear": "per year"
   },
   "nav": {
     "open": "Open main navigation",

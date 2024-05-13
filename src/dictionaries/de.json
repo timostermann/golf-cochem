@@ -2,7 +2,8 @@
   "global": {
     "opened": "Geöffnet",
     "closed": "Geschlossen",
-    "until": "bis"
+    "until": "bis",
+    "perYear": "pro Jahr"
   },
   "nav": {
     "open": "Hauptnavigation öffnen",
