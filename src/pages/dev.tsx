@@ -6,6 +6,7 @@ import { StatusCard } from "@/components/StatusCard";
 import { Address, Blog } from "@/icons";
 import { ImageTeaserCard } from "@/components/ImageTeaserCard";
 import { BorderTeaserCard } from "@/components/BorderTeaserCard";
+import { Accordion } from "@/components/Accordion";
 
 const Dev: NextPage = () => {
   return (
@@ -129,6 +130,15 @@ const Dev: NextPage = () => {
           linkLabel="Mehr erfahren"
           href=""
         />
+      </div>
+      <div className="flex flex-col gap-2">
+        <Accordion summary="Welche Ausrüstung ist erlaubt?">
+          Lörem ipsum krovoskap bånade samt por dijypp: i digen sogt. Ivose or
+          mijyras i dosk bedavis i ysade av faras fåska, vana. Lasagisk bebän
+          dösuren suprafår, trere men låteren men bev. Oren egosesassa i gigatt
+          om anangen. Miv krovartad. Niment resat: nönör tesenat.{" "}
+        </Accordion>
+        <Accordion summary="Wer kann Footgolf spielen?">Lorem ipsum</Accordion>
       </div>
     </Container>
   );
