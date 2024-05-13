@@ -3,10 +3,11 @@ import { Button, ButtonVariant } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
 import { StatusCard } from "@/components/StatusCard";
-import { Address, Blog } from "@/icons";
+import { Address, Blog, EifelCourse, Golf, MoselCourse } from "@/icons";
 import { ImageTeaserCard } from "@/components/ImageTeaserCard";
 import { BorderTeaserCard } from "@/components/BorderTeaserCard";
 import { Accordion } from "@/components/Accordion";
+import { PriceCard } from "@/components/PriceCard";
 
 const Dev: NextPage = () => {
   return (
@@ -139,6 +140,43 @@ const Dev: NextPage = () => {
           om anangen. Miv krovartad. Niment resat: nönör tesenat.{" "}
         </Accordion>
         <Accordion summary="Wer kann Footgolf spielen?">Lorem ipsum</Accordion>
+      </div>
+      <div className="grid grid-cols-1 items-start gap-4 sm:grid-cols-2 xl:grid-cols-3">
+        <PriceCard
+          price="595 €"
+          title="Teilmitgliedschaft"
+          facts={[
+            "DGV-Mitgliedsausweis",
+            "Keine Wartezeit",
+            "20% Rabatt auf Greenfees",
+            "9 x 18 Loch Mosel Course",
+          ]}
+          icon={<Golf />}
+        />
+        <PriceCard
+          price="1.275 €"
+          title="Vollmitgliedschaft"
+          facts={[
+            "DGV-Mitgliedsausweis",
+            "Keine Wartezeit",
+            "20% Rabatt für Ehepartner",
+            "Unbegrenztes Spielen",
+            "Kostenloses Spielen auf über 50 Partneranlagen",
+            "Einsteigerangebot verfügbar",
+          ]}
+          icon={<MoselCourse />}
+        />
+        <PriceCard
+          price="273 €"
+          title="Fernmitgliedschaft"
+          facts={[
+            "DGV-Mitgliedsausweis",
+            "Keine Wartezeit",
+            "20% Rabatt auf Greenfees",
+            "9 x 18 Loch Mosel Course",
+          ]}
+          icon={<EifelCourse />}
+        />
       </div>
     </Container>
   );
