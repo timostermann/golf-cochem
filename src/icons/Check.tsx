@@ -1,7 +1,7 @@
 import { useSanitizedId } from "@/lib/sanitizeString";
 import type { SVGIconProps } from "@/types";
 
-export const Certificate = ({ title, ...props }: SVGIconProps) => {
+export const Check = ({ title, ...props }: SVGIconProps) => {
   const id = useSanitizedId();
   return (
     <svg
