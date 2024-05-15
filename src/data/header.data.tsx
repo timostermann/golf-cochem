@@ -27,7 +27,7 @@ export const headerData: HeaderProps = {
       subItems: [
         {
           label: "labels.blog",
-          href: "/blog",
+          href: "/",
           description: "descriptions.blog",
           icon: <Blog />,
         },

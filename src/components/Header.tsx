@@ -5,9 +5,11 @@ import {
   useRef,
   useEffect,
   type ReactNode,
+  useCallback,
 } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/router";
 import { Container, ContainerMargin } from "./Container";
 import { LanguageSwitch } from "./LanguageSwitch";
 
@@ -41,6 +43,14 @@ export const Header = ({
 }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const t = useTranslations("nav");
+  const router = useRouter();
+
+  const isActiveGroup = useCallback(
+    (item: NavItem) =>
+      router.asPath === item.href ||
+      item.subItems?.some((subItem) => subItem.href === router.asPath),
+    [router.asPath],
+  );
 
   return (
     <Container
@@ -74,12 +84,26 @@ export const Header = ({
             key={item.label}
             className="group relative flex items-center gap-2"
           >
+            {isActiveGroup(item) && (
+              <span className="absolute -bottom-5 h-0.5 w-full translate-y-px bg-primary-700" />
+            )}
             {item.href ? (
-              <a href={item.href} className="underline-effect text-gray-600">
+              <a
+                href={item.href}
+                className={cn("underline-effect text-gray-600", {
+                  "text-primary-700": isActiveGroup(item),
+                })}
+              >
                 {t(item.label)}
               </a>
             ) : (
-              <p className="cursor-text text-gray-600">{t(item.label)}</p>
+              <p
+                className={cn("cursor-text text-gray-600", {
+                  "text-primary-700": isActiveGroup(item),
+                })}
+              >
+                {t(item.label)}
+              </p>
             )}
             {item.subItems && (
               <>
