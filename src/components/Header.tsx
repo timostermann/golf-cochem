@@ -154,7 +154,7 @@ export const Header = ({
           className={cn(
             "h-0.5 w-5 rounded transition-all duration-300 ease-in-out before:absolute before:left-0 before:h-0.5 before:w-5 before:origin-left before:-translate-y-1.5 before:rounded-sm before:bg-gray-900 before:transition-all before:duration-300 before:ease-in-out before:content-[''] after:absolute after:left-0 after:h-0.5 after:w-5 after:origin-left after:translate-y-1.5 after:rounded-sm after:bg-gray-900 after:transition-all after:duration-300 after:ease-in-out after:content-['']",
             {
-              "-translate-x-3 bg-transparent before:w-[18px] before:translate-x-3 before:rotate-45 after:w-[18px] after:translate-x-3 after:-rotate-45":
+              "-translate-x-3 bg-transparent before:w-[17px] before:translate-x-3 before:rotate-45 after:w-[17px] after:translate-x-3 after:-rotate-45":
                 isMenuOpen,
               "bg-gray-900": !isMenuOpen,
             },
