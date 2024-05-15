@@ -13,15 +13,17 @@ import { useRouter } from "next/router";
 import { Container, ContainerMargin } from "./Container";
 import { LanguageSwitch } from "./LanguageSwitch";
 
+type SubItem = {
+  label: string;
+  href: string;
+  description?: string | null;
+  icon?: ReactNode;
+};
+
 type NavItem = {
   label: string;
   href?: string;
-  subItems?: Array<{
-    label: string;
-    href: string;
-    description?: string | null;
-    icon?: ReactNode;
-  }>;
+  subItems?: Array<SubItem>;
 };
 
 export type HeaderProps = ComponentPropsWithoutRef<"header"> & {
@@ -49,6 +51,11 @@ export const Header = ({
     (item: NavItem) =>
       router.asPath === item.href ||
       item.subItems?.some((subItem) => subItem.href === router.asPath),
+    [router.asPath],
+  );
+
+  const isActiveSubItem = useCallback(
+    (subItem: SubItem) => router.asPath === subItem.href,
     [router.asPath],
   );
 
@@ -126,7 +133,13 @@ export const Header = ({
                           {subItem.icon}
                         </span>
                         <span className="inline-flex flex-col">
-                          <span>{t(subItem.label)}</span>
+                          <span
+                            className={cn({
+                              "text-primary-700": isActiveSubItem(subItem),
+                            })}
+                          >
+                            {t(subItem.label)}
+                          </span>
                           {subItem.description && (
                             <span className="block text-sm font-light text-gray-500">
                               {t(subItem.description)}
