@@ -66,3 +66,5 @@ export const PriceCard = ({
     </article>
   );
 };
+
+PriceCard.displayName = "PriceCard";

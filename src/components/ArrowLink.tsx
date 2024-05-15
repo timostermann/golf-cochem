@@ -19,3 +19,5 @@ export const ArrowLink = ({
     <ArrowRight className="size-5 pt-px transition-transform ease-in-out group-hover:translate-x-1" />
   </Link>
 );
+
+ArrowLink.displayName = "ArrowLink";
