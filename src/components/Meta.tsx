@@ -50,7 +50,7 @@ export const Meta = ({ title, description, children, robots }: MetaProps) => {
       <meta
         property="og:image"
         name="og:image"
-        content="/images/landscape.png"
+        content={`${domain}/images/landscape.png`}
       />
       {/* End Opengraph */}
 
@@ -73,7 +73,7 @@ export const Meta = ({ title, description, children, robots }: MetaProps) => {
       <meta
         name="twitter:image"
         property="twitter:image"
-        content="/images/landscape.png"
+        content={`${domain}/images/landscape.png`}
       />
       {/* End Twitter */}
 
