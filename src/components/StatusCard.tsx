@@ -1,4 +1,5 @@
 import cn from "classnames";
+import { useTranslations } from "next-intl";
 import { type ReactNode, type ComponentPropsWithoutRef } from "react";
 
 type StatusCardProps = ComponentPropsWithoutRef<"div"> & {
@@ -7,7 +8,6 @@ type StatusCardProps = ComponentPropsWithoutRef<"div"> & {
   icon: ReactNode;
 };
 
-// TODO: translation
 export const StatusCard = ({
   open,
   closedUntil,
@@ -15,6 +15,8 @@ export const StatusCard = ({
   children,
   ...props
 }: StatusCardProps) => {
+  const t = useTranslations("global");
+
   return (
     <div
       className="flex size-40 flex-col items-center rounded-2xl bg-primary-100 p-5 text-primary-800 shadow-md lg:size-60 lg:p-8"
@@ -31,8 +33,8 @@ export const StatusCard = ({
         })}
       >
         {open
-          ? "Geöffnet"
-          : `Geschlossen${closedUntil ? ` bis ${closedUntil}` : ""}`}
+          ? t("opened")
+          : `${t("closed")}${closedUntil ? ` ${t("until")} ${closedUntil}` : ""}`}
       </span>
     </div>
   );
