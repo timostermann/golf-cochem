@@ -5,11 +5,10 @@ import {
   useRef,
   useEffect,
   type ReactNode,
-  useCallback,
 } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { useRouter } from "next/router";
+import { type NextRouter, useRouter } from "next/router";
 import { Container, ContainerMargin } from "./Container";
 import { LanguageSwitch } from "./LanguageSwitch";
 
@@ -33,6 +32,13 @@ export type HeaderProps = ComponentPropsWithoutRef<"header"> & {
   navAriaLabelClose: string;
 };
 
+const isActiveGroup = (item: NavItem, router: NextRouter) =>
+  router.asPath === item.href ||
+  item.subItems?.some((subItem) => subItem.href === router.asPath);
+
+const isActiveSubItem = (subItem: SubItem, router: NextRouter) =>
+  router.asPath === subItem.href;
+
 // TODO: extract chevron icon into separate component
 // TODO: improve accessibility
 export const Header = ({
@@ -46,18 +52,6 @@ export const Header = ({
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const t = useTranslations("nav");
   const router = useRouter();
-
-  const isActiveGroup = useCallback(
-    (item: NavItem) =>
-      router.asPath === item.href ||
-      item.subItems?.some((subItem) => subItem.href === router.asPath),
-    [router.asPath],
-  );
-
-  const isActiveSubItem = useCallback(
-    (subItem: SubItem) => router.asPath === subItem.href,
-    [router.asPath],
-  );
 
   return (
     <Container
@@ -91,14 +85,14 @@ export const Header = ({
             key={item.label}
             className="group relative flex items-center gap-2"
           >
-            {isActiveGroup(item) && (
+            {isActiveGroup(item, router) && (
               <span className="absolute -bottom-5 h-0.5 w-full translate-y-px bg-primary-700" />
             )}
             {item.href ? (
               <a
                 href={item.href}
                 className={cn("underline-effect text-gray-600", {
-                  "text-primary-700": isActiveGroup(item),
+                  "text-primary-700": isActiveGroup(item, router),
                 })}
               >
                 {t(item.label)}
@@ -106,7 +100,7 @@ export const Header = ({
             ) : (
               <p
                 className={cn("cursor-text text-gray-600", {
-                  "text-primary-700": isActiveGroup(item),
+                  "text-primary-700": isActiveGroup(item, router),
                 })}
               >
                 {t(item.label)}
@@ -115,7 +109,9 @@ export const Header = ({
             {item.subItems && (
               <>
                 <svg
-                  className="h-5 w-5 text-gray-900"
+                  className={cn("h-5 w-5 text-gray-900", {
+                    "text-primary-700": isActiveGroup(item, router),
+                  })}
                   viewBox="0 0 24 24"
                   fill="currentColor"
                   xmlns="http://www.w3.org/2000/svg"
@@ -135,7 +131,10 @@ export const Header = ({
                         <span className="inline-flex flex-col">
                           <span
                             className={cn({
-                              "text-primary-700": isActiveSubItem(subItem),
+                              "text-primary-700": isActiveSubItem(
+                                subItem,
+                                router,
+                              ),
                             })}
                           >
                             {t(subItem.label)}
@@ -203,10 +202,12 @@ export const Header = ({
 Header.displayName = "Header";
 
 // TODO: aria-label translation
-const MobileNavItem = ({ label, href, subItems }: NavItem) => {
+const MobileNavItem = (item: NavItem) => {
+  const { label, href, subItems } = item;
   const [accordionOpen, setAccordionOpen] = useState(false);
   const dropdownRef = useRef<HTMLUListElement>(null);
   const t = useTranslations("nav");
+  const router = useRouter();
 
   useEffect(() => {
     if (!dropdownRef.current) return;
@@ -230,12 +231,19 @@ const MobileNavItem = ({ label, href, subItems }: NavItem) => {
             className="relative flex w-full justify-between"
             onClick={() => setAccordionOpen((prev) => !prev)}
           >
-            <p className="cursor-text text-gray-600">{t(label)}</p>
+            <p
+              className={cn("cursor-text text-gray-600", {
+                "text-primary-700": isActiveGroup(item, router),
+              })}
+            >
+              {t(label)}
+            </p>
             <svg
               className={cn(
                 "mr-2 size-6 transform text-gray-900 transition-transform duration-300",
                 {
                   "-rotate-180": accordionOpen,
+                  "text-primary-700": isActiveGroup(item, router),
                 },
               )}
               viewBox="0 0 24 24"
@@ -264,7 +272,13 @@ const MobileNavItem = ({ label, href, subItems }: NavItem) => {
                     </span>
                   )}
                   <span className="inline-flex flex-col">
-                    <span>{t(subItem.label)}</span>
+                    <span
+                      className={cn({
+                        "text-primary-700": isActiveSubItem(subItem, router),
+                      })}
+                    >
+                      {t(subItem.label)}
+                    </span>
                     {subItem.description && (
                       <span className="block text-sm font-light text-gray-500">
                         {t(subItem.description)}
