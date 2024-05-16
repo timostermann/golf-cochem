@@ -25,3 +25,9 @@ div:has(> details > summary:focus-visible) {
   outline-offset: 24px;
   transition: outline-offset 150ms ease-out;
 }
+
+@layer components {
+  .underline-effect {
+    @apply relative before:absolute before:bottom-0 before:left-0 before:h-0.5 before:w-full before:origin-right before:scale-x-0 before:bg-primary-700 before:transition-transform before:duration-300 before:ease-[ease-in-out] before:content-[''] hover:before:origin-left hover:before:scale-x-100;
+  }
+}
