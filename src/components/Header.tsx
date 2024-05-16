@@ -203,7 +203,6 @@ export const Header = ({
 
 Header.displayName = "Header";
 
-// TODO: aria-label translation
 const MobileNavItem = (item: NavItem) => {
   const { label, href, subItems } = item;
   const [accordionOpen, setAccordionOpen] = useState(false);
@@ -229,17 +228,17 @@ const MobileNavItem = (item: NavItem) => {
       ) : (
         <div>
           <button
-            aria-label="Open Submenu"
             className="relative flex w-full justify-between"
             onClick={() => setAccordionOpen((prev) => !prev)}
+            aria-expanded={accordionOpen}
           >
-            <p
+            <span
               className={cn("cursor-text text-gray-600", {
                 "text-primary-700": isActiveGroup(item, router),
               })}
             >
               {t(label)}
-            </p>
+            </span>
             <svg
               className={cn(
                 "mr-2 size-6 transform text-gray-900 transition-transform duration-300",
@@ -251,6 +250,7 @@ const MobileNavItem = (item: NavItem) => {
               viewBox="0 0 24 24"
               fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"
+              aria-hidden
             >
               <path d="M16.59 8.59L12 13.17L7.41 8.59L6 10L12 16L18 10L16.59 8.59Z" />
             </svg>
