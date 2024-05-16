@@ -60,14 +60,14 @@ export const Header = ({
       margin={ContainerMargin.NONE}
       {...props}
     >
-      <a
+      <Link
         className="inline-flex items-center gap-3 text-lg font-medium !leading-none text-gray-900"
         href={homeHref}
       >
         <Image src="/logo.png" alt="" aria-hidden height="37" width="30" />
         Golfclub
         <wbr /> Cochem/Mosel&nbsp;e.V.
-      </a>
+      </Link>
       <nav className="hidden lg:flex">
         <ul className="flex gap-4 xl:gap-8">
           {items.map((item) => (
@@ -117,7 +117,7 @@ export const Header = ({
                 <ul className="invisible absolute left-0 top-full flex w-80 -translate-y-4 flex-col gap-2 rounded-lg border border-gray-100 bg-white py-4 opacity-0 shadow-md transition-[opacity,_transform] group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
                   {item.subItems.map((subItem) => (
                     <li key={subItem.label}>
-                      <a
+                      <Link
                         href={subItem.href}
                         className="flex gap-4 px-4 py-2 text-gray-900 hover:bg-gray-100"
                       >
@@ -141,7 +141,7 @@ export const Header = ({
                             </span>
                           )}
                         </span>
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -218,9 +218,9 @@ const MobileNavItem = (item: NavItem) => {
   return (
     <li key={label}>
       {href ? (
-        <a href={href} className="w-full text-gray-600 hover:bg-gray-900">
+        <Link href={href} className="w-full text-gray-600 hover:bg-gray-900">
           {t(label)}
-        </a>
+        </Link>
       ) : (
         <div>
           <button
@@ -254,7 +254,7 @@ const MobileNavItem = (item: NavItem) => {
                 key={subItem.label}
                 className="flex flex-col gap-2 px-4 first:mt-4 last:mb-4"
               >
-                <a
+                <Link
                   href={subItem.href}
                   className="flex w-full items-center gap-4 py-2 text-gray-900 hover:bg-gray-100"
                 >
@@ -277,7 +277,7 @@ const MobileNavItem = (item: NavItem) => {
                       </span>
                     )}
                   </span>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

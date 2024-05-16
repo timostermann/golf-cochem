@@ -1,6 +1,7 @@
 import type { ComponentPropsWithoutRef } from "react";
 import cn from "classnames";
 
+import Link from "next/link";
 import type { ButtonType } from "@/lib/types";
 
 export enum ButtonVariant {
@@ -44,9 +45,9 @@ export const Button = ({
   return (
     <>
       {href ? (
-        <a href={href} className={classes}>
+        <Link href={href} className={classes}>
           {children}
-        </a>
+        </Link>
       ) : (
         <button
           className={classes}

@@ -1,6 +1,7 @@
 import cn from "classnames";
 import type { ComponentPropsWithoutRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Container, ContainerMargin } from "./Container";
 
 export type FooterProps = ComponentPropsWithoutRef<"footer"> & {
@@ -47,12 +48,12 @@ export const Footer = ({
                 <ul className="flex flex-col gap-2">
                   {column.links.map((link) => (
                     <li key={link.label}>
-                      <a
+                      <Link
                         href={link.href}
                         className="underline-effect text-gray-600"
                       >
                         {link.label}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -69,9 +70,12 @@ export const Footer = ({
           <ul className="flex flex-col gap-2 xs:flex-row xs:gap-4">
             {lastRowLinks.map((link) => (
               <li key={link.label}>
-                <a href={link.href} className="underline-effect text-gray-600">
+                <Link
+                  href={link.href}
+                  className="underline-effect text-gray-600"
+                >
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
