@@ -180,19 +180,21 @@ export const Header = ({
       />
       <nav
         className={cn(
-          "absolute left-0 top-full -z-20 h-[calc(100vh-70px)] w-full bg-white shadow-md transition-transform duration-500 ease-in-out lg:hidden",
+          "absolute left-0 top-full -z-20 h-[calc(100vh-72px)] w-full overflow-y-auto bg-white shadow-md transition-transform duration-500 ease-in-out lg:hidden",
           {
             "translate-y-0": isMenuOpen,
             "-translate-y-full": !isMenuOpen,
           },
         )}
       >
-        <ul className="mt-6 flex flex-col gap-6 p-4">
-          {items.map((item) => (
-            <MobileNavItem key={item.label} {...item} />
-          ))}
-        </ul>
-        <LanguageSwitch className="absolute bottom-4 left-1/2 -translate-x-1/2 lg:hidden" />
+        <div className="relative flex min-h-full flex-col justify-between">
+          <ul className="flex flex-col gap-6 p-4 pt-6">
+            {items.map((item) => (
+              <MobileNavItem key={item.label} {...item} />
+            ))}
+          </ul>
+          <LanguageSwitch className="relative left-1/2 w-fit -translate-x-1/2 pb-4 lg:hidden" />
+        </div>
       </nav>
       <LanguageSwitch className="absolute right-4 top-1 hidden lg:flex" />
     </Container>
