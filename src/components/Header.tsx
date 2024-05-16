@@ -10,6 +10,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { type NextRouter, useRouter } from "next/router";
 import Link from "next/link";
+import { Chevron } from "@/icons";
 import { Container, ContainerMargin } from "./Container";
 import { LanguageSwitch } from "./LanguageSwitch";
 
@@ -40,8 +41,6 @@ const isActiveGroup = (item: NavItem, router: NextRouter) =>
 const isActiveSubItem = (subItem: SubItem, router: NextRouter) =>
   router.asPath === subItem.href;
 
-// TODO: extract chevron icon into separate component
-// TODO: improve accessibility
 export const Header = ({
   items,
   homeHref,
@@ -92,17 +91,11 @@ export const Header = ({
                 >
                   {t(item.label)}
                   {item.subItems && (
-                    <svg
+                    <Chevron
                       className={cn("h-5 w-5 text-gray-900", {
                         "text-primary-700": isActiveGroup(item, router),
                       })}
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden
-                    >
-                      <path d="M16.59 8.59L12 13.17L7.41 8.59L6 10L12 16L18 10L16.59 8.59Z" />
-                    </svg>
+                    />
                   )}
                 </Link>
               ) : (
@@ -116,17 +109,11 @@ export const Header = ({
                 >
                   {t(item.label)}
                   {item.subItems && (
-                    <svg
+                    <Chevron
                       className={cn("h-5 w-5 text-gray-900", {
                         "text-primary-700": isActiveGroup(item, router),
                       })}
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden
-                    >
-                      <path d="M16.59 8.59L12 13.17L7.41 8.59L6 10L12 16L18 10L16.59 8.59Z" />
-                    </svg>
+                    />
                   )}
                 </button>
               )}
@@ -252,7 +239,7 @@ const MobileNavItem = (item: NavItem) => {
             >
               {t(label)}
             </span>
-            <svg
+            <Chevron
               className={cn(
                 "mr-2 size-6 transform text-gray-900 transition-transform duration-300",
                 {
@@ -260,13 +247,7 @@ const MobileNavItem = (item: NavItem) => {
                   "text-primary-700": isActiveGroup(item, router),
                 },
               )}
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden
-            >
-              <path d="M16.59 8.59L12 13.17L7.41 8.59L6 10L12 16L18 10L16.59 8.59Z" />
-            </svg>
+            />
           </button>
           <ul
             ref={dropdownRef}

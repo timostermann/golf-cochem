@@ -4,6 +4,7 @@ export * from "./ArrowRight";
 export * from "./Calendar";
 export * from "./Certificate";
 export * from "./Check";
+export * from "./Chevron";
 export * from "./Contact";
 export * from "./Cooperations";
 export * from "./Costs";
