@@ -18,8 +18,6 @@ import {
 } from "@/icons";
 
 export const headerData: HeaderProps = {
-  navAriaLabelOpen: "open",
-  navAriaLabelClose: "close",
   homeHref: "/",
   items: [
     {

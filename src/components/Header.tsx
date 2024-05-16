@@ -30,8 +30,6 @@ type NavItem = {
 export type HeaderProps = ComponentPropsWithoutRef<"header"> & {
   homeHref: string;
   items: Array<NavItem>;
-  navAriaLabelOpen: string; // TODO: follow toogle button pattern
-  navAriaLabelClose: string;
 };
 
 const isActiveGroup = (item: NavItem, router: NextRouter) =>
@@ -44,8 +42,6 @@ const isActiveSubItem = (subItem: SubItem, router: NextRouter) =>
 export const Header = ({
   items,
   homeHref,
-  navAriaLabelOpen,
-  navAriaLabelClose,
   className,
   ...props
 }: HeaderProps) => {
@@ -155,12 +151,12 @@ export const Header = ({
         </ul>
       </nav>
       <button
-        title={t(isMenuOpen ? navAriaLabelClose : navAriaLabelOpen)}
-        aria-label={t(isMenuOpen ? navAriaLabelClose : navAriaLabelOpen)}
+        aria-label={t("mainNavigation")}
         className={cn(
           "relative top-3 h-3 w-5 cursor-pointer items-center justify-center transition-all duration-300 ease-in-out lg:hidden",
         )}
         onClick={() => setIsMenuOpen((prev) => !prev)}
+        aria-expanded={isMenuOpen}
       >
         <div
           className={cn(

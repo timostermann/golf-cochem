@@ -6,8 +6,7 @@
     "perYear": "per jaar"
   },
   "nav": {
-    "open": "Hoofdnavigatie openen",
-    "close": "Hoofdnavigatie sluiten",
+    "mainNavigation": "Hoofdnavigatie",
     "labels": {
       "golfClub": "Clubleven",
       "blog": "Nieuws & Blog",

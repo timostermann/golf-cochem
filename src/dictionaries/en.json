@@ -6,8 +6,7 @@
     "perYear": "per year"
   },
   "nav": {
-    "open": "Open main navigation",
-    "close": "Close main navigation",
+    "mainNavigation": "Main Navigation",
     "labels": {
       "golfClub": "Clublife",
       "blog": "News & Blog",
