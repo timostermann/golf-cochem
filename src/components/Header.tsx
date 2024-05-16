@@ -46,6 +46,7 @@ export const Header = ({
   ...props
 }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [blockFocus, setBlockFocus] = useState(false);
   const t = useTranslations("nav");
   const router = useRouter();
 
@@ -71,7 +72,12 @@ export const Header = ({
       <nav className="hidden lg:flex">
         <ul className="flex gap-4 xl:gap-8">
           {items.map((item) => (
-            <li key={item.label} className="group relative flex items-center">
+            <li
+              key={item.label}
+              className="group relative flex items-center"
+              onFocus={() => setBlockFocus(!!item.subItems)}
+              onBlur={() => setBlockFocus(false)}
+            >
               {isActiveGroup(item, router) && (
                 <span className="absolute -bottom-5 h-0.5 w-full translate-y-px bg-primary-700" />
               )}
@@ -114,7 +120,13 @@ export const Header = ({
                 </button>
               )}
               {item.subItems && (
-                <ul className="invisible absolute left-0 top-full flex w-80 -translate-y-4 flex-col gap-2 rounded-lg border border-gray-100 bg-white py-4 opacity-0 shadow-md transition-[opacity,_transform] group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                <ul
+                  className={cn(
+                    "invisible absolute left-0 top-full flex w-80 -translate-y-4 flex-col gap-2 rounded-lg border border-gray-100 bg-white py-4 opacity-0 shadow-md transition-[opacity,_transform]",
+                    "group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100",
+                    { "group-[&:not(:focus-within)]:!invisible": blockFocus },
+                  )}
+                >
                   {item.subItems.map((subItem) => (
                     <li key={subItem.label}>
                       <Link
