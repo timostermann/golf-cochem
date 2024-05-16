@@ -9,6 +9,7 @@ import {
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { type NextRouter, useRouter } from "next/router";
+import Link from "next/link";
 import { Container, ContainerMargin } from "./Container";
 import { LanguageSwitch } from "./LanguageSwitch";
 
@@ -68,56 +69,68 @@ export const Header = ({
         className="inline-flex items-center gap-3 text-lg font-medium !leading-none text-gray-900"
         href={homeHref}
       >
-        <Image
-          src="/logo.png"
-          alt=""
-          aria-hidden
-          height="37"
-          width="30"
-          tabIndex={-1}
-        />
+        <Image src="/logo.png" alt="" aria-hidden height="37" width="30" />
         Golfclub
         <wbr /> Cochem/Mosel&nbsp;e.V.
       </a>
-      <nav className="hidden lg:flex lg:gap-4 xl:gap-8">
-        {items.map((item) => (
-          <div
-            key={item.label}
-            className="group relative flex items-center gap-2"
-          >
-            {isActiveGroup(item, router) && (
-              <span className="absolute -bottom-5 h-0.5 w-full translate-y-px bg-primary-700" />
-            )}
-            {item.href ? (
-              <a
-                href={item.href}
-                className={cn("underline-effect text-gray-600", {
-                  "text-primary-700": isActiveGroup(item, router),
-                })}
-              >
-                {t(item.label)}
-              </a>
-            ) : (
-              <p
-                className={cn("cursor-text text-gray-600", {
-                  "text-primary-700": isActiveGroup(item, router),
-                })}
-              >
-                {t(item.label)}
-              </p>
-            )}
-            {item.subItems && (
-              <>
-                <svg
-                  className={cn("h-5 w-5 text-gray-900", {
-                    "text-primary-700": isActiveGroup(item, router),
-                  })}
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
+      <nav className="hidden lg:flex">
+        <ul className="flex gap-4 xl:gap-8">
+          {items.map((item) => (
+            <li key={item.label} className="group relative flex items-center">
+              {isActiveGroup(item, router) && (
+                <span className="absolute -bottom-5 h-0.5 w-full translate-y-px bg-primary-700" />
+              )}
+              {item.href ? (
+                <Link
+                  href={item.href}
+                  className={cn(
+                    "flex h-fit items-center gap-2 text-gray-600 transition-colors hover:text-primary-500",
+                    {
+                      "text-primary-700": isActiveGroup(item, router),
+                    },
+                  )}
                 >
-                  <path d="M16.59 8.59L12 13.17L7.41 8.59L6 10L12 16L18 10L16.59 8.59Z" />
-                </svg>
+                  {t(item.label)}
+                  {item.subItems && (
+                    <svg
+                      className={cn("h-5 w-5 text-gray-900", {
+                        "text-primary-700": isActiveGroup(item, router),
+                      })}
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden
+                    >
+                      <path d="M16.59 8.59L12 13.17L7.41 8.59L6 10L12 16L18 10L16.59 8.59Z" />
+                    </svg>
+                  )}
+                </Link>
+              ) : (
+                <button
+                  className={cn(
+                    "flex h-fit cursor-text items-center gap-2 text-gray-600",
+                    {
+                      "text-primary-700": isActiveGroup(item, router),
+                    },
+                  )}
+                >
+                  {t(item.label)}
+                  {item.subItems && (
+                    <svg
+                      className={cn("h-5 w-5 text-gray-900", {
+                        "text-primary-700": isActiveGroup(item, router),
+                      })}
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden
+                    >
+                      <path d="M16.59 8.59L12 13.17L7.41 8.59L6 10L12 16L18 10L16.59 8.59Z" />
+                    </svg>
+                  )}
+                </button>
+              )}
+              {item.subItems && (
                 <ul className="invisible absolute left-0 top-full flex w-80 -translate-y-4 flex-col gap-2 rounded-lg border border-gray-100 bg-white py-4 opacity-0 shadow-md transition-[opacity,_transform] group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
                   {item.subItems.map((subItem) => (
                     <li key={subItem.label}>
@@ -149,10 +162,10 @@ export const Header = ({
                     </li>
                   ))}
                 </ul>
-              </>
-            )}
-          </div>
-        ))}
+              )}
+            </li>
+          ))}
+        </ul>
       </nav>
       <button
         title={t(isMenuOpen ? navAriaLabelClose : navAriaLabelOpen)}
