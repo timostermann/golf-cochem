@@ -14,7 +14,12 @@ export const Iframe = ({ youtubeId, src, title, className }: IframeProps) => {
     : src;
 
   return (
-    <div className={cn("relative aspect-video", className)}>
+    <div
+      className={cn(
+        "relative aspect-video overflow-hidden rounded-lg",
+        className,
+      )}
+    >
       <iframe
         src={url}
         title={`${youtubeId ? "Youtube Video " : ""}${title}`}
