@@ -9,6 +9,7 @@ import { BorderTeaserCard } from "@/components/BorderTeaserCard";
 import { Accordion } from "@/components/Accordion";
 import { PriceCard } from "@/components/PriceCard";
 import { Meta } from "@/components/Meta";
+import { Iframe } from "@/components/Iframe";
 
 const Dev: NextPage = () => {
   return (
@@ -186,6 +187,10 @@ const Dev: NextPage = () => {
             ]}
             icon={<EifelCourse />}
           />
+        </div>
+        <div className="flex flex-col gap-1">
+          <Iframe youtubeId="drNcVxsGVtA" title="Golfclub Cochem/Mosel e.V." />
+          <Iframe youtubeId="drNcVxsGVtA" className="max-w-96" />
         </div>
       </Container>
     </>
