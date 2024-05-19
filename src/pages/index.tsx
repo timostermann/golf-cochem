@@ -1,7 +1,7 @@
 import { type GetStaticProps, type NextPage } from "next";
 import Image from "next/image";
 import landscape from "~/public/images/landscape.png";
-import { Container } from "@/components/Container";
+import { Container, ContainerMargin } from "@/components/Container";
 import { StatusCard } from "@/components/StatusCard";
 import { Button, ButtonVariant } from "@/components/Button";
 import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
@@ -27,7 +27,7 @@ type HomeProps = {
 
 const Home: NextPage<HomeProps> = ({ statusCards }) => (
   <>
-    <Container className="relative">
+    <Container className="relative" aria-labelledby="hero">
       <Image
         src={landscape}
         aria-hidden
@@ -42,6 +42,7 @@ const Home: NextPage<HomeProps> = ({ statusCards }) => (
           tag={HeadlineTag.H1}
           variant={HeadlineVariant.HERO}
           className="mt-16 leading-none text-primary-800 sm:max-w-[500px] sm:text-center lg:mt-32 lg:max-w-[800px] lg:leading-[1.15]"
+          id="hero"
         >
           Willkommen im Golfclub
           <wbr /> Cochem/
@@ -88,8 +89,8 @@ const Home: NextPage<HomeProps> = ({ statusCards }) => (
         })}
       </ul>
     </Container>
-    <Container>
-      <div className="mb-32 grid items-center gap-16 lg:mb-48 lg:grid-cols-2">
+    <Container margin={ContainerMargin.XL} aria-labelledby="intro">
+      <div className="grid items-center gap-16 lg:grid-cols-2">
         <Iframe youtubeId="drNcVxsGVtA" title="Golfclub Cochem/Mosel e.V." />
         <div className="flex flex-col">
           <p className="mb-3 text-primary-700">Ein erster Eindruck</p>
@@ -97,6 +98,7 @@ const Home: NextPage<HomeProps> = ({ statusCards }) => (
             tag={HeadlineTag.H2}
             variant={HeadlineVariant.SECONDARY}
             className="mb-8"
+            id="intro"
           >
             Golfclub Cochem stellt sich vor
           </Headline>
@@ -110,9 +112,15 @@ const Home: NextPage<HomeProps> = ({ statusCards }) => (
           </p>
         </div>
       </div>
+    </Container>
+    <Container aria-labelledby="courses">
       <div className="grid items-center gap-16 lg:grid-cols-2">
         <div className="flex flex-col gap-6">
-          <Headline tag={HeadlineTag.H2} variant={HeadlineVariant.SECONDARY}>
+          <Headline
+            tag={HeadlineTag.H2}
+            variant={HeadlineVariant.SECONDARY}
+            id="courses"
+          >
             Unsere Anlage
           </Headline>
           <p className="text-gray-600">

@@ -12,6 +12,7 @@ export enum ContainerMargin {
   SM = "sm",
   MD = "md",
   LG = "lg",
+  XL = "xl",
   NONE = "none",
 }
 
@@ -42,6 +43,7 @@ export const Container = ({
         "mb-6 sm:mb-8 lg:mb-10": margin === ContainerMargin.SM,
         "mb-10 sm:mb-12 lg:mb-14": margin === ContainerMargin.MD,
         "mb-14 sm:mb-20 lg:mb-28": margin === ContainerMargin.LG,
+        "mb-24 sm:mb-28 lg:mb-40": margin === ContainerMargin.XL,
       })}
       {...props}
     >
