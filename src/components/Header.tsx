@@ -79,7 +79,7 @@ export const Header = ({
               onBlur={() => setBlockFocus(false)}
             >
               {isActiveGroup(item, router) && (
-                <span className="absolute -bottom-5 h-0.5 w-full translate-y-px bg-primary-700" />
+                <span className="absolute -bottom-[21px] h-0.5 w-full translate-y-px bg-primary-700" />
               )}
               {item.href ? (
                 <Link
