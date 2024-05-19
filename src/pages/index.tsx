@@ -1,11 +1,13 @@
 import { type GetStaticProps, type NextPage } from "next";
 import Image from "next/image";
+import landscape from "~/public/images/landscape.png";
 import { Container } from "@/components/Container";
 import { StatusCard } from "@/components/StatusCard";
 import { Button, ButtonVariant } from "@/components/Button";
 import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
 import { EifelCourse, Golf, MoselCourse, Soccer } from "@/icons";
-import landscape from "~/public/images/landscape.png";
+import { Iframe } from "@/components/Iframe";
+import { BorderTeaserCard } from "@/components/BorderTeaserCard";
 
 const Icons = {
   MoselCourse: MoselCourse,
@@ -23,8 +25,8 @@ type HomeProps = {
   }[];
 };
 
-const Home: NextPage<HomeProps> = ({ statusCards }) => {
-  return (
+const Home: NextPage<HomeProps> = ({ statusCards }) => (
+  <>
     <Container className="relative">
       <Image
         src={landscape}
@@ -86,8 +88,76 @@ const Home: NextPage<HomeProps> = ({ statusCards }) => {
         })}
       </ul>
     </Container>
-  );
-};
+    <Container>
+      <div className="mb-32 grid items-center gap-16 lg:mb-48 lg:grid-cols-2">
+        <Iframe youtubeId="drNcVxsGVtA" title="Golfclub Cochem/Mosel e.V." />
+        <div className="flex flex-col">
+          <p className="mb-3 text-primary-700">Ein erster Eindruck</p>
+          <Headline
+            tag={HeadlineTag.H2}
+            variant={HeadlineVariant.SECONDARY}
+            className="mb-8"
+          >
+            Golfclub Cochem stellt sich vor
+          </Headline>
+          <p className="text-gray-600">
+            Leidenschaft trifft auf Gastfreundschaft. Willkommen in unserem
+            Golfclub. Wir freuen uns, Euch ein guter Gastgeber sein zu dürfen.
+            <br />
+            <br />
+            Unbeschwert spielen, mit Freunden:innen plaudern und einfach den Tag
+            genießen.
+          </p>
+        </div>
+      </div>
+      <div className="grid items-center gap-16 lg:grid-cols-2">
+        <div className="flex flex-col gap-6">
+          <Headline tag={HeadlineTag.H2} variant={HeadlineVariant.SECONDARY}>
+            Unsere Anlage
+          </Headline>
+          <p className="text-gray-600">
+            Eine 27-Loch Anlage auf dem Moselplateau mit herrlichem Blick in die
+            Eifel und auf den Hunsrück.Golfen in einem Urlauberparadies.
+          </p>
+        </div>
+        <div />
+        <div className="flex flex-col gap-4">
+          <BorderTeaserCard
+            title="Mosel Course"
+            summary="Professioneller, naturnaher 18-Loch-Platz"
+            linkLabel="Mehr erfahren"
+            href=""
+          />
+          <BorderTeaserCard
+            title="Eifel Course"
+            summary="9-Loch Platz, der ohne DGV-Ausweis gespielt werden kann"
+            linkLabel="Mehr erfahren"
+            href=""
+          />
+          <BorderTeaserCard
+            title="Footgolf"
+            summary="Der Spaß für die gesamte Familie"
+            linkLabel="Mehr erfahren"
+            href=""
+          />
+          <BorderTeaserCard
+            title="Driving Range"
+            summary="Überdachte Abschlagboxen"
+            linkLabel="Mehr erfahren"
+            href=""
+          />
+        </div>
+        <Image
+          src={landscape}
+          aria-hidden
+          alt=""
+          quality={50}
+          className="h-full w-full rounded-xl"
+        />
+      </div>
+    </Container>
+  </>
+);
 
 export default Home;
 
