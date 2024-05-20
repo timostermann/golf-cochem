@@ -8,6 +8,10 @@ import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
 import { EifelCourse, Golf, MoselCourse, Soccer } from "@/icons";
 import { Iframe } from "@/components/Iframe";
 import { BorderTeaserCard } from "@/components/BorderTeaserCard";
+import {
+  ImageTeaserCard,
+  type TeaserContent,
+} from "@/components/ImageTeaserCard";
 
 const Icons = {
   MoselCourse: MoselCourse,
@@ -23,9 +27,10 @@ type HomeProps = {
     open: boolean;
     closedUntil?: string;
   }[];
+  newsArticles: TeaserContent[]; // TODO: Check if api type makes more sense once connected
 };
 
-const Home: NextPage<HomeProps> = ({ statusCards }) => (
+const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => (
   <>
     <Container className="relative" aria-labelledby="hero">
       <Image
@@ -164,6 +169,30 @@ const Home: NextPage<HomeProps> = ({ statusCards }) => (
         />
       </div>
     </Container>
+    <Container
+      aria-labelledby="news"
+      margin={ContainerMargin.NONE}
+      className="bg-gray-100 py-16 sm:py-24"
+    >
+      <div className="mb-8 flex w-full items-center justify-between sm:mb-4">
+        <Headline
+          tag={HeadlineTag.H2}
+          variant={HeadlineVariant.SECONDARY}
+          id="news"
+        >
+          News
+        </Headline>
+        <Button href="/blog">Alle News</Button>
+      </div>
+      <p className="text-gray-600">
+        Das Neueste aus dem Golfclub Cochem/Mosel e.V.
+      </p>
+      <div className="mt-12 grid grid-cols-1 gap-8 sm:mt-16 sm:grid-cols-2 xl:grid-cols-3">
+        {newsArticles.map((article) => (
+          <ImageTeaserCard key={article.title} {...article} />
+        ))}
+      </div>
+    </Container>
   </>
 );
 
@@ -193,6 +222,71 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
           icon: "Golf",
           title: "Driving Range",
           open: true,
+        },
+      ],
+      newsArticles: [
+        {
+          category: "Golfclub",
+          title: "Glücklich und zufrieden! - Kanada brachte neue Erkenntnisse",
+          summary:
+            "Bundestrainer zufrieden und mit einem klaren Plan für das Wintertraining.",
+          date: "2023-10-07T00:00:00Z",
+          image: {
+            src: "https://picsum.photos/800/400",
+            alt: "Golfclub",
+            width: 800,
+            height: 400,
+          },
+          href: "",
+          author: "Ulrike Rummel",
+          authorImage: {
+            src: "https://picsum.photos/100",
+            alt: "Ulrike Rummel",
+            width: 100,
+            height: 100,
+          },
+        },
+        {
+          category: "Golfplatz",
+          title: "Was ist Footgolf?",
+          summary:
+            "Die Trendsportart jetzt bei uns im Club. Komm noch heute vorbei uns probiere es aus.",
+          date: "2023-10-06T00:00:00Z",
+          image: {
+            src: "https://picsum.photos/800/400",
+            alt: "Golfplatz",
+            width: 800,
+            height: 400,
+          },
+          href: "",
+          author: "Manuela Eiden",
+          authorImage: {
+            src: "https://picsum.photos/100",
+            alt: "Manuela Eiden",
+            width: 100,
+            height: 100,
+          },
+        },
+        {
+          category: "Golfplatz",
+          title: "Was ist Footgolf?",
+          summary:
+            "Die Trendsportart jetzt bei uns im Club. Komm noch heute vorbei uns probiere es aus.",
+          date: "2023-10-06T00:00:00Z",
+          image: {
+            src: "https://picsum.photos/800/400",
+            alt: "Golfplatz",
+            width: 800,
+            height: 400,
+          },
+          href: "",
+          author: "Manuela Eiden",
+          authorImage: {
+            src: "https://picsum.photos/100",
+            alt: "Manuela Eiden",
+            width: 100,
+            height: 100,
+          },
         },
       ],
     },

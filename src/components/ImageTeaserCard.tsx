@@ -6,7 +6,7 @@ import { type ComponentPropsWithoutRef } from "react";
 import { useSanitizedId } from "@/lib/sanitizeString";
 import { Headline, HeadlineTag, HeadlineVariant } from "./Headline";
 
-type ImageTeaserCardProps = ComponentPropsWithoutRef<"article"> & {
+export type TeaserContent = {
   category?: string;
   title: string;
   summary: string;
@@ -27,6 +27,8 @@ type ImageTeaserCardProps = ComponentPropsWithoutRef<"article"> & {
   href?: string;
 };
 
+type ImageTeaserCardProps = ComponentPropsWithoutRef<"article"> & TeaserContent;
+
 export const ImageTeaserCard = ({
   category,
   title,
@@ -45,7 +47,7 @@ export const ImageTeaserCard = ({
   return (
     <article
       className={cn(
-        "group relative flex w-full max-w-[500px] flex-col gap-2 rounded-3xl border border-gray-200 pb-6 transition-colors duration-300 hover:border-primary-200",
+        "group relative flex w-full max-w-[500px] flex-col gap-2 rounded-3xl border border-gray-200 bg-white pb-6 shadow-md shadow-gray-200 transition-colors duration-300 hover:border-primary-200",
         className,
       )}
       {...props}
