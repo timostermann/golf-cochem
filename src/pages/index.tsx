@@ -119,7 +119,7 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => (
       </div>
     </Container>
     <Container aria-labelledby="courses">
-      <div className="grid items-center gap-16 lg:grid-cols-2">
+      <div className="grid items-center gap-4 lg:grid-cols-2 lg:gap-16">
         <div className="flex flex-col gap-6">
           <Headline
             tag={HeadlineTag.H2}
@@ -165,7 +165,7 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => (
           aria-hidden
           alt=""
           quality={50}
-          className="h-full w-full rounded-xl"
+          className="mt-12 size-full rounded-xl lg:mt-0"
         />
       </div>
     </Container>

@@ -19,7 +19,7 @@ export const StatusCard = ({
 
   return (
     <div
-      className="flex size-40 flex-col items-center rounded-2xl bg-primary-100 p-5 text-primary-800 shadow-md lg:size-60 lg:p-8"
+      className="flex min-h-40 w-40 flex-col items-center rounded-2xl bg-primary-100 p-5 text-primary-800 shadow-md lg:size-60 lg:p-8"
       {...props}
     >
       <span className="size-12 lg:size-16">{icon}</span>
