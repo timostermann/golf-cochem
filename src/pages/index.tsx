@@ -1,6 +1,11 @@
 import { type GetStaticProps, type NextPage } from "next";
 import Image from "next/image";
 import landscape from "~/public/images/landscape.png";
+import newel from "~/public/images/newel.png";
+import vr from "~/public/images/vr.png";
+import hannus from "~/public/images/hannus.png";
+import pinger from "~/public/images/pinger.png";
+import villa from "~/public/images/villa.png";
 import { Container, ContainerMargin } from "@/components/Container";
 import { StatusCard } from "@/components/StatusCard";
 import { Button, ButtonVariant } from "@/components/Button";
@@ -192,6 +197,37 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => (
           <ImageTeaserCard key={article.title} {...article} />
         ))}
       </div>
+    </Container>
+    <Container
+      aria-labelledby="partner"
+      margin={ContainerMargin.NONE}
+      className="bg-primary-100 py-16 sm:py-24"
+    >
+      <Headline
+        tag={HeadlineTag.H2}
+        variant={HeadlineVariant.QUINARY}
+        id="partner"
+        className="w-full text-center text-primary-700"
+      >
+        Unsere Golfpartner
+      </Headline>
+      <ul className="mt-10 flex flex-wrap justify-center gap-x-16 gap-y-6">
+        <li>
+          <Image src={newel} alt="Newel Eifel Mosel Hunsrück" />
+        </li>
+        <li>
+          <Image src={vr} alt="VR Bank Rhein-Mosel eG" />
+        </li>
+        <li>
+          <Image src={hannus} alt="Hannus Elektrotechnik" />
+        </li>
+        <li>
+          <Image src={pinger} alt="Pinger Robotic" />
+        </li>
+        <li>
+          <Image src={villa} alt="Hotel Villa Vie Cochem" />
+        </li>
+      </ul>
     </Container>
   </>
 );
