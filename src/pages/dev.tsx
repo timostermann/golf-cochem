@@ -4,6 +4,7 @@ import { Container } from "@/components/Container";
 import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
 import { StatusCard } from "@/components/StatusCard";
 import { Address, Blog, EifelCourse, Golf, MoselCourse } from "@/icons";
+import * as icons from "@/icons";
 import { ImageTeaserCard } from "@/components/ImageTeaserCard";
 import { BorderTeaserCard } from "@/components/BorderTeaserCard";
 import { Accordion } from "@/components/Accordion";
@@ -43,6 +44,15 @@ const Dev: NextPage = () => {
         <div className="flex gap-4">
           <Button>Primary Button</Button>
           <Button variant={ButtonVariant.SECONDARY}>Secondary Button</Button>
+        </div>
+        <div className="flex flex-wrap gap-8">
+          {Object.entries(icons).map(([name, Icon]) => (
+            <Icon
+              key={name}
+              title={name}
+              className="size-10 text-primary-700"
+            />
+          ))}
         </div>
         <div className="flex gap-4">
           <StatusCard open icon={<Address />}>
@@ -140,17 +150,6 @@ const Dev: NextPage = () => {
             href=""
           />
         </div>
-        <div className="flex flex-col gap-2">
-          <Accordion summary="Welche Ausrüstung ist erlaubt?">
-            Lörem ipsum krovoskap bånade samt por dijypp: i digen sogt. Ivose or
-            mijyras i dosk bedavis i ysade av faras fåska, vana. Lasagisk bebän
-            dösuren suprafår, trere men låteren men bev. Oren egosesassa i
-            gigatt om anangen. Miv krovartad. Niment resat: nönör tesenat.{" "}
-          </Accordion>
-          <Accordion summary="Wer kann Footgolf spielen?">
-            Lorem ipsum
-          </Accordion>
-        </div>
         <div className="grid grid-cols-1 items-start gap-4 sm:grid-cols-2 xl:grid-cols-3">
           <PriceCard
             price="595 €"
@@ -187,6 +186,17 @@ const Dev: NextPage = () => {
             ]}
             icon={<EifelCourse />}
           />
+        </div>
+        <div className="flex flex-col gap-2">
+          <Accordion summary="Welche Ausrüstung ist erlaubt?">
+            Lörem ipsum krovoskap bånade samt por dijypp: i digen sogt. Ivose or
+            mijyras i dosk bedavis i ysade av faras fåska, vana. Lasagisk bebän
+            dösuren suprafår, trere men låteren men bev. Oren egosesassa i
+            gigatt om anangen. Miv krovartad. Niment resat: nönör tesenat.{" "}
+          </Accordion>
+          <Accordion summary="Wer kann Footgolf spielen?">
+            Lorem ipsum
+          </Accordion>
         </div>
         <div className="flex flex-col gap-1">
           <Iframe youtubeId="drNcVxsGVtA" title="Golfclub Cochem/Mosel e.V." />
