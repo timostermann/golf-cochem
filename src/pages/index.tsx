@@ -211,7 +211,7 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => (
       >
         Unsere Golfpartner
       </Headline>
-      <ul className="mt-10 flex flex-wrap justify-center gap-x-16 gap-y-6">
+      <ul className="mt-10 flex flex-wrap justify-center gap-x-16 gap-y-6 xl:gap-x-24">
         <li>
           <Image src={newel} alt="Newel Eifel Mosel Hunsrück" />
         </li>
