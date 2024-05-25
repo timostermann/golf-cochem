@@ -10,13 +10,22 @@ import { Container, ContainerMargin } from "@/components/Container";
 import { StatusCard } from "@/components/StatusCard";
 import { Button, ButtonVariant } from "@/components/Button";
 import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
-import { EifelCourse, Golf, MoselCourse, Soccer } from "@/icons";
+import {
+  Costs,
+  EifelCourse,
+  Golf,
+  Holiday,
+  MoselCourse,
+  Soccer,
+} from "@/icons";
 import { Iframe } from "@/components/Iframe";
 import { BorderTeaserCard } from "@/components/BorderTeaserCard";
 import {
   ImageTeaserCard,
   type TeaserContent,
 } from "@/components/ImageTeaserCard";
+import { InfoCard } from "@/components/InfoCard";
+import { ArrowLink } from "@/components/ArrowLink";
 
 const Icons = {
   MoselCourse: MoselCourse,
@@ -112,7 +121,7 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => (
           >
             Golfclub Cochem stellt sich vor
           </Headline>
-          <p className="text-gray-600">
+          <p className="text-gray-500">
             Leidenschaft trifft auf Gastfreundschaft. Willkommen in unserem
             Golfclub. Wir freuen uns, Euch ein guter Gastgeber sein zu dürfen.
             <br />
@@ -133,7 +142,7 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => (
           >
             Unsere Anlage
           </Headline>
-          <p className="text-gray-600">
+          <p className="text-gray-500">
             Eine 27-Loch Anlage auf dem Moselplateau mit herrlichem Blick in die
             Eifel und auf den Hunsrück.Golfen in einem Urlauberparadies.
           </p>
@@ -189,7 +198,7 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => (
         </Headline>
         <Button href="/blog">Alle News</Button>
       </div>
-      <p className="text-gray-600">
+      <p className="text-gray-500">
         Das Neueste aus dem Golfclub Cochem/Mosel e.V.
       </p>
       <div className="mt-12 grid grid-cols-1 gap-8 sm:mt-16 sm:grid-cols-2 xl:grid-cols-3">
@@ -228,6 +237,54 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => (
           <Image src={villa} alt="Hotel Villa Vie Cochem" />
         </li>
       </ul>
+    </Container>
+    <Container
+      aria-labelledby="mitglied"
+      margin={ContainerMargin.NONE}
+      className="py-16 sm:py-24"
+      innerClassName="grid grid-cols-1 gap-8 lg:grid-cols-2"
+    >
+      <div className="flex flex-col">
+        <Headline
+          tag={HeadlineTag.H2}
+          variant={HeadlineVariant.SECONDARY}
+          id="mitglied"
+        >
+          Jetzt Mitglied werden
+        </Headline>
+        <p className="mt-6 text-gray-500 lg:mb-12">
+          Lörem ipsum exoligen misk av karade neng makror alltså trengen kabelt
+          att tresigt. Suprasm familogi. <br />
+          <br />
+          Rygisk antinid: ben. Domibelt kroll kongen plaska, digerad i pade
+          predor.
+        </p>
+        <Button href="/mitgliedschaft" className="max-lg:hidden">
+          Alles über die Mitgliedschaft
+        </Button>
+      </div>
+      <div className="flex flex-col gap-8 md:max-lg:flex-row">
+        <InfoCard icon={<Costs />} title="Greenfeefrei spielen">
+          <p className="mb-6">
+            Als Mitglied erfreuen Sie sich einfach an einem erfolgreichen
+            Netzwerk, und spielen Golf greenfeefrei oder rabattiert auf einem
+            der 62 Partneranlagen.
+          </p>
+          <ArrowLink href="#">Aktuelle Greenfees und Partner</ArrowLink>
+        </InfoCard>
+        <InfoCard icon={<Holiday />} title="Urlaubsplanung leicht gemacht">
+          <p>
+            Auf dem Weg zum Urlaubsort locken manche Golfplätze.Anhalten,
+            spielen und genießen, ohne Zusatzkosten.
+            <br />
+            <br />
+            Wie geht das? Wir informieren Sie umfassend. Kontaktieren Sie uns.
+          </p>
+        </InfoCard>
+      </div>
+      <Button href="/mitgliedschaft" className="lg:hidden">
+        Alles über die Mitgliedschaft
+      </Button>
     </Container>
   </>
 );

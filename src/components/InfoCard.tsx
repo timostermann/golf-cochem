@@ -16,7 +16,7 @@ export const InfoCard = ({
 }: InfoCardProps) => (
   <article
     className={cn(
-      "flex w-full flex-col rounded-lg bg-primary-100 p-4 text-primary-600 shadow-lg shadow-gray-100 md:p-6",
+      "flex w-full flex-col rounded-lg bg-primary-100 p-4 text-primary-600 md:p-6",
       className,
     )}
     {...props}
