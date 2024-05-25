@@ -3,7 +3,15 @@ import { Button, ButtonVariant } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
 import { StatusCard } from "@/components/StatusCard";
-import { Address, Blog, EifelCourse, Golf, MoselCourse } from "@/icons";
+import {
+  Address,
+  Blog,
+  Costs,
+  EifelCourse,
+  Golf,
+  MoselCourse,
+  Trainer,
+} from "@/icons";
 import * as icons from "@/icons";
 import { ImageTeaserCard } from "@/components/ImageTeaserCard";
 import { BorderTeaserCard } from "@/components/BorderTeaserCard";
@@ -11,6 +19,8 @@ import { Accordion } from "@/components/Accordion";
 import { PriceCard } from "@/components/PriceCard";
 import { Meta } from "@/components/Meta";
 import { Iframe } from "@/components/Iframe";
+import { InfoCard } from "@/components/InfoCard";
+import { ArrowLink } from "@/components/ArrowLink";
 
 const Dev: NextPage = () => {
   return (
@@ -186,6 +196,30 @@ const Dev: NextPage = () => {
             ]}
             icon={<EifelCourse />}
           />
+        </div>
+        <div className="flex flex-wrap items-start gap-4">
+          <InfoCard
+            className="max-w-[480px]"
+            icon={<Costs />}
+            title="Greenfeefrei spielen"
+          >
+            <p className="mb-6">
+              Als Mitglied erfreuen Sie sich einfach an einem erfolgreichen
+              Netzwerk, und spielen Golf greenfeefrei oder rabattiert auf einem
+              der 62 Partneranlagen.
+            </p>
+            <ArrowLink href="#">Aktuelle Greenfees und Partner</ArrowLink>
+          </InfoCard>
+          <InfoCard
+            className="max-w-[200px]"
+            icon={<Trainer />}
+            title="Trainerstunden"
+          >
+            <ul className="list-disc pl-8">
+              <li>55 min 70,00 €</li>
+              <li>25 min 40,00 €</li>
+            </ul>
+          </InfoCard>
         </div>
         <div className="flex flex-col gap-2">
           <Accordion summary="Welche Ausrüstung ist erlaubt?">
