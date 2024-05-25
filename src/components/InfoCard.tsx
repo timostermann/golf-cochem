@@ -21,9 +21,6 @@ export const InfoCard = ({
     )}
     {...props}
   >
-    <span className="mb-6 flex size-12 items-center justify-center rounded-lg bg-primary-700 text-white md:mb-8">
-      <span className="size-6">{icon}</span>
-    </span>
     <Headline
       tag={HeadlineTag.H3}
       variant={HeadlineVariant.QUINARY}
@@ -31,6 +28,9 @@ export const InfoCard = ({
     >
       {title}
     </Headline>
+    <span className="-order-1 mb-6 flex size-12 items-center justify-center rounded-lg bg-primary-700 text-white md:mb-8">
+      <span className="size-6">{icon}</span>
+    </span>
     {children}
   </article>
 );

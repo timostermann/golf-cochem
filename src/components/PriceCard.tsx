@@ -30,11 +30,6 @@ export const PriceCard = ({
       )}
       {...props}
     >
-      {icon && (
-        <span className="mb-5 flex size-14 items-center justify-center rounded-xl bg-primary-100 text-primary-500">
-          <span className="size-8">{icon}</span>
-        </span>
-      )}
       <Headline
         tag={HeadlineTag.H3}
         variant={HeadlineVariant.QUINARY}
@@ -42,6 +37,11 @@ export const PriceCard = ({
       >
         {title}
       </Headline>
+      {icon && (
+        <span className="-order-1 mb-5 flex size-14 items-center justify-center rounded-xl bg-primary-100 text-primary-500">
+          <span className="size-8">{icon}</span>
+        </span>
+      )}
       <Headline
         tag={HeadlineTag.P}
         variant={HeadlineVariant.PRIMARY}
