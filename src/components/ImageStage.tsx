@@ -38,8 +38,8 @@ export const ImageStage = ({
         {children}
       </div>
       <div className="relative overflow-hidden max-lg:max-h-96 lg:basis-1/2">
-        <Image src={src} alt={alt} className={imageClassName} />
-        <span className="absolute top-0 h-full w-[150px] -translate-x-1/2 -skew-x-12 bg-white max-lg:hidden" />
+        <Image src={src} alt={alt} className={imageClassName} loading="eager" />
+        <span className="absolute top-0 h-full w-2/5 -translate-x-1/2 -skew-x-12 bg-white max-lg:hidden" />
       </div>
     </Container>
   );

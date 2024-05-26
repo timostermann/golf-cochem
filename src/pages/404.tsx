@@ -1,13 +1,19 @@
 import { type NextPage } from "next";
-import { Container } from "@/components/Container";
+import put from "~/public/images/put.jpg";
+import { ImageStage } from "@/components/ImageStage";
+import { Button } from "@/components/Button";
 
 const NotFound: NextPage = () => {
   return (
-    <>
-      <Container innerClassName="flex flex-col gap-16 py-12 min-h-[calc(100vh-40rem)]">
-        Not found
-      </Container>
-    </>
+    <ImageStage src={put} alt="" title="Seite nicht gefunden">
+      <p className="text-lg text-gray-500">
+        Leider konnten wir die Seite nicht finden. Bitte überprüfen Sie die URL
+        oder kehren Sie zur Startseite zurück.
+      </p>
+      <Button href="/" className="mt-8">
+        Zur Startseite
+      </Button>
+    </ImageStage>
   );
 };
 
