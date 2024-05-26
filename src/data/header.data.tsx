@@ -72,7 +72,7 @@ export const headerData: HeaderProps = {
         },
         {
           label: "labels.drivingRange",
-          href: "/driving-range",
+          href: "/golfplatz/driving-range",
           description: "descriptions.drivingRange",
           icon: <Golf />,
         },
