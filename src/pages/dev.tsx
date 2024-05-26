@@ -1,4 +1,5 @@
 import { type NextPage } from "next";
+import landscape from "~/public/images/landscape.png";
 import { Button, ButtonVariant } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
@@ -21,6 +22,7 @@ import { Meta } from "@/components/Meta";
 import { Iframe } from "@/components/Iframe";
 import { InfoCard } from "@/components/InfoCard";
 import { ArrowLink } from "@/components/ArrowLink";
+import { ImageStage } from "@/components/ImageStage";
 
 const Dev: NextPage = () => {
   return (
@@ -237,6 +239,25 @@ const Dev: NextPage = () => {
           <Iframe youtubeId="drNcVxsGVtA" className="max-w-96" />
         </div>
       </Container>
+      <ImageStage
+        src={landscape}
+        alt=""
+        title="Jugend spielt Golf"
+        imageClassName="object-bottom"
+      >
+        <p className="text-pretty text-lg text-gray-500">
+          Jugendarbeit in unserem Golfclub bedeutet, die Zukunft des Clubs zu
+          sichern und den Golfsport in seinen breiten- und leistungssportlichen
+          Kompetenzen zu fördern.
+          <br />
+          <br />
+          Unter diesem Motto bietet der Golfclub Cochem/Mosel e.V. verschiedene
+          Trainingsinhalte und Trainingszeiten an. In alters- und
+          leistungsgerechte Gruppen aufgeteilt, erhalten zurzeit viele
+          Jugendliche Golfunterricht.
+        </p>
+        <Button className="mt-8">Mehr erfahren</Button>
+      </ImageStage>
     </>
   );
 };

@@ -37,7 +37,8 @@ export const Headline = ({
       className={cn(
         "cursor-text",
         {
-          "text-4xl font-bold lg:text-6xl": variant === HeadlineVariant.HERO,
+          "text-4xl font-bold lg:text-5xl xl:text-6xl":
+            variant === HeadlineVariant.HERO,
           "text-4xl font-bold lg:text-5xl": variant === HeadlineVariant.PRIMARY,
           "text-3xl font-semibold lg:text-4xl":
             variant === HeadlineVariant.SECONDARY,
