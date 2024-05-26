@@ -6,6 +6,11 @@ import vr from "~/public/images/vr.png";
 import hannus from "~/public/images/hannus.png";
 import pinger from "~/public/images/pinger.png";
 import villa from "~/public/images/villa.png";
+import felix from "~/public/images/felix-gruenhaeuser.webp";
+import jannik from "~/public/images/jannik-oster.webp";
+import manuela from "~/public/images/manuela-eiden.webp";
+import reimund from "~/public/images/reimund-widmayer.jpeg";
+import ulrike from "~/public/images/ulrike-rummel.webp";
 import { Container, ContainerMargin } from "@/components/Container";
 import { StatusCard } from "@/components/StatusCard";
 import { Button, ButtonVariant } from "@/components/Button";
@@ -49,27 +54,27 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
     {
       name: "Jannik Oster",
       role: "Club Manager",
-      image: landscape,
+      image: jannik,
     },
     {
       name: "Ulrike Rummel",
       role: "Sekretariat",
-      image: landscape,
+      image: ulrike,
     },
     {
       name: "Manuela Eiden",
       role: "Sekretariat",
-      image: landscape,
+      image: manuela,
     },
     {
       name: "Reimund Widmayer",
       role: "Sekretariat",
-      image: landscape,
+      image: reimund,
     },
     {
       name: "Felix Grünhäuser",
       role: "Marshall & in Ausbildung zum PGA Professionell",
-      image: landscape,
+      image: felix,
     },
   ];
 
@@ -348,7 +353,7 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
               <Image
                 src={member.image}
                 alt=""
-                className="-order-1 h-72 object-cover"
+                className="-order-1 h-72 w-full object-cover"
               />
               <p className="font-light text-primary-600">{member.role}</p>
             </li>
