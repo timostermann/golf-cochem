@@ -1,6 +1,8 @@
 import { type GetStaticProps, type NextPage } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import landscape from "~/public/images/landscape.png";
+import map from "~/public/images/map.jpg";
 import newel from "~/public/images/partners/newel.png";
 import vr from "~/public/images/partners/vr.png";
 import hannus from "~/public/images/partners/hannus.png";
@@ -16,8 +18,11 @@ import { StatusCard } from "@/components/StatusCard";
 import { Button, ButtonVariant } from "@/components/Button";
 import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
 import {
+  Address,
+  Contact,
   Costs,
   EifelCourse,
+  Email,
   Golf,
   Holiday,
   MoselCourse,
@@ -75,6 +80,36 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
       name: "Felix Grünhäuser",
       role: "Marshall & in Ausbildung zum PGA Professionell",
       image: felix,
+    },
+  ];
+
+  const contactInfo = [
+    {
+      icon: Email,
+      title: "E-Mail",
+      description: "Schreib uns",
+      href: "mailto:sekretariat@golfcochem.eu",
+      label: "sekretariat@golfcochem.eu",
+    },
+    {
+      icon: Address,
+      title: "Adresse",
+      description: "Komm vorbei",
+      href: "https://www.openstreetmap.org/?mlat=50.11870&mlon=7.16655#map=17/50.11870/7.16655",
+      target: "_blank",
+      label: (
+        <span className="flex flex-col">
+          <span>Am Kellerborn 2</span>
+          <span>56814 Ediger-Eller</span>
+        </span>
+      ),
+    },
+    {
+      icon: Contact,
+      title: "Telefon",
+      description: "Täglich von 09:00 bis 17:00 Uhr",
+      href: "tel:+492675911511",
+      label: "+49 (0) 2675 911 511",
     },
   ];
 
@@ -359,6 +394,55 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
             </li>
           ))}
         </ul>
+      </Container>
+      <Container
+        aria-labelledby="contact"
+        margin={ContainerMargin.SM}
+        className="py-16 sm:py-24"
+        innerClassName="flex flex-col gap-12 lg:gap-16"
+      >
+        <div className="flex flex-col gap-6">
+          <Headline
+            tag={HeadlineTag.H2}
+            variant={HeadlineVariant.SECONDARY}
+            id="contact"
+          >
+            Fragen?
+          </Headline>
+          <p className="text-gray-500">Wir helfen dir gerne weiter</p>
+        </div>
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr,2fr] lg:gap-6">
+          <ul className="flex flex-col gap-10 md:gap-2 md:max-lg:flex-row md:max-lg:flex-wrap md:max-lg:justify-between lg:gap-10 xl:gap-16">
+            {contactInfo.map((contact) => (
+              <li key={contact.title} className="flex gap-4">
+                <contact.icon className="mt-px size-6 text-primary-700" />
+                <div className="flex flex-col gap-1">
+                  <Headline
+                    tag={HeadlineTag.H3}
+                    variant={HeadlineVariant.QUINARY}
+                    className="text-primary-800"
+                  >
+                    {contact.title}
+                  </Headline>
+                  <p className="mb-1 text-gray-500 lg:mb-4">
+                    {contact.description}
+                  </p>
+                  <Link
+                    href={contact.href}
+                    target={contact.target}
+                    className="underline-effect w-fit text-primary-700"
+                  >
+                    {contact.label}
+                  </Link>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <Image
+            src={map}
+            alt="Ausschnitt einer Straßenkarte zur Darstellung der Lage des Golfclubs"
+          />
+        </div>
       </Container>
     </>
   );
