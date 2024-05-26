@@ -13,13 +13,17 @@ export const StatusCard = ({
   closedUntil,
   icon,
   children,
+  className,
   ...props
 }: StatusCardProps) => {
   const t = useTranslations("global");
 
   return (
     <div
-      className="flex min-h-40 w-40 flex-col items-center rounded-2xl bg-primary-100 p-5 text-primary-800 shadow-md lg:size-60 lg:p-8"
+      className={cn(
+        "flex min-h-40 w-48 flex-col items-center rounded-2xl bg-primary-100 px-3 py-5 text-primary-800 shadow-md lg:size-60 lg:p-8",
+        className,
+      )}
       {...props}
     >
       <span className="size-12 lg:size-16">{icon}</span>
