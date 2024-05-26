@@ -2,9 +2,11 @@ import { type NextPage } from "next";
 import put from "~/public/images/put.jpg";
 import { ImageStage } from "@/components/ImageStage";
 import { Button } from "@/components/Button";
+import { Meta } from "@/components/Meta";
 
-const NotFound: NextPage = () => {
-  return (
+const NotFound: NextPage = () => (
+  <>
+    <Meta title="Seite nicht gefunden" description="" />
     <ImageStage src={put} alt="" title="Seite nicht gefunden">
       <p className="text-lg text-gray-500">
         Leider konnten wir die Seite nicht finden. Bitte überprüfen Sie die URL
@@ -14,7 +16,7 @@ const NotFound: NextPage = () => {
         Zur Startseite
       </Button>
     </ImageStage>
-  );
-};
+  </>
+);
 
 export default NotFound;

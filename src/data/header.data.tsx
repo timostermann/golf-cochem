@@ -78,7 +78,7 @@ export const headerData: HeaderProps = {
         },
         {
           label: "labels.fieldInformation",
-          href: "/platzinformationen",
+          href: "/golfplatz/platzinformationen",
           description: "descriptions.fieldInformation",
           icon: <Greenkeeper />,
         },
