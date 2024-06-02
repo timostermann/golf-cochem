@@ -1,5 +1,7 @@
 import { type NextPage } from "next";
+import Image from "next/image";
 import jugend from "~/public/images/jugend-spielt-golf.webp";
+import range from "~/public/images/jugend-driving-range.webp";
 import { ImageStage } from "@/components/ImageStage";
 import { Meta } from "@/components/Meta";
 import { Container, ContainerMargin } from "@/components/Container";
@@ -77,6 +79,33 @@ const Jugend: NextPage = () => (
           </Headline>
           <p className="text-primary-700">Driving Range</p>
         </div>
+      </div>
+    </Container>
+    <Container aria-labelledby="camps">
+      <Headline
+        tag={HeadlineTag.H2}
+        variant={HeadlineVariant.SECONDARY}
+        id="camps"
+      >
+        Golf Camps
+      </Headline>
+      <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
+        <p className="text-lg text-gray-500">
+          Ferienzeit ist Sportzeit, nicht nur, aber für ein „Campleben“ mit
+          Gleichgesinnten und den tollen Golfmöglichkeiten brauchen die Kinder
+          nicht lange zu überlegen. Inzwischen schon fast Tradition, dass der
+          Golfclub Cochem/Mosel e.V. diese beliebten Camps ausrichtet. Die
+          Kinder freuen sich jetzt schon darauf.
+          <br />
+          <br />
+          Sport, Spiel und Geselligkeit, es ist so einfach Kinderaugen zum
+          Leuchten zu brigen.
+        </p>
+        <Image
+          src={range}
+          alt="Jugendlicher Golfspieler mit Trainer an der Driving Range"
+          className="aspect-[5/3] object-cover"
+        />
       </div>
     </Container>
   </>
