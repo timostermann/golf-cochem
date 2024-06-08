@@ -7,6 +7,7 @@ import type { ButtonType } from "@/lib/types";
 export enum ButtonVariant {
   PRIMARY = "primary",
   SECONDARY = "secondary",
+  TERTIARY = "tertiary",
 }
 
 export type ButtonBaseProps = {
@@ -38,6 +39,8 @@ export const Button = ({
         variant === ButtonVariant.PRIMARY,
       "bg-gray-50 hover:bg-gray-200 text-gray-800":
         variant === ButtonVariant.SECONDARY,
+      "bg-white border border-gray-300 hover:bg-primary-50 text-gray-800":
+        variant === ButtonVariant.TERTIARY,
     },
     className,
   );

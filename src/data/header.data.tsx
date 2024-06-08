@@ -93,37 +93,37 @@ export const headerData: HeaderProps = {
       subItems: [
         {
           label: "labels.trainer",
-          href: "/trainer",
+          href: "/golfkurse/trainer",
           description: "descriptions.trainer",
           icon: <Trainer />,
         },
         {
           label: "labels.license",
-          href: "/dgv-platzreife",
+          href: "/golfkurse/dgv-platzreife",
           description: "descriptions.license",
           icon: <Certificate />,
         },
         {
           label: "labels.tasterCourse",
-          href: "/schnupperkurse",
+          href: "/golfkurse/schnupperkurse",
           description: "descriptions.tasterCourse",
           icon: <GolfBag />,
         },
         {
           label: "labels.parentalTraining",
-          href: "/elterntraining",
+          href: "/golfkurse/elterntraining",
           description: "descriptions.parentalTraining",
           icon: <ParentTraining />,
         },
         {
           label: "labels.groupTraining",
-          href: "/gruppentraining",
+          href: "/golfkurse/gruppentraining",
           description: "descriptions.groupTraining",
           icon: <Group />,
         },
         {
           label: "labels.bundeswehr",
-          href: "/bundeswehr",
+          href: "/golfkurse/bundeswehr",
           description: "descriptions.bundeswehr",
           icon: <Star />,
         },
