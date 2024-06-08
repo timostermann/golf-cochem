@@ -1,8 +1,14 @@
 import { type NextPage } from "next";
+import Image from "next/image";
 import { Meta } from "@/components/Meta";
 import { Container, ContainerMargin } from "@/components/Container";
 import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
 import { Button, ButtonVariant } from "@/components/Button";
+import felix from "~/public/images/team/felix-gruenhaeuser.webp";
+import jannik from "~/public/images/team/jannik-oster.webp";
+import wolf from "~/public/images/team/wolf-dieter-gotschlich.webp";
+import { InfoCard } from "@/components/InfoCard";
+import { Trainer as TrainerIcon, Contact } from "@/icons";
 
 const Trainer: NextPage = () => (
   <>
@@ -62,6 +68,143 @@ const Trainer: NextPage = () => (
         >
           Platzreifekurs
         </Button>
+      </div>
+    </Container>
+    <Container aria-labelledby="gotschlich" className="mt-16">
+      <Headline
+        tag={HeadlineTag.H2}
+        variant={HeadlineVariant.TERTIARY}
+        id="gotschlich"
+      >
+        Wolf-Dieter Gotschlich
+      </Headline>
+      <p className="my-8 text-gray-500">
+        Fully Qualified Professional PGA Ausbilder
+        <br />
+        <span className="font-bold">Jeden Dienstag</span> auf unserer Anlage
+      </p>
+      <div className="gap-4 max-sm:flex max-sm:flex-col sm:grid sm:grid-cols-[300px_1fr]">
+        <Image
+          src={wolf}
+          alt=""
+          className="rounded-lg object-cover max-sm:h-[200px] max-sm:w-full sm:max-h-[240px]"
+        />
+        <ul className="gap-4 max-sm:flex max-sm:flex-col sm:grid sm:grid-cols-[repeat(auto-fill,max(40%,15rem))]">
+          <li className="h-full">
+            <InfoCard
+              icon={<TrainerIcon />}
+              title="Trainerstunden"
+              className="h-full"
+            >
+              <ul className="list-disc pl-8 text-primary-500">
+                <li>55 min 70,00 €</li>
+                <li>25 min 40,00 €</li>
+              </ul>
+            </InfoCard>
+          </li>
+          <li className="h-full">
+            <InfoCard icon={<Contact />} title="Kontakt" className="h-full">
+              <ul className="text-primary-500">
+                <li>wdg.golf@t-online.de</li>
+                <li>0171 6972424</li>
+              </ul>
+            </InfoCard>
+          </li>
+        </ul>
+      </div>
+    </Container>
+    <Container aria-labelledby="oster" className="mt-16">
+      <Headline
+        tag={HeadlineTag.H2}
+        variant={HeadlineVariant.TERTIARY}
+        id="oster"
+      >
+        Jannik Oster
+      </Headline>
+      <p className="my-8 text-gray-500">
+        Lizensierter DOSB C-Trainer Golf Breitensport
+        <br />
+        Dein Ansprechpartner für Platzreifekurse und Gruppentraining.
+        Verantwortlicher Trainer für den Bambini- & Jugendbereich
+      </p>
+      <div className="gap-4 max-sm:flex max-sm:flex-col sm:grid sm:grid-cols-[300px_1fr]">
+        <Image
+          src={jannik}
+          alt=""
+          className="rounded-lg object-cover max-sm:h-[200px] max-sm:w-full sm:max-h-[240px]"
+        />
+        <ul className="gap-4 max-sm:flex max-sm:flex-col sm:grid sm:grid-cols-[repeat(auto-fill,max(40%,15rem))]">
+          <li className="h-full">
+            <InfoCard
+              icon={<TrainerIcon />}
+              title="Club Manager"
+              className="h-full"
+            >
+              <p className="text-primary-500">Leitung Clubsekretariat</p>
+            </InfoCard>
+          </li>
+          <li className="h-full">
+            <InfoCard icon={<Contact />} title="Kontakt" className="h-full">
+              <p className="text-primary-500">sekretariat@golfcochem.de</p>
+            </InfoCard>
+          </li>
+        </ul>
+      </div>
+    </Container>
+    <Container aria-labelledby="grunhauser" className="mt-16">
+      <Headline
+        tag={HeadlineTag.H2}
+        variant={HeadlineVariant.TERTIARY}
+        id="grunhauser"
+      >
+        Felix Grünhäuser
+      </Headline>
+      <p className="my-8 text-gray-500">
+        PGA-Assistant
+        <br />
+        In Ausbildung zum PGA Professional Lizensierter DOSB C-Trainer Golf
+        Breitensport
+        <br />
+        <br />
+        <span className="font-bold">
+          Trainingszeiten:
+          <br />
+          Dienstag, Donnerstag,Freitag ab 13:00 Uhr
+          <br />
+          Samstag & Sonntag bis 13:00 Uhr
+          <br />
+        </span>
+      </p>
+      <div className="gap-4 max-sm:flex max-sm:flex-col sm:grid sm:grid-cols-[300px_1fr]">
+        <Image
+          src={felix}
+          alt=""
+          className="rounded-lg object-cover object-[50%_20%] max-sm:h-[200px] max-sm:w-full sm:max-h-[300px]"
+        />
+        <ul className="gap-4 max-sm:flex max-sm:flex-col sm:grid sm:grid-cols-[repeat(auto-fill,max(40%,15rem))]">
+          <li className="h-full">
+            <InfoCard
+              icon={<TrainerIcon />}
+              title="Trainerstunden (von Anfänger bis HCP 36)"
+              className="h-full"
+            >
+              <ul className="list-disc pl-8 text-primary-500">
+                <li>55 min. 35€ / je weitere Person +5</li>
+                <li>€25 min. 20€ / je weitere Person +5</li>
+                <li>€10er Karte Einzeltraining 300,00€</li>
+                <li>5er Karte Einzeltraining 165,00€</li>
+                <li>Mit Trackman Indoor Simulator +10€</li>
+              </ul>
+            </InfoCard>
+          </li>
+          <li className="h-full">
+            <InfoCard icon={<Contact />} title="Kontakt" className="h-full">
+              <p className="text-primary-500">
+                felix.gruenhaeuser@golfcochem.eu
+              </p>
+            </InfoCard>
+          </li>
+        </ul>
       </div>
     </Container>
   </>

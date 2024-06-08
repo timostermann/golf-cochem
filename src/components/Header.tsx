@@ -62,7 +62,7 @@ export const Header = ({
       {...props}
     >
       <Link
-        className="inline-flex items-center gap-3 text-lg font-medium !leading-none text-gray-900"
+        className="inline-flex items-center gap-3 font-medium !leading-none text-gray-900 sm:text-lg"
         href={homeHref}
       >
         <Image src="/logo.png" alt="" aria-hidden height="37" width="30" />
