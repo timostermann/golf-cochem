@@ -179,9 +179,9 @@ const Trainer: NextPage = () => (
         <Image
           src={felix}
           alt=""
-          className="rounded-lg object-cover object-[50%_20%] max-sm:h-[200px] max-sm:w-full sm:max-h-[300px]"
+          className="rounded-lg object-cover object-[50%_20%] max-sm:h-[200px] max-sm:w-full sm:max-h-[320px]"
         />
-        <ul className="gap-4 max-sm:flex max-sm:flex-col sm:grid sm:grid-cols-[repeat(auto-fill,max(40%,15rem))]">
+        <ul className="gap-4 max-sm:flex max-sm:flex-col sm:grid sm:grid-cols-[repeat(auto-fill,max(40%,20rem))]">
           <li className="h-full">
             <InfoCard
               icon={<TrainerIcon />}
