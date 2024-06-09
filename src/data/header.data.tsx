@@ -99,7 +99,7 @@ export const headerData: HeaderProps = {
         },
         {
           label: "labels.license",
-          href: "/golfkurse/dgv-platzreife",
+          href: "/golfkurse/platzreife",
           description: "descriptions.license",
           icon: <Certificate />,
         },

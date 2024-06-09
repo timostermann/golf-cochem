@@ -63,7 +63,7 @@ const Trainer: NextPage = () => (
         </Button>
         <Button
           variant={ButtonVariant.PRIMARY}
-          href="/golfkurse/dgv-platzreife"
+          href="/golfkurse/platzreife"
           className="max-xs:!w-full"
         >
           Platzreifekurs

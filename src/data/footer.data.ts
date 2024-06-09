@@ -70,7 +70,7 @@ export const footerData: FooterProps = {
         },
         {
           label: "DVG Platzreife",
-          href: "/dgv-platzreife",
+          href: "/platzreife",
         },
         {
           label: "Schnupperkurse",
