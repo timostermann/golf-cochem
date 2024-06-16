@@ -2,6 +2,8 @@ import { type NextPage } from "next";
 import { Meta } from "@/components/Meta";
 import { Container, ContainerMargin } from "@/components/Container";
 import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
+import { platzreifeFaq } from "@/data/faq.data";
+import { Accordion } from "@/components/Accordion";
 
 const Platzreife: NextPage = () => (
   <>
@@ -38,6 +40,28 @@ const Platzreife: NextPage = () => (
         <br />
         Auf geht&apos;s, wir freuen uns auf Sie.
       </p>
+    </Container>
+    <Container
+      aria-labelledby="faq"
+      innerClassName="flex flex-col items-center mt-20"
+    >
+      <Headline
+        tag={HeadlineTag.H2}
+        variant={HeadlineVariant.SECONDARY}
+        id="faq"
+      >
+        Antworten auf Eure Fragen
+      </Headline>
+      <p className="mb-12 mt-6 max-w-[768px] text-pretty text-gray-500 lg:text-xl">
+        Alles was du über deinen Platzreifekurs wissen musst
+      </p>
+      <ul className="w-full max-w-[768px]">
+        {platzreifeFaq.map(({ question, answer }) => (
+          <li key={question} className="mb-16 w-full">
+            <Accordion summary={question}>{answer}</Accordion>
+          </li>
+        ))}
+      </ul>
     </Container>
   </>
 );

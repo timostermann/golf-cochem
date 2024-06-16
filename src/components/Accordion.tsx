@@ -95,7 +95,7 @@ export const Accordion = ({
   return (
     <div
       className={cn(
-        "relative my-6 after:absolute after:-inset-x-8 after:-inset-y-6 after:z-[-1] after:rounded-xl after:bg-transparent after:transition-colors after:content-[''] after:hover:bg-gray-100",
+        "relative my-6 w-full after:absolute after:-inset-x-8 after:-inset-y-6 after:z-[-1] after:rounded-xl after:bg-transparent after:transition-colors after:content-[''] after:hover:bg-gray-100",
         {
           "after:!bg-gray-50 after:hover:!bg-gray-100":
             animationStatus === AccordionAnimationStatus.EXPANDING,
@@ -131,9 +131,9 @@ export const Accordion = ({
               )}
             />
           </span>
-          <span className="ml-6">{summary}</span>
+          <span className="ml-[24px]">{summary}</span>
         </summary>
-        <div ref={contentElement} className="pl-8 pt-2 text-gray-500">
+        <div ref={contentElement} className="pl-[44px] pt-2 text-gray-500">
           {children}
         </div>
       </details>
