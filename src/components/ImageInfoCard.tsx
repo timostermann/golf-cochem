@@ -31,7 +31,7 @@ export const ImageInfoCard = ({
   return (
     <article
       className={cn(
-        "group relative flex w-full max-w-[480px] flex-col gap-2 rounded-3xl border bg-white pb-6 shadow-md shadow-gray-200",
+        "group relative flex h-full w-full max-w-[480px] flex-col gap-2 rounded-3xl border bg-white pb-6 shadow-md shadow-gray-200",
         className,
       )}
       {...props}
@@ -44,7 +44,7 @@ export const ImageInfoCard = ({
         {title}
       </Headline>
       {image?.src && image.width && image.height && (
-        <div className="-order-2 h-60 overflow-hidden rounded-t-3xl">
+        <div className="-order-2 h-40 overflow-hidden rounded-t-3xl sm:h-60">
           <Image
             src={image.src}
             alt={image.alt || ""}
@@ -54,20 +54,22 @@ export const ImageInfoCard = ({
           />
         </div>
       )}
-      <p className="mb-6 px-6 text-base font-light text-gray-500">{summary}</p>
-      <ArrowLink href={href} className="px-6 before:absolute before:inset-0">
-        {linkText}
-      </ArrowLink>
-      {facts && (
-        <ul className="mt-4 flex gap-2 px-6 text-sm">
-          <li className="rounded-xl bg-primary-100 px-3 py-1 text-primary-600">
-            {facts[0]}
-          </li>
-          <li className="rounded-xl bg-gray-100 px-3 py-1 text-gray-600">
-            {facts[1]}
-          </li>
-        </ul>
-      )}
+      <p className="mb-4 px-6 text-base font-light text-gray-500">{summary}</p>
+      <div className="mt-auto">
+        <ArrowLink href={href} className="px-6 before:absolute before:inset-0">
+          {linkText}
+        </ArrowLink>
+        {facts && (
+          <ul className="mt-4 flex gap-2 px-6 text-sm">
+            <li className="rounded-xl bg-primary-100 px-3 py-1 text-primary-600">
+              {facts[0]}
+            </li>
+            <li className="rounded-xl bg-gray-100 px-3 py-1 text-gray-600">
+              {facts[1]}
+            </li>
+          </ul>
+        )}
+      </div>
     </article>
   );
 };
