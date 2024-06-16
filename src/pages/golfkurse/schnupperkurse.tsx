@@ -1,7 +1,8 @@
 import { type NextPage } from "next";
 import { Meta } from "@/components/Meta";
-import { Container } from "@/components/Container";
+import { Container, ContainerMargin } from "@/components/Container";
 import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
+import { ImageInfoCard } from "@/components/ImageInfoCard";
 
 const Schnupperkurse: NextPage = () => (
   <>
@@ -47,6 +48,68 @@ const Schnupperkurse: NextPage = () => (
         <br />
         Golf Schnupperkurs – probieren Sie es aus!
       </p>
+    </Container>
+    <Container
+      aria-labelledby="buchen"
+      className="bg-gray-50"
+      innerClassName="flex flex-col sm:max-lg:items-center py-20 lg:py-28"
+      margin={ContainerMargin.NONE}
+    >
+      <Headline
+        tag={HeadlineTag.H2}
+        variant={HeadlineVariant.SECONDARY}
+        id="buchen"
+      >
+        Finde deinen perfekten Schnupperkurs
+      </Headline>
+      <p className="mb-12 mt-6 max-w-[768px] text-pretty text-gray-500 lg:text-xl">
+        Schnupperkurse werden über eine externe Seite gebucht (campo-golf.de)
+      </p>
+      <ul className="flex gap-8 max-lg:flex-col">
+        <li className="flex w-full sm:max-lg:justify-center">
+          <ImageInfoCard
+            title="Drive"
+            summary="Kurs I - Standposition, Griffhaltung, Schwung"
+            image={{
+              src: "https://picsum.photos/400/400",
+              alt: "Drive",
+              width: 400,
+              height: 400,
+            }}
+            href="https://www.campo-golf.de/de/events-und-turniere-clubseite/DE-5536"
+            linkText="Zur Anmeldung"
+            facts={["ca. 55 Minuten", "18€"]}
+          />
+        </li>
+        <li className="flex w-full sm:max-lg:justify-center">
+          <ImageInfoCard
+            title="Chip & Putt & Drive"
+            summary="Kurs II - Putt & Chip"
+            image={{
+              src: "https://picsum.photos/400/400",
+              width: 400,
+              height: 400,
+            }}
+            href="https://www.campo-golf.de/de/events-und-turniere-clubseite/DE-5536"
+            linkText="Zur Anmeldung"
+            facts={["ca. 110 Minuten", "28€"]}
+          />
+        </li>
+        <li className="flex w-full sm:max-lg:justify-center">
+          <ImageInfoCard
+            title="Live"
+            summary="Kurs III - Live"
+            image={{
+              src: "https://picsum.photos/400/400",
+              width: 400,
+              height: 400,
+            }}
+            href="https://www.campo-golf.de/de/events-und-turniere-clubseite/DE-5536"
+            linkText="Zur Anmeldung"
+            facts={["ca. 3-4 Stunden", "48€"]}
+          />
+        </li>
+      </ul>
     </Container>
   </>
 );
