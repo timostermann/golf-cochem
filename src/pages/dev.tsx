@@ -23,6 +23,7 @@ import { Iframe } from "@/components/Iframe";
 import { InfoCard } from "@/components/InfoCard";
 import { ArrowLink } from "@/components/ArrowLink";
 import { ImageStage } from "@/components/ImageStage";
+import { ImageInfoCard } from "@/components/ImageInfoCard";
 
 const Dev: NextPage = () => {
   return (
@@ -222,6 +223,45 @@ const Dev: NextPage = () => {
               <li>25 min 40,00 €</li>
             </ul>
           </InfoCard>
+        </div>
+        <div className="flex max-w-[1200px] gap-4">
+          <ImageInfoCard
+            title="Drive"
+            summary="Kurs I - Standposition, Griffhaltung, Schwung"
+            image={{
+              src: "https://picsum.photos/400/400",
+              alt: "Drive",
+              width: 400,
+              height: 400,
+            }}
+            href="https://www.campo-golf.de/de/events-und-turniere-clubseite/DE-5536"
+            linkText="Zur Anmeldung"
+            facts={["ca. 55 Minuten", "18€"]}
+          />
+          <ImageInfoCard
+            title="Chip & Putt & Drive"
+            summary="Kurs II - Putt & Chip"
+            image={{
+              src: "https://picsum.photos/400/400",
+              width: 400,
+              height: 400,
+            }}
+            href="https://www.campo-golf.de/de/events-und-turniere-clubseite/DE-5536"
+            linkText="Zur Anmeldung"
+            facts={["ca. 110 Minuten", "28€"]}
+          />
+          <ImageInfoCard
+            title="Live"
+            summary="Kurs III - Live"
+            image={{
+              src: "https://picsum.photos/400/400",
+              width: 400,
+              height: 400,
+            }}
+            href="https://www.campo-golf.de/de/events-und-turniere-clubseite/DE-5536"
+            linkText="Zur Anmeldung"
+            facts={["ca. 3-4 Stunden", "48€"]}
+          />
         </div>
         <div className="flex flex-col gap-2">
           <Accordion summary="Welche Ausrüstung ist erlaubt?">
