@@ -47,7 +47,7 @@ const Jugend: NextPage = () => (
         <br />
         Gerne können golfinteressierte Jugendliche im Rahmen von
         Schnupperstunden den Umgang mit den Schlägern und den kleinen weißen
-        Golfbällen kostenlos und unverbindlich zu den o.a. Zeiten ausprobieren.{" "}
+        Golfbällen kostenlos und unverbindlich zu den o. a. Zeiten ausprobieren.{" "}
         <br />
         <br />
         Neben der Teilnahme an zahlreichen Clubturnieren, sowie der
@@ -60,7 +60,7 @@ const Jugend: NextPage = () => (
       <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
         <div className="flex flex-col gap-2">
           <Headline tag={HeadlineTag.H3} variant={HeadlineVariant.QUINARY}>
-            Bambini Training (4-7 Jahre)
+            Bambini Training (4-9 Jahre)
           </Headline>
           <p className="text-gray-500">Freitags 17:00 - 18:00 Uhr</p>
         </div>
@@ -69,8 +69,8 @@ const Jugend: NextPage = () => (
             Jugend Training
           </Headline>
           <p className="text-gray-500">
-            Donnerstags 17:00 - 18:30 Uhr <br />
-            Freitags 14:30 - 16:00 Uhr
+            Mittwochs 17:30 - 19:00 Uhr <br />
+            Samstags 15:00 - 16:30 Uhr
           </p>
         </div>
         <div className="relative flex flex-col gap-2 before:absolute before:inset-0 before:-z-10 before:min-h-[5.5rem] before:max-w-80 before:-translate-x-3 before:-translate-y-3 before:rounded-lg before:bg-primary-100 before:content-['']">
