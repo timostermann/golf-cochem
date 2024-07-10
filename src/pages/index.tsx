@@ -50,7 +50,7 @@ type HomeProps = {
     open: boolean;
     closedUntil?: string;
   }[];
-  newsArticles: Blogpost[]; // TODO: Check if api type makes more sense once connected
+  newsArticles: Blogpost[];
 };
 
 const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
@@ -456,7 +456,11 @@ export default Home;
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   const blogPostData = await fetchApi<Blogpost[]>({
     endpoint:
-      "/blogposts?sort[0]=createdAt:desc&pagination[limit]=3&populate=titleimage&populate=category&populate=author",
+      "/blogposts?populate=titleimage&populate=category&populate=author",
+    query: {
+      "pagination[limit]": "3",
+      "sort[0]": "createdAt:desc",
+    },
   });
 
   return {

@@ -77,64 +77,43 @@ const Dev: NextPage = () => {
         </div>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
           <ImageTeaserCard
-            category="Golfclub"
+            category={{ name: "Golfclub", id: "id" }}
             title="Glücklich und zufrieden! - Kanada brachte neue Erkenntnisse"
-            summary="Bundestrainer zufrieden und mit einem klaren Plan für das Wintertraining."
+            teaser="Bundestrainer zufrieden und mit einem klaren Plan für das Wintertraining."
             date="2023-10-07T00:00:00Z"
-            image={{
-              src: "https://picsum.photos/800/400",
-              alt: "Golfclub",
+            titleimage={{
+              url: "https://picsum.photos/800/400",
+              alternativeText: "Golfclub",
               width: 800,
               height: 400,
             }}
             href=""
-            author="Ulrike Rummel"
-            authorImage={{
-              src: "https://picsum.photos/100",
-              alt: "Ulrike Rummel",
-              width: 100,
-              height: 100,
-            }}
           />
           <ImageTeaserCard
-            category="Golfplatz"
+            category={{ name: "Golfplatz", id: "id" }}
             title="Was ist Footgolf?"
-            summary="Die Trendsportart jetzt bei uns im Club. Komm noch heute vorbei uns probiere es aus."
+            teaser="Die Trendsportart jetzt bei uns im Club. Komm noch heute vorbei uns probiere es aus."
             date="2023-10-06T00:00:00Z"
-            image={{
-              src: "https://picsum.photos/800/400",
-              alt: "Golfplatz",
+            titleimage={{
+              url: "https://picsum.photos/800/400",
+              alternativeText: "Golfplatz",
               width: 800,
               height: 400,
             }}
             href=""
-            author="Manuela Eiden"
-            authorImage={{
-              src: "https://picsum.photos/100",
-              alt: "Manuela Eiden",
-              width: 100,
-              height: 100,
-            }}
           />
           <ImageTeaserCard
-            category="Golfclub"
+            category={{ name: "Golfclub", id: "id" }}
             title="Unsere neue Website"
-            summary="Wir haben eine neue Website!"
+            teaser="Wir haben eine neue Website!"
             date="2023-10-04T00:00:00Z"
-            image={{
-              src: "https://picsum.photos/800/400",
-              alt: "Golfclub",
+            titleimage={{
+              url: "https://picsum.photos/800/400",
+              alternativeText: "Golfclub",
               width: 800,
               height: 400,
             }}
             href=""
-            author="Ulrike Rummel"
-            authorImage={{
-              src: "https://picsum.photos/100",
-              alt: "Ulrike Rummel",
-              width: 100,
-              height: 100,
-            }}
           />
         </div>
         <div className="flex flex-col gap-1">
