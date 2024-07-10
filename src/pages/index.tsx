@@ -30,12 +30,11 @@ import {
 } from "@/icons";
 import { Iframe } from "@/components/Iframe";
 import { BorderTeaserCard } from "@/components/BorderTeaserCard";
-import {
-  ImageTeaserCard,
-  type TeaserContent,
-} from "@/components/ImageTeaserCard";
+import { ImageTeaserCard } from "@/components/ImageTeaserCard";
 import { InfoCard } from "@/components/InfoCard";
 import { ArrowLink } from "@/components/ArrowLink";
+import { fetchApi } from "@/lib/strapi";
+import { type Blogpost } from "@/lib/dto/blogpost.type";
 
 const Icons = {
   MoselCourse: MoselCourse,
@@ -51,7 +50,7 @@ type HomeProps = {
     open: boolean;
     closedUntil?: string;
   }[];
-  newsArticles: TeaserContent[]; // TODO: Check if api type makes more sense once connected
+  newsArticles: Blogpost[]; // TODO: Check if api type makes more sense once connected
 };
 
 const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
@@ -454,6 +453,11 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+  const blogPostData = await fetchApi<Blogpost[]>({
+    endpoint:
+      "/blogposts?sort[0]=createdAt:desc&pagination[limit]=3&populate=titleimage&populate=category&populate=author",
+  });
+
   return {
     props: {
       statusCards: [
@@ -479,71 +483,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
           open: true,
         },
       ],
-      newsArticles: [
-        {
-          category: "Golfclub",
-          title: "Glücklich und zufrieden! - Kanada brachte neue Erkenntnisse",
-          summary:
-            "Bundestrainer zufrieden und mit einem klaren Plan für das Wintertraining.",
-          date: "2023-10-07T00:00:00Z",
-          image: {
-            src: "https://picsum.photos/800/400",
-            alt: "Golfclub",
-            width: 800,
-            height: 400,
-          },
-          href: "",
-          author: "Ulrike Rummel",
-          authorImage: {
-            src: "https://picsum.photos/100",
-            alt: "Ulrike Rummel",
-            width: 100,
-            height: 100,
-          },
-        },
-        {
-          category: "Golfplatz",
-          title: "Was ist Footgolf?",
-          summary:
-            "Die Trendsportart jetzt bei uns im Club. Komm noch heute vorbei uns probiere es aus.",
-          date: "2023-10-06T00:00:00Z",
-          image: {
-            src: "https://picsum.photos/800/400",
-            alt: "Golfplatz",
-            width: 800,
-            height: 400,
-          },
-          href: "",
-          author: "Manuela Eiden",
-          authorImage: {
-            src: "https://picsum.photos/100",
-            alt: "Manuela Eiden",
-            width: 100,
-            height: 100,
-          },
-        },
-        {
-          category: "Golfplatz",
-          title: "Was ist Footgolf?",
-          summary:
-            "Die Trendsportart jetzt bei uns im Club. Komm noch heute vorbei uns probiere es aus.",
-          date: "2023-10-06T00:00:00Z",
-          image: {
-            src: "https://picsum.photos/800/400",
-            alt: "Golfplatz",
-            width: 800,
-            height: 400,
-          },
-          href: "",
-          author: "Manuela Eiden",
-          authorImage: {
-            src: "https://picsum.photos/100",
-            alt: "Manuela Eiden",
-            width: 100,
-            height: 100,
-          },
-        },
-      ],
+      newsArticles: blogPostData,
     },
   };
 };
