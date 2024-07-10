@@ -4,25 +4,17 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { type ComponentPropsWithoutRef } from "react";
 import { useSanitizedId } from "@/lib/sanitizeString";
+import { type Author } from "@/lib/dto/author.type";
+import { type Category } from "@/lib/dto/category.type";
+import { type StrapiImage } from "@/lib/dto/strapiimage.type";
 import { Headline, HeadlineTag, HeadlineVariant } from "./Headline";
 
 export type TeaserContent = {
-  category?: string;
+  category?: Category;
   title: string;
-  summary: string;
-  image?: Partial<{
-    src: string;
-    alt: string;
-    width: number;
-    height: number;
-  }>;
-  author?: string;
-  authorImage?: Partial<{
-    src: string;
-    alt: string;
-    width: number;
-    height: number;
-  }>;
+  teaser: string;
+  titleimage?: Partial<StrapiImage>;
+  author?: Author;
   date?: string;
   href?: string;
 };
@@ -32,10 +24,9 @@ type ImageTeaserCardProps = ComponentPropsWithoutRef<"article"> & TeaserContent;
 export const ImageTeaserCard = ({
   category,
   title,
-  summary,
-  image,
+  teaser,
+  titleimage,
   author,
-  authorImage,
   date,
   href = "",
   className,
@@ -60,37 +51,39 @@ export const ImageTeaserCard = ({
       >
         {title}
       </Headline>
-      {image?.src && image.width && image.height && (
+      {titleimage?.url && titleimage.width && titleimage.height && (
         <div className="-order-2 h-60 overflow-hidden rounded-t-3xl">
           <Image
-            src={image.src}
-            alt={image.alt || ""}
-            width={image.width}
-            height={image.height}
+            src={titleimage.url}
+            alt={titleimage.alternativeText || ""}
+            width={titleimage.width}
+            height={titleimage.height}
             className="h-full w-full rounded-t-3xl object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
           />
         </div>
       )}
       {category && (
         <p className="-order-1 px-6 pt-6 text-xs font-medium text-primary-500">
-          {category}
+          {category.name}
         </p>
       )}
-      <p className="mt-2 px-6 text-base font-light text-gray-500">{summary}</p>
+      <p className="mt-2 px-6 text-base font-light text-gray-500">{teaser}</p>
       {author && (
         <div className="flex grow items-end">
           <div className="mt-4 flex items-center gap-3 px-6">
-            {authorImage?.src && authorImage.width && authorImage.height && (
-              <Image
-                src={authorImage.src}
-                alt={authorImage.alt || ""}
-                width={authorImage.width}
-                height={authorImage.height}
-                className="h-8 w-8 rounded-full object-cover"
-              />
-            )}
+            {author.picture.url &&
+              author.picture.width &&
+              author.picture.height && (
+                <Image
+                  src={author.picture.url}
+                  alt={author.picture.alternativeText || ""}
+                  width={author.picture.width}
+                  height={author.picture.height}
+                  className="h-8 w-8 rounded-full object-cover"
+                />
+              )}
             <div className="flex flex-col justify-between">
-              <p className="text-sm font-medium text-gray-900">{author}</p>
+              <p className="text-sm font-medium text-gray-900">{author.name}</p>
               {date && (
                 <p className="text-sm font-light text-gray-500">
                   {new Date(date).toLocaleDateString(router.locale, {
