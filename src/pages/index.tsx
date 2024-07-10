@@ -370,9 +370,10 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
           Unser Team
         </Headline>
         <p className="mt-6 max-w-[740px] text-balance text-gray-500 lg:mb-20">
-          Lörem ipsum kina prede antenong, obegt. Lar dekanell. Antisk ysol
-          monon. Masera tesasm. Anajähet vaskap utom epihet som kest. Sagäska
-          yngar. Magt dir löredat krosat. Kabel benera var pament.
+          Ein engagiertes Team von Golfexperten und leidenschaftlichen
+          Gastgebern, das stets bereit ist, Ihnen ein unvergessliches
+          Golferlebnis zu bieten. Lernen Sie die Gesichter kennen, die hinter
+          unserem erstklassigen Service stehen.
         </p>
         <ul className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
           {teamMembers.map((member) => (
