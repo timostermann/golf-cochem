@@ -16,7 +16,6 @@ export const fetchApi = async <T>({
   }
 
   const url = new URL(`${process.env.STRAPI_URL}/api/${endpoint}`);
-
   if (query) {
     Object.entries(query).forEach(([key, value]) => {
       url.searchParams.append(key, value);
@@ -26,7 +25,6 @@ export const fetchApi = async <T>({
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      Authorization: "Bearer " + process.env.STRAPI_TOKEN,
     },
   });
   let data = await res.json();
