@@ -142,7 +142,10 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
           Leidenschaft trifft Gastfreundschaft
         </p>
         <div className="mt-6 flex w-full flex-col items-center justify-center gap-2 sm:mt-8 sm:flex-row-reverse sm:gap-4">
-          <Button href="/" className="w-full sm:w-fit">
+          <Button
+            href="https://www.pccaddie.net/clubs/0495536/app.php?cat=tt_timetable_course"
+            className="w-full sm:w-fit"
+          >
             Startzeit buchen
           </Button>
           <Button
@@ -153,7 +156,7 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
             Indoor Golf
           </Button>
           <Button
-            href="/"
+            href="/golfplatz/platzinformationen"
             className="w-full sm:w-fit"
             variant={ButtonVariant.SECONDARY}
           >
@@ -240,7 +243,7 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
               title="Driving Range"
               summary="Überdachte Abschlagboxen"
               linkLabel="Mehr erfahren"
-              href=""
+              href="/golfplatz/driving-range"
             />
           </div>
           <Image
