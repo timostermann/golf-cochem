@@ -6,11 +6,19 @@ const nextConfig = {
     defaultLocale: "de",
     localeDetection: false,
   },
+  compiler: {
+    removeConsole: false,
+  },
   images: {
     remotePatterns: [
       {
         protocol: "https",
         hostname: "picsum.photos",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "golf-cochem.fra1.digitaloceanspaces.com",
         port: "",
       },
     ],
