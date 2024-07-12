@@ -148,7 +148,7 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
             Startzeit buchen
           </Button>
           <Button
-            href="/"
+            href="/golfplatz/indoor"
             className="w-full sm:w-fit"
             variant={ButtonVariant.SECONDARY}
           >
@@ -215,7 +215,7 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
             </Headline>
             <p className="text-gray-500">
               Eine 27-Loch Anlage auf dem Moselplateau mit herrlichem Blick in
-              die Eifel und auf den Hunsrück.Golfen in einem Urlauberparadies.
+              die Eifel und auf den Hunsrück. Golfen in einem Urlauberparadies.
             </p>
           </div>
           <div />
@@ -349,7 +349,7 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
           </InfoCard>
           <InfoCard icon={<Holiday />} title="Urlaubsplanung leicht gemacht">
             <p>
-              Auf dem Weg zum Urlaubsort locken manche Golfplätze.Anhalten,
+              Auf dem Weg zum Urlaubsort locken manche Golfplätze. Anhalten,
               spielen und genießen, ohne Zusatzkosten.
               <br />
               <br />
