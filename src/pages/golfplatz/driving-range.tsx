@@ -8,9 +8,7 @@ const DrivingRange: NextPage = () => (
   <>
     <Meta
       title="Driving Range"
-      description="Die doppelstöckige Driving Range mit mehr als 50 Abschlagsplätzen, wovon
-        die Hälfte überdacht ist, verfügt neben drei Ballautomaten über eine
-        leistungsstarke Flutlichtanlage."
+      description="Unsere große Driving Range mit mehr als 30 Abschlagsplätzen, welche alle überdacht sind, verfügt neben zwei Ballautomaten auch über eine leistungsstarke Flutlichtanlage."
     />
     <ImageStage
       src={drivingRange}
@@ -23,8 +21,8 @@ const DrivingRange: NextPage = () => (
         Beste Voraussetzungen für ein gelungenes Training!
         <br />
         <br />
-        Die doppelstöckige Driving Range mit mehr als 50 Abschlagsplätzen, wovon
-        die Hälfte überdacht ist, verfügt neben drei Ballautomaten über eine
+        Unsere große Driving Range mit mehr als 30 Abschlagsplätzen, welche alle
+        überdacht sind, verfügt neben zwei Ballautomaten auch über eine
         leistungsstarke Flutlichtanlage.
         <br />
         <br />
