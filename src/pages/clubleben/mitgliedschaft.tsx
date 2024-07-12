@@ -154,7 +154,7 @@ const Mitgliedschaft: NextPage = () => (
     </Container>
     <Container
       aria-labelledby="faq"
-      innerClassName="flex flex-col items-center mt-20"
+      innerClassName="flex flex-col items-center"
     >
       <Headline
         tag={HeadlineTag.H2}
