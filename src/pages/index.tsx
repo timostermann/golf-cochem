@@ -190,7 +190,7 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
               className="mb-8"
               id="intro"
             >
-              Golfclub Cochem stellt sich vor
+              Golfclub Cochem e.V. stellt sich vor
             </Headline>
             <p className="text-gray-500">
               Leidenschaft trifft auf Gastfreundschaft. Willkommen in unserem
@@ -236,7 +236,7 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
               title="Footgolf"
               summary="Der Spaß für die gesamte Familie"
               linkLabel="Mehr erfahren"
-              href=""
+              href="/golfplatz/footgolf"
             />
             <BorderTeaserCard
               title="Driving Range"

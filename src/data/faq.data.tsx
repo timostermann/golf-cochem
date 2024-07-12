@@ -115,3 +115,70 @@ export const membershipFaq: FaqItem[] = [
     answer: <>Text</>,
   },
 ];
+
+export const footgolfFaq: FaqItem[] = [
+  {
+    question: "Welche Ausrüstung ist erlaubt?",
+    answer: (
+      <>
+        Ihr dürft Hallenschuhe oder Multinocken oder normale Turnschuhe tragen.
+        Fußball-Schuhe mit Nocken oder mit Stollen sind nicht erlaubt, da diese
+        die Grüns kaputtmachen würden. Ansonsten ist keine spezielle Ausrüstung
+        erforderlich. Ordentliche sportive Kleidung ist völlig ausreichend. Ein
+        Polohemd wäre wünschenswert, ist aber keine Pflicht. Unter den
+        Footgolfern hat sich ein Dresscode durchgesetzt, der wie folgt aussieht:
+        knielange Socken, knielange Hose, Polo und Schieber. Das soll nur eine
+        Anregung sein. Aber bitte immer bedenken, auch Footgolf ist ein Sport
+        für Gentlemen und Ladies.
+        <br />
+        <br />
+        Fußbälle der Größe 5 können mitgebracht oder bei uns ausgeliehen werden.
+      </>
+    ),
+  },
+  {
+    question: "Wer kann Footgolf spielen?",
+    answer: (
+      <>
+        Jeder hat bestimmt schon mal ein Fußballspiel gesehen oder den Ball
+        gekickt. Das reicht für Footgolf völlig aus. Es gibt nur ein paar kleine
+        Unterschiede: Der Ball muss beim Footgolf nicht ins <b>Eckige</b>{" "}
+        sondern ins <b>Runde</b>. Das Spielfeld ist viel größer als ein
+        Fußballplatz und dann gibt es noch Hindernisse wie Bäume, Sträucher,
+        hohes Gras oder Hügel und Täler. Ein Riesenspaß!
+      </>
+    ),
+  },
+  {
+    question: "Wie lange dauert eine Runde?",
+    answer: (
+      <>
+        Wie lange man für eine Runde Footgolf benötigt, hängt natürlich auch von
+        den individuellen Stärken und Schwächen sowie der Anzahl der Spieler ab.
+        Ihr könnt euch jedoch grob an folgenden Richtwerten orientieren:
+        <br />
+        <br />
+        2 Spieler: 45 - 75 Minuten
+        <br />
+        <br />
+        3 Spieler: 75 - 100 Minuten
+        <br />
+        <br />4 Spieler: 90 - 120 Minuten
+      </>
+    ),
+  },
+  {
+    question: "Muss man sich anmelden?",
+    answer: (
+      <>
+        Definitiv, ja!
+        <br />
+        <br />
+        Die Anmeldung ist aus zwei Gründen wichtig: zum einen ist dann
+        sichergestellt, dass wir euch einen Slot zuweisen können, zum anderen
+        seid ihr nur so versichert. Also meldet euch bitte immer frühzeitig für
+        eure Runde Footgolf an.
+      </>
+    ),
+  },
+];

@@ -36,7 +36,7 @@ export const footerData: FooterProps = {
         },
         {
           label: "Footgolf",
-          href: "/footgolf",
+          href: "/golfplatz/footgolf",
         },
         {
           label: "Driving Range",

@@ -66,7 +66,7 @@ export const headerData: HeaderProps = {
         },
         {
           label: "labels.footgolf",
-          href: "/footgolf",
+          href: "/golfplatz/footgolf",
           description: "descriptions.footgolf",
           icon: <Soccer />,
         },
