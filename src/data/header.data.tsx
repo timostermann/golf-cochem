@@ -31,7 +31,7 @@ export const headerData: HeaderProps = {
         },
         {
           label: "labels.membership",
-          href: "/mitgliedschaft",
+          href: "/clubleben/mitgliedschaft",
           description: "descriptions.membership",
           icon: <Member />,
         },

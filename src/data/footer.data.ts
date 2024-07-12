@@ -11,7 +11,7 @@ export const footerData: FooterProps = {
         },
         {
           label: "Mitgliedschaft",
-          href: "/mitgliedschaft",
+          href: "/clubleben/mitgliedschaft",
         },
         {
           label: "Mannschaften",

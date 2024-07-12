@@ -324,13 +324,17 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
             Jetzt Mitglied werden
           </Headline>
           <p className="mt-6 text-gray-500 lg:mb-12">
-            Lörem ipsum exoligen misk av karade neng makror alltså trengen
-            kabelt att tresigt. Suprasm familogi. <br />
+            Der Golfclub Cochem/Mosel e.V. bietet dir maßgeschneiderte
+            Mitgliedschaftsmodelle, die sofortige Vorteile bringen. Entscheide
+            dich für eine Vollmitgliedschaft, den „Business Tarif“ oder unsere
+            attraktiven Jugend- und Partnertarife. Genieße die Flexibilität der
+            Fernmitgliedschaft oder die preiswerte Eifel Course Mitgliedschaft.
             <br />
-            Rygisk antinid: ben. Domibelt kroll kongen plaska, digerad i pade
-            predor.
+            <br />
+            Kontaktiere uns jetzt und finde die perfekte Mitgliedschaft für
+            deine Bedürfnisse!
           </p>
-          <Button href="/mitgliedschaft" className="max-lg:hidden">
+          <Button href="/clubleben/mitgliedschaft" className="max-lg:hidden">
             Alles über die Mitgliedschaft
           </Button>
         </div>
@@ -353,7 +357,7 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
             </p>
           </InfoCard>
         </div>
-        <Button href="/mitgliedschaft" className="lg:hidden">
+        <Button href="/clubleben/mitgliedschaft" className="lg:hidden">
           Alles über die Mitgliedschaft
         </Button>
       </Container>
