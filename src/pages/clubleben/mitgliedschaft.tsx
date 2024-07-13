@@ -122,7 +122,7 @@ const Mitgliedschaft: NextPage = () => (
     <Container
       aria-labelledby="vorteile"
       className="bg-gray-50"
-      innerClassName="flex flex-col items-center mt-20 mb-20 gap-8"
+      innerClassName="flex flex-col items-center mt-20 mb-20 gap-12"
     >
       <Headline
         tag={HeadlineTag.H2}
@@ -132,25 +132,31 @@ const Mitgliedschaft: NextPage = () => (
         Vorteile einer Mitgliedschaft
       </Headline>
 
-      <div className="flex flex-col items-center gap-12 sm:flex-row">
-        <FeatureColumn
-          icon={<Group />}
-          title="Gemeinschaft"
-          text="Sei Teil einer lebendigen und unterstützenden Gemeinschaft, die eine
+      <ul className="flex flex-col items-center gap-12 sm:flex-row sm:items-start sm:gap-4">
+        <li className="sm:basis-1/3">
+          <FeatureColumn
+            icon={<Group />}
+            title="Gemeinschaft"
+            text="Sei Teil einer lebendigen und unterstützenden Gemeinschaft, die eine
             gemeinsame Leidenschaft für Golf teilt und zusammen unvergessliche
             Erlebnisse auf und neben dem Platz genießt."
-        />
-        <FeatureColumn
-          icon={<Calendar />}
-          title="Events"
-          text="Als Mitglied im Golfclub Cochem/Mosel e.V. hast du exklusiven Zugang zu spannenden Events und Turnieren, die das Clubleben bereichern und dir die Möglichkeit bieten, neue Freundschaften zu knüpfen und unvergessliche Momente zu erleben."
-        />
-        <FeatureColumn
-          icon={<Star />}
-          title="Rabatte"
-          text="Mit einer Mitgliedschaft profitierst du von exklusiven Rabatten auf Greenfees, Pro-Shop-Artikel und Partner-Angebote, sodass du dein Golfspiel und Cluberlebnis noch attraktiver wird."
-        />
-      </div>
+          />
+        </li>
+        <li className="sm:basis-1/3">
+          <FeatureColumn
+            icon={<Calendar />}
+            title="Events"
+            text="Als Mitglied im Golfclub Cochem/Mosel e.V. hast du exklusiven Zugang zu spannenden Events und Turnieren, die das Clubleben bereichern und dir die Möglichkeit bieten, neue Freundschaften zu knüpfen und unvergessliche Momente zu erleben."
+          />
+        </li>
+        <li className="sm:basis-1/3">
+          <FeatureColumn
+            icon={<Star />}
+            title="Rabatte"
+            text="Mit einer Mitgliedschaft profitierst du von exklusiven Rabatten auf Greenfees, Pro-Shop-Artikel und Partner-Angebote, sodass du dein Golfspiel und Cluberlebnis noch attraktiver wird."
+          />
+        </li>
+      </ul>
     </Container>
     <Container
       aria-labelledby="faq"

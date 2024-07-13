@@ -19,10 +19,7 @@ export const FeatureColumn = ({
   ...props
 }: FeatureColumnProps) => {
   return (
-    <div className="flex flex-col items-center text-center" {...props}>
-      <span className="-order-1  mb-5 flex size-14 items-center justify-center rounded-xl border bg-white text-primary-500">
-        <span className="size-8">{icon}</span>
-      </span>
+    <article className="flex flex-col items-center text-center" {...props}>
       <Headline
         tag={HeadlineTag.H3}
         variant={HeadlineVariant.QUINARY}
@@ -30,8 +27,11 @@ export const FeatureColumn = ({
       >
         {title}
       </Headline>
-      <p className="mt-2 text-pretty text-gray-500">{text}</p>
-    </div>
+      <span className="-order-1 mb-5 flex size-14 items-center justify-center rounded-xl border bg-white text-primary-500">
+        <span className="size-8">{icon}</span>
+      </span>
+      <p className="mt-2 text-balance text-gray-500">{text}</p>
+    </article>
   );
 };
 
