@@ -224,7 +224,7 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
               title="Mosel Course"
               summary="Professioneller, naturnaher 18-Loch-Platz"
               linkLabel="Mehr erfahren"
-              href=""
+              href="/golfplatz/mosel-course"
             />
             <BorderTeaserCard
               title="Eifel Course"

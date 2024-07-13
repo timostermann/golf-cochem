@@ -28,7 +28,7 @@ export const footerData: FooterProps = {
       links: [
         {
           label: "Mosel Course",
-          href: "/mosel-course",
+          href: "/golfplatz/mosel-course",
         },
         {
           label: "Eifel Course",

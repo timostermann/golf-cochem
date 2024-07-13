@@ -54,7 +54,7 @@ export const headerData: HeaderProps = {
       subItems: [
         {
           label: "labels.moselCourse",
-          href: "/mosel-course",
+          href: "/golfplatz/mosel-course",
           description: "descriptions.moselCourse",
           icon: <MoselCourse />,
         },
