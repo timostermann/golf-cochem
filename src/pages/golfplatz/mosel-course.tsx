@@ -13,7 +13,7 @@ const Moselcourse: NextPage = () => {
         aria-labelledby="hero"
         margin={ContainerMargin.MD}
       >
-        <div className="mt-24 flex flex-row gap-8">
+        <div className="mt-24 flex flex-col gap-8 md:flex-row">
           <div className="flex flex-col gap-3">
             <Headline
               tag={HeadlineTag.H3}
@@ -80,11 +80,10 @@ const Moselcourse: NextPage = () => {
             </p>
           </div>
           <Image
-            className="mt-6"
+            className="mt-6 object-contain object-top md:max-w-[40%]"
             src={moselCourse}
             alt="Mosel Course Übersicht"
             aria-hidden
-            height="800"
           />
         </div>
       </Container>
