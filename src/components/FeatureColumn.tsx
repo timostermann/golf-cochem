@@ -2,7 +2,7 @@ import { type ReactNode, type ComponentPropsWithoutRef } from "react";
 
 import { Headline, HeadlineTag, HeadlineVariant } from "./Headline";
 
-type DescriptionTileProps = Omit<
+type FeatureColumnProps = Omit<
   ComponentPropsWithoutRef<"article">,
   "children"
 > & {
@@ -11,13 +11,13 @@ type DescriptionTileProps = Omit<
   icon: ReactNode;
 };
 
-export const DescriptionTile = ({
+export const FeatureColumn = ({
   title,
   icon,
   text,
   className,
   ...props
-}: DescriptionTileProps) => {
+}: FeatureColumnProps) => {
   return (
     <div className="flex flex-col items-center text-center" {...props}>
       <span className="-order-1  mb-5 flex size-14 items-center justify-center rounded-xl border bg-white text-primary-500">
@@ -35,4 +35,4 @@ export const DescriptionTile = ({
   );
 };
 
-DescriptionTile.displayName = "DescriptionTile";
+FeatureColumn.displayName = "FeatureColumn";

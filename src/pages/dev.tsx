@@ -27,7 +27,7 @@ import { InfoCard } from "@/components/InfoCard";
 import { ArrowLink } from "@/components/ArrowLink";
 import { ImageStage } from "@/components/ImageStage";
 import { ImageInfoCard } from "@/components/ImageInfoCard";
-import { DescriptionTile } from "@/components/DescriptionTile";
+import { FeatureColumn } from "@/components/FeatureColumn";
 
 const Dev: NextPage = () => {
   return (
@@ -282,19 +282,19 @@ const Dev: NextPage = () => {
         <Button className="mt-8">Mehr erfahren</Button>
       </ImageStage>
       <Container innerClassName="flex flex-col items-center gap-12 sm:flex-row">
-        <DescriptionTile
+        <FeatureColumn
           icon={<Group />}
           title="Gemeinschaft"
           text="Sei Teil einer lebendigen und unterstützenden Gemeinschaft, die eine
             gemeinsame Leidenschaft für Golf teilt und zusammen unvergessliche
             Erlebnisse auf und neben dem Platz genießt."
         />
-        <DescriptionTile
+        <FeatureColumn
           icon={<Calendar />}
           title="Events"
           text="Als Mitglied im Golfclub Cochem/Mosel e.V. hast du exklusiven Zugang zu spannenden Events und Turnieren, die das Clubleben bereichern und dir die Möglichkeit bieten, neue Freundschaften zu knüpfen und unvergessliche Momente zu erleben."
         />
-        <DescriptionTile
+        <FeatureColumn
           icon={<Star />}
           title="Rabatte"
           text="Mit einer Mitgliedschaft profitierst du von exklusiven Rabatten auf Greenfees, Pro-Shop-Artikel und Partner-Angebote, sodass du dein Golfspiel und Cluberlebnis noch attraktiver wird."

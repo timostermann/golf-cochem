@@ -9,7 +9,7 @@ import dgv from "~/public/images/dgv.webp";
 import { Button } from "@/components/Button";
 import { PriceCard } from "@/components/PriceCard";
 import { Golf, MoselCourse, EifelCourse, Calendar, Group, Star } from "@/icons";
-import { DescriptionTile } from "@/components/DescriptionTile";
+import { FeatureColumn } from "@/components/FeatureColumn";
 
 const Mitgliedschaft: NextPage = () => (
   <>
@@ -133,19 +133,19 @@ const Mitgliedschaft: NextPage = () => (
       </Headline>
 
       <div className="flex flex-col items-center gap-12 sm:flex-row">
-        <DescriptionTile
+        <FeatureColumn
           icon={<Group />}
           title="Gemeinschaft"
           text="Sei Teil einer lebendigen und unterstützenden Gemeinschaft, die eine
             gemeinsame Leidenschaft für Golf teilt und zusammen unvergessliche
             Erlebnisse auf und neben dem Platz genießt."
         />
-        <DescriptionTile
+        <FeatureColumn
           icon={<Calendar />}
           title="Events"
           text="Als Mitglied im Golfclub Cochem/Mosel e.V. hast du exklusiven Zugang zu spannenden Events und Turnieren, die das Clubleben bereichern und dir die Möglichkeit bieten, neue Freundschaften zu knüpfen und unvergessliche Momente zu erleben."
         />
-        <DescriptionTile
+        <FeatureColumn
           icon={<Star />}
           title="Rabatte"
           text="Mit einer Mitgliedschaft profitierst du von exklusiven Rabatten auf Greenfees, Pro-Shop-Artikel und Partner-Angebote, sodass du dein Golfspiel und Cluberlebnis noch attraktiver wird."
