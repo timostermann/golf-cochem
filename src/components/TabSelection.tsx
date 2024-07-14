@@ -16,32 +16,35 @@ import {
 } from "react";
 import cn from "classnames";
 
-type TabContextType = {
+type TabsContextType = {
   activeTab: number;
   setActiveTab: (index: number) => void;
 };
 
-const TabContext = createContext<TabContextType | undefined>(undefined);
+const TabsContext = createContext<TabsContextType | undefined>(undefined);
 
-export const TabGroup: FC<{
+type TabsProps = {
   children: ReactNode;
   defaultIndex?: number;
-}> = ({ children, defaultIndex = 0 }) => {
+};
+
+const TabsRoot: FC<TabsProps> = ({ children, defaultIndex = 0 }) => {
   const [activeTab, setActiveTab] = useState(defaultIndex);
 
   return (
-    <TabContext.Provider value={{ activeTab, setActiveTab }}>
+    <TabsContext.Provider value={{ activeTab, setActiveTab }}>
       <div className="w-full">{children}</div>
-    </TabContext.Provider>
+    </TabsContext.Provider>
   );
 };
 
-export const TabList: FC<{ children: ReactNode; className?: string }> = ({
+const TabList: FC<{ children: ReactNode; className?: string }> = ({
   children,
   className,
 }) => {
-  const context = useContext(TabContext);
-  if (!context) throw new Error("TabList must be used within a TabGroup");
+  const context = useContext(TabsContext);
+  if (!context)
+    throw new Error("Tabs.List must be used within a Tabs component");
 
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
@@ -87,7 +90,7 @@ export const TabList: FC<{ children: ReactNode; className?: string }> = ({
       {Children.map(children, (child, index) => {
         if (isValidElement(child)) {
           return (
-            <Tab
+            <Tabs.Tab
               key={index}
               isActive={context.activeTab === index}
               onClick={() => context.setActiveTab(index)}
@@ -100,7 +103,7 @@ export const TabList: FC<{ children: ReactNode; className?: string }> = ({
               }}
             >
               {child.props.children}
-            </Tab>
+            </Tabs.Tab>
           );
         }
         return child;
@@ -143,13 +146,12 @@ const TabComponent: ForwardRefRenderFunction<HTMLButtonElement, TabProps> = (
   </button>
 );
 
-export const Tab = forwardRef(TabComponent);
+const Tab = forwardRef(TabComponent);
 
-Tab.displayName = "Tab";
-
-export const TabPanels: FC<{ children: ReactNode }> = ({ children }) => {
-  const context = useContext(TabContext);
-  if (!context) throw new Error("TabPanels must be used within a TabGroup");
+const TabPanels: FC<{ children: ReactNode }> = ({ children }) => {
+  const context = useContext(TabsContext);
+  if (!context)
+    throw new Error("Tabs.Panels must be used within a Tabs component");
 
   return (
     <>
@@ -174,14 +176,15 @@ type TabPanelProps = {
   "aria-labelledby"?: string;
 };
 
-export const TabPanel: FC<TabPanelProps> = ({
-  children,
-  isActive,
-  ...props
-}) => (
+const TabPanel: FC<TabPanelProps> = ({ children, isActive, ...props }) => (
   <div role="tabpanel" hidden={!isActive} {...props}>
     {children}
   </div>
 );
 
-TabPanel.displayName = "TabPanel";
+export const Tabs = Object.assign(TabsRoot, {
+  List: TabList,
+  Tab: Tab,
+  Panels: TabPanels,
+  Panel: TabPanel,
+});

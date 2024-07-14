@@ -4,13 +4,7 @@ import moselCourse from "~/public/images/mosel-course.jpg";
 
 import { Container, ContainerMargin } from "@/components/Container";
 import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
-import {
-  TabGroup,
-  TabList,
-  Tab,
-  TabPanels,
-  TabPanel,
-} from "@/components/TabSelection";
+import { Tabs } from "@/components/TabSelection";
 
 const Moselcourse: NextPage = () => {
   return (
@@ -34,13 +28,13 @@ const Moselcourse: NextPage = () => {
             Professioneller, naturnaher 18-Loch Platz
           </p>
 
-          <TabGroup defaultIndex={0}>
-            <TabList>
-              <Tab>Beschreibung</Tab>
-              <Tab>Bahnen im Detail</Tab>
-            </TabList>
-            <TabPanels>
-              <TabPanel>
+          <Tabs defaultIndex={0}>
+            <Tabs.List>
+              <Tabs.Tab>Beschreibung</Tabs.Tab>
+              <Tabs.Tab>Bahnen im Detail</Tabs.Tab>
+            </Tabs.List>
+            <Tabs.Panels>
+              <Tabs.Panel>
                 <div className="mt-24 flex flex-col gap-8 md:flex-row">
                   <div className="flex flex-col gap-3">
                     <Headline
@@ -98,8 +92,8 @@ const Moselcourse: NextPage = () => {
                     aria-hidden
                   />
                 </div>
-              </TabPanel>
-              <TabPanel>
+              </Tabs.Panel>
+              <Tabs.Panel>
                 <div className="mt-24">
                   <h3 className="mb-4 text-2xl font-bold">Bahnen im Detail</h3>
                   <p className="text-lg text-gray-500">
@@ -108,9 +102,9 @@ const Moselcourse: NextPage = () => {
                     spezifischen Details für jede Bahn ein.)
                   </p>
                 </div>
-              </TabPanel>
-            </TabPanels>
-          </TabGroup>
+              </Tabs.Panel>
+            </Tabs.Panels>
+          </Tabs>
         </div>
       </Container>
     </>

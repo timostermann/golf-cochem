@@ -28,13 +28,7 @@ import { ArrowLink } from "@/components/ArrowLink";
 import { ImageStage } from "@/components/ImageStage";
 import { ImageInfoCard } from "@/components/ImageInfoCard";
 import { FeatureColumn } from "@/components/FeatureColumn";
-import {
-  TabGroup,
-  TabList,
-  Tab,
-  TabPanels,
-  TabPanel,
-} from "@/components/TabSelection";
+import { Tabs } from "@/components/TabSelection";
 
 const Dev: NextPage = () => {
   return (
@@ -308,18 +302,18 @@ const Dev: NextPage = () => {
         />
       </Container>
       <Container>
-        <TabGroup>
-          <TabList>
-            <Tab>Tab 1</Tab>
-            <Tab>Tab 2</Tab>
-            <Tab>Tab 3</Tab>
-          </TabList>
-          <TabPanels>
-            <TabPanel>Content 1</TabPanel>
-            <TabPanel>Content 2</TabPanel>
-            <TabPanel>Content 3</TabPanel>
-          </TabPanels>
-        </TabGroup>
+        <Tabs>
+          <Tabs.List>
+            <Tabs.Tab>Tab 1</Tabs.Tab>
+            <Tabs.Tab>Tab 2</Tabs.Tab>
+            <Tabs.Tab>Tab 3</Tabs.Tab>
+          </Tabs.List>
+          <Tabs.Panels>
+            <Tabs.Panel>Content 1</Tabs.Panel>
+            <Tabs.Panel>Content 2</Tabs.Panel>
+            <Tabs.Panel>Content 3</Tabs.Panel>
+          </Tabs.Panels>
+        </Tabs>
       </Container>
     </>
   );
