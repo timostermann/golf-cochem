@@ -28,7 +28,7 @@ import { ArrowLink } from "@/components/ArrowLink";
 import { ImageStage } from "@/components/ImageStage";
 import { ImageInfoCard } from "@/components/ImageInfoCard";
 import { FeatureColumn } from "@/components/FeatureColumn";
-import { Tabs } from "@/components/TabSelection";
+import { Tabs } from "@/components/Tabs";
 
 const Dev: NextPage = () => {
   return (

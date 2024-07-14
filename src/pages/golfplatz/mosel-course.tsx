@@ -4,7 +4,7 @@ import moselCourse from "~/public/images/mosel-course.jpg";
 
 import { Container, ContainerMargin } from "@/components/Container";
 import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
-import { Tabs } from "@/components/TabSelection";
+import { Tabs } from "@/components/Tabs";
 
 const Moselcourse: NextPage = () => {
   return (
