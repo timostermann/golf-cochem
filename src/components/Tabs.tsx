@@ -11,8 +11,8 @@ import {
   type ReactNode,
   type ReactElement,
   type KeyboardEvent,
-  type FC,
   type ForwardRefRenderFunction,
+  type ComponentPropsWithoutRef,
 } from "react";
 import cn from "classnames";
 
@@ -28,7 +28,7 @@ type TabsProps = {
   defaultIndex?: number;
 };
 
-const TabsRoot: FC<TabsProps> = ({ children, defaultIndex = 0 }) => {
+const TabsRoot = ({ children, defaultIndex = 0 }: TabsProps) => {
   const [activeTab, setActiveTab] = useState(defaultIndex);
 
   return (
@@ -38,10 +38,9 @@ const TabsRoot: FC<TabsProps> = ({ children, defaultIndex = 0 }) => {
   );
 };
 
-const TabList: FC<{ children: ReactNode; className?: string }> = ({
-  children,
-  className,
-}) => {
+type TabListProps = ComponentPropsWithoutRef<"div">;
+
+const TabList = ({ children, className, ...props }: TabListProps) => {
   const context = useContext(TabsContext);
   if (!context)
     throw new Error("Tabs.List must be used within a Tabs component");
@@ -86,6 +85,7 @@ const TabList: FC<{ children: ReactNode; className?: string }> = ({
         "flex w-fit flex-row rounded-lg border border-gray-200 bg-gray-100",
         className,
       )}
+      {...props}
     >
       {Children.map(children, (child, index) => {
         if (isValidElement(child)) {
@@ -112,15 +112,8 @@ const TabList: FC<{ children: ReactNode; className?: string }> = ({
   );
 };
 
-type TabProps = {
-  children: ReactNode;
-  className?: string;
+type TabProps = ComponentPropsWithoutRef<"button"> & {
   isActive?: boolean;
-  onClick?: () => void;
-  onKeyDown?: (event: KeyboardEvent) => void;
-  tabIndex?: number;
-  id?: string;
-  "aria-controls"?: string;
 };
 
 const TabComponent: ForwardRefRenderFunction<HTMLButtonElement, TabProps> = (
@@ -148,7 +141,11 @@ const TabComponent: ForwardRefRenderFunction<HTMLButtonElement, TabProps> = (
 
 const Tab = forwardRef(TabComponent);
 
-const TabPanels: FC<{ children: ReactNode }> = ({ children }) => {
+type TabPanelsProps = {
+  children: ReactNode;
+};
+
+const TabPanels = ({ children }: TabPanelsProps) => {
   const context = useContext(TabsContext);
   if (!context)
     throw new Error("Tabs.Panels must be used within a Tabs component");
@@ -169,14 +166,11 @@ const TabPanels: FC<{ children: ReactNode }> = ({ children }) => {
   );
 };
 
-type TabPanelProps = {
-  children: ReactNode;
+type TabPanelProps = ComponentPropsWithoutRef<"div"> & {
   isActive?: boolean;
-  id?: string;
-  "aria-labelledby"?: string;
 };
 
-const TabPanel: FC<TabPanelProps> = ({ children, isActive, ...props }) => (
+const TabPanel = ({ children, isActive, ...props }: TabPanelProps) => (
   <div role="tabpanel" hidden={!isActive} {...props}>
     {children}
   </div>
