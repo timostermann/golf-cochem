@@ -4,6 +4,20 @@ import moselCourse from "~/public/images/mosel-course.jpg";
 
 import { Container, ContainerMargin } from "@/components/Container";
 import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
+import { type TabElement, TabSelection } from "@/components/TabSelection";
+
+const tabs: TabElement[] = [
+  {
+    title: "Beschreibung",
+    onClick: () => {},
+    isActive: true,
+  },
+  {
+    title: "Bahnen im Detail",
+    onClick: () => {},
+    isActive: false,
+  },
+];
 
 const Moselcourse: NextPage = () => {
   return (
@@ -13,6 +27,22 @@ const Moselcourse: NextPage = () => {
         aria-labelledby="hero"
         margin={ContainerMargin.MD}
       >
+        <div className="mt-24 flex flex-col gap-3">
+          <Headline
+            tag={HeadlineTag.H3}
+            variant={HeadlineVariant.SECONDARY}
+            id="hero"
+          >
+            Der Mosel Course
+          </Headline>
+
+          <p className="-order-1 font-semibold text-primary-500">Golfplatz</p>
+          <p className="mb-10 mt-8 max-w-[700px] text-lg text-gray-500">
+            Professioneller, naturnaher 18-Loch Platz
+          </p>
+
+          <TabSelection tabs={tabs} />
+        </div>
         <div className="mt-24 flex flex-col gap-8 md:flex-row">
           <div className="flex flex-col gap-3">
             <Headline
@@ -23,26 +53,7 @@ const Moselcourse: NextPage = () => {
               Der Mosel Course bietet alles, was das Golferherz höher schlägen
               lässt
             </Headline>
-            <div className="flex flex-row rounded-lg border border-gray-200 bg-gray-100">
-              <ul className="flex flex-wrap gap-2">
-                <li>
-                  <button
-                    onClick={() => {}}
-                    className="m-1 rounded-lg bg-white px-6 py-3 text-lg text-gray-700 shadow-md"
-                  >
-                    Beschreibung
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => {}}
-                    className="m-1 rounded-lg px-6 py-3 text-lg text-gray-500 hover:text-gray-700 hover:shadow-md"
-                  >
-                    Bahnen im Detail
-                  </button>
-                </li>
-              </ul>
-            </div>
+
             <p className="-order-1 font-semibold text-primary-500">
               Über den Mosel Course
             </p>
