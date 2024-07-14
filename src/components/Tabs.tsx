@@ -1,8 +1,8 @@
 import {
   createContext,
   useContext,
-  useState,
   useCallback,
+  useState,
   useRef,
   useEffect,
   Children,
@@ -10,7 +10,6 @@ import {
   cloneElement,
   forwardRef,
   type ReactNode,
-  type ReactElement,
   type KeyboardEvent,
   type ForwardRefRenderFunction,
   type ComponentPropsWithoutRef,
@@ -175,8 +174,8 @@ const TabPanels = ({ children }: TabPanelsProps) => {
   return (
     <>
       {Children.map(children, (child, index) => {
-        if (isValidElement(child)) {
-          return cloneElement(child as ReactElement<TabPanelProps>, {
+        if (isValidElement<TabPanelProps>(child)) {
+          return cloneElement(child, {
             isActive: context.activeTab === index,
             id: `tabpanel-${index}`,
             "aria-labelledby": `tab-${index}`,
@@ -192,15 +191,27 @@ type TabPanelProps = ComponentPropsWithoutRef<"div"> & {
   isActive?: boolean;
 };
 
-const TabPanel = ({ children, isActive, ...props }: TabPanelProps) => (
-  <div role="tabpanel" hidden={!isActive} {...props}>
+const TabPanel = ({
+  children,
+  isActive,
+  className,
+  ...props
+}: TabPanelProps) => (
+  <div
+    role="tabpanel"
+    hidden={!isActive}
+    className={cn(className, {
+      "!hidden": !isActive,
+    })}
+    {...props}
+  >
     {children}
   </div>
 );
 
 export const Tabs = Object.assign(TabsRoot, {
   List: TabList,
-  Tab,
+  Tab: Tab,
   Panels: TabPanels,
   Panel: TabPanel,
 });
