@@ -28,7 +28,13 @@ import { ArrowLink } from "@/components/ArrowLink";
 import { ImageStage } from "@/components/ImageStage";
 import { ImageInfoCard } from "@/components/ImageInfoCard";
 import { FeatureColumn } from "@/components/FeatureColumn";
-import { TabSelection } from "@/components/TabSelection";
+import {
+  TabGroup,
+  TabList,
+  Tab,
+  TabPanels,
+  TabPanel,
+} from "@/components/TabSelection";
 
 const Dev: NextPage = () => {
   return (
@@ -301,12 +307,20 @@ const Dev: NextPage = () => {
           text="Mit einer Mitgliedschaft profitierst du von exklusiven Rabatten auf Greenfees, Pro-Shop-Artikel und Partner-Angebote, sodass du dein Golfspiel und Cluberlebnis noch attraktiver wird."
         />
       </Container>
-      <TabSelection
-        tabs={[
-          { title: "Tab 1", onClick: () => {}, isActive: true },
-          { title: "Tab 2", onClick: () => {}, isActive: false },
-        ]}
-      />
+      <Container>
+        <TabGroup>
+          <TabList>
+            <Tab>Tab 1</Tab>
+            <Tab>Tab 2</Tab>
+            <Tab>Tab 3</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel>Content 1</TabPanel>
+            <TabPanel>Content 2</TabPanel>
+            <TabPanel>Content 3</TabPanel>
+          </TabPanels>
+        </TabGroup>
+      </Container>
     </>
   );
 };
