@@ -2,6 +2,7 @@ import {
   createContext,
   useContext,
   useState,
+  useCallback,
   useRef,
   useEffect,
   Children,
@@ -13,8 +14,6 @@ import {
   type KeyboardEvent,
   type ForwardRefRenderFunction,
   type ComponentPropsWithoutRef,
-  useCallback,
-  useLayoutEffect,
 } from "react";
 import cn from "classnames";
 
@@ -55,7 +54,7 @@ const TabList = ({ children, className, ...props }: TabListProps) => {
     tabRefs.current = tabRefs.current.slice(0, Children.count(children));
   }, [children]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const activeTabElement = tabRefs.current[context.activeTab];
     if (activeTabElement) {
       const { offsetLeft, offsetWidth } = activeTabElement;
@@ -113,7 +112,7 @@ const TabList = ({ children, className, ...props }: TabListProps) => {
         />
       )}
       {Children.map(children, (child, index) => {
-        if (isValidElement<TabPanelProps>(child)) {
+        if (isValidElement<TabProps>(child)) {
           return (
             <Tabs.Tab
               key={index}
