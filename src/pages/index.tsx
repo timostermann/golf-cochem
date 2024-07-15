@@ -54,6 +54,7 @@ type HomeProps = {
 };
 
 const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
+  console.log(newsArticles);
   const teamMembers = [
     {
       name: "Jannik Oster",
@@ -274,7 +275,16 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
         </p>
         <div className="mt-12 grid grid-cols-1 gap-8 sm:mt-16 sm:grid-cols-2 xl:grid-cols-3">
           {newsArticles.map((article) => (
-            <ImageTeaserCard key={article.title} {...article} />
+            <ImageTeaserCard
+              key={article.title}
+              category={article.category}
+              title={article.title}
+              teaser={article.title}
+              titleImage={article.titleimage}
+              author={article.author}
+              date={article.createdAt}
+              href={article.slug}
+            />
           ))}
         </div>
       </Container>

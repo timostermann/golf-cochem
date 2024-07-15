@@ -13,7 +13,7 @@ export type TeaserContent = {
   category?: Category;
   title: string;
   teaser: string;
-  titleimage?: Partial<StrapiImage>;
+  titleImage?: Partial<StrapiImage>;
   author?: Author;
   date?: string;
   href?: string;
@@ -25,7 +25,7 @@ export const ImageTeaserCard = ({
   category,
   title,
   teaser,
-  titleimage,
+  titleImage,
   author,
   date,
   href = "",
@@ -51,13 +51,13 @@ export const ImageTeaserCard = ({
       >
         {title}
       </Headline>
-      {titleimage?.url && titleimage.width && titleimage.height && (
+      {titleImage?.url && titleImage.width && titleImage.height && (
         <div className="-order-2 h-60 overflow-hidden rounded-t-3xl">
           <Image
-            src={titleimage.url}
-            alt={titleimage.alternativeText || ""}
-            width={titleimage.width}
-            height={titleimage.height}
+            src={titleImage.url}
+            alt={titleImage.alternativeText || ""}
+            width={titleImage.width}
+            height={titleImage.height}
             className="h-full w-full rounded-t-3xl object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
           />
         </div>

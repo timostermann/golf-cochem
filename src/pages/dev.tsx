@@ -86,7 +86,7 @@ const Dev: NextPage = () => {
             title="Glücklich und zufrieden! - Kanada brachte neue Erkenntnisse"
             teaser="Bundestrainer zufrieden und mit einem klaren Plan für das Wintertraining."
             date="2023-10-07T00:00:00Z"
-            titleimage={{
+            titleImage={{
               url: "https://picsum.photos/800/400",
               alternativeText: "Golfclub",
               width: 800,
@@ -99,7 +99,7 @@ const Dev: NextPage = () => {
             title="Was ist Footgolf?"
             teaser="Die Trendsportart jetzt bei uns im Club. Komm noch heute vorbei uns probiere es aus."
             date="2023-10-06T00:00:00Z"
-            titleimage={{
+            titleImage={{
               url: "https://picsum.photos/800/400",
               alternativeText: "Golfplatz",
               width: 800,
@@ -112,7 +112,7 @@ const Dev: NextPage = () => {
             title="Unsere neue Website"
             teaser="Wir haben eine neue Website!"
             date="2023-10-04T00:00:00Z"
-            titleimage={{
+            titleImage={{
               url: "https://picsum.photos/800/400",
               alternativeText: "Golfclub",
               width: 800,
