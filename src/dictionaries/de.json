@@ -25,7 +25,6 @@
       "license": "DVG Platzreife",
       "tasterCourse": "Schnupperkurs",
       "parentalTraining": "Eltern-Training",
-      "bundeswehr": "Bundeswehr",
       "guests": "Gäste",
       "about": "Über uns"
     },
@@ -43,8 +42,7 @@
       "license": "Jetzt die Platzreife machen",
       "tasterCourse": "Den Golfsport kennen lernen",
       "parentalTraining": "Kinder und Eltern gemeinsam für den Golfsport begeistern",
-      "groupTraining": "Gemeinsam trainieren und Spaß haben",
-      "bundeswehr": "Spezielle Angebote für Bundeswehrangehörige"
+      "groupTraining": "Gemeinsam trainieren und Spaß haben"
     }
   }
 }

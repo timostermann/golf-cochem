@@ -26,7 +26,6 @@
       "tasterCourse": "Taster Course",
       "parentalTraining": "Parental Training",
       "groupTraining": "Group Training",
-      "bundeswehr": "Bundeswehr",
       "guests": "Guests",
       "about": "About us"
     },
@@ -44,8 +43,7 @@
       "license": "Get the license now",
       "tasterCourse": "Get to know golf",
       "parentalTraining": "Get children and parents excited about golf together",
-      "groupTraining": "Train together and have fun",
-      "bundeswehr": "Special offers for Bundeswehr members"
+      "groupTraining": "Train together and have fun"
     }
   }
 }

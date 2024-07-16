@@ -26,7 +26,6 @@
       "tasterCourse": "Proefcursus",
       "parentalTraining": "Ouders training",
       "groupTraining": "Groepstraining",
-      "bundeswehr": "Bundeswehr",
       "guests": "Gasten",
       "about": "Over ons"
     },
@@ -44,8 +43,7 @@
       "license": "Haal nu het licentie",
       "tasterCourse": "Leer golfen",
       "parentalTraining": "Ouders en kinderen samen enthousiast maken voor golf",
-      "groupTraining": "Samen trainen en plezier hebben",
-      "bundeswehr": "Speciale aanbiedingen voor leden van de Bundeswehr"
+      "groupTraining": "Samen trainen en plezier hebben"
     }
   }
 }

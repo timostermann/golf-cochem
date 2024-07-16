@@ -80,10 +80,6 @@ export const footerData: FooterProps = {
           label: "Elterntraining",
           href: "/golfkurse/elterntraining",
         },
-        {
-          label: "Bundeswehr",
-          href: "/bundeswehr",
-        },
       ],
     },
   ],
