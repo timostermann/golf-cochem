@@ -90,17 +90,19 @@ const Moselcourse: NextPage = () => {
                 />
               </Tabs.Panel>
               <Tabs.Panel className="mt-16">
-                <Headline
-                  tag={HeadlineTag.H2}
-                  variant={HeadlineVariant.SECONDARY}
-                >
-                  Bahnen im Detail
-                </Headline>
-                <p className="text-lg text-gray-500">
-                  Hier können Sie detaillierte Informationen zu den einzelnen
-                  Bahnen des Mosel Course finden. (Fügen Sie hier die
-                  spezifischen Details für jede Bahn ein.)
-                </p>
+                <p className="mb-4 font-medium text-primary-600">Bahnen</p>
+                <Tabs orientation="vertical" defaultIndex={0}>
+                  <Tabs.List>
+                    <Tabs.Tab>Loch 1</Tabs.Tab>
+                    <Tabs.Tab>Loch 2</Tabs.Tab>
+                    <Tabs.Tab>Loch 3</Tabs.Tab>
+                  </Tabs.List>
+                  <Tabs.Panels>
+                    <Tabs.Panel>Loch 1</Tabs.Panel>
+                    <Tabs.Panel>Loch 2</Tabs.Panel>
+                    <Tabs.Panel>Loch 3</Tabs.Panel>
+                  </Tabs.Panels>
+                </Tabs>
               </Tabs.Panel>
             </Tabs.Panels>
           </Tabs>

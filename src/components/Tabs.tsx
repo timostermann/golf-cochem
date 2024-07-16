@@ -19,6 +19,7 @@ import cn from "classnames";
 type TabsContextType = {
   activeTab: number;
   setActiveTab: (index: number) => void;
+  orientation: "horizontal" | "vertical";
 };
 
 const TabsContext = createContext<TabsContextType | undefined>(undefined);
@@ -26,14 +27,21 @@ const TabsContext = createContext<TabsContextType | undefined>(undefined);
 type TabsProps = {
   children: ReactNode;
   defaultIndex?: number;
+  orientation?: "horizontal" | "vertical";
 };
 
-const TabsRoot = ({ children, defaultIndex = 0 }: TabsProps) => {
+const TabsRoot = ({
+  children,
+  defaultIndex = 0,
+  orientation = "horizontal",
+}: TabsProps) => {
   const [activeTab, setActiveTab] = useState(defaultIndex);
 
   return (
-    <TabsContext.Provider value={{ activeTab, setActiveTab }}>
-      <div className="w-full">{children}</div>
+    <TabsContext.Provider value={{ activeTab, setActiveTab, orientation }}>
+      <div className={cn("w-full", { flex: orientation === "vertical" })}>
+        {children}
+      </div>
     </TabsContext.Provider>
   );
 };
@@ -45,8 +53,14 @@ const TabList = ({ children, className, ...props }: TabListProps) => {
   if (!context)
     throw new Error("Tabs.List must be used within a Tabs component");
 
+  const { activeTab, setActiveTab, orientation } = context;
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
-  const [activeTabStyle, setActiveTabStyle] = useState({ left: 0, width: 0 });
+  const [activeTabStyle, setActiveTabStyle] = useState({
+    left: 0,
+    top: 0,
+    width: 0,
+    height: 0,
+  });
   const [measurementsReady, setMeasurementsReady] = useState(false);
 
   useEffect(() => {
@@ -54,13 +68,19 @@ const TabList = ({ children, className, ...props }: TabListProps) => {
   }, [children]);
 
   useEffect(() => {
-    const activeTabElement = tabRefs.current[context.activeTab];
+    const activeTabElement = tabRefs.current[activeTab];
     if (activeTabElement) {
-      const { offsetLeft, offsetWidth } = activeTabElement;
-      setActiveTabStyle({ left: offsetLeft, width: offsetWidth });
+      const { offsetLeft, offsetTop, offsetWidth, offsetHeight } =
+        activeTabElement;
+      setActiveTabStyle({
+        left: offsetLeft,
+        top: offsetTop,
+        width: offsetWidth,
+        height: offsetHeight,
+      });
       setMeasurementsReady(true);
     }
-  }, [context.activeTab, children]);
+  }, [activeTab, children]);
 
   const handleKeyDown = useCallback(
     (event: KeyboardEvent, index: number) => {
@@ -68,10 +88,10 @@ const TabList = ({ children, className, ...props }: TabListProps) => {
       let newIndex: number;
 
       switch (event.key) {
-        case "ArrowRight":
+        case orientation === "horizontal" ? "ArrowRight" : "ArrowDown":
           newIndex = (index + 1) % tabCount;
           break;
-        case "ArrowLeft":
+        case orientation === "horizontal" ? "ArrowLeft" : "ArrowUp":
           newIndex = (index - 1 + tabCount) % tabCount;
           break;
         case "Home":
@@ -86,39 +106,47 @@ const TabList = ({ children, className, ...props }: TabListProps) => {
 
       event.preventDefault();
       tabRefs.current[newIndex]?.focus();
-      context.setActiveTab(newIndex);
+      setActiveTab(newIndex);
     },
-    [children, context],
+    [children, setActiveTab, orientation],
   );
 
   return (
     <div
       role="tablist"
+      aria-orientation={orientation}
       aria-label="Tab Selection"
       className={cn(
-        "relative flex w-fit flex-row rounded-lg border border-gray-200 bg-gray-100",
+        "relative",
+        orientation === "horizontal"
+          ? "flex w-fit flex-row rounded-lg border border-gray-200 bg-gray-100"
+          : "flex w-64 flex-col rounded-lg border border-gray-200 bg-gray-100",
         className,
       )}
       {...props}
     >
       {measurementsReady && (
         <div
-          className="absolute bottom-1 top-1 rounded-lg bg-white shadow-md transition-[left,width] duration-300 ease-out"
-          style={{
-            left: activeTabStyle.left,
-            width: activeTabStyle.width,
-          }}
+          className={cn(
+            "absolute rounded-lg bg-white shadow-md transition-all duration-300 ease-out",
+            orientation === "horizontal" ? "bottom-1 top-1" : "left-1 right-1",
+          )}
+          style={
+            orientation === "horizontal"
+              ? { left: activeTabStyle.left, width: activeTabStyle.width }
+              : { top: activeTabStyle.top, height: activeTabStyle.height }
+          }
         />
       )}
       {Children.map(children, (child, index) => {
         if (isValidElement<TabProps>(child)) {
           return (
-            <Tabs.Tab
+            <Tab
               key={index}
-              isActive={context.activeTab === index}
-              onClick={() => context.setActiveTab(index)}
+              isActive={activeTab === index}
+              onClick={() => setActiveTab(index)}
               onKeyDown={(e: KeyboardEvent) => handleKeyDown(e, index)}
-              tabIndex={context.activeTab === index ? 0 : -1}
+              tabIndex={activeTab === index ? 0 : -1}
               id={`tab-${index}`}
               aria-controls={`tabpanel-${index}`}
               ref={(el: HTMLButtonElement | null) => {
@@ -126,7 +154,7 @@ const TabList = ({ children, className, ...props }: TabListProps) => {
               }}
             >
               {child.props.children}
-            </Tabs.Tab>
+            </Tab>
           );
         }
         return child;
@@ -171,19 +199,21 @@ const TabPanels = ({ children }: TabPanelsProps) => {
   if (!context)
     throw new Error("Tabs.Panels must be used within a Tabs component");
 
+  const { activeTab, orientation } = context;
+
   return (
-    <>
+    <div className={orientation === "vertical" ? "flex-1 p-4" : undefined}>
       {Children.map(children, (child, index) => {
         if (isValidElement<TabPanelProps>(child)) {
           return cloneElement(child, {
-            isActive: context.activeTab === index,
+            isActive: activeTab === index,
             id: `tabpanel-${index}`,
             "aria-labelledby": `tab-${index}`,
           });
         }
         return child;
       })}
-    </>
+    </div>
   );
 };
 
