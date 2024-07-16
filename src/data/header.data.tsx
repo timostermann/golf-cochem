@@ -116,12 +116,6 @@ export const headerData: HeaderProps = {
           icon: <ParentTraining />,
         },
         {
-          label: "labels.groupTraining",
-          href: "/golfkurse/gruppentraining",
-          description: "descriptions.groupTraining",
-          icon: <Group />,
-        },
-        {
           label: "labels.bundeswehr",
           href: "/golfkurse/bundeswehr",
           description: "descriptions.bundeswehr",
