@@ -315,6 +315,20 @@ const Dev: NextPage = () => {
           </Tabs.Panels>
         </Tabs>
       </Container>
+      <Container>
+        <Tabs orientation="vertical" defaultIndex={1}>
+          <Tabs.List>
+            <Tabs.Tab>Tab 1</Tabs.Tab>
+            <Tabs.Tab>Tab 2</Tabs.Tab>
+            <Tabs.Tab>Tab 3</Tabs.Tab>
+          </Tabs.List>
+          <Tabs.Panels>
+            <Tabs.Panel>Content 1</Tabs.Panel>
+            <Tabs.Panel>Content 2</Tabs.Panel>
+            <Tabs.Panel>Content 3</Tabs.Panel>
+          </Tabs.Panels>
+        </Tabs>
+      </Container>
     </>
   );
 };
