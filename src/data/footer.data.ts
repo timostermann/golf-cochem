@@ -15,7 +15,7 @@ export const footerData: FooterProps = {
         },
         {
           label: "Mannschaften",
-          href: "/mannschaften",
+          href: "/clubleben/mannschaften",
         },
         {
           label: "Events & Turniere",

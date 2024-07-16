@@ -35,7 +35,7 @@ export const headerData: HeaderProps = {
         },
         {
           label: "labels.teams",
-          href: "/mannschaften",
+          href: "/clubleben/mannschaften",
           description: "descriptions.teams",
           icon: <Team />,
         },
