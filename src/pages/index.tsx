@@ -54,7 +54,6 @@ type HomeProps = {
 };
 
 const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
-  console.log(newsArticles);
   const teamMembers = [
     {
       name: "Jannik Oster",
