@@ -78,7 +78,7 @@ export const footerData: FooterProps = {
         },
         {
           label: "Elterntraining",
-          href: "/elterntraining",
+          href: "/golfkurse/elterntraining",
         },
         {
           label: "Gruppentraining",

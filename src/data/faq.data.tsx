@@ -182,3 +182,14 @@ export const footgolfFaq: FaqItem[] = [
     ),
   },
 ];
+
+export const parentTrainingFaq: FaqItem[] = [
+  {
+    question: "Ablauf des Elterntrainings",
+    answer: <>Antwort</>,
+  },
+  {
+    question: "Wann findet das Elterntraining statt?",
+    answer: <>Antwort</>,
+  },
+];
