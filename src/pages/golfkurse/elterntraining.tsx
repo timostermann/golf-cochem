@@ -4,7 +4,7 @@ import { ImageStage } from "@/components/ImageStage";
 import { Meta } from "@/components/Meta";
 import { Container, ContainerMargin } from "@/components/Container";
 import { Accordion } from "@/components/Accordion";
-import { membershipFaq, parentTrainingFaq } from "@/data/faq.data";
+import { parentTrainingFaq } from "@/data/faq.data";
 import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
 
 const Elterntraining: NextPage = () => (

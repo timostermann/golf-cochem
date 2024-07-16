@@ -7,12 +7,10 @@ import {
   Golf,
   GolfBag,
   Greenkeeper,
-  Group,
   Member,
   MoselCourse,
   ParentTraining,
   Soccer,
-  Star,
   Team,
   Trainer,
 } from "@/icons";
