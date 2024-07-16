@@ -60,7 +60,7 @@ export const headerData: HeaderProps = {
         },
         {
           label: "labels.eifelCourse",
-          href: "/eifel-course",
+          href: "/golfplatz/eifel-course",
           description: "descriptions.eifelCourse",
           icon: <EifelCourse />,
         },

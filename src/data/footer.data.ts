@@ -32,7 +32,7 @@ export const footerData: FooterProps = {
         },
         {
           label: "Eifel Course",
-          href: "/eifel-course",
+          href: "/golfplatz/eifel-course",
         },
         {
           label: "Footgolf",

@@ -230,7 +230,7 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
               title="Eifel Course"
               summary="9-Loch Platz, der ohne DGV-Ausweis gespielt werden kann"
               linkLabel="Mehr erfahren"
-              href=""
+              href="/golfplatz/eifel-course"
             />
             <BorderTeaserCard
               title="Footgolf"
