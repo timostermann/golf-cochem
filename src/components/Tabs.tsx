@@ -120,7 +120,7 @@ const TabList = ({ children, className, ...props }: TabListProps) => {
         "relative",
         orientation === "horizontal"
           ? "flex w-fit flex-row rounded-lg border border-gray-200 bg-gray-100"
-          : "flex w-64 flex-col rounded-lg border border-gray-200 bg-gray-100",
+          : "flex w-64 flex-col rounded-lg",
         className,
       )}
       {...props}
@@ -128,8 +128,10 @@ const TabList = ({ children, className, ...props }: TabListProps) => {
       {measurementsReady && (
         <div
           className={cn(
-            "absolute rounded-lg bg-white shadow-md transition-all duration-300 ease-out",
-            orientation === "horizontal" ? "bottom-1 top-1" : "left-1 right-1",
+            "absolute rounded-lg transition-all duration-300 ease-out",
+            orientation === "horizontal"
+              ? "bottom-1 top-1 bg-white shadow-md"
+              : "left-1 right-1 bg-primary-100",
           )}
           style={
             orientation === "horizontal"
@@ -152,6 +154,7 @@ const TabList = ({ children, className, ...props }: TabListProps) => {
               ref={(el: HTMLButtonElement | null) => {
                 tabRefs.current[index] = el;
               }}
+              orientation={orientation}
             >
               {child.props.children}
             </Tab>
@@ -165,10 +168,11 @@ const TabList = ({ children, className, ...props }: TabListProps) => {
 
 type TabProps = ComponentPropsWithoutRef<"button"> & {
   isActive?: boolean;
+  orientation?: "horizontal" | "vertical";
 };
 
 const TabComponent: ForwardRefRenderFunction<HTMLButtonElement, TabProps> = (
-  { children, className, isActive, onClick, onKeyDown, ...props },
+  { children, className, isActive, onClick, onKeyDown, orientation, ...props },
   ref,
 ) => (
   <button
@@ -178,8 +182,15 @@ const TabComponent: ForwardRefRenderFunction<HTMLButtonElement, TabProps> = (
     onClick={onClick}
     onKeyDown={onKeyDown}
     className={cn(
-      "relative z-10 m-1 rounded-lg px-6 py-3 text-lg transition-colors duration-300",
-      isActive ? "text-gray-700" : "text-gray-500 hover:text-gray-700",
+      "z-10 m-1 rounded-lg transition-colors duration-300",
+      {
+        "px-6 py-3 text-lg": orientation === "horizontal",
+        "px-4 py-2 text-start": orientation === "vertical",
+        "text-gray-700": isActive && orientation === "horizontal",
+        "text-gray-500 hover:text-gray-700":
+          !isActive && orientation === "horizontal",
+        "text-primary-500": isActive && orientation === "vertical",
+      },
       className,
     )}
     {...props}
