@@ -23,7 +23,7 @@ export const headerData: HeaderProps = {
       subItems: [
         {
           label: "labels.blog",
-          href: "/",
+          href: "/clubleben/news",
           description: "descriptions.blog",
           icon: <Blog />,
         },
