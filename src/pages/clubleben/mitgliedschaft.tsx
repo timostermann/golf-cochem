@@ -81,43 +81,49 @@ const Mitgliedschaft: NextPage = () => (
         <br />
         Unbeschwertes Golfen unter tollen Menschen.
       </p>
-      <div className="grid grid-cols-1 items-start gap-8 sm:grid-cols-2 xl:grid-cols-3">
-        <PriceCard
-          price="595 €"
-          title="Teilmitgliedschaft"
-          facts={[
-            "DGV-Mitgliedsausweis",
-            "Keine Wartezeit",
-            "20% Rabatt auf Greenfees",
-            "9 x 18 Loch Mosel Course",
-          ]}
-          icon={<Golf />}
-        />
-        <PriceCard
-          price="1.275 €"
-          title="Vollmitgliedschaft"
-          facts={[
-            "DGV-Mitgliedsausweis",
-            "Keine Wartezeit",
-            "20% Rabatt für Ehepartner",
-            "Unbegrenztes Spielen",
-            "Kostenloses Spielen auf über 50 Partneranlagen",
-            "Einsteigerangebot verfügbar",
-          ]}
-          icon={<MoselCourse />}
-        />
-        <PriceCard
-          price="273 €"
-          title="Fernmitgliedschaft"
-          facts={[
-            "DGV-Mitgliedsausweis",
-            "Keine Wartezeit",
-            "20% Rabatt auf Greenfees",
-            "9 x 18 Loch Mosel Course",
-          ]}
-          icon={<EifelCourse />}
-        />
-      </div>
+      <ul className="grid grid-cols-1 items-start gap-8 sm:grid-cols-2 xl:grid-cols-3">
+        <li>
+          <PriceCard
+            price="595 €"
+            title="Teilmitgliedschaft"
+            facts={[
+              "DGV-Mitgliedsausweis",
+              "Keine Wartezeit",
+              "20% Rabatt auf Greenfees",
+              "9 x 18 Loch Mosel Course",
+            ]}
+            icon={<Golf />}
+          />
+        </li>
+        <li>
+          <PriceCard
+            price="1.275 €"
+            title="Vollmitgliedschaft"
+            facts={[
+              "DGV-Mitgliedsausweis",
+              "Keine Wartezeit",
+              "20% Rabatt für Ehepartner",
+              "Unbegrenztes Spielen",
+              "Kostenloses Spielen auf über 50 Partneranlagen",
+              "Einsteigerangebot verfügbar",
+            ]}
+            icon={<MoselCourse />}
+          />
+        </li>
+        <li>
+          <PriceCard
+            price="273 €"
+            title="Fernmitgliedschaft"
+            facts={[
+              "DGV-Mitgliedsausweis",
+              "Keine Wartezeit",
+              "20% Rabatt auf Greenfees",
+              "9 x 18 Loch Mosel Course",
+            ]}
+            icon={<EifelCourse />}
+          />
+        </li>
+      </ul>
     </Container>
     <Container
       aria-labelledby="vorteile"

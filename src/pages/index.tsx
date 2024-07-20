@@ -219,32 +219,40 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
             </p>
           </div>
           <div />
-          <div className="flex flex-col gap-4">
-            <BorderTeaserCard
-              title="Mosel Course"
-              summary="Professioneller, naturnaher 18-Loch-Platz"
-              linkLabel="Mehr erfahren"
-              href="/golfplatz/mosel-course"
-            />
-            <BorderTeaserCard
-              title="Eifel Course"
-              summary="9-Loch Platz, der ohne DGV-Ausweis gespielt werden kann"
-              linkLabel="Mehr erfahren"
-              href="/golfplatz/eifel-course"
-            />
-            <BorderTeaserCard
-              title="Footgolf"
-              summary="Der Spaß für die gesamte Familie"
-              linkLabel="Mehr erfahren"
-              href="/golfplatz/footgolf"
-            />
-            <BorderTeaserCard
-              title="Driving Range"
-              summary="Überdachte Abschlagboxen"
-              linkLabel="Mehr erfahren"
-              href="/golfplatz/driving-range"
-            />
-          </div>
+          <ul className="flex flex-col gap-4">
+            <li>
+              <BorderTeaserCard
+                title="Mosel Course"
+                summary="Professioneller, naturnaher 18-Loch-Platz"
+                linkLabel="Mehr erfahren"
+                href="/golfplatz/mosel-course"
+              />
+            </li>
+            <li>
+              <BorderTeaserCard
+                title="Eifel Course"
+                summary="9-Loch Platz, der ohne DGV-Ausweis gespielt werden kann"
+                linkLabel="Mehr erfahren"
+                href="/golfplatz/eifel-course"
+              />
+            </li>
+            <li>
+              <BorderTeaserCard
+                title="Footgolf"
+                summary="Der Spaß für die gesamte Familie"
+                linkLabel="Mehr erfahren"
+                href="/golfplatz/footgolf"
+              />
+            </li>
+            <li>
+              <BorderTeaserCard
+                title="Driving Range"
+                summary="Überdachte Abschlagboxen"
+                linkLabel="Mehr erfahren"
+                href="/golfplatz/driving-range"
+              />
+            </li>
+          </ul>
           <Image
             src={landscape}
             aria-hidden
@@ -272,20 +280,21 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
         <p className="text-gray-500">
           Das Neueste aus dem Golfclub Cochem/Mosel e.V.
         </p>
-        <div className="mt-12 grid grid-cols-1 gap-8 sm:mt-16 sm:grid-cols-2 xl:grid-cols-3">
+        <ul className="mt-12 grid grid-cols-1 gap-8 sm:mt-16 sm:grid-cols-2 xl:grid-cols-3">
           {newsArticles.map((article) => (
-            <ImageTeaserCard
-              key={article.title}
-              category={article.category}
-              title={article.title}
-              teaser={article.title}
-              titleImage={article.titleimage}
-              author={article.author}
-              date={article.createdAt}
-              href={article.slug}
-            />
+            <li key={article.title}>
+              <ImageTeaserCard
+                category={article.category}
+                title={article.title}
+                teaser={article.title}
+                titleImage={article.titleimage}
+                author={article.author}
+                date={article.createdAt}
+                href={article.slug}
+              />
+            </li>
           ))}
-        </div>
+        </ul>
       </Container>
       <Container
         aria-labelledby="partner"
