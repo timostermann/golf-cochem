@@ -25,8 +25,8 @@ export const Footer = ({
   ...props
 }: FooterProps) => {
   return (
-    <Container margin={ContainerMargin.SM}>
-      <footer className={cn("mt-8 flex flex-col", className)} {...props}>
+    <Container tag="footer" margin={ContainerMargin.SM}>
+      <div className={cn("mt-8 flex flex-col", className)} {...props}>
         <div className="flex flex-col gap-12 lg:flex-row lg:justify-between lg:gap-3">
           <p className="flex items-center gap-3 self-start text-lg font-medium !leading-none text-gray-900">
             <Image
@@ -42,15 +42,13 @@ export const Footer = ({
           <ul className="grid grid-cols-1 gap-6 xs:grid-cols-2 md:grid-cols-4 xl:gap-8">
             {columns.slice(0, 4).map((column) => (
               <li key={column.title} className="flex flex-col gap-2">
-                <p className="text-sm font-medium text-gray-400">
-                  {column.title}
-                </p>
+                <p className="text-sm text-gray-500">{column.title}</p>
                 <ul className="flex flex-col gap-2">
                   {column.links.map((link) => (
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="underline-effect text-gray-600"
+                        className="underline-effect text-gray-900"
                       >
                         {link.label}
                       </Link>
@@ -63,7 +61,7 @@ export const Footer = ({
         </div>
         <div className="mb-8 mt-12 h-px w-full bg-gray-200" />
         <div className="flex flex-col-reverse gap-4 sm:flex-row sm:justify-between">
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-gray-500">
             &copy; {new Date(Date.now()).getFullYear()} Golfclub Cochem/Mosel
             e.V.
           </p>
@@ -80,7 +78,7 @@ export const Footer = ({
             ))}
           </ul>
         </div>
-      </footer>
+      </div>
     </Container>
   );
 };

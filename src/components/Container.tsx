@@ -19,7 +19,7 @@ export enum ContainerMargin {
 export type ContainerProps = ComponentPropsWithoutRef<"div"> & {
   innerClassName?: string;
   innerProps?: Omit<ComponentPropsWithoutRef<"div">, "className">;
-  tag?: "div" | "section" | "header";
+  tag?: "div" | "section" | "header" | "footer";
   size?: ContainerSize;
   margin?: ContainerMargin;
   useCustomPadding?: boolean;

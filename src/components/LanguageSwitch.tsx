@@ -17,7 +17,7 @@ export const LanguageSwitch = ({
             href=""
             locale={locale}
             className={cn(
-              "text-sm font-light opacity-50 transition-colors hover:opacity-100 focus-visible:opacity-100",
+              "text-sm font-light opacity-60 transition-colors hover:opacity-100 focus-visible:opacity-100",
               {
                 "font-medium !opacity-100": locale === router.locale,
               },
