@@ -66,8 +66,6 @@ export const getStaticProps: GetStaticProps<NewsProps> = async () => {
     },
   });
 
-  console.log(blogPostData);
-
   return {
     props: {
       newsArticles: blogPostData,
