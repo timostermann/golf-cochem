@@ -69,7 +69,7 @@ export const footerData: FooterProps = {
           href: "/trainer",
         },
         {
-          label: "DVG Platzreife",
+          label: "DGV Platzreife",
           href: "/platzreife",
         },
         {

@@ -46,9 +46,17 @@ export const Header = ({
   ...props
 }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [subItemClicked, setSubItemClicked] = useState(false);
   const [blockFocus, setBlockFocus] = useState(false);
   const t = useTranslations("nav");
   const router = useRouter();
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setSubItemClicked(false);
+    }, 400);
+    return () => clearTimeout(timeout);
+  }, [subItemClicked]);
 
   return (
     <Container
@@ -122,9 +130,12 @@ export const Header = ({
               {item.subItems && (
                 <ul
                   className={cn(
-                    "invisible absolute left-0 top-full flex w-80 -translate-y-4 flex-col gap-2 rounded-lg border border-gray-100 bg-white py-4 opacity-0 shadow-md transition-[opacity,_transform]",
+                    "invisible absolute left-0 top-full z-50 flex w-80 -translate-y-4 flex-col gap-2 rounded-lg border border-gray-100 bg-white py-4 opacity-0 shadow-md transition-[opacity,_transform]",
                     "group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100",
-                    { "group-[&:not(:focus-within)]:!invisible": blockFocus },
+                    {
+                      "group-[&:not(:focus-within)]:!invisible": blockFocus,
+                      "!invisible": subItemClicked,
+                    },
                   )}
                 >
                   {item.subItems.map((subItem) => (
@@ -132,6 +143,7 @@ export const Header = ({
                       <Link
                         href={subItem.href}
                         className="flex gap-4 px-4 py-2 text-gray-900 hover:bg-gray-100"
+                        onClick={() => setSubItemClicked(true)}
                       >
                         <span className="size-6 shrink-0 text-primary-700">
                           {subItem.icon}
