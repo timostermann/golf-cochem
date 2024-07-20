@@ -96,7 +96,7 @@ const Trainer: NextPage = () => (
               title="Trainerstunden"
               className="h-full"
             >
-              <ul className="list-disc pl-8 text-primary-500">
+              <ul className="list-disc pl-8 text-primary-600">
                 <li>55 min 70,00 €</li>
                 <li>25 min 40,00 €</li>
               </ul>
@@ -104,7 +104,7 @@ const Trainer: NextPage = () => (
           </li>
           <li className="h-full">
             <InfoCard icon={<Contact />} title="Kontakt" className="h-full">
-              <ul className="text-primary-500">
+              <ul className="text-primary-600">
                 <li>wdg.golf@t-online.de</li>
                 <li>0171 6972424</li>
               </ul>
@@ -140,12 +140,12 @@ const Trainer: NextPage = () => (
               title="Club Manager"
               className="h-full"
             >
-              <p className="text-primary-500">Leitung Clubsekretariat</p>
+              <p className="text-primary-600">Leitung Clubsekretariat</p>
             </InfoCard>
           </li>
           <li className="h-full">
             <InfoCard icon={<Contact />} title="Kontakt" className="h-full">
-              <p className="text-primary-500">sekretariat@golfcochem.de</p>
+              <p className="text-primary-600">sekretariat@golfcochem.de</p>
             </InfoCard>
           </li>
         </ul>
@@ -188,7 +188,7 @@ const Trainer: NextPage = () => (
               title="Trainerstunden (von Anfänger bis HCP 36)"
               className="h-full"
             >
-              <ul className="list-disc pl-8 text-primary-500">
+              <ul className="list-disc pl-8 text-primary-600">
                 <li>55 min. 35€ / je weitere Person +5</li>
                 <li>€25 min. 20€ / je weitere Person +5</li>
                 <li>€10er Karte Einzeltraining 300,00€</li>
@@ -199,7 +199,7 @@ const Trainer: NextPage = () => (
           </li>
           <li className="h-full">
             <InfoCard icon={<Contact />} title="Kontakt" className="h-full">
-              <p className="text-primary-500">
+              <p className="text-primary-600">
                 felix.gruenhaeuser@golfcochem.eu
               </p>
             </InfoCard>

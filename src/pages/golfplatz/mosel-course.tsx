@@ -23,7 +23,7 @@ const Moselcourse: NextPage = () => {
             Der Mosel Course
           </Headline>
 
-          <p className="-order-1 font-semibold text-primary-500">Golfplatz</p>
+          <p className="-order-1 font-semibold text-primary-600">Golfplatz</p>
           <p className="my-4 max-w-[700px] text-lg text-gray-500">
             Professioneller, naturnaher 18-Loch Platz
           </p>
@@ -44,7 +44,7 @@ const Moselcourse: NextPage = () => {
                     schlägen lässt
                   </Headline>
 
-                  <p className="-order-1 font-semibold text-primary-500">
+                  <p className="-order-1 font-semibold text-primary-600">
                     Über den Mosel Course
                   </p>
                   <p className="mt-8 max-w-[700px] text-lg text-gray-500">

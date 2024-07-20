@@ -8,10 +8,15 @@ import mannschaftHerrenAk65 from "~/public/images/mannschaft-herren-ak65.jpg";
 import { Container, ContainerMargin } from "@/components/Container";
 import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
 import { Tabs } from "@/components/Tabs";
+import { Meta } from "@/components/Meta";
 
 const Mannschaften: NextPage = () => {
   return (
     <>
+      <Meta
+        title="Mannschaften"
+        description="Der Golfclub Cochem/Mosel e.V. ist mit vier Mannschaften im Golfverband Rheinland-Pfalz aktiv."
+      />
       <Container
         className="relative"
         aria-labelledby="hero"
@@ -26,7 +31,7 @@ const Mannschaften: NextPage = () => {
             Unsere Mannschaften
           </Headline>
 
-          <p className="-order-1 font-semibold text-primary-500">
+          <p className="-order-1 font-semibold text-primary-600">
             Mannschaften
           </p>
           <p className="my-4 max-w-[700px] text-lg text-gray-500">
@@ -35,7 +40,7 @@ const Mannschaften: NextPage = () => {
             für ambitioniertes Golf, in freundschaftlicher und angenehmer
             Atmosphäre. Neben der sportlichen Herausforderung in den Ligaspielen
             ist das Kennenlernen „fremder Plätze“ natürlich auch ein Anreiz,
-            sich in den Dienst einer Mannschaft zu stellen.Gerne können
+            sich in den Dienst einer Mannschaft zu stellen. Gerne können
             Neumitglieder:innen Teil der Mannschaften werden.
             <br />
             <br />
@@ -60,7 +65,7 @@ const Mannschaften: NextPage = () => {
                     DGL Gruppenliga Herren
                   </Headline>
 
-                  <p className="-order-1 font-semibold text-primary-500">
+                  <p className="-order-1 font-semibold text-primary-600">
                     Herren
                   </p>
                   <p className="mt-8 max-w-[700px] text-lg text-gray-500">
@@ -99,7 +104,7 @@ const Mannschaften: NextPage = () => {
                     Herren AK 50 I
                   </Headline>
 
-                  <p className="-order-1 font-semibold text-primary-500">
+                  <p className="-order-1 font-semibold text-primary-600">
                     Herren AK 50 I
                   </p>
                   <p className="mt-8 max-w-[700px] text-lg text-gray-500">
@@ -141,7 +146,7 @@ const Mannschaften: NextPage = () => {
                     Herren AK 50 II
                   </Headline>
 
-                  <p className="-order-1 font-semibold text-primary-500">
+                  <p className="-order-1 font-semibold text-primary-600">
                     Herren AK 50 II
                   </p>
                   <p className="mt-8 max-w-[700px] text-lg text-gray-500">
@@ -183,7 +188,7 @@ const Mannschaften: NextPage = () => {
                     Herren AK 65
                   </Headline>
 
-                  <p className="-order-1 font-semibold text-primary-500">
+                  <p className="-order-1 font-semibold text-primary-600">
                     Herren AK 65
                   </p>
                   <p className="mt-8 max-w-[700px] text-lg text-gray-500">

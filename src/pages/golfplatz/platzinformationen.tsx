@@ -36,7 +36,7 @@ const Platzinformationen: NextPage<PlatzinformationenProps> = ({
       >
         Platzinformationen
       </Headline>
-      <p className="-order-1 font-semibold text-primary-500">Golfplatz</p>
+      <p className="-order-1 font-semibold text-primary-600">Golfplatz</p>
       <p className="mt-8 max-w-[700px] text-lg text-gray-500">
         Nutzen Sie den Greenfeekasten neben der Eingangstür, falls das Büro
         nicht besetzt sein sollte.

@@ -23,7 +23,7 @@ const Eifelcourse: NextPage = () => {
             Der Eifel Course
           </Headline>
 
-          <p className="-order-1 font-semibold text-primary-500">Golfplatz</p>
+          <p className="-order-1 font-semibold text-primary-600">Golfplatz</p>
           <p className="my-4 max-w-[700px] text-lg text-gray-500">
             Der 9-Loch Kurzplatz des Golfclub Cochem/Mosel e.V.
           </p>
@@ -44,7 +44,7 @@ const Eifelcourse: NextPage = () => {
                     der malerischen Eifel
                   </Headline>
 
-                  <p className="-order-1 font-semibold text-primary-500">
+                  <p className="-order-1 font-semibold text-primary-600">
                     Über den Eifel Course
                   </p>
                   <p className="mt-8 max-w-[700px] text-lg text-gray-500">

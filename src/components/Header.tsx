@@ -85,7 +85,7 @@ export const Header = ({
                 <Link
                   href={item.href}
                   className={cn(
-                    "flex h-fit items-center gap-2 text-gray-600 transition-colors hover:text-primary-500",
+                    "flex h-fit items-center gap-2 text-gray-600 transition-colors hover:text-primary-600",
                     {
                       "text-primary-700": isActiveGroup(item, router),
                     },
