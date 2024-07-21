@@ -484,7 +484,6 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
       "sort[0]": "createdAt:desc",
     },
   });
-  console.log(blogPostData);
 
   return {
     props: {
