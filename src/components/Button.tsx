@@ -16,6 +16,7 @@ export type ButtonBaseProps = {
   disabled?: boolean;
   variant?: ButtonVariant;
   href?: string;
+  target?: ComponentPropsWithoutRef<"a">["target"];
 };
 
 export type ButtonProps = ButtonBaseProps &
@@ -30,6 +31,7 @@ export const Button = ({
   className,
   onClick,
   href,
+  target,
   ...props
 }: ButtonProps) => {
   const classes = cn(
@@ -48,7 +50,7 @@ export const Button = ({
   return (
     <>
       {href ? (
-        <Link href={href} className={classes}>
+        <Link href={href} className={classes} target={target}>
           {children}
         </Link>
       ) : (

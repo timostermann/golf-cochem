@@ -69,7 +69,7 @@ export const Markdown = ({ content }: { content?: string }) => (
       //       </span>
       //     ),
       img: ({ src, alt }) => (
-        <img src={src} alt={alt} className="w-full object-cover" />
+        <img src={src} alt={alt} className="mb-12 mt-4 w-full object-cover" />
       ),
       ul: ({ children }) => (
         <ul className="mb-4 list-inside list-disc p-8">{children}</ul>

@@ -27,6 +27,7 @@ import {
   Holiday,
   MoselCourse,
   Soccer,
+  ArrowTopRight,
 } from "@/icons";
 import { Iframe } from "@/components/Iframe";
 import { BorderTeaserCard } from "@/components/BorderTeaserCard";
@@ -295,6 +296,34 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
             </li>
           ))}
         </ul>
+      </Container>
+      <Container
+        aria-labelledby="events"
+        margin={ContainerMargin.NONE}
+        className="py-16 sm:py-24"
+      >
+        <Headline
+          tag={HeadlineTag.H2}
+          variant={HeadlineVariant.SECONDARY}
+          id="events"
+          className="mb-6"
+        >
+          Events & Turniere
+        </Headline>
+        <p className="max-w-[768px] text-gray-500">
+          Das Golfjahr {new Date().getFullYear()} bietet wieder eine Vielzahl
+          interessanter Turniere. Neue Turniere mit unserern Sponsoren, Anreize
+          für unsere jüngsten Golfer und jede Menge Abwechslung.
+        </p>
+        <div className="mt-12 flex flex-wrap gap-8">
+          <Button
+            href="https://www.pccaddie.net/clubs/0495536/app.php?cat=ts_calendar"
+            className="inline-flex gap-2 pr-4"
+            target="_blank"
+          >
+            Zum Event-Kalender <ArrowTopRight className="mt-px size-5" />
+          </Button>
+        </div>
       </Container>
       <Container
         aria-labelledby="partner"
