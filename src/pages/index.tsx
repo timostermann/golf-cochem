@@ -28,6 +28,7 @@ import {
   MoselCourse,
   Soccer,
   ArrowTopRight,
+  Download,
 } from "@/icons";
 import { Iframe } from "@/components/Iframe";
 import { BorderTeaserCard } from "@/components/BorderTeaserCard";
@@ -317,11 +318,20 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
         </p>
         <div className="mt-12 flex flex-wrap gap-8">
           <Button
+            href="/documents/Rahmenausschreibung-GC-Cochem-Mosel-e.V.pdf"
+            className="inline-flex gap-2 pl-4"
+            target="_blank"
+            variant={ButtonVariant.TERTIARY}
+          >
+            <Download className="mt-px size-5" /> Rahmenbedingungen des
+            Golfclubs <span className="sr-only">herunterladen</span>
+          </Button>
+          <Button
             href="https://www.pccaddie.net/clubs/0495536/app.php?cat=ts_calendar"
-            className="inline-flex gap-2 pr-4"
+            className="inline-flex gap-2 pl-4"
             target="_blank"
           >
-            Zum Event-Kalender <ArrowTopRight className="mt-px size-5" />
+            <ArrowTopRight className="mt-px size-5" /> Zum Event-Kalender
           </Button>
         </div>
       </Container>
