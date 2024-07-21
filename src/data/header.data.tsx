@@ -116,8 +116,8 @@ export const headerData: HeaderProps = {
       ],
     },
     {
-      label: "labels.guests",
-      href: "/gaeste",
+      label: "labels.partner",
+      href: "/partner",
     },
     {
       label: "labels.about",
