@@ -301,7 +301,7 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
       <Container
         aria-labelledby="events"
         margin={ContainerMargin.NONE}
-        className="py-16 sm:py-24"
+        className="bg-gray-100 pb-16 pt-8 sm:pb-24 sm:pt-12"
       >
         <Headline
           tag={HeadlineTag.H2}
