@@ -10,6 +10,7 @@ export * from "./Contact";
 export * from "./Cooperations";
 export * from "./Costs";
 export * from "./DownloadArea";
+export * from "./Download";
 export * from "./EifelCourse";
 export * from "./Email";
 export * from "./GolfBag";
