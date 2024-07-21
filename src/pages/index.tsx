@@ -1,6 +1,7 @@
 import { type GetStaticProps, type NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { type MouseEventHandler } from "react";
 import landscape from "~/public/images/landscape.png";
 import map from "~/public/images/map.jpg";
 import newel from "~/public/images/partners/newel.png";
@@ -89,8 +90,21 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
       icon: Email,
       title: "E-Mail",
       description: "Schreib uns",
-      href: "mailto:sekretariat@golfcochem.eu",
-      label: "sekretariat@golfcochem.eu",
+      href: "#",
+      onClick: ((e) => {
+        e.preventDefault();
+        if (typeof window === "undefined") return;
+        const mail = atob("bWFpbHRvOnNla3JldGFyaWF0QGdvbGZjb2NoZW0uZXU=");
+        window.location.href = `mailto:${mail}`;
+      }) as MouseEventHandler<HTMLAnchorElement>,
+      label: (
+        <span
+          style={{ unicodeBidi: "bidi-override", direction: "rtl" }}
+          aria-label="sekretariat at golfcochem.eu"
+        >
+          ue.mehcocflog@tairaterkes
+        </span>
+      ),
     },
     {
       icon: Address,
@@ -493,6 +507,7 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
                   </p>
                   <Link
                     href={contact.href}
+                    onClick={contact.onClick}
                     target={contact.target}
                     className="underline-effect w-fit text-primary-700"
                   >
