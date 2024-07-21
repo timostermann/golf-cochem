@@ -8,11 +8,20 @@ type MetaProps = {
   description: string;
   children?: ReactNode;
   robots?: string;
+  imageUrl?: string;
 };
 
-export const Meta = ({ title, description, children, robots }: MetaProps) => {
+export const Meta = ({
+  title,
+  description,
+  children,
+  robots,
+  imageUrl,
+}: MetaProps) => {
   const router = useRouter();
   const canonicalUrl = `${domain}${router?.asPath ?? ""}`;
+
+  const image = imageUrl || `${domain}/images/landscape.png`;
 
   return (
     <Head>
@@ -47,11 +56,7 @@ export const Meta = ({ title, description, children, robots }: MetaProps) => {
         name="og:description"
         content={description}
       />
-      <meta
-        property="og:image"
-        name="og:image"
-        content={`${domain}/images/landscape.png`}
-      />
+      <meta property="og:image" name="og:image" content={image} />
       {/* End Opengraph */}
 
       {/* Begin Twitter */}
@@ -70,11 +75,7 @@ export const Meta = ({ title, description, children, robots }: MetaProps) => {
         property="twitter:description"
         content={description}
       />
-      <meta
-        name="twitter:image"
-        property="twitter:image"
-        content={`${domain}/images/landscape.png`}
-      />
+      <meta name="twitter:image" property="twitter:image" content={image} />
       {/* End Twitter */}
 
       {children}

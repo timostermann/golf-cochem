@@ -1,9 +1,11 @@
 import { type GetStaticProps, type NextPage } from "next";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import Markdown from "react-markdown";
 import { type Blogpost } from "@/lib/dto/blogpost.type";
 import { Container, ContainerSize } from "@/components/Container";
 import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
+import { Meta } from "@/components/Meta";
 
 type NewsArticleProps = {
   article: Blogpost;
@@ -14,7 +16,11 @@ const NewsArticlePage: NextPage<NewsArticleProps> = ({ article }) => {
 
   return (
     <>
-      {" "}
+      <Meta
+        title={article.title}
+        description={article.teaser}
+        imageUrl={article.titleimage?.url}
+      />
       <Container tag="div" innerClassName="flex flex-col items-center gap-4">
         <Headline
           tag={HeadlineTag.H1}
@@ -76,10 +82,81 @@ const NewsArticlePage: NextPage<NewsArticleProps> = ({ article }) => {
           )}
       </Container>
       <Container tag="div" size={ContainerSize.SM}>
-        <div
-          className="prose max-w-none"
-          dangerouslySetInnerHTML={{ __html: article.content }}
-        />
+        <Markdown
+          components={{
+            h1: () => (
+              <>
+                Bitte nutze keine h1 im News-Content, da die Überschrift bereits
+                als h1 genutzt wird
+              </>
+            ),
+            h2: ({ children }) => (
+              <Headline
+                tag={HeadlineTag.H2}
+                variant={HeadlineVariant.TERTIARY}
+                className="mb-6 mt-12"
+              >
+                {children}
+              </Headline>
+            ),
+            h3: ({ children }) => (
+              <Headline
+                tag={HeadlineTag.H3}
+                variant={HeadlineVariant.QUATERNARY}
+                className="mb-4 mt-8"
+              >
+                {children}
+              </Headline>
+            ),
+            h4: ({ children }) => (
+              <Headline
+                tag={HeadlineTag.H4}
+                variant={HeadlineVariant.QUINARY}
+                className="mb-2 mt-6"
+              >
+                {children}
+              </Headline>
+            ),
+            h5: ({ children }) => (
+              <Headline
+                tag={HeadlineTag.H5}
+                variant={HeadlineVariant.QUINARY}
+                className="mb-2 mt-6"
+              >
+                {children}
+              </Headline>
+            ),
+            h6: ({ children }) => (
+              <Headline
+                tag={HeadlineTag.H6}
+                variant={HeadlineVariant.QUINARY}
+                className="mb-2 mt-6"
+              >
+                {children}
+              </Headline>
+            ),
+            code: ({ children }) => (
+              <div className="my-6 w-full rounded-md bg-gray-100 p-4">
+                <code>{children}</code>
+              </div>
+            ),
+            img: ({ src, alt }) =>
+              src &&
+              alt && (
+                <span className="relative mb-12 mt-4 block h-[400px] w-full">
+                  <Image src={src} alt={alt} layout="fill" objectFit="cover" />
+                </span>
+              ),
+            ul: ({ children }) => (
+              <ul className="mb-4 list-inside list-disc p-8">{children}</ul>
+            ),
+            ol: ({ children }) => (
+              <ol className="mb-4 list-inside list-decimal p-8">{children}</ol>
+            ),
+          }}
+        >
+          {article.content}
+        </Markdown>
       </Container>
     </>
   );
@@ -146,19 +223,39 @@ export const getStaticProps: GetStaticProps<NewsArticleProps> = async ({
       "Tremulis aequoris. Fuerat nata dixit ne induruit Agaue res frater fortissima\n" +
       "aura Aesonides recepit **nec nectareis viro**, ait curae.\n" +
       "\n" +
-      "## Nati Caeni superamur pereat edidicisse\n" +
+      "### Nati Caeni superamur pereat edidicisse\n" +
       "\n" +
       "Medio possem, non petere sed multorum male virgo ab gelidum nunc memorare?\n" +
       "Victoria modo; nata *iurant deficit* de utere parvum fefellimus Bubastis\n" +
       "draconem iam ipsam nisi. Illi **nascentur** ingenium dura, flammas, sed erit\n" +
       "adii medulla exercita: eodem?\n" +
       "\n" +
-      "## Ulla rura fuit arces valuere missus recusat\n" +
+      "#### Ulla rura fuit arces valuere missus recusat\n" +
       "\n" +
       "*Caelum* invisumque mens [galeae](http://www.invitum-ecce.org/osculareddat.php),\n" +
       "ei liquidissimus verbis superstitibus iuvenum cum quo flamina Iovis. Spinea\n" +
       "neque hortaturque, in modo, saxo Ammon, egressus Saturnius, fluviis simul.\n" +
       "Nascendi torpetis.\n" +
+      "\n" +
+      "![pexels-kindel-media-6572957.jpg](https://golf-cochem.fra1.digitaloceanspaces.com/b4a3c251f5f9058d6f5c2889799765b7.jpg)\n" +
+      "\n" +
+      "#### Ulla rura fuit arces valuere missus recusat\n" +
+      "\n" +
+      "*Caelum* invisumque mens [galeae](http://www.invitum-ecce.org/osculareddat.php),\n" +
+      "ei liquidissimus verbis superstitibus iuvenum cum quo flamina Iovis. Spinea\n" +
+      "neque hortaturque, in modo, saxo Ammon, egressus Saturnius, fluviis simul.\n" +
+      "Nascendi torpetis.\n" +
+      "\n" +
+      "\n" +
+      ">Quo tibia postquam\n" +
+      "teneri ipse forma laniare. Terra umor iterque, dum qui portibus, quem pronus\n" +
+      "deprecor videt est abluere? Sucis alter est: redituraque et sub Lavini sceptrateneri ipse forma laniare. Terra umor iterque, dum qui portibus, quem pronus\n" +
+      "deprecor videt est abluere? Sucis alter est: redituraque et sub Lavini sceptra\n" +
+      "\n" +
+      "Populosque\n" +
+      "tuorum totum capitis sine saxum, visaque more, pertimuitque Iove, quisquis\n" +
+      "frigusque ille visus observo iussit, lenius. Illa quid ab nemorum quotiens. Nec\n" +
+      "quod quendam cum credulus imagine: antris genitor perit per!\n" +
       "\n" +
       "## Ultima rerum carinis\n" +
       "\n" +
@@ -177,7 +274,28 @@ export const getStaticProps: GetStaticProps<NewsArticleProps> = async ({
       "Hyleusque aptos, et? Ducentem **tuus** veste grandine orbem. Quo tibia postquam\n" +
       "teneri ipse forma laniare. Terra umor iterque, dum qui portibus, quem pronus\n" +
       "deprecor videt est abluere? Sucis alter est: redituraque et sub Lavini sceptra:\n" +
-      "quae huc linguas *procul*; uti salicta siqua *an*.",
+      "quae huc linguas *procul*; uti salicta siqua *an*.\n" +
+      "\n" +
+      "- Listeneintrag 1\n" +
+      "- Listeneintrag 2\n" +
+      "- Sehr laaaaaaaaaanger laaaaaaaaaanger laaaaaaaaaanger Listeneintrag mit Umbruch\n" +
+      "\n" +
+      "Quarum sit <u>manat</u> quam mensae nunc atras medio exitiabile idem aura misit\n" +
+      "~~Hyleusque~~ aptos, et? Ducentem **tuus** veste grandine orbem. Quo tibia postquam\n" +
+      "teneri ipse forma laniare. Terra umor iterque, dum qui portibus, quem pronus\n" +
+      "deprecor videt est abluere? Sucis alter est: redituraque et sub Lavini sceptra:\n" +
+      "quae huc linguas *procul*; uti salicta siqua *an*.\n" +
+      "\n" +
+      "1. Listeneintrag 1\n" +
+      "2. Listeneintrag 2\n" +
+      "3. Sehr laaaaaaaaaanger laaaaaaaaaanger laaaaaaaaaanger Listeneintrag mit Umbruch\n" +
+      "\n" +
+      "Quarum sit <u>manat</u> quam mensae nunc atras medio exitiabile idem aura misit\n" +
+      "~~Hyleusque~~ aptos, et? Ducentem **tuus** veste grandine orbem. Quo tibia postquam\n" +
+      "teneri ipse forma laniare. Terra umor iterque, dum qui portibus, quem pronus\n" +
+      "deprecor videt est abluere? Sucis alter est: redituraque et sub Lavini sceptra:\n" +
+      "quae huc linguas *procul*; uti salicta siqua *an*.\n" +
+      "\n",
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
     locale: "de",
