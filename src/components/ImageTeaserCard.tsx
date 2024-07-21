@@ -79,7 +79,7 @@ export const ImageTeaserCard = ({
                   alt={author.picture.alternativeText || ""}
                   width={author.picture.width}
                   height={author.picture.height}
-                  className="h-8 w-8 rounded-full object-cover"
+                  className="size-8 rounded-full object-cover"
                 />
               )}
             <div className="flex flex-col justify-between">

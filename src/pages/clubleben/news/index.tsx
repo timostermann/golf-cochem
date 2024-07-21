@@ -13,16 +13,15 @@ const News: NextPage<NewsProps> = ({ newsArticles }) => {
   return (
     <>
       <Container
-        aria-labelledby="hero"
         className="bg-gray-50 pb-16 pt-4 sm:pb-24 sm:pt-6"
         margin={ContainerMargin.SM}
+        tag="div"
       >
         <div className="flex w-full flex-col items-center gap-4">
           <Headline
             tag={HeadlineTag.H1}
             variant={HeadlineVariant.HERO}
-            className="leading-none text-primary-800 sm:max-w-[500px] sm:text-center lg:max-w-[800px] lg:leading-[1.15]"
-            id="hero"
+            className="text-center sm:max-w-[500px] sm:text-center lg:max-w-[800px]"
           >
             Was gibt es Neues?
           </Headline>

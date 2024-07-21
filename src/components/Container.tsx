@@ -49,7 +49,7 @@ export const Container = ({
     >
       <div
         className={cn("w-full", innerClassName, {
-          "max-w-[57.5rem]": size === ContainerSize.SM,
+          "max-w-[45rem]": size === ContainerSize.SM,
           "max-w-[80rem]": size === ContainerSize.MD,
           "max-w-[93rem]": size === ContainerSize.LG,
         })}
