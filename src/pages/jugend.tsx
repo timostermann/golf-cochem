@@ -2,7 +2,11 @@ import { type NextPage } from "next";
 import Image from "next/image";
 import jugend from "~/public/images/jugend-spielt-golf.webp";
 import range from "~/public/images/jugend-driving-range.webp";
-import realschule from "~/public/images/realschule.png"; // TODO: webp
+// TODO: webp and optimize
+import realschule from "~/public/images/realschule.png";
+import golfAg from "~/public/images/golf-ag-gruppenfoto.jpeg";
+import golfSchule from "~/public/images/golf-im-schulunterricht.jpeg";
+import rangeGruppe from "~/public/images/junge-golfer-auf-der-driving-range.jpeg";
 import { ImageStage } from "@/components/ImageStage";
 import { Meta } from "@/components/Meta";
 import { Container, ContainerMargin } from "@/components/Container";
@@ -125,7 +129,7 @@ const Jugend: NextPage = () => (
       >
         Golf macht Schule
       </Headline>
-      <div className="grid grid-cols-1 justify-items-center gap-8 sm:grid-cols-2">
+      <div className="grid grid-cols-1 justify-items-center gap-8 sm:grid-cols-[60%_1fr]">
         <p className="mt-8 text-lg text-gray-500">
           Das Ziel der bundesweiten Jugendinitiative ist es, Golf in Ergänzung
           zu den klassischen Disziplinen als festen Bestandteil des Schulsports
@@ -137,6 +141,57 @@ const Jugend: NextPage = () => (
           Golf macht Schule ist ein Projekt mit der Realschule plus Cochem.
         </p>
         <Image src={realschule} alt="Logo der Realschule plus Cochem" />
+      </div>
+      <div className="mt-16 grid grid-cols-1 items-center justify-items-center gap-8 md:mt-24 md:grid-cols-2 md:gap-16">
+        <div>
+          <Headline tag={HeadlineTag.H3} variant={HeadlineVariant.TERTIARY}>
+            Die Umsetzung
+          </Headline>
+          <p className="mt-8 text-lg text-gray-500">
+            Pro Termin eine Unterrichtseinheit von 90 Minuteninklusive
+            Bustransfer zum Golfplatz Cochem20 Termine im Schuljahr 2021/2022es
+            entstehen keine Kostenzum Ende der Golf-AG eine Runde Footgolf
+          </p>
+        </div>
+        <Image
+          src={rangeGruppe}
+          alt="Golfübungsanlage mit Abschlagplätzen unter Überdachung. Mehrere Personen, darunter Kinder, üben Golfschläge auf grünen Matten."
+        />
+      </div>
+      <div className="mt-16 grid grid-cols-1 items-center justify-items-center gap-8 md:mt-24 md:grid-cols-2 md:gap-16">
+        <div className="md:order-1">
+          <Headline tag={HeadlineTag.H3} variant={HeadlineVariant.TERTIARY}>
+            Indoor Golf begeistert die Kinder
+          </Headline>
+          <p className="mt-8 text-lg text-gray-500">
+            Im Rahmen des Projektes Abschlag Schule erfolgt die Umsetzung
+            Indoor-Golf an der Grundschule Edinger-Eller. Einzigartiges Projekt
+            erfährt auch die Fortführung über den Winter hinaus. Volle
+            Aufmerksamkeit ist Felix gewiss, wenn er den Kinder die ersten
+            Hinweise zur richtigen Technk vermittelt.
+          </p>
+        </div>
+        <Image
+          src={golfSchule}
+          alt="Turnhalle mit Kindern beim Sportunterricht. Ein Trainer demonstriert eine Übung, während die Kinder mit Masken in einer Reihe stehen."
+        />
+      </div>
+      <div className="mt-16 grid grid-cols-1 items-center justify-items-center gap-8 md:mt-24 md:grid-cols-2 md:gap-16">
+        <div>
+          <Headline tag={HeadlineTag.H3} variant={HeadlineVariant.TERTIARY}>
+            Projekt Golf AG Schule
+          </Headline>
+          <p className="mt-8 text-lg text-gray-500">
+            Mit welcher Freude die Schüler:innen der Grundschule Büchel bei dem
+            Projekt Schulsport AG GOLF mitmachen, verraten die strahlenden
+            Augen. Mittlerweile betreuen Jannik Oster & Felix Grünhäuser acht
+            Projekte von fünf Schulen.
+          </p>
+        </div>
+        <Image
+          src={golfAg}
+          alt="Große Gruppe von Kindern und einigen Erwachsenen auf einem Golfplatz. Die Teilnehmer posieren mit Golfschlägern vor einem bewaldeten Hintergrund."
+        />
       </div>
     </Container>
   </>
