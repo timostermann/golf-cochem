@@ -44,7 +44,7 @@ const News: NextPage<NewsProps> = ({ newsArticles }) => {
                 titleImage={article.titleimage}
                 author={article.author}
                 date={article.createdAt}
-                href={article.slug}
+                href={`news/${article.slug}`}
               />
             </li>
           ))}
