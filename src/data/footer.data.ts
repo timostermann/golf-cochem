@@ -7,7 +7,7 @@ export const footerData: FooterProps = {
       links: [
         {
           label: "News",
-          href: "/blog",
+          href: "/news",
         },
         {
           label: "Mitgliedschaft",
@@ -16,10 +16,6 @@ export const footerData: FooterProps = {
         {
           label: "Mannschaften",
           href: "/clubleben/mannschaften",
-        },
-        {
-          label: "Events & Turniere",
-          href: "/events",
         },
       ],
     },
@@ -40,24 +36,11 @@ export const footerData: FooterProps = {
         },
         {
           label: "Driving Range",
-          href: "/driving-range",
+          href: "/golfplatz/driving-range",
         },
         {
           label: "Platzinformationen",
-          href: "/platzinformationen",
-        },
-      ],
-    },
-    {
-      title: "Jugend",
-      links: [
-        {
-          label: "Golfcamps",
-          href: "/golfcamps",
-        },
-        {
-          label: "Schulsport",
-          href: "/schulsport",
+          href: "/golfplatz/platzinformationen",
         },
       ],
     },
@@ -66,15 +49,15 @@ export const footerData: FooterProps = {
       links: [
         {
           label: "Trainer",
-          href: "/trainer",
+          href: "/golfkurse/trainer",
         },
         {
           label: "DGV Platzreife",
-          href: "/platzreife",
+          href: "/golfkurse/platzreife",
         },
         {
           label: "Schnupperkurse",
-          href: "/schnupperkurse",
+          href: "/golfkurse/schnupperkurse",
         },
         {
           label: "Elterntraining",
