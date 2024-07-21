@@ -1,4 +1,4 @@
-import Image from "next/image";
+// import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import { Headline, HeadlineTag, HeadlineVariant } from "./Headline";
 
@@ -61,13 +61,16 @@ export const Markdown = ({ content }: { content?: string }) => (
           <code>{children}</code>
         </div>
       ),
-      img: ({ src, alt }) =>
-        src &&
-        alt && (
-          <span className="relative mb-12 mt-4 block h-[400px] w-full">
-            <Image src={src} alt={alt} layout="fill" objectFit="cover" />
-          </span>
-        ),
+      //   img: ({ src, alt }) =>
+      //     src &&
+      //     alt && (
+      //       <span className="relative mb-12 mt-4 block h-[400px] w-full">
+      //         <Image src={src} alt={alt} className="object-cover" />
+      //       </span>
+      //     ),
+      img: ({ src, alt }) => (
+        <img src={src} alt={alt} className="w-full object-cover" />
+      ),
       ul: ({ children }) => (
         <ul className="mb-4 list-inside list-disc p-8">{children}</ul>
       ),

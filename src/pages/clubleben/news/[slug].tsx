@@ -77,6 +77,7 @@ const NewsArticlePage: NextPage<NewsArticleProps> = ({ article }) => {
                 width={article.titleimage.width}
                 height={article.titleimage.height}
                 className="object-contain"
+                priority
               />
             </div>
           )}
