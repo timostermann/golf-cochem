@@ -2,6 +2,7 @@ import { type NextPage } from "next";
 import Image from "next/image";
 import jugend from "~/public/images/jugend-spielt-golf.webp";
 import range from "~/public/images/jugend-driving-range.webp";
+import realschule from "~/public/images/realschule.png"; // TODO: webp
 import { ImageStage } from "@/components/ImageStage";
 import { Meta } from "@/components/Meta";
 import { Container, ContainerMargin } from "@/components/Container";
@@ -81,7 +82,11 @@ const Jugend: NextPage = () => (
         </div>
       </div>
     </Container>
-    <Container aria-labelledby="camps">
+    <Container
+      aria-labelledby="camps"
+      margin={ContainerMargin.NONE}
+      className="bg-primary-50 py-16 sm:py-24"
+    >
       <Headline
         tag={HeadlineTag.H2}
         variant={HeadlineVariant.SECONDARY}
@@ -106,6 +111,32 @@ const Jugend: NextPage = () => (
           alt="Jugendlicher Golfspieler mit Trainer an der Driving Range"
           className="aspect-[5/3] object-cover"
         />
+      </div>
+    </Container>
+    <Container
+      aria-labelledby="schulsport"
+      margin={ContainerMargin.NONE}
+      className="py-16 sm:py-24"
+    >
+      <Headline
+        tag={HeadlineTag.H2}
+        variant={HeadlineVariant.SECONDARY}
+        id="schulsport"
+      >
+        Golf macht Schule
+      </Headline>
+      <div className="grid grid-cols-1 justify-items-center gap-8 sm:grid-cols-2">
+        <p className="mt-8 text-lg text-gray-500">
+          Das Ziel der bundesweiten Jugendinitiative ist es, Golf in Ergänzung
+          zu den klassischen Disziplinen als festen Bestandteil des Schulsports
+          zu etablieren, Kinder und Jugendliche für das Golf spielen zu
+          begeistern, den Nachwuchs zu fördern und die Akzeptanz des Golfsports
+          zu erhöhen.
+          <br />
+          <br />
+          Golf macht Schule ist ein Projekt mit der Realschule plus Cochem.
+        </p>
+        <Image src={realschule} alt="Logo der Realschule plus Cochem" />
       </div>
     </Container>
   </>
