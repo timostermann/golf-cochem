@@ -3,10 +3,12 @@ import {
   Blog,
   Calendar,
   Certificate,
+  Contact,
   EifelCourse,
   Golf,
   GolfBag,
   Greenkeeper,
+  Group,
   Member,
   MoselCourse,
   ParentTraining,
@@ -37,7 +39,7 @@ export const headerData: HeaderProps = {
           label: "labels.teams",
           href: "/clubleben/mannschaften",
           description: "descriptions.teams",
-          icon: <Team />,
+          icon: <Group />,
         },
         {
           label: "labels.events",
@@ -121,7 +123,20 @@ export const headerData: HeaderProps = {
     },
     {
       label: "labels.about",
-      href: "/ueber-uns",
+      subItems: [
+        {
+          label: "labels.team",
+          href: "/ueber-uns/team",
+          icon: <Team />,
+          description: "descriptions.team",
+        },
+        {
+          label: "labels.contact",
+          href: "/ueber-uns/kontakt",
+          icon: <Contact />,
+          description: "descriptions.contact",
+        },
+      ],
     },
   ],
 };

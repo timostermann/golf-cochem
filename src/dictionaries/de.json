@@ -26,7 +26,9 @@
       "tasterCourse": "Schnupperkurs",
       "parentalTraining": "Eltern-Training",
       "partner": "Partner",
-      "about": "Über uns"
+      "about": "Über uns",
+      "team": "Team und Vorstand",
+      "contact": "Kontakt"
     },
     "descriptions": {
       "blog": "Erfahre das Neuste aus dem Golfclub Cochem/Mosel e.V.",
@@ -42,7 +44,9 @@
       "license": "Jetzt die Platzreife machen",
       "tasterCourse": "Den Golfsport kennen lernen",
       "parentalTraining": "Kinder und Eltern gemeinsam für den Golfsport begeistern",
-      "groupTraining": "Gemeinsam trainieren und Spaß haben"
+      "groupTraining": "Gemeinsam trainieren und Spaß haben",
+      "team": "Lerne unser engagiertes Team kennen",
+      "contact": "Fragen? Wir sind jederzeit für dich da!"
     }
   }
 }

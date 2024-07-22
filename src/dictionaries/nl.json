@@ -27,7 +27,9 @@
       "parentalTraining": "Ouders training",
       "groupTraining": "Groepstraining",
       "partner": "Partner",
-      "about": "Over ons"
+      "about": "Over ons",
+      "team": "Team en Bestuur",
+      "contact": "Contact"
     },
     "descriptions": {
       "blog": "Lees het laatste nieuws van de Golfclub Cochem / Mosel e.V.",
@@ -43,7 +45,9 @@
       "license": "Haal nu het licentie",
       "tasterCourse": "Leer golfen",
       "parentalTraining": "Ouders en kinderen samen enthousiast maken voor golf",
-      "groupTraining": "Samen trainen en plezier hebben"
+      "groupTraining": "Samen trainen en plezier hebben",
+      "team": "Maak kennis met ons toegewijde team",
+      "contact": "Vragen? We zijn er altijd voor je!"
     }
   }
 }

@@ -27,7 +27,9 @@
       "parentalTraining": "Parental Training",
       "groupTraining": "Group Training",
       "partner": "Partners",
-      "about": "About us"
+      "about": "About us",
+      "team": "Team and Board",
+      "contact": "Contact"
     },
     "descriptions": {
       "blog": "Learn the latest from the Golf Club Cochem / Mosel e.V.",
@@ -43,7 +45,9 @@
       "license": "Get the license now",
       "tasterCourse": "Get to know golf",
       "parentalTraining": "Get children and parents excited about golf together",
-      "groupTraining": "Train together and have fun"
+      "groupTraining": "Train together and have fun",
+      "team": "Get to know our dedicated team",
+      "contact": "Questions? We are always there for you!"
     }
   }
 }
