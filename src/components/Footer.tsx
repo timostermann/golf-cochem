@@ -1,8 +1,9 @@
 import cn from "classnames";
-import type { ComponentPropsWithoutRef } from "react";
+import { useState, type ComponentPropsWithoutRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Container, ContainerMargin } from "./Container";
+import { CookieBanner } from "./CookieBanner";
 
 export type FooterProps = ComponentPropsWithoutRef<"footer"> & {
   columns: Array<{
@@ -24,6 +25,8 @@ export const Footer = ({
   className,
   ...props
 }: FooterProps) => {
+  const [forceCookieOpen, setForceCookieOpen] = useState(false);
+
   return (
     <Container tag="footer" margin={ContainerMargin.SM}>
       <div className={cn("mt-8 flex flex-col", className)} {...props}>
@@ -65,6 +68,15 @@ export const Footer = ({
             &copy; {new Date().getFullYear()} Golfclub Cochem/Mosel e.V.
           </p>
           <ul className="flex flex-col gap-2 xs:flex-row xs:gap-4">
+            <li>
+              <button
+                type="button"
+                className="underline-effect text-gray-600"
+                onClick={() => setForceCookieOpen(true)}
+              >
+                Cookie-Einstellungen
+              </button>
+            </li>
             {lastRowLinks.map((link) => (
               <li key={link.label}>
                 <Link
@@ -78,6 +90,11 @@ export const Footer = ({
           </ul>
         </div>
       </div>
+      <CookieBanner
+        forceOpen={forceCookieOpen}
+        onAccept={() => setForceCookieOpen(false)}
+        onReject={() => setForceCookieOpen(false)}
+      />
     </Container>
   );
 };
