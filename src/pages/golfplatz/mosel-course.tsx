@@ -5,10 +5,15 @@ import moselCourse from "~/public/images/mosel-course.jpg";
 import { Container, ContainerMargin } from "@/components/Container";
 import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
 import { Tabs } from "@/components/Tabs";
+import { Meta } from "@/components/Meta";
 
 const Moselcourse: NextPage = () => {
   return (
     <>
+      <Meta
+        title="Mosel Course"
+        description="Der Mosel Course des Golfclub Cochem/Mosel e.V."
+      />
       <Container
         className="relative"
         aria-labelledby="hero"

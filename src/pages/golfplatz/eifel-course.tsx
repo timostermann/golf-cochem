@@ -5,10 +5,15 @@ import eifelCourse from "~/public/images/eifel-course.jpg";
 import { Container, ContainerMargin } from "@/components/Container";
 import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
 import { Tabs } from "@/components/Tabs";
+import { Meta } from "@/components/Meta";
 
 const Eifelcourse: NextPage = () => {
   return (
     <>
+      <Meta
+        title="Eifel Course"
+        description="Der 9-Loch Kurzplatz des Golfclub Cochem/Mosel e.V."
+      />
       <Container
         className="relative"
         aria-labelledby="hero"

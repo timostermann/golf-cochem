@@ -4,6 +4,7 @@ import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
 import { ImageTeaserCard } from "@/components/ImageTeaserCard";
 import { fetchApi } from "@/lib/strapi";
 import { type Blogpost } from "@/lib/dto/blogpost.type";
+import { Meta } from "@/components/Meta";
 
 type NewsProps = {
   newsArticles: Blogpost[];
@@ -12,6 +13,10 @@ type NewsProps = {
 const News: NextPage<NewsProps> = ({ newsArticles }) => {
   return (
     <>
+      <Meta
+        title="News"
+        description="Aktuelles und Informatives aus dem Golfclub Cochem/Mosel e.V."
+      />
       <Container
         className="bg-gray-50 pb-16 pt-4 sm:pb-24 sm:pt-6"
         margin={ContainerMargin.SM}

@@ -38,6 +38,7 @@ import { InfoCard } from "@/components/InfoCard";
 import { ArrowLink } from "@/components/ArrowLink";
 import { fetchApi } from "@/lib/strapi";
 import { type Blogpost } from "@/lib/dto/blogpost.type";
+import { Meta } from "@/components/Meta";
 
 const Icons = {
   MoselCourse: MoselCourse,
@@ -130,6 +131,10 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
 
   return (
     <>
+      <Meta
+        title="Golfclub Cochem/Mosel e.V."
+        description="Willkommen im Golfclub Cochem/Mosel e.V. Leidenschaft trifft Gastfreundschaft. Startzeit buchen, Indoor Golf, Platzinformationen und mehr."
+      />
       <Container className="relative" aria-labelledby="hero">
         <Image
           src={landscape}

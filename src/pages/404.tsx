@@ -6,7 +6,10 @@ import { Meta } from "@/components/Meta";
 
 const NotFound: NextPage = () => (
   <>
-    <Meta title="Seite nicht gefunden" description="" />
+    <Meta
+      title="Seite nicht gefunden"
+      description="Leider konnten wir die Seite nicht finden."
+    />
     <ImageStage src={put} alt="" title="Seite nicht gefunden">
       <p className="text-lg text-gray-500">
         Leider konnten wir die Seite nicht finden. Bitte überprüfen Sie die URL
