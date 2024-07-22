@@ -79,7 +79,7 @@ export const Header = ({
       </Link>
       <nav className="hidden lg:flex">
         <ul className="flex gap-4 xl:gap-8">
-          {items.map((item) => (
+          {items.map((item, index) => (
             <li
               key={item.label}
               className="group relative flex items-center"
@@ -135,6 +135,7 @@ export const Header = ({
                     {
                       "group-[&:not(:focus-within)]:!invisible": blockFocus,
                       "!invisible": subItemClicked,
+                      "!left-auto right-0": index > items.length - 3,
                     },
                   )}
                 >
