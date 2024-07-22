@@ -114,23 +114,31 @@ export const CookieBanner = ({
   if (!isVisible) return null;
 
   return (
-    <div className="fixed inset-0 z-40 flex h-screen w-screen items-center justify-center bg-black bg-opacity-50">
+    <div className="fixed inset-0 z-40 flex h-screen w-screen items-center justify-center bg-black bg-opacity-50 p-2">
       <dialog
         ref={dialogRef}
         open={forceOpen}
-        className="relative flex max-w-[600px] flex-col gap-4 rounded-xl p-12"
+        className="relative flex max-w-[600px] flex-col gap-4 rounded-xl p-6 xs:p-12"
         onKeyDown={handleKeyDown}
         aria-live="polite"
         aria-modal="true"
         aria-labelledby="cookie-banner-title"
         aria-describedby="cookie-banner-description"
       >
+        <button
+          onClick={handleReject}
+          className="absolute right-4 top-2 text-[30px] font-extralight leading-none transition-colors hover:text-gray-600 xs:right-5 xs:top-3"
+          aria-label="Schließen"
+          type="button"
+        >
+          &times;
+        </button>
         <Headline
           variant={HeadlineVariant.TERTIARY}
           tag={HeadlineTag.P}
           id="cookie-banner-title"
         >
-          Cookies
+          Cookie-Einstellungen
         </Headline>
         <p id="cookie-banner-description">
           Diese Website verwendet Cookies von YouTube, um Ihnen eine bessere
@@ -145,7 +153,7 @@ export const CookieBanner = ({
         >
           Mehr Informationen
         </Link>
-        <div className="mt-4 flex flex-wrap justify-end gap-6">
+        <div className="mt-4 flex flex-wrap justify-center gap-3 xs:gap-6 sm:justify-end">
           <Button onClick={handleReject} variant={ButtonVariant.TERTIARY}>
             Ablehnen
           </Button>
