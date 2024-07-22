@@ -22,6 +22,7 @@ export const CookieBanner = ({
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const focusableElementsRef = useRef<HTMLElement[]>([]);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
 
   const getCookie = (name: string): string | null => {
     const nameEQ = name + "=";
@@ -88,11 +89,13 @@ export const CookieBanner = ({
 
   useEffect(() => {
     if (isVisible) {
+      previousFocusRef.current = document.activeElement as HTMLElement;
       dialogRef.current?.focus();
       focusableElementsRef.current = getFocusableElements();
-      document.body.style.overflow = "hidden"; // Prevent scrolling
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = ""; // Restore scrolling
+      previousFocusRef.current?.focus();
+      document.body.style.overflow = "";
     }
   }, [isVisible]);
 
@@ -115,14 +118,21 @@ export const CookieBanner = ({
       <dialog
         ref={dialogRef}
         open={forceOpen}
-        tabIndex={-1}
-        className="flex max-w-[600px] flex-col gap-4 rounded-xl p-12"
+        className="relative flex max-w-[600px] flex-col gap-4 rounded-xl p-12"
         onKeyDown={handleKeyDown}
+        aria-live="polite"
+        aria-modal="true"
+        aria-labelledby="cookie-banner-title"
+        aria-describedby="cookie-banner-description"
       >
-        <Headline variant={HeadlineVariant.TERTIARY} tag={HeadlineTag.P}>
+        <Headline
+          variant={HeadlineVariant.TERTIARY}
+          tag={HeadlineTag.P}
+          id="cookie-banner-title"
+        >
           Cookies
         </Headline>
-        <p>
+        <p id="cookie-banner-description">
           Diese Website verwendet Cookies von YouTube, um Ihnen eine bessere
           Benutzererfahrung zu bieten. YouTube kann diese Informationen nutzen,
           um Ihr Nutzererlebnis zu verbessern und personalisierte Werbung
