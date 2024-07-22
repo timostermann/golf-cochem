@@ -24,7 +24,9 @@ export const CookieBanner = ({
   const dialogRef = useRef<HTMLDialogElement>(null);
   const focusableElementsRef = useRef<HTMLElement[]>([]);
   const previousFocusRef = useRef<HTMLElement | null>(null);
-  const { cookieValue, setCookie } = useCookie("youtubeConsentStatus");
+  const { cookieValue, setCookie, isLoading } = useCookie(
+    "youtubeConsentStatus",
+  );
 
   const getFocusableElements = () => {
     if (!dialogRef.current) return [];
@@ -58,9 +60,11 @@ export const CookieBanner = ({
   };
 
   useEffect(() => {
-    const consentStatus = cookieValue;
-    setIsVisible(!consentStatus);
-  }, [cookieValue]);
+    if (!isLoading) {
+      const consentStatus = cookieValue;
+      setIsVisible(!consentStatus);
+    }
+  }, [cookieValue, isLoading]);
 
   useEffect(() => {
     if (forceOpen) {
@@ -92,7 +96,7 @@ export const CookieBanner = ({
     onReject?.();
   };
 
-  if (!isVisible) return null;
+  if (!isVisible || isLoading) return null;
 
   return (
     <div className="fixed inset-0 z-40 flex h-screen w-screen items-center justify-center bg-black bg-opacity-50 p-2">

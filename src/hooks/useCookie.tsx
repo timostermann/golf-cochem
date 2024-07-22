@@ -1,7 +1,10 @@
 import { useState, useEffect, useCallback } from "react";
 
+const COOKIE_CHANGE_EVENT = "cookieChange";
+
 export const useCookie = (cookieName: string) => {
   const [cookieValue, setCookieValue] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const getCookie = useCallback(() => {
     if (typeof window === "undefined") {
@@ -22,19 +25,50 @@ export const useCookie = (cookieName: string) => {
     return null;
   }, [cookieName]);
 
-  const setCookie = (value: string, days: number) => {
-    const date = new Date();
-    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-    const expires = "; expires=" + date.toUTCString();
-    document.cookie =
-      cookieName + "=" + value + expires + "; path=/; SameSite=Strict";
-    setCookieValue(value);
-  };
+  const setCookie = useCallback(
+    (value: string, days: number) => {
+      const date = new Date();
+      date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+      const expires = "; expires=" + date.toUTCString();
+      document.cookie =
+        cookieName + "=" + value + expires + "; path=/; SameSite=Strict";
+      setCookieValue(value);
+
+      if (typeof window !== "undefined") {
+        window.dispatchEvent(
+          new CustomEvent(COOKIE_CHANGE_EVENT, {
+            detail: { cookieName, newValue: value },
+          }),
+        );
+      }
+    },
+    [cookieName],
+  );
 
   useEffect(() => {
-    const initialValue = getCookie();
-    setCookieValue(initialValue);
+    setCookieValue(getCookie());
+    setIsLoading(false);
   }, [getCookie]);
 
-  return { cookieValue, setCookie };
+  useEffect(() => {
+    const handleCookieChange = (event: CustomEvent) => {
+      if (event.detail.cookieName === cookieName) {
+        setCookieValue(event.detail.newValue);
+      }
+    };
+
+    window.addEventListener(
+      COOKIE_CHANGE_EVENT,
+      handleCookieChange as EventListener,
+    );
+
+    return () => {
+      window.removeEventListener(
+        COOKIE_CHANGE_EVENT,
+        handleCookieChange as EventListener,
+      );
+    };
+  }, [cookieName]);
+
+  return { cookieValue, setCookie, isLoading };
 };
