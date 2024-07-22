@@ -59,9 +59,7 @@ export const CookieBanner = ({
 
   useEffect(() => {
     const consentStatus = cookieValue;
-    if (consentStatus === null) {
-      setIsVisible(true);
-    }
+    setIsVisible(!consentStatus);
   }, [cookieValue]);
 
   useEffect(() => {
