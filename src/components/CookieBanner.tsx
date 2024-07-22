@@ -5,6 +5,7 @@ import React, {
   type KeyboardEventHandler,
 } from "react";
 import Link from "next/link";
+import { useCookie } from "@/hooks/useCookie";
 import { Button, ButtonVariant } from "./Button";
 import { Headline, HeadlineTag, HeadlineVariant } from "./Headline";
 
@@ -23,25 +24,7 @@ export const CookieBanner = ({
   const dialogRef = useRef<HTMLDialogElement>(null);
   const focusableElementsRef = useRef<HTMLElement[]>([]);
   const previousFocusRef = useRef<HTMLElement | null>(null);
-
-  const getCookie = (name: string): string | null => {
-    const nameEQ = name + "=";
-    const ca = document.cookie.split(";");
-    for (let i = 0; i < ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) === " ") c = c.substring(1, c.length);
-      if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-    }
-    return null;
-  };
-
-  const setCookie = (name: string, value: string, days: number) => {
-    const date = new Date();
-    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-    const expires = "; expires=" + date.toUTCString();
-    document.cookie =
-      name + "=" + value + expires + "; path=/; SameSite=Strict";
-  };
+  const { cookieValue, setCookie } = useCookie("youtubeConsentStatus");
 
   const getFocusableElements = () => {
     if (!dialogRef.current) return [];
@@ -75,11 +58,11 @@ export const CookieBanner = ({
   };
 
   useEffect(() => {
-    const consentStatus = getCookie("youtubeConsentStatus");
+    const consentStatus = cookieValue;
     if (consentStatus === null) {
       setIsVisible(true);
     }
-  }, []);
+  }, [cookieValue]);
 
   useEffect(() => {
     if (forceOpen) {
@@ -100,13 +83,13 @@ export const CookieBanner = ({
   }, [isVisible]);
 
   const handleAccept = () => {
-    setCookie("youtubeConsentStatus", "accepted", 365);
+    setCookie("accepted", 365);
     setIsVisible(false);
     onAccept?.();
   };
 
   const handleReject = () => {
-    setCookie("youtubeConsentStatus", "rejected", 365);
+    setCookie("rejected", 365);
     setIsVisible(false);
     onReject?.();
   };
