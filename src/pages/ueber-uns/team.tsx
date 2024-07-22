@@ -5,10 +5,17 @@ import jannik from "~/public/images/team/jannik-oster.webp";
 import manuela from "~/public/images/team/manuela-eiden.webp";
 import reimund from "~/public/images/team/reimund-widmayer.jpeg";
 import ulrike from "~/public/images/team/ulrike-rummel.webp";
+// TODO: webp and optimize
+import alexander from "~/public/images/team/alexander-nitsche.jpeg";
+import bernd from "~/public/images/team/bernd-hannus.png";
+import bernhard from "~/public/images/team/bernhard-wilhelms.jpeg";
+import jutta from "~/public/images/team/dr-jutta-zimmermann.png";
+import manfred from "~/public/images/team/manfred-ostermann.png";
 import { Container, ContainerMargin } from "@/components/Container";
 import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
 import { Tabs } from "@/components/Tabs";
 import { Meta } from "@/components/Meta";
+import { Golf } from "@/icons";
 
 const Team: NextPage = () => {
   const teamMembers = [
@@ -36,6 +43,59 @@ const Team: NextPage = () => {
       name: "Felix Grünhäuser",
       role: "Marshall & in Ausbildung zum PGA Professionell",
       image: felix,
+    },
+  ];
+
+  const boardMembers = [
+    {
+      name: "Manfred Ostermann",
+      role: "Präsident",
+      image: manfred,
+    },
+    {
+      name: "Bernd Hannus",
+      role: "Vizepräsident",
+      image: bernd,
+    },
+    {
+      name: "Bernhard Wilhelms",
+      role: "Schatzmeister",
+      image: bernhard,
+    },
+    {
+      name: "Jannik Oster",
+      role: "Club Manager & Jugendwart",
+      image: jannik,
+    },
+    {
+      name: "Alexander Nitsche",
+      role: "Spielführer",
+      image: alexander,
+    },
+    {
+      name: "Dr. Jutta Zimmermann",
+      role: "Schriftführerin",
+      image: jutta,
+    },
+    {
+      name: "Volker Linden",
+      role: "Beirat",
+    },
+    {
+      name: "Oskar Pötz",
+      role: "Beirat",
+    },
+    {
+      name: "Winfried Laux",
+      role: "Kassenprüfer",
+    },
+    {
+      name: "Rainer Rottstock",
+      role: "Kassenprüfer",
+    },
+    {
+      name: "Vakant",
+      role: "Pressewart",
     },
   ];
 
@@ -99,9 +159,9 @@ const Team: NextPage = () => {
                   ))}
                 </ul>
               </Tabs.Panel>
-              <Tabs.Panel className="mt-16 flex flex-col gap-8 md:flex-row">
+              <Tabs.Panel className="mt-16 flex flex-col gap-12">
                 <ul className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-                  {teamMembers.map((member) => (
+                  {boardMembers.map((member) => (
                     <li
                       key={member.name}
                       className="flex max-w-96 flex-col gap-1 xl:w-full"
@@ -113,11 +173,18 @@ const Team: NextPage = () => {
                       >
                         {member.name}
                       </Headline>
-                      <Image
-                        src={member.image}
-                        alt=""
-                        className="-order-1 h-72 w-full object-cover"
-                      />
+                      {member.image && (
+                        <Image
+                          src={member.image}
+                          alt=""
+                          className="-order-1 h-72 w-full object-cover"
+                        />
+                      )}
+                      {!member.image && (
+                        <div className="-order-1 flex h-72 w-full items-center justify-center bg-gray-200">
+                          <Golf className="size-20 text-primary-800" />
+                        </div>
+                      )}
                       <p className="font-light text-primary-600">
                         {member.role}
                       </p>
