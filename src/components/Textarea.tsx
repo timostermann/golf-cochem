@@ -2,13 +2,12 @@ import React, { type ComponentPropsWithoutRef, forwardRef, useId } from "react";
 import cn from "classnames";
 
 type TextareaProps = ComponentPropsWithoutRef<"textarea"> & {
-  label: string;
   error?: string;
   touched?: boolean;
 };
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({ label, error, touched, className, required, ...props }, ref) => {
+  ({ error, touched, className, required, children, ...props }, ref) => {
     const id = useId();
     const showError = touched && error;
 
@@ -19,7 +18,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           className="mb-1 block text-sm font-medium text-gray-700"
         >
           {required && <span className="sr-only">Required:</span>}
-          {label}
+          {children}
           {required && (
             <span aria-hidden className="pl-px">
               *

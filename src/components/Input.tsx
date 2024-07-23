@@ -2,13 +2,12 @@ import React, { type ComponentPropsWithoutRef, forwardRef, useId } from "react";
 import cn from "classnames";
 
 type InputProps = ComponentPropsWithoutRef<"input"> & {
-  label: string;
   error?: string;
   touched?: boolean;
 };
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ label, error, touched, className, required, ...props }, ref) => {
+  ({ error, touched, className, required, children, ...props }, ref) => {
     const id = useId();
     const showError = touched && error;
 
@@ -19,7 +18,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           className="mb-1 block text-sm font-medium text-gray-700"
         >
           {required && <span className="sr-only">Required:</span>}
-          {label}
+          {children}
           {required && (
             <span aria-hidden className="pl-px">
               *

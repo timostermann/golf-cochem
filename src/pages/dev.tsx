@@ -417,7 +417,6 @@ const Dev: NextPage = () => {
           >
             <div className="-mb-4 grid grid-cols-1 gap-6 sm:grid-cols-2">
               <Input
-                label="Vorname"
                 name="firstName"
                 type="text"
                 value={formData.firstName}
@@ -425,9 +424,10 @@ const Dev: NextPage = () => {
                 touched={touchedFields.firstName}
                 error={errors.firstName}
                 required
-              />
+              >
+                Vorname
+              </Input>
               <Input
-                label="Nachname"
                 name="lastName"
                 type="text"
                 value={formData.lastName}
@@ -435,10 +435,11 @@ const Dev: NextPage = () => {
                 touched={touchedFields.lastName}
                 error={errors.lastName}
                 required
-              />
+              >
+                Nachname
+              </Input>
             </div>
             <Input
-              label="E-Mail"
               type="email"
               name="email"
               value={formData.email}
@@ -446,9 +447,10 @@ const Dev: NextPage = () => {
               touched={touchedFields.email}
               error={errors.email}
               required
-            />
+            >
+              E-Mail
+            </Input>
             <Select
-              label="Betreff"
               name="subject"
               value={formData.subject}
               onChange={handleInputChange}
@@ -461,9 +463,10 @@ const Dev: NextPage = () => {
                 { value: "feedback", label: "Feedback" },
               ]}
               required
-            />
+            >
+              Betreff
+            </Select>
             <Textarea
-              label="Nachricht"
               name="message"
               value={formData.message}
               onChange={handleInputChange}
@@ -471,16 +474,19 @@ const Dev: NextPage = () => {
               error={errors.message}
               rows={5}
               required
-            />
+            >
+              Nachricht
+            </Textarea>
             <Checkbox
-              label="Ich stimme den Geschäftsbedingungen zu"
               name="agreeTerms"
               checked={formData.agreeTerms}
               onChange={handleCheckboxChange}
               touched={touchedFields.agreeTerms}
               error={errors.agreeTerms}
               required
-            />
+            >
+              Ich stimme den Geschäftsbedingungen zu
+            </Checkbox>
             <Button type="submit">Absenden</Button>
           </form>
         </div>
