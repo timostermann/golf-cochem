@@ -1,4 +1,5 @@
 import { type NextPage } from "next";
+import { useState } from "react";
 import landscape from "~/public/images/landscape.png";
 import partner from "~/public/images/partners/sewenig.webp";
 import { Button, ButtonVariant } from "@/components/Button";
@@ -30,8 +31,87 @@ import { ImageStage } from "@/components/ImageStage";
 import { ImageInfoCard } from "@/components/ImageInfoCard";
 import { FeatureColumn } from "@/components/FeatureColumn";
 import { Tabs } from "@/components/Tabs";
+import { Input } from "@/components/Input";
+import { Select } from "@/components/Select";
+import { Textarea } from "@/components/Textarea";
+import { Checkbox } from "@/components/Checkbox";
 
 const Dev: NextPage = () => {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    subject: "",
+    message: "",
+    agreeTerms: false,
+  });
+
+  const [touchedFields, setTouchedFields] = useState({
+    firstName: false,
+    lastName: false,
+    email: false,
+    subject: false,
+    message: false,
+    agreeTerms: false,
+  });
+
+  const [errors, setErrors] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    subject: "",
+    message: "",
+    agreeTerms: "",
+  });
+
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, checked } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: checked,
+    }));
+  };
+
+  const validateForm = () => {
+    const newErrors = {
+      firstName: formData.firstName ? "" : "First name is required",
+      lastName: formData.lastName ? "" : "Last name is required",
+      email: formData.email ? "" : "Email is required",
+      subject: formData.subject ? "" : "Subject is required",
+      message: formData.message ? "" : "Message is required",
+      agreeTerms: formData.agreeTerms ? "" : "You must agree to the terms",
+    };
+    setErrors(newErrors);
+    return Object.values(newErrors).every((error) => error === "");
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setTouchedFields({
+      firstName: true,
+      lastName: true,
+      email: true,
+      subject: true,
+      message: true,
+      agreeTerms: true,
+    });
+    if (validateForm()) {
+      console.log("Form submitted:", formData);
+    }
+  };
+
   return (
     <>
       <Meta
@@ -325,6 +405,79 @@ const Dev: NextPage = () => {
             <Tabs.Panel>Content 3</Tabs.Panel>
           </Tabs.Panels>
         </Tabs>
+      </Container>
+      <Container innerClassName="flex flex-col gap-16 py-12">
+        <div className="max-w-2xl">
+          <form onSubmit={handleSubmit} noValidate className="mt-8 space-y-6">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              <Input
+                label="First Name"
+                name="firstName"
+                type="text"
+                value={formData.firstName}
+                onChange={handleInputChange}
+                touched={touchedFields.firstName}
+                error={errors.firstName}
+                required
+              />
+              <Input
+                label="Last Name"
+                name="lastName"
+                type="text"
+                value={formData.lastName}
+                onChange={handleInputChange}
+                touched={touchedFields.lastName}
+                error={errors.lastName}
+                required
+              />
+            </div>
+            <Input
+              label="Email"
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              touched={touchedFields.email}
+              error={errors.email}
+              required
+            />
+            <Select
+              label="Subject"
+              name="subject"
+              value={formData.subject}
+              onChange={handleInputChange}
+              touched={touchedFields.subject}
+              error={errors.subject}
+              options={[
+                { value: "", label: "Please select a subject" },
+                { value: "general", label: "General Inquiry" },
+                { value: "support", label: "Technical Support" },
+                { value: "feedback", label: "Feedback" },
+              ]}
+              required
+            />
+            <Textarea
+              label="Message"
+              name="message"
+              value={formData.message}
+              onChange={handleInputChange}
+              touched={touchedFields.message}
+              error={errors.message}
+              rows={5}
+              required
+            />
+            <Checkbox
+              label="I agree to the terms and conditions"
+              name="agreeTerms"
+              checked={formData.agreeTerms}
+              onChange={handleCheckboxChange}
+              touched={touchedFields.agreeTerms}
+              error={errors.agreeTerms}
+              required
+            />
+            <Button type="submit">Submit</Button>
+          </form>
+        </div>
       </Container>
     </>
   );
