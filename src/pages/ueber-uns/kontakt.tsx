@@ -1,22 +1,17 @@
 import { type NextPage } from "next";
-import {
-  type ChangeEvent,
-  type FormEvent,
-  useState,
-  type MouseEventHandler,
-} from "react";
 import Link from "next/link";
+import { type ChangeEvent, type FormEvent, useState } from "react";
 import { Meta } from "@/components/Meta";
 import { Container, ContainerMargin } from "@/components/Container";
 import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
-import { Address, Contact, Email } from "@/icons";
 import { Button } from "@/components/Button";
 import { Checkbox } from "@/components/Checkbox";
 import { Select } from "@/components/Select";
 import { Textarea } from "@/components/Textarea";
 import { Input } from "@/components/Input";
+import { contactInfo } from "@/data/contact.data";
 
-const Indoor: NextPage = () => {
+const Kontakt: NextPage = () => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -93,49 +88,6 @@ const Indoor: NextPage = () => {
       console.log("Form submitted:", formData);
     }
   };
-
-  const contactInfo = [
-    {
-      icon: Email,
-      title: "E-Mail",
-      description: "Schreib uns",
-      href: "#",
-      onClick: ((e) => {
-        e.preventDefault();
-        if (typeof window === "undefined") return;
-        const mail = atob("bWFpbHRvOnNla3JldGFyaWF0QGdvbGZjb2NoZW0uZXU=");
-        window.location.href = `mailto:${mail}`;
-      }) as MouseEventHandler<HTMLAnchorElement>,
-      label: (
-        <span
-          style={{ unicodeBidi: "bidi-override", direction: "rtl" }}
-          aria-label="sekretariat at golfcochem.eu"
-        >
-          ue.mehcocflog@tairaterkes
-        </span>
-      ),
-    },
-    {
-      icon: Address,
-      title: "Adresse",
-      description: "Komm vorbei",
-      href: "https://www.openstreetmap.org/?mlat=50.11870&mlon=7.16655#map=17/50.11870/7.16655",
-      target: "_blank",
-      label: (
-        <span className="flex flex-col">
-          <span>Am Kellerborn 2</span>
-          <span>56814 Ediger-Eller</span>
-        </span>
-      ),
-    },
-    {
-      icon: Contact,
-      title: "Telefon",
-      description: "Täglich von 09:00 bis 17:00 Uhr",
-      href: "tel:+492675911511",
-      label: "+49 (0) 2675 911 511",
-    },
-  ];
 
   return (
     <>
@@ -268,4 +220,4 @@ const Indoor: NextPage = () => {
   );
 };
 
-export default Indoor;
+export default Kontakt;
