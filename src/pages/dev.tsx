@@ -1,5 +1,5 @@
 import { type NextPage } from "next";
-import { useState } from "react";
+import { type ChangeEvent, type FormEvent, useState } from "react";
 import landscape from "~/public/images/landscape.png";
 import partner from "~/public/images/partners/sewenig.webp";
 import { Button, ButtonVariant } from "@/components/Button";
@@ -65,9 +65,7 @@ const Dev: NextPage = () => {
   });
 
   const handleInputChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >,
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -76,7 +74,7 @@ const Dev: NextPage = () => {
     }));
   };
 
-  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleCheckboxChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -86,18 +84,22 @@ const Dev: NextPage = () => {
 
   const validateForm = () => {
     const newErrors = {
-      firstName: formData.firstName ? "" : "First name is required",
-      lastName: formData.lastName ? "" : "Last name is required",
-      email: formData.email ? "" : "Email is required",
-      subject: formData.subject ? "" : "Subject is required",
-      message: formData.message ? "" : "Message is required",
-      agreeTerms: formData.agreeTerms ? "" : "You must agree to the terms",
+      firstName: formData.firstName
+        ? ""
+        : "Bitte gib einen validen Vorname ein",
+      lastName: formData.lastName ? "" : "Bitte gib einen validen Nachname ein",
+      email: formData.email ? "" : "Bitte gib eine valide E-Mail ein",
+      subject: formData.subject ? "" : "Bitte gib einen validen Betreff ein",
+      message: formData.message ? "" : "Bitte gib eine valide Nachricht ein",
+      agreeTerms: formData.agreeTerms
+        ? ""
+        : "Du musst den Bedingungen zustimmen, um das Formular abzusenden",
     };
     setErrors(newErrors);
     return Object.values(newErrors).every((error) => error === "");
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setTouchedFields({
       firstName: true,
@@ -408,10 +410,14 @@ const Dev: NextPage = () => {
       </Container>
       <Container innerClassName="flex flex-col gap-16 py-12">
         <div className="max-w-2xl">
-          <form onSubmit={handleSubmit} noValidate className="mt-8 space-y-6">
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <form
+            onSubmit={handleSubmit}
+            noValidate
+            className="mt-8 w-full max-w-lg space-y-6 justify-self-center"
+          >
+            <div className="-mb-4 grid grid-cols-1 gap-6 sm:grid-cols-2">
               <Input
-                label="First Name"
+                label="Vorname"
                 name="firstName"
                 type="text"
                 value={formData.firstName}
@@ -421,7 +427,7 @@ const Dev: NextPage = () => {
                 required
               />
               <Input
-                label="Last Name"
+                label="Nachname"
                 name="lastName"
                 type="text"
                 value={formData.lastName}
@@ -432,7 +438,7 @@ const Dev: NextPage = () => {
               />
             </div>
             <Input
-              label="Email"
+              label="E-Mail"
               type="email"
               name="email"
               value={formData.email}
@@ -442,22 +448,22 @@ const Dev: NextPage = () => {
               required
             />
             <Select
-              label="Subject"
+              label="Betreff"
               name="subject"
               value={formData.subject}
               onChange={handleInputChange}
               touched={touchedFields.subject}
               error={errors.subject}
               options={[
-                { value: "", label: "Please select a subject" },
-                { value: "general", label: "General Inquiry" },
-                { value: "support", label: "Technical Support" },
+                { value: "", label: "Bitte wählen Sie einen Betreff" },
+                { value: "general", label: "Allgemeine Anfrage" },
+                { value: "support", label: "Technischer Support" },
                 { value: "feedback", label: "Feedback" },
               ]}
               required
             />
             <Textarea
-              label="Message"
+              label="Nachricht"
               name="message"
               value={formData.message}
               onChange={handleInputChange}
@@ -467,7 +473,7 @@ const Dev: NextPage = () => {
               required
             />
             <Checkbox
-              label="I agree to the terms and conditions"
+              label="Ich stimme den Geschäftsbedingungen zu"
               name="agreeTerms"
               checked={formData.agreeTerms}
               onChange={handleCheckboxChange}
@@ -475,7 +481,7 @@ const Dev: NextPage = () => {
               error={errors.agreeTerms}
               required
             />
-            <Button type="submit">Submit</Button>
+            <Button type="submit">Absenden</Button>
           </form>
         </div>
       </Container>
