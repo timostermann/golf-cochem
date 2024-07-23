@@ -20,7 +20,12 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
           className="mb-1 block text-sm font-medium text-gray-700"
         >
           {required && <span className="sr-only">Required:</span>}
-          {label} {required && <span aria-hidden>*</span>}
+          {label}
+          {required && (
+            <span aria-hidden className="pl-px">
+              *
+            </span>
+          )}
         </label>
         <div className="relative">
           <select

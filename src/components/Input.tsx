@@ -19,7 +19,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           className="mb-1 block text-sm font-medium text-gray-700"
         >
           {required && <span className="sr-only">Required:</span>}
-          {label} {required && <span aria-hidden>*</span>}
+          {label}
+          {required && (
+            <span aria-hidden className="pl-px">
+              *
+            </span>
+          )}
         </label>
         <input
           ref={ref}

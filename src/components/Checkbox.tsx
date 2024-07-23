@@ -34,7 +34,12 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             className="ml-2 block cursor-pointer text-sm text-gray-700"
           >
             {required && <span className="sr-only">Required:</span>}
-            {label} {required && <span aria-hidden>*</span>}
+            {label}
+            {required && (
+              <span aria-hidden className="pl-px">
+                *
+              </span>
+            )}
           </label>
         </div>
         {showError && (
