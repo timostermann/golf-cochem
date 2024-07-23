@@ -70,7 +70,7 @@ export const Header = ({
       {...props}
     >
       <Link
-        className="inline-flex items-center gap-3 font-medium !leading-none text-gray-900 sm:text-lg"
+        className="inline-flex items-center gap-3 font-medium !leading-none text-gray-900 sm:text-lg lg:gap-2 lg:text-base xl:gap-3 xl:text-lg"
         href={homeHref}
       >
         <Image src="/logo.png" alt="" aria-hidden height="37" width="30" />
@@ -93,7 +93,7 @@ export const Header = ({
                 <Link
                   href={item.href}
                   className={cn(
-                    "flex h-fit items-center gap-2 text-gray-600 transition-colors hover:text-primary-600",
+                    "flex h-fit items-center whitespace-nowrap text-gray-600 transition-colors hover:text-primary-600 xl:gap-2",
                     {
                       "text-primary-700": isActiveGroup(item, router),
                     },
@@ -111,7 +111,7 @@ export const Header = ({
               ) : (
                 <button
                   className={cn(
-                    "flex h-fit cursor-text items-center gap-2 text-gray-600",
+                    "flex h-fit cursor-text items-center gap-2 whitespace-nowrap text-gray-600",
                     {
                       "text-primary-700": isActiveGroup(item, router),
                     },
