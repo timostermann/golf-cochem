@@ -1,13 +1,13 @@
 import React, { type ComponentPropsWithoutRef, forwardRef, useId } from "react";
 import cn from "classnames";
 
-type InputProps = ComponentPropsWithoutRef<"input"> & {
+type TextareaProps = ComponentPropsWithoutRef<"textarea"> & {
   label: string;
   error?: string;
   touched?: boolean;
 };
 
-export const Input = forwardRef<HTMLInputElement, InputProps>(
+export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ label, error, touched, className, required, ...props }, ref) => {
     const id = useId();
     const showError = touched && error;
@@ -21,7 +21,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           {required && <span className="sr-only">Required:</span>}
           {label} {required && <span aria-hidden>*</span>}
         </label>
-        <input
+        <textarea
           ref={ref}
           id={id}
           className={cn(
@@ -41,7 +41,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             role="alert"
             className="relative text-xs text-red-600"
           >
-            <span className="absolute ml-1 mt-0.5">{error}</span>
+            <span className="absolute -mt-0.5 ml-1">{error}</span>
           </p>
         )}
       </div>
@@ -49,4 +49,4 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
   },
 );
 
-Input.displayName = "Input";
+Textarea.displayName = "Textarea";
