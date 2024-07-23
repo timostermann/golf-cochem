@@ -8,11 +8,6 @@ import vr from "~/public/images/partners/vr.png";
 import hannus from "~/public/images/partners/hannus.png";
 import pinger from "~/public/images/partners/pinger.png";
 import villa from "~/public/images/partners/villa.png";
-import felix from "~/public/images/team/felix-gruenhaeuser.webp";
-import jannik from "~/public/images/team/jannik-oster.webp";
-import manuela from "~/public/images/team/manuela-eiden.webp";
-import reimund from "~/public/images/team/reimund-widmayer.jpeg";
-import ulrike from "~/public/images/team/ulrike-rummel.webp";
 import { Container, ContainerMargin } from "@/components/Container";
 import { StatusCard } from "@/components/StatusCard";
 import { Button, ButtonVariant } from "@/components/Button";
@@ -36,6 +31,7 @@ import { fetchApi } from "@/lib/strapi";
 import { type Blogpost } from "@/lib/dto/blogpost.type";
 import { Meta } from "@/components/Meta";
 import { contactInfo } from "@/data/contact.data";
+import { teamMembers } from "@/data/team.data";
 
 const Icons = {
   MoselCourse: MoselCourse,
@@ -55,34 +51,6 @@ type HomeProps = {
 };
 
 const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
-  const teamMembers = [
-    {
-      name: "Jannik Oster",
-      role: "Club Manager",
-      image: jannik,
-    },
-    {
-      name: "Ulrike Rummel",
-      role: "Sekretariat",
-      image: ulrike,
-    },
-    {
-      name: "Manuela Eiden",
-      role: "Sekretariat",
-      image: manuela,
-    },
-    {
-      name: "Reimund Widmayer",
-      role: "Sekretariat",
-      image: reimund,
-    },
-    {
-      name: "Felix Grünhäuser",
-      role: "Marshall & in Ausbildung zum PGA Professionell",
-      image: felix,
-    },
-  ];
-
   return (
     <>
       <Meta
