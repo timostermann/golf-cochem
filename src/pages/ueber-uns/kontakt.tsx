@@ -216,7 +216,14 @@ const Kontakt: NextPage = () => {
               error={errors.agreeTerms}
               required
             >
-              Ich stimme den Geschäftsbedingungen zu
+              Ich stimme den{" "}
+              <Link
+                href="/datenschutz"
+                className="text-primary-700 underline transition-colors hover:text-primary-600"
+              >
+                Datenschutzbestimmungen
+              </Link>{" "}
+              zu
             </Checkbox>
             <Button type="submit">Absenden</Button>
           </form>

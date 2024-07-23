@@ -1,5 +1,6 @@
 import { type NextPage } from "next";
 import { type ChangeEvent, type FormEvent, useState } from "react";
+import Link from "next/link";
 import landscape from "~/public/images/landscape.png";
 import partner from "~/public/images/partners/sewenig.webp";
 import { Button, ButtonVariant } from "@/components/Button";
@@ -485,7 +486,14 @@ const Dev: NextPage = () => {
               error={errors.agreeTerms}
               required
             >
-              Ich stimme den Geschäftsbedingungen zu
+              Ich stimme den{" "}
+              <Link
+                href="/datenschutz"
+                className="text-primary-700 underline transition-colors hover:text-primary-600"
+              >
+                Datenschutzbestimmungen
+              </Link>{" "}
+              zu
             </Checkbox>
             <Button type="submit">Absenden</Button>
           </form>
