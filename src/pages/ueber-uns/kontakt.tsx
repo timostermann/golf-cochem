@@ -16,12 +16,12 @@ const Kontakt: NextPage = () => {
       <Container
         aria-labelledby="contact"
         margin={ContainerMargin.SM}
-        className="py-16 sm:py-24"
+        className="py-16 lg:py-24"
         innerClassName="flex flex-col gap-12 lg:gap-16"
       >
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr,2fr] lg:gap-6">
-          <div className="flex flex-col gap-12 border-r-gray-200 lg:border-r">
-            <div className="flex flex-col gap-6">
+          <div className="flex w-full max-w-lg flex-col gap-8 justify-self-center border-r-gray-200 lg:gap-12 xl:border-r">
+            <div className="flex flex-col gap-4 lg:gap-6">
               <Headline
                 tag={HeadlineTag.H1}
                 variant={HeadlineVariant.SECONDARY}
@@ -31,7 +31,7 @@ const Kontakt: NextPage = () => {
               </Headline>
               <p className="text-gray-500">So kannst du uns erreichen</p>
             </div>
-            <ul className="flex flex-col gap-10 md:gap-2 md:max-lg:flex-row md:max-lg:flex-wrap md:max-lg:justify-between lg:gap-10 xl:gap-16">
+            <ul className="flex flex-col gap-10 xl:gap-16">
               {contactInfo.map((contact) => (
                 <li key={contact.title} className="flex gap-4">
                   <contact.icon className="mt-px size-6 text-primary-700" />

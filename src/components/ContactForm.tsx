@@ -90,7 +90,7 @@ export const ContactForm = () => {
       noValidate
       className="mt-8 w-full max-w-lg space-y-6 justify-self-center"
     >
-      <div className="-mb-4 grid grid-cols-1 gap-6 sm:grid-cols-2">
+      <div className="-mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
         <Input
           name="firstName"
           type="text"
