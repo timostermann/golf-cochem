@@ -1,5 +1,6 @@
 import { type NextPage } from "next";
 import landscape from "~/public/images/landscape.png";
+import partner from "~/public/images/partners/sewenig.webp";
 import { Button, ButtonVariant } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
@@ -210,17 +211,13 @@ const Dev: NextPage = () => {
         </div>
         <div className="flex max-w-[1200px] gap-4">
           <ImageInfoCard
-            title="Drive"
-            summary="Kurs I - Standposition, Griffhaltung, Schwung"
-            image={{
-              src: "https://picsum.photos/400/400",
-              alt: "Drive",
-              width: 400,
-              height: 400,
-            }}
+            title="Partner Card"
+            summary="Lörem ipsum krovoskap bånade samt por dijypp: i digen sogt. Ivose or
+            mijyras i dosk bedavis i ysade av faras fåska, vana."
+            image={partner}
+            imageClassName="!object-contain px-4"
             href="https://www.campo-golf.de/de/events-und-turniere-clubseite/DE-5536"
-            linkText="Zur Anmeldung"
-            facts={["ca. 55 Minuten", "18€"]}
+            linkText="Mehr erfahren"
           />
           <ImageInfoCard
             title="Chip & Putt & Drive"

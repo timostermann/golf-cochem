@@ -13,6 +13,7 @@ type ImageInfoCardProps = ComponentPropsWithoutRef<"article"> & {
     width: number;
     height: number;
   }>;
+  imageClassName?: string;
   href?: string;
   linkText?: string;
   facts?: [string, string];
@@ -22,6 +23,7 @@ export const ImageInfoCard = ({
   title,
   summary,
   image,
+  imageClassName,
   href = "",
   linkText,
   facts,
@@ -50,7 +52,10 @@ export const ImageInfoCard = ({
             alt={image.alt || ""}
             width={image.width}
             height={image.height}
-            className="h-full w-full rounded-t-3xl object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+            className={cn(
+              "h-full w-full rounded-t-3xl object-cover transition-transform duration-500 ease-in-out group-hover:scale-110",
+              imageClassName,
+            )}
           />
         </div>
       )}
