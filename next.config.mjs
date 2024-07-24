@@ -23,6 +23,33 @@ const nextConfig = {
       },
     ],
   },
+  redirects: async () => [
+    {
+      source: "/category/:slug*",
+      destination: "/clubleben/news",
+      permanent: true,
+    },
+    {
+      source: "/tag/:slug*",
+      destination: "/clubleben/news",
+      permanent: true,
+    },
+    {
+      source: "/events/:slug*",
+      destination: "/",
+      permanent: true,
+    },
+    {
+      source: "/mec-category/:slug*",
+      destination: "/",
+      permanent: true,
+    },
+    {
+      source: "/shop(-2)?/:slug*",
+      destination: "/",
+      permanent: true,
+    },
+  ],
 };
 
 export default nextConfig;
