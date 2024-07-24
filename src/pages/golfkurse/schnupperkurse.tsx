@@ -3,6 +3,9 @@ import { Meta } from "@/components/Meta";
 import { Container, ContainerMargin } from "@/components/Container";
 import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
 import { ImageInfoCard } from "@/components/ImageInfoCard";
+import chip from "~/public/images/chip.webp";
+import driver from "~/public/images/driver.webp";
+import schnupperkurs from "~/public/images/schnupperkurs.webp";
 
 const Schnupperkurse: NextPage = () => (
   <>
@@ -70,12 +73,7 @@ const Schnupperkurse: NextPage = () => (
           <ImageInfoCard
             title="Drive"
             summary="Kurs I - Standposition, Griffhaltung, Schwung"
-            image={{
-              src: "https://picsum.photos/400/400",
-              alt: "Drive",
-              width: 400,
-              height: 400,
-            }}
+            image={driver}
             href="https://www.campo-golf.de/de/events-und-turniere-clubseite/DE-5536"
             linkText="Zur Anmeldung"
             facts={["ca. 55 Minuten", "18€"]}
@@ -85,11 +83,7 @@ const Schnupperkurse: NextPage = () => (
           <ImageInfoCard
             title="Chip & Putt & Drive"
             summary="Kurs II - Putt & Chip"
-            image={{
-              src: "https://picsum.photos/400/400",
-              width: 400,
-              height: 400,
-            }}
+            image={chip}
             href="https://www.campo-golf.de/de/events-und-turniere-clubseite/DE-5536"
             linkText="Zur Anmeldung"
             facts={["ca. 110 Minuten", "28€"]}
@@ -99,11 +93,7 @@ const Schnupperkurse: NextPage = () => (
           <ImageInfoCard
             title="Live"
             summary="Kurs III - Live"
-            image={{
-              src: "https://picsum.photos/400/400",
-              width: 400,
-              height: 400,
-            }}
+            image={schnupperkurs}
             href="https://www.campo-golf.de/de/events-und-turniere-clubseite/DE-5536"
             linkText="Zur Anmeldung"
             facts={["ca. 3-4 Stunden", "48€"]}
