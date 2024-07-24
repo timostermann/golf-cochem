@@ -6,6 +6,7 @@ import { Container, ContainerMargin } from "@/components/Container";
 import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
 import { Tabs } from "@/components/Tabs";
 import { Meta } from "@/components/Meta";
+import { moselcourseDetails } from "@/data/moselcourse.data";
 
 const Moselcourse: NextPage = () => {
   return (
@@ -98,14 +99,19 @@ const Moselcourse: NextPage = () => {
                 <p className="mb-4 font-medium text-primary-600">Bahnen</p>
                 <Tabs orientation="vertical" defaultIndex={0}>
                   <Tabs.List>
-                    <Tabs.Tab>Loch 1</Tabs.Tab>
-                    <Tabs.Tab>Loch 2</Tabs.Tab>
-                    <Tabs.Tab>Loch 3</Tabs.Tab>
+                    {moselcourseDetails.map(({ name }) => (
+                      <Tabs.Tab key={"moselcourse-" + { name }}>
+                        {name}
+                      </Tabs.Tab>
+                    ))}
                   </Tabs.List>
                   <Tabs.Panels>
-                    <Tabs.Panel>Loch 1</Tabs.Panel>
-                    <Tabs.Panel>Loch 2</Tabs.Panel>
-                    <Tabs.Panel>Loch 3</Tabs.Panel>
+                    {moselcourseDetails.map(({ name, description, image }) => (
+                      <Tabs.Panel key={"moselcourse-panel-" + { name }}>
+                        {description}
+                        <Image src={image} alt={"Moselcourse" + { name }} />
+                      </Tabs.Panel>
+                    ))}
                   </Tabs.Panels>
                 </Tabs>
               </Tabs.Panel>
