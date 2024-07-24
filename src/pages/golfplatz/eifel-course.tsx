@@ -6,6 +6,7 @@ import { Container, ContainerMargin } from "@/components/Container";
 import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
 import { Tabs } from "@/components/Tabs";
 import { Meta } from "@/components/Meta";
+import { eifelcourseDetails } from "@/data/coursedetails.data";
 
 const Eifelcourse: NextPage = () => {
   return (
@@ -89,17 +90,24 @@ const Eifelcourse: NextPage = () => {
                 />
               </Tabs.Panel>
               <Tabs.Panel className="mt-16">
-                <Headline
-                  tag={HeadlineTag.H2}
-                  variant={HeadlineVariant.SECONDARY}
-                >
-                  Bahnen im Detail
-                </Headline>
-                <p className="text-lg text-gray-500">
-                  Hier können Sie detaillierte Informationen zu den einzelnen
-                  Bahnen des Eifel Course finden. (Fügen Sie hier die
-                  spezifischen Details für jede Bahn ein.)
-                </p>
+                <p className="mb-4 font-medium text-primary-600">Bahnen</p>
+                <Tabs orientation="vertical" defaultIndex={0}>
+                  <Tabs.List>
+                    {eifelcourseDetails.map(({ name }) => (
+                      <Tabs.Tab key={"eifelcourse-" + { name }}>
+                        {name}
+                      </Tabs.Tab>
+                    ))}
+                  </Tabs.List>
+                  <Tabs.Panels>
+                    {eifelcourseDetails.map(({ name, description, image }) => (
+                      <Tabs.Panel key={"eifelcourse-panel-" + { name }}>
+                        {description}
+                        <Image src={image} alt={"Eifelcourse" + { name }} />
+                      </Tabs.Panel>
+                    ))}
+                  </Tabs.Panels>
+                </Tabs>
               </Tabs.Panel>
             </Tabs.Panels>
           </Tabs>

@@ -6,7 +6,7 @@ import { Container, ContainerMargin } from "@/components/Container";
 import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
 import { Tabs } from "@/components/Tabs";
 import { Meta } from "@/components/Meta";
-import { moselcourseDetails } from "@/data/moselcourse.data";
+import { moselcourseDetails } from "@/data/coursedetails.data";
 
 const Moselcourse: NextPage = () => {
   return (
