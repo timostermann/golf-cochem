@@ -134,7 +134,10 @@ export const ContactForm = () => {
         options={[
           { value: "", label: "Bitte wählen Sie einen Betreff" },
           { value: "general", label: "Allgemeine Anfrage" },
-          { value: "support", label: "Technischer Support" },
+          { value: "membership", label: "Mitgliedschaft" },
+          { value: "booking", label: "Buchung" },
+          { value: "tournament", label: "Turnier" },
+          { value: "partner", label: "Partnerschaft" },
           { value: "feedback", label: "Feedback" },
         ]}
         required
