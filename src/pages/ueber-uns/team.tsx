@@ -30,10 +30,9 @@ const Team: NextPage = () => {
 
           <p className="-order-1 font-semibold text-primary-600">Über uns</p>
           <p className="my-4 max-w-[700px] text-lg text-gray-500">
-            Lörem ipsum previs gigon och niviktig, desamma. Dekalått maktiga ost
-            tigt deheten. Telebäsm bena, ten. Tregijyna nepredin inte tegilaskap
-            dipödat julära. Rening ifåjuna. Infrassade tektig inte birigt och
-            neling i tejyledes gässa.
+            Unser engagiertes Team steht Ihnen bei allen Fragen rund um das
+            Golfspiel und Ihre Mitgliedschaft zur Seite. Ob Startzeitenbuchung,
+            Turnierorganisation oder Training – wir sind für Sie da!
           </p>
 
           <Tabs defaultIndex={0}>
