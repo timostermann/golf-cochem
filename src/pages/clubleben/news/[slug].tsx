@@ -1,4 +1,4 @@
-import { type GetStaticProps, type NextPage } from "next";
+import { type GetStaticPaths, type GetStaticProps, type NextPage } from "next";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { type Blogpost } from "@/lib/dto/blogpost.type";
@@ -120,7 +120,7 @@ export const getStaticProps: GetStaticProps<NewsArticleProps> = async ({
   return { notFound: true };
 };
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const slugsResponse = await fetchApi<{ slug: string }[]>({
     endpoint: "/blogposts?fields=slug",
   });

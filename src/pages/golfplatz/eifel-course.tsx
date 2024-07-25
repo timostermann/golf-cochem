@@ -94,16 +94,14 @@ const Eifelcourse: NextPage = () => {
                 <Tabs orientation="vertical" defaultIndex={0}>
                   <Tabs.List>
                     {eifelcourseDetails.map(({ name }) => (
-                      <Tabs.Tab key={"eifelcourse-" + { name }}>
-                        {name}
-                      </Tabs.Tab>
+                      <Tabs.Tab key={"eifelcourse-" + name}>{name}</Tabs.Tab>
                     ))}
                   </Tabs.List>
                   <Tabs.Panels>
                     {eifelcourseDetails.map(({ name, description, image }) => (
-                      <Tabs.Panel key={"eifelcourse-panel-" + { name }}>
+                      <Tabs.Panel key={"eifelcourse-panel-" + name}>
                         {description}
-                        <Image src={image} alt={"Eifelcourse" + { name }} />
+                        <Image src={image} alt={"Eifelcourse" + name} />
                       </Tabs.Panel>
                     ))}
                   </Tabs.Panels>

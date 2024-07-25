@@ -100,16 +100,14 @@ const Moselcourse: NextPage = () => {
                 <Tabs orientation="vertical" defaultIndex={0}>
                   <Tabs.List>
                     {moselcourseDetails.map(({ name }) => (
-                      <Tabs.Tab key={"moselcourse-" + { name }}>
-                        {name}
-                      </Tabs.Tab>
+                      <Tabs.Tab key={"moselcourse-" + name}>{name}</Tabs.Tab>
                     ))}
                   </Tabs.List>
                   <Tabs.Panels>
                     {moselcourseDetails.map(({ name, description, image }) => (
-                      <Tabs.Panel key={"moselcourse-panel-" + { name }}>
+                      <Tabs.Panel key={"moselcourse-panel-" + name}>
                         {description}
-                        <Image src={image} alt={"Moselcourse" + { name }} />
+                        <Image src={image} alt={"Moselcourse " + name} />
                       </Tabs.Panel>
                     ))}
                   </Tabs.Panels>
