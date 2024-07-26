@@ -76,7 +76,7 @@ const Platzinformationen: NextPage<PlatzinformationenProps> = ({
               <StatusCard
                 icon={<Icon />}
                 open={card.open}
-                closedUntil={card.closedUntil}
+                until={card.closedUntil}
                 className="!shadow-none"
               >
                 {card.title}

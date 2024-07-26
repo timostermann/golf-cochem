@@ -78,7 +78,7 @@ const Dev: NextPage = () => {
           <StatusCard open icon={<Address />}>
             Open Court
           </StatusCard>
-          <StatusCard open={false} closedUntil="22.06." icon={<Blog />}>
+          <StatusCard open={false} until="22.06." icon={<Blog />}>
             Closed Court
           </StatusCard>
         </div>

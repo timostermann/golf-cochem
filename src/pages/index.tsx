@@ -45,8 +45,8 @@ type HomeProps = {
   statusCards: {
     icon: keyof typeof Icons;
     title: string;
-    open: boolean;
-    closedUntil?: string;
+    open?: boolean;
+    until?: string;
   }[];
   newsArticles: Blogpost[];
 };
@@ -111,11 +111,7 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
             const Icon = Icons[card.icon];
             return (
               <li key={card.title}>
-                <StatusCard
-                  icon={<Icon />}
-                  open={card.open}
-                  closedUntil={card.closedUntil}
-                >
+                <StatusCard icon={<Icon />} open={card.open} until={card.until}>
                   {card.title}
                 </StatusCard>
               </li>
@@ -488,23 +484,26 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
         {
           icon: "MoselCourse",
           title: "Mosel Course",
-          open: moselCourse?.isOpen ?? false,
+          open: moselCourse?.isOpen,
+          until: moselCourse?.until,
         },
         {
           icon: "EifelCourse",
           title: "Eifel Course",
-          open: eifelCourse?.isOpen ?? false,
+          open: eifelCourse?.isOpen,
+          until: eifelCourse?.until,
         },
         {
           icon: "Soccer",
           title: "Footgolf",
-          open: footgolf?.isOpen ?? false,
-          closedUntil: "01.03.",
+          open: footgolf?.isOpen,
+          until: footgolf?.until,
         },
         {
           icon: "Golf",
           title: "Driving Range",
-          open: drivingRange?.isOpen ?? false,
+          open: drivingRange?.isOpen,
+          until: drivingRange?.until,
         },
       ],
       newsArticles: blogPostData,

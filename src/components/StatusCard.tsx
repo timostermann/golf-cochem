@@ -1,21 +1,23 @@
 import cn from "classnames";
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/router";
 import { type ReactNode, type ComponentPropsWithoutRef } from "react";
 
 type StatusCardProps = ComponentPropsWithoutRef<"div"> & {
-  open: boolean;
-  closedUntil?: string;
+  open?: boolean;
+  until?: string;
   icon: ReactNode;
 };
 
 export const StatusCard = ({
   open,
-  closedUntil,
+  until,
   icon,
   children,
   className,
   ...props
 }: StatusCardProps) => {
+  const router = useRouter();
   const t = useTranslations("global");
 
   return (
@@ -36,9 +38,16 @@ export const StatusCard = ({
           "border border-red-700 bg-red-50 text-red-700": !open,
         })}
       >
-        {open
-          ? t("opened")
-          : `${t("closed")}${closedUntil ? ` ${t("until")} ${closedUntil}` : ""}`}
+        {open ? t("opened") : t("closed")}
+        {until
+          ? ` ${t("until")} ${new Date(until).toLocaleDateString(
+              router.locale,
+              {
+                day: "numeric",
+                month: "numeric",
+              },
+            )}`
+          : ""}
       </span>
     </div>
   );
