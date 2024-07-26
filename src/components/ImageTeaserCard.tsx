@@ -71,7 +71,7 @@ export const ImageTeaserCard = ({
       {author && (
         <div className="flex grow items-end">
           <div className="mt-4 flex items-center gap-3 px-6">
-            {author.picture.url &&
+            {author.picture?.url &&
               author.picture.width &&
               author.picture.height && (
                 <Image
