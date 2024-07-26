@@ -38,7 +38,7 @@ const NewsArticlePage: NextPage<NewsArticleProps> = ({ article }) => {
         <p className="mt-4 text-xl text-gray-500">{article.teaser}</p>
         {article.author && (
           <div className="mt-6 flex items-center gap-3 px-6">
-            {article.author.picture.url &&
+            {article.author.picture?.url &&
               article.author.picture.width &&
               article.author.picture.height && (
                 <Image
