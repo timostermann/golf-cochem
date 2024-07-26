@@ -32,6 +32,7 @@ import { type Blogpost } from "@/lib/dto/blogpost.type";
 import { Meta } from "@/components/Meta";
 import { contactInfo } from "@/data/contact.data";
 import { teamMembers } from "@/data/team.data";
+import { type OpeningTime } from "@/lib/dto/openingtime.type";
 
 const Icons = {
   MoselCourse: MoselCourse,
@@ -457,6 +458,10 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+  const statusCardData = await fetchApi<OpeningTime[]>({
+    endpoint: "/openingtimes",
+  });
+
   const blogPostData = await fetchApi<Blogpost[]>({
     endpoint:
       "/blogposts?populate=titleimage&populate=category&populate=author",
@@ -466,29 +471,40 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
     },
   });
 
+  const moselCourse = statusCardData.find(
+    (data) => data.name === "Mosel Course",
+  );
+  const eifelCourse = statusCardData.find(
+    (data) => data.name === "Eifel Course",
+  );
+  const footgolf = statusCardData.find((data) => data.name === "Footgolf");
+  const drivingRange = statusCardData.find(
+    (data) => data.name === "Driving Range",
+  );
+
   return {
     props: {
       statusCards: [
         {
           icon: "MoselCourse",
           title: "Mosel Course",
-          open: true,
+          open: moselCourse?.isOpen ?? false,
         },
         {
           icon: "EifelCourse",
           title: "Eifel Course",
-          open: true,
+          open: eifelCourse?.isOpen ?? false,
         },
         {
           icon: "Soccer",
           title: "Footgolf",
-          open: false,
+          open: footgolf?.isOpen ?? false,
           closedUntil: "01.03.",
         },
         {
           icon: "Golf",
           title: "Driving Range",
-          open: true,
+          open: drivingRange?.isOpen ?? false,
         },
       ],
       newsArticles: blogPostData,
