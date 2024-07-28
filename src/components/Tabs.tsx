@@ -366,7 +366,11 @@ const SelectLikeTabs = ({
         onKeyDown={handleKeyDown}
         aria-haspopup="listbox"
         aria-expanded={isOpen}
-        aria-label="Select tab"
+        aria-label={`Current tab: ${tabs[activeTab].label}. Press Enter to open tab list.`}
+        role="tab"
+        aria-selected={true}
+        id={`tab-${activeTab}`}
+        aria-controls={`tabpanel-${activeTab}`}
       >
         {tabs[activeTab].label}
         <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
@@ -374,6 +378,7 @@ const SelectLikeTabs = ({
             className="h-5 w-5 text-gray-400"
             viewBox="0 0 20 20"
             fill="currentColor"
+            aria-hidden="true"
           >
             <path
               fillRule="evenodd"
