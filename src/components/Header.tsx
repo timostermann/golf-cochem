@@ -25,6 +25,7 @@ type NavItem = {
   label: string;
   href?: string;
   subItems?: Array<SubItem>;
+  onClick?: () => void;
 };
 
 export type HeaderProps = ComponentPropsWithoutRef<"header"> & {
@@ -211,7 +212,11 @@ export const Header = ({
         <div className="relative flex min-h-full flex-col justify-between">
           <ul className="flex flex-col gap-6 p-4 pt-6">
             {items.map((item) => (
-              <MobileNavItem key={item.label} {...item} />
+              <MobileNavItem
+                key={item.label}
+                onClick={() => setIsMenuOpen(false)}
+                {...item}
+              />
             ))}
           </ul>
           <LanguageSwitch className="relative left-1/2 w-fit -translate-x-1/2 pb-4 lg:hidden" />
@@ -225,7 +230,7 @@ export const Header = ({
 Header.displayName = "Header";
 
 const MobileNavItem = (item: NavItem) => {
-  const { label, href, subItems } = item;
+  const { label, href, subItems, onClick } = item;
   const [accordionOpen, setAccordionOpen] = useState(false);
   const dropdownRef = useRef<HTMLUListElement>(null);
   const t = useTranslations("nav");
@@ -243,7 +248,11 @@ const MobileNavItem = (item: NavItem) => {
   return (
     <li key={label}>
       {href ? (
-        <Link href={href} className="w-full text-gray-600 hover:bg-gray-900">
+        <Link
+          href={href}
+          className="w-full text-gray-600 hover:bg-gray-900"
+          onClick={onClick}
+        >
           {t(label)}
         </Link>
       ) : (
@@ -282,6 +291,7 @@ const MobileNavItem = (item: NavItem) => {
                 <Link
                   href={subItem.href}
                   className="flex w-full items-center gap-4 py-2 text-gray-900 hover:bg-gray-100"
+                  onClick={onClick}
                 >
                   {subItem.icon && (
                     <span className="size-6 text-primary-700">
