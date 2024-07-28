@@ -61,6 +61,8 @@ const Mitgliedschaft: NextPage = () => (
         src={dgv}
         alt="Deutscher Golf Verband Logo"
         className="size-[200px] rounded-full"
+        loading="eager"
+        priority
       />
     </Container>
     <Container

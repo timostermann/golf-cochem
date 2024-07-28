@@ -65,6 +65,7 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
           alt=""
           quality={60}
           loading="eager"
+          priority
           decoding="sync"
           className="absolute inset-0 -z-10 h-full w-full object-cover object-[50%_20%]"
         />

@@ -91,8 +91,8 @@ const Moselcourse: NextPage = () => {
                 <Image
                   className="mt-6 object-contain object-top md:max-w-[40%]"
                   src={moselCourse}
-                  alt="Mosel Course Übersicht"
-                  aria-hidden
+                  alt=""
+                  loading="eager"
                 />
               </Tabs.Panel>
               <Tabs.Panel className="mt-16">

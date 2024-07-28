@@ -85,8 +85,8 @@ const Eifelcourse: NextPage = () => {
                 <Image
                   className="mt-6 object-contain object-top md:min-w-[40%] md:max-w-[40%]"
                   src={eifelCourse}
-                  alt="Eifel Course Übersicht"
-                  aria-hidden
+                  alt=""
+                  loading="eager"
                 />
               </Tabs.Panel>
               <Tabs.Panel className="mt-16">
