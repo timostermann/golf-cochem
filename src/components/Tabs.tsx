@@ -13,13 +13,17 @@ import {
   type KeyboardEvent,
   type ForwardRefRenderFunction,
   type ComponentPropsWithoutRef,
+  type Dispatch,
+  type SetStateAction,
+  type ReactElement,
 } from "react";
 import cn from "classnames";
 
 type TabsContextType = {
   activeTab: number;
-  setActiveTab: (index: number) => void;
+  setActiveTab: Dispatch<SetStateAction<number>>;
   orientation: "horizontal" | "vertical";
+  useSelectLike: boolean;
 };
 
 const TabsContext = createContext<TabsContextType | undefined>(undefined);
@@ -36,9 +40,28 @@ const TabsRoot = ({
   orientation = "horizontal",
 }: TabsProps) => {
   const [activeTab, setActiveTab] = useState(defaultIndex);
+  const [useSelectLike, setUseSelectLike] = useState(false);
+  const childrenArray = Children.toArray(children);
+  const tabListChild = childrenArray.find(
+    (child) => isValidElement(child) && child.type === TabList,
+  );
+  const tabCount = tabListChild
+    ? Children.count((tabListChild as ReactElement).props.children)
+    : 0;
+
+  useEffect(() => {
+    const checkViewport = () => {
+      setUseSelectLike(window.innerWidth < 640 && tabCount > 2);
+    };
+    checkViewport();
+    window.addEventListener("resize", checkViewport);
+    return () => window.removeEventListener("resize", checkViewport);
+  }, [tabCount]);
 
   return (
-    <TabsContext.Provider value={{ activeTab, setActiveTab, orientation }}>
+    <TabsContext.Provider
+      value={{ activeTab, setActiveTab, orientation, useSelectLike }}
+    >
       <div className={cn("w-full", { flex: orientation === "vertical" })}>
         {children}
       </div>
@@ -53,7 +76,8 @@ const TabList = ({ children, className, ...props }: TabListProps) => {
   if (!context)
     throw new Error("Tabs.List must be used within a Tabs component");
 
-  const { activeTab, setActiveTab, orientation } = context;
+  const { activeTab, setActiveTab, orientation, useSelectLike } = context;
+
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const [activeTabStyle, setActiveTabStyle] = useState({
     left: 0,
@@ -110,6 +134,24 @@ const TabList = ({ children, className, ...props }: TabListProps) => {
     },
     [children, setActiveTab, orientation],
   );
+
+  if (useSelectLike) {
+    return (
+      <SelectLikeTabs
+        tabs={
+          Children.map(children, (child, index) => ({
+            label: isValidElement(child) ? child.props.children : "",
+            index,
+          })) || []
+        }
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+        orientation={orientation}
+        className={className}
+        {...props}
+      />
+    );
+  }
 
   return (
     <div
@@ -249,6 +291,139 @@ const TabPanel = ({
     {children}
   </div>
 );
+
+type SelectLikeTabsProps = ComponentPropsWithoutRef<"div"> & {
+  tabs: { label: ReactNode; index: number }[];
+  activeTab: number;
+  setActiveTab: Dispatch<SetStateAction<number>>;
+  orientation: "horizontal" | "vertical";
+};
+
+const SelectLikeTabs = ({
+  tabs,
+  activeTab,
+  setActiveTab,
+  orientation,
+  className,
+  ...props
+}: SelectLikeTabsProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const handleKeyDown = (event: KeyboardEvent) => {
+    switch (event.key) {
+      case "ArrowDown":
+        event.preventDefault();
+        if (!isOpen) setIsOpen(true);
+        else setActiveTab((prevActiveTab) => (prevActiveTab + 1) % tabs.length);
+        break;
+      case "ArrowUp":
+        event.preventDefault();
+        if (!isOpen) setIsOpen(true);
+        else
+          setActiveTab(
+            (prevActiveTab) => (prevActiveTab - 1 + tabs.length) % tabs.length,
+          );
+        break;
+      case "Enter":
+      case " ":
+        event.preventDefault();
+        setIsOpen((prevIsOpen) => !prevIsOpen);
+        break;
+      case "Escape":
+        setIsOpen(false);
+        break;
+    }
+  };
+
+  return (
+    <div
+      ref={dropdownRef}
+      className={cn("relative w-full", className)}
+      role="tablist"
+      aria-orientation={orientation}
+      {...props}
+    >
+      <button
+        className="w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-left shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
+        onClick={() => setIsOpen(!isOpen)}
+        onKeyDown={handleKeyDown}
+        aria-haspopup="listbox"
+        aria-expanded={isOpen}
+        aria-label="Select tab"
+      >
+        {tabs[activeTab].label}
+        <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+          <svg
+            className="h-5 w-5 text-gray-400"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </span>
+      </button>
+      {isOpen && (
+        <ul
+          className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md border border-gray-300 bg-white shadow-lg focus:outline-none"
+          role="listbox"
+          tabIndex={-1}
+          aria-activedescendant={`tab-option-${activeTab}`}
+        >
+          {tabs.map((tab) => (
+            <li
+              key={tab.index}
+              id={`tab-option-${tab.index}`}
+              role="option"
+              aria-selected={activeTab === tab.index}
+              className={cn(
+                "relative cursor-pointer select-none py-2 pl-3 pr-9",
+                activeTab === tab.index
+                  ? "bg-primary-600 text-white"
+                  : "text-gray-900",
+                "hover:bg-primary-500 hover:text-white",
+              )}
+              onClick={() => {
+                setActiveTab(tab.index);
+                setIsOpen(false);
+              }}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  setActiveTab(tab.index);
+                  setIsOpen(false);
+                }
+              }}
+              tabIndex={0}
+            >
+              {tab.label}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+};
 
 export const Tabs = Object.assign(TabsRoot, {
   List: TabList,
