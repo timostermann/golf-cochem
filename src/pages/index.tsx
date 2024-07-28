@@ -107,7 +107,7 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
             Platzinformationen
           </Button>
         </div>
-        <ul className="mb-32 mt-16 flex flex-wrap items-center justify-center gap-4 lg:mb-20 lg:mt-32 lg:gap-10">
+        <ul className="mb-32 mt-16 flex flex-wrap items-center justify-center gap-2 sm:gap-4 lg:mb-20 lg:mt-32 lg:gap-10">
           {statusCards.map((card) => {
             const Icon = Icons[card.icon];
             return (
@@ -218,7 +218,7 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
           </Headline>
           <Button href="/blog">Alle News</Button>
         </div>
-        <p className="text-gray-500">
+        <p className="text-gray-600">
           Das Neueste aus dem Golfclub Cochem/Mosel e.V.
         </p>
         <ul className="mt-12 grid grid-cols-1 gap-8 sm:mt-16 sm:grid-cols-2 xl:grid-cols-3">
@@ -250,7 +250,7 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
         >
           Events & Turniere
         </Headline>
-        <p className="max-w-[768px] text-gray-500">
+        <p className="max-w-[768px] text-gray-600">
           Das Golfjahr {new Date().getFullYear()} bietet wieder eine Vielzahl
           interessanter Turniere. Neue Turniere mit unserern Sponsoren, Anreize
           für unsere jüngsten Golfer und jede Menge Abwechslung.
@@ -369,7 +369,7 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
         >
           Unser Team
         </Headline>
-        <p className="mt-6 max-w-[740px] text-balance text-gray-500 lg:mb-20">
+        <p className="mt-6 max-w-[740px] text-balance text-gray-600 lg:mb-20">
           Ein engagiertes Team von Golfexperten und leidenschaftlichen
           Gastgebern, das stets bereit ist, Ihnen ein unvergessliches
           Golferlebnis zu bieten. Lernen Sie die Gesichter kennen, die hinter

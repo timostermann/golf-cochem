@@ -33,13 +33,13 @@ const News: NextPage<NewsProps> = ({ newsArticles }) => {
           <p className="-order-1 mt-8 text-center font-semibold text-primary-600 lg:mt-16">
             News
           </p>
-          <p className="mt-2 text-xl text-gray-500">
+          <p className="mt-2 text-center text-xl text-gray-500">
             Aktuelles und Informatives aus dem Golfclub Cochem/Mosel e.V.
           </p>
         </div>
       </Container>
       <Container aria-label="Newsartikel, sortiert nach Aktualiät">
-        <ul className="mt-12 grid grid-cols-1 gap-8 sm:mt-16 sm:grid-cols-2 xl:grid-cols-3">
+        <ul className="mt-4 grid grid-cols-1 gap-8 sm:mt-16 sm:grid-cols-2 xl:grid-cols-3">
           {newsArticles.map((article) => (
             <li key={article.title}>
               <ImageTeaserCard

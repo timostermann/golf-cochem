@@ -15,7 +15,7 @@ const Schnupperkurse: NextPage = () => (
     />
     <Container
       aria-labelledby="schnupperkurse"
-      innerClassName="flex flex-col pt-20 lg:pt-28"
+      innerClassName="flex flex-col pt-12 sm:pt-20 lg:pt-28"
     >
       <Headline
         tag={HeadlineTag.H1}
@@ -55,7 +55,7 @@ const Schnupperkurse: NextPage = () => (
     <Container
       aria-labelledby="buchen"
       className="bg-gray-50"
-      innerClassName="flex flex-col sm:max-lg:items-center py-20 lg:py-28"
+      innerClassName="flex flex-col sm:max-lg:items-center py-12 sm:py-20 lg:py-28"
       margin={ContainerMargin.NONE}
     >
       <Headline

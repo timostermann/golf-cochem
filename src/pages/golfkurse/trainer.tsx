@@ -19,7 +19,7 @@ const Trainer: NextPage = () => (
     <Container
       aria-labelledby="trainer"
       className="bg-gray-50"
-      innerClassName="flex flex-col py-20 lg:py-28"
+      innerClassName="flex flex-col py-12 sm:py-20 lg:py-28"
       margin={ContainerMargin.NONE}
     >
       <Headline

@@ -16,7 +16,7 @@ const Platzreife: NextPage = () => (
     <Container
       aria-labelledby="platzreife"
       className="bg-gray-50"
-      innerClassName="flex flex-col max-lg:items-center lg:flex-row lg:justify-between py-20 lg:py-28"
+      innerClassName="flex flex-col max-lg:items-center lg:flex-row lg:justify-between py-12 sm:py-20 lg:py-28"
       margin={ContainerMargin.NONE}
     >
       <div className="flex flex-col">

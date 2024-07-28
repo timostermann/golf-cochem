@@ -20,7 +20,7 @@ const Mitgliedschaft: NextPage = () => (
     <Container
       aria-labelledby="mitgliedschaft"
       className="bg-gray-50"
-      innerClassName="flex flex-col max-lg:items-center lg:flex-row lg:justify-between py-20 lg:py-28"
+      innerClassName="flex flex-col max-lg:items-center lg:flex-row lg:justify-between py-12 sm:py-20 lg:py-28"
       margin={ContainerMargin.NONE}
     >
       <div className="flex flex-col">
@@ -67,12 +67,13 @@ const Mitgliedschaft: NextPage = () => (
     </Container>
     <Container
       aria-labelledby="faq"
-      innerClassName="flex flex-col items-center mt-20"
+      innerClassName="flex flex-col items-center mt-12 sm:mt-20"
     >
       <Headline
         tag={HeadlineTag.H2}
         variant={HeadlineVariant.SECONDARY}
         id="faq"
+        className="text-center"
       >
         Unsere Mitgliedschaftsmodelle
       </Headline>
@@ -136,6 +137,7 @@ const Mitgliedschaft: NextPage = () => (
         tag={HeadlineTag.H2}
         variant={HeadlineVariant.SECONDARY}
         id="vorteile"
+        className="text-center"
       >
         Vorteile einer Mitgliedschaft
       </Headline>
@@ -174,10 +176,11 @@ const Mitgliedschaft: NextPage = () => (
         tag={HeadlineTag.H2}
         variant={HeadlineVariant.SECONDARY}
         id="faq"
+        className="text-center"
       >
         Antworten auf deine Fragen
       </Headline>
-      <p className="mb-12 mt-6 max-w-[768px] text-pretty text-gray-500 lg:text-xl">
+      <p className="mb-12 mt-6 max-w-[768px] text-pretty text-center text-gray-500 lg:text-xl">
         Alles was du über eine Mitgliedschaft wissen musst
       </p>
       <ul className="w-full max-w-[768px]">

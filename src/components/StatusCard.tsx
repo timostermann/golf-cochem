@@ -23,7 +23,7 @@ export const StatusCard = ({
   return (
     <div
       className={cn(
-        "flex min-h-40 w-48 flex-col items-center rounded-2xl bg-primary-100 px-3 py-5 text-primary-800 shadow-md lg:size-60 lg:p-8",
+        "flex min-h-40 w-40 flex-col items-center rounded-2xl bg-primary-100 px-1 py-5 text-primary-800 shadow-md sm:w-48 sm:px-3 lg:size-60 lg:p-8",
         className,
       )}
       {...props}
@@ -33,10 +33,13 @@ export const StatusCard = ({
         {children}
       </p>
       <span
-        className={cn("rounded-2xl px-3 py-1 text-xs lg:text-sm", {
-          "border border-green-700 bg-green-50 text-green-700": open,
-          "border border-red-700 bg-red-50 text-red-700": !open,
-        })}
+        className={cn(
+          "rounded-2xl px-2 py-1 text-[0.6875rem] sm:px-3 sm:text-xs lg:text-sm",
+          {
+            "border border-green-700 bg-green-50 text-green-700": open,
+            "border border-red-700 bg-red-50 text-red-700": !open,
+          },
+        )}
       >
         {open ? t("opened") : t("closed")}
         {until

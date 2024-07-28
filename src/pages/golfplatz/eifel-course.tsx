@@ -21,7 +21,7 @@ const Eifelcourse: NextPage = () => {
         aria-labelledby="hero"
         margin={ContainerMargin.MD}
       >
-        <div className="mb-12 mt-24 flex flex-col gap-3">
+        <div className="mb-12 mt-12 flex flex-col gap-3 sm:mt-24">
           <Headline
             tag={HeadlineTag.H1}
             variant={HeadlineVariant.PRIMARY}
