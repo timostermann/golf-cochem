@@ -67,14 +67,18 @@ const Dev: NextPage = () => {
         </div>
         <div className="flex flex-wrap gap-8">
           {Object.entries(icons).map(([name, Icon]) => (
-            <Icon key={name} title={name} className="size-6 text-primary-700" />
+            <Icon
+              key={name}
+              title={name}
+              className="size-10 text-primary-700"
+            />
           ))}
         </div>
         <div className="flex gap-4">
           <StatusCard open icon={<Address />}>
             Open Court
           </StatusCard>
-          <StatusCard open={false} until="22.06." icon={<Blog />}>
+          <StatusCard open={false} until="2023-10-08T00:00:00Z" icon={<Blog />}>
             Closed Court
           </StatusCard>
         </div>
