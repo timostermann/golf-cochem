@@ -29,6 +29,105 @@ export const platzreifeFaq: FaqItem[] = [
       </>
     ),
   },
+  {
+    question: "Was ist die Golf Platzreife?",
+    answer: (
+      <>
+        Die Platzreife ist der Nachweis, der jedem Golfspieler die
+        erforderlichen Kenntnisse der Golf Regeln und Etikette bescheinigt. Des
+        weiteren zeigen Sie mit der Platzreife, dass Sie fähig sind einen
+        zügigen Spielverlauf zu gewährleisten und sich, wie auch die anderen
+        Golfspieler auf dem Golfplatz, nicht gefährden.
+      </>
+    ),
+  },
+  {
+    question: "Wo kann man die Platzreife ablegen?",
+    answer: (
+      <>
+        Die Golf Platzreife kann direkt bei einem Golfplatz abgelegt werden, bei
+        dem später auch tatsächlich gespielt wird. Eine weitere Variante sind
+        golfclubunabhängige Akademien bzw. Urlaubs-Golfschulen. Golfanfänger,
+        die gerne die Golf Platzreife ablegen wollen, können sich zu einem
+        Platzreifekurs anmelden. In diesen Golfkursen findet auch eine intensive
+        Vorbereitung auf die Platzreife Prüfung statt. Meist wird in kleinen
+        Gruppen das spezifische Wissen intensiv, schnell und effizient
+        vermittelt.
+      </>
+    ),
+  },
+  {
+    question: "Was ist der Zweck der Platzreife?",
+    answer: (
+      <>
+        Die Zahl der Golfspieler nimmt von Jahr zu Jahr stetig zu. Golfen ist
+        längst nicht mehr nur eine elitäre Nischensportart. Nach Fußball ist das
+        Golfen mit ca. 10.000 Neumitgliedern jährlich die Sportart mit dem
+        höchsten Zuwachs. Klar, dass es insbesondere an Wochenenden auf den
+        Golfplätzen voll werden kann. Umso wichtiger ist es dann, dass jeder
+        Golfspieler sicher und zügig spielen kann. Um die geltenden Golfregeln
+        bestmöglich auf einem Golfplatz von allen Golfspielern einhalten zu
+        können, wurde die Golf Platzreife eingeführt.
+        <br />
+        <br />
+        Mit dem Erlangen der Golf Platzreife stellt ein Golfanfänger sicher,
+        dass er sich nach den Regeln auf einem Golfplatz bewegen kann und über
+        das notwendige Wissen der Golf Etikette verfügt. Aber auch der
+        sicherheitstechnische Aspekt spielt bei der Platzreife eine
+        übergeordnete Rolle!
+      </>
+    ),
+  },
+  {
+    question: "Wie läuft die Prüfung ab?",
+    answer: (
+      <>
+        Die Golf Platzreife wird üblicherweise durch das Absolvieren eines
+        Platzreifekurses und anschließender bestandener Prüfung erlangt. Die
+        Platzreife Prüfung gliedert sich in einen theoretischen Teil, einer
+        Platzbegehung sowie dem aktiven Golfspiel. Im Theorieteil werden in
+        einem Multiple-Choice Test die Golf Regeln und Golf Etikette geprüft.
+        Die offiziellen Golf Regeln sind bei der Platzreife Prüfung als
+        Hilfsmittel zugelassen und sollten auch nach bestandenem Platzreifekurs
+        in keinem Golfbag fehlen.
+        <br />
+        <br />
+        Der zweite Teil ist die Golfplatz Begehung, bei welcher der Teilnehmende
+        über die Anlage informiert wird. Des Weiteren gibt es noch einen
+        praktischen Teil, welcher eine 9-Loch Runde umfasst. Bewertet werden die
+        besten sechs der gespielten 9 Löcher.
+      </>
+    ),
+  },
+  {
+    question: "Mit welchem Handicap starte ich mein Golfspiel?",
+    answer: (
+      <>
+        Früher hatte ein Golfspieler nach bestandener Platzreife und Abschluß
+        einer Golfmitgliedschaft automatisch das Golf Handicap -54. Mit
+        Erreichen der Platzreife erhält der Golfspieler nur noch den Eintrag
+        „PR“ (Platzreife)! Das erste Handicap (HCP -54) muss zunächst erspielt
+        werden und wird nicht mehr automatisch vergeben.
+      </>
+    ),
+  },
+  {
+    question:
+      "Warum sollte die Platzreifeprüfung beim Golfclub Cochem/Mosel e.V. abgelegt werden?",
+    answer: (
+      <>
+        Weil hier ausnahmslos lizensierte Trainer einen methodisch-didaktischen
+        Weg einschlagen und in spielerischer Form das notwendige Können und
+        Wissen vermitteln.
+        <br />
+        <br />
+        Da das Golfspiel für alle Altersklassen geeignet ist, ist es nie zu
+        spät, damit zu beginnen. Machen Sie Urlaub in einer der schönsten
+        Regionen Deutschlands und verbinden Sie Spaß und Erholung in unserem
+        Club. Leidenschaft trifft auf Gastfreundschaft.
+      </>
+    ),
+  },
 ];
 
 export const membershipFaq: FaqItem[] = [
@@ -185,11 +284,36 @@ export const footgolfFaq: FaqItem[] = [
 
 export const parentTrainingFaq: FaqItem[] = [
   {
-    question: "Ablauf des Elterntrainings",
-    answer: <>Antwort</>,
+    question: "Wer darf am Elterntraining teilnehmen?",
+    answer: (
+      <>
+        Teilnehmen dürfen alle Eltern, deren Kinder am Bambini- oder
+        Jugendtraining teilnehmen. Einmal fahren, zweimal Spaß haben!
+      </>
+    ),
   },
   {
     question: "Wann findet das Elterntraining statt?",
-    answer: <>Antwort</>,
+    answer: (
+      <>
+        Das Elterntraining findet Freitags, 17:00 bis 18:00 Uhr für die Eltern
+        der Bambinis, sowie Samstags von 15:30 bis 17:00 Uhr für die Eltern der
+        Jugend statt.
+        <br />
+        <br />
+        Aufgrund von gelegentlichen Terminkonflikten durch Turniere oder
+        ähnliches, sind kurzfristige Änderungen jederzeit möglich.
+      </>
+    ),
+  },
+  {
+    question: "Kann ich mich damit auf die Platzreife vorbereiten?",
+    answer: (
+      <>
+        Grundsätzlich: ja! Allerdings ist es ratsam, neben dem Elterntraining
+        auch eigenständig ein paar Runden auf unserem Eifel Course spielen zu
+        gehen, um den Platz kennenzulernen sowie Erfahrung zu sammeln.
+      </>
+    ),
   },
 ];
