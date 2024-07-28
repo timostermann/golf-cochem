@@ -7,6 +7,7 @@ import { useSanitizedId } from "@/lib/sanitizeString";
 import { type Author } from "@/lib/dto/author.type";
 import { type Category } from "@/lib/dto/category.type";
 import { type StrapiImage } from "@/lib/dto/strapiimage.type";
+import { Golf } from "@/icons";
 import { Headline, HeadlineTag, HeadlineVariant } from "./Headline";
 
 export type TeaserContent = {
@@ -72,16 +73,20 @@ export const ImageTeaserCard = ({
         <div className="flex grow items-end">
           <div className="mt-4 flex items-center gap-3 px-6">
             {author.picture?.url &&
-              author.picture.width &&
-              author.picture.height && (
-                <Image
-                  src={author.picture.url}
-                  alt={author.picture.alternativeText || ""}
-                  width={author.picture.width}
-                  height={author.picture.height}
-                  className="size-8 rounded-full object-cover"
-                />
-              )}
+            author.picture.width &&
+            author.picture.height ? (
+              <Image
+                src={author.picture.url}
+                alt={author.picture.alternativeText || ""}
+                width={author.picture.width}
+                height={author.picture.height}
+                className="size-9 rounded-full object-cover"
+              />
+            ) : (
+              <div className="flex size-9 items-center justify-center rounded-full bg-gray-200">
+                <Golf className="size-6 text-primary-800" />
+              </div>
+            )}
             <div className="flex flex-col justify-between">
               <p className="text-sm font-medium text-gray-900">{author.name}</p>
               {date && (

@@ -67,11 +67,7 @@ const Dev: NextPage = () => {
         </div>
         <div className="flex flex-wrap gap-8">
           {Object.entries(icons).map(([name, Icon]) => (
-            <Icon
-              key={name}
-              title={name}
-              className="size-10 text-primary-700"
-            />
+            <Icon key={name} title={name} className="size-6 text-primary-700" />
           ))}
         </div>
         <div className="flex gap-4">
@@ -108,6 +104,10 @@ const Dev: NextPage = () => {
               height: 400,
             }}
             href=""
+            author={{
+              id: 1,
+              name: "Max Mustermann",
+            }}
           />
           <ImageTeaserCard
             category={{ name: "Golfclub", id: "id" }}
@@ -121,6 +121,24 @@ const Dev: NextPage = () => {
               height: 400,
             }}
             href=""
+            author={{
+              id: 1,
+              name: "Max Mustermann",
+              picture: {
+                url: "https://picsum.photos/200/200",
+                alternativeText: "Max Mustermann",
+                caption: null,
+                width: 200,
+                height: 200,
+                ext: ".jpg",
+                id: 1,
+                formats: {},
+                mime: "image/jpeg",
+                name: "max-mustermann",
+                previewUrl: null,
+                size: 6.68,
+              },
+            }}
           />
         </div>
         <div className="flex flex-col gap-1">
