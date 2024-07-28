@@ -7,6 +7,7 @@ import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
 import { Tabs } from "@/components/Tabs";
 import { Meta } from "@/components/Meta";
 import { eifelcourseDetails } from "@/data/coursedetails.data";
+import { Iframe } from "@/components/Iframe";
 
 const Eifelcourse: NextPage = () => {
   return (
@@ -98,12 +99,34 @@ const Eifelcourse: NextPage = () => {
                     ))}
                   </Tabs.List>
                   <Tabs.Panels>
-                    {eifelcourseDetails.map(({ name, description, image }) => (
-                      <Tabs.Panel key={"eifelcourse-panel-" + name}>
-                        {description}
-                        <Image src={image} alt={"Eifelcourse" + name} />
-                      </Tabs.Panel>
-                    ))}
+                    {eifelcourseDetails.map(
+                      ({ name, description, image, youtubeId }) => (
+                        <Tabs.Panel
+                          key={"eifelcourse-panel-" + name}
+                          className="flex flex-col gap-12 md:ml-4 lg:ml-16 lg:px-4 xl:px-16"
+                        >
+                          <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
+                            <div className="flex flex-1 flex-col gap-3 md:gap-4">
+                              <Headline
+                                tag={HeadlineTag.H2}
+                                variant={HeadlineVariant.TERTIARY}
+                              >
+                                {name}
+                              </Headline>
+                              <p className="text-gray-500">{description}</p>
+                            </div>
+                            <Image src={image} alt={"Eifelcourse " + name} />
+                          </div>
+                          {youtubeId && (
+                            <Iframe
+                              title={name}
+                              youtubeId={youtubeId}
+                              className="-order-1"
+                            />
+                          )}
+                        </Tabs.Panel>
+                      ),
+                    )}
                   </Tabs.Panels>
                 </Tabs>
               </Tabs.Panel>

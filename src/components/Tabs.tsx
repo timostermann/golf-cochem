@@ -213,7 +213,7 @@ const TabPanels = ({ children }: TabPanelsProps) => {
   const { activeTab, orientation } = context;
 
   return (
-    <div className={orientation === "vertical" ? "flex-1 p-4" : undefined}>
+    <div className={orientation === "vertical" ? "flex-1" : undefined}>
       {Children.map(children, (child, index) => {
         if (isValidElement<TabPanelProps>(child)) {
           return cloneElement(child, {

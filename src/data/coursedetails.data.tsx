@@ -1,4 +1,5 @@
 import { type StaticImageData } from "next/image";
+import { type ReactNode } from "react";
 import mhole1 from "~/public/images/moselcourse/hole_1_moselcourse.webp";
 import mhole2 from "~/public/images/moselcourse/hole_2_moselcourse.webp";
 import mhole3 from "~/public/images/moselcourse/hole_3_moselcourse.webp";
@@ -29,15 +30,25 @@ import ehole9 from "~/public/images/eifelcourse/hole_9_eifelcourse.webp";
 
 type HoleDetail = {
   name: string;
-  description: string;
+  description: ReactNode;
   image: StaticImageData;
+  youtubeId?: string;
 };
 
 export const moselcourseDetails: HoleDetail[] = [
   {
     name: "Loch 1",
-    description: "Hier kommt der Beschreibungstext zu Loch 1 hin",
+    description: (
+      <span className="flex flex-col gap-4">
+        <span>
+          Hier kommt der Beschreibungstext zu Loch 1 hin. Hier kommt der
+          Beschreibungstext zu Loch 1 hin.
+        </span>
+        <span>Hier kommt der Beschreibungstext zu Loch 1 hin.</span>
+      </span>
+    ),
     image: mhole1,
+    youtubeId: "drNcVxsGVtA",
   },
   {
     name: "Loch 2",
@@ -129,8 +140,17 @@ export const moselcourseDetails: HoleDetail[] = [
 export const eifelcourseDetails: HoleDetail[] = [
   {
     name: "Loch 1",
-    description: "Hier kommt der Beschreibungstext zu Loch 1 hin",
+    description: (
+      <span className="flex flex-col gap-4">
+        <span>
+          Hier kommt der Beschreibungstext zu Loch 1 hin. Hier kommt der
+          Beschreibungstext zu Loch 1 hin.
+        </span>
+        <span>Hier kommt der Beschreibungstext zu Loch 1 hin.</span>
+      </span>
+    ),
     image: ehole1,
+    youtubeId: "drNcVxsGVtA",
   },
   {
     name: "Loch 2",
