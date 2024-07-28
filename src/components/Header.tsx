@@ -200,6 +200,7 @@ export const Header = ({
           "border-b border-gray-100 shadow-sm": isMenuOpen,
         })}
       />
+      <div className="absolute inset-0 -translate-y-full bg-white" />
       <nav
         className={cn(
           "absolute left-0 top-full -z-20 h-[calc(100vh-72px)] w-full overflow-y-auto bg-white shadow-md transition-transform duration-500 ease-in-out lg:hidden",
@@ -286,15 +287,15 @@ const MobileNavItem = (item: NavItem) => {
             {subItems?.map((subItem) => (
               <li
                 key={subItem.label}
-                className="flex flex-col gap-2 px-4 first:mt-4 last:mb-4"
+                className="flex flex-col gap-2 first:mt-2 last:mb-4"
               >
                 <Link
                   href={subItem.href}
-                  className="flex w-full items-center gap-4 py-2 text-gray-900 hover:bg-gray-100"
+                  className="flex w-full items-center gap-4 rounded-lg p-2 text-gray-900 hover:bg-gray-100"
                   onClick={onClick}
                 >
                   {subItem.icon && (
-                    <span className="size-6 text-primary-700">
+                    <span className="size-6 shrink-0 text-primary-700">
                       {subItem.icon}
                     </span>
                   )}
