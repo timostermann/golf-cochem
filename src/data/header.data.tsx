@@ -1,7 +1,6 @@
 import { type HeaderProps } from "@/components/Header";
 import {
   Blog,
-  Calendar,
   Certificate,
   Contact,
   EifelCourse,
@@ -40,12 +39,6 @@ export const headerData: HeaderProps = {
           href: "/clubleben/mannschaften",
           description: "descriptions.teams",
           icon: <Group />,
-        },
-        {
-          label: "labels.events",
-          href: "/events",
-          description: "descriptions.events",
-          icon: <Calendar />,
         },
       ],
     },
