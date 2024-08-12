@@ -62,7 +62,11 @@ const TabsRoot = ({
     <TabsContext.Provider
       value={{ activeTab, setActiveTab, orientation, useSelectLike }}
     >
-      <div className={cn("w-full", { flex: orientation === "vertical" })}>
+      <div
+        className={cn("w-full", {
+          flex: orientation === "vertical" && !useSelectLike,
+        })}
+      >
         {children}
       </div>
     </TabsContext.Provider>

@@ -109,7 +109,7 @@ const Moselcourse: NextPage = () => {
                       ({ name, description, image, youtubeId }) => (
                         <Tabs.Panel
                           key={"moselcourse-panel-" + name}
-                          className="flex flex-col gap-12 md:ml-4 lg:ml-16 lg:px-4 xl:px-16"
+                          className="mt-12 flex flex-col max-sm:gap-12 md:ml-4 lg:ml-16 lg:px-4 xl:px-16"
                         >
                           <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
                             <div className="flex flex-1 flex-col gap-3 md:gap-4">
@@ -127,7 +127,7 @@ const Moselcourse: NextPage = () => {
                             <Iframe
                               title={name}
                               youtubeId={youtubeId}
-                              className="-order-1"
+                              className="sm:-order-1"
                             />
                           )}
                         </Tabs.Panel>
