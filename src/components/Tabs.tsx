@@ -192,7 +192,10 @@ const TabList = ({ children, className, ...props }: TabListProps) => {
             <Tab
               key={index}
               isActive={activeTab === index}
-              onClick={() => setActiveTab(index)}
+              onClick={(e) => {
+                setActiveTab(index);
+                child.props.onClick?.(e);
+              }}
               onKeyDown={(e: KeyboardEvent) => handleKeyDown(e, index)}
               tabIndex={activeTab === index ? 0 : -1}
               id={`tab-${index}`}

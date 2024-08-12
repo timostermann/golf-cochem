@@ -1,5 +1,6 @@
 import { type NextPage } from "next";
 import Image from "next/image";
+import { useState } from "react";
 import eifelCourse from "~/public/images/eifel-course.jpg";
 
 import { Container, ContainerMargin } from "@/components/Container";
@@ -10,6 +11,7 @@ import { eifelcourseDetails } from "@/data/coursedetails.data";
 import { Iframe } from "@/components/Iframe";
 
 const Eifelcourse: NextPage = () => {
+  const [secondTabLevelActive, setSecondTabLevelActive] = useState(false);
   return (
     <>
       <Meta
@@ -37,8 +39,12 @@ const Eifelcourse: NextPage = () => {
 
           <Tabs defaultIndex={0}>
             <Tabs.List>
-              <Tabs.Tab>Beschreibung</Tabs.Tab>
-              <Tabs.Tab>Bahnen im Detail</Tabs.Tab>
+              <Tabs.Tab onClick={() => setSecondTabLevelActive(false)}>
+                Beschreibung
+              </Tabs.Tab>
+              <Tabs.Tab onClick={() => setSecondTabLevelActive(true)}>
+                Bahnen im Detail
+              </Tabs.Tab>
             </Tabs.List>
             <Tabs.Panels>
               <Tabs.Panel className="mt-16 flex flex-col gap-8 md:flex-row">
@@ -93,7 +99,7 @@ const Eifelcourse: NextPage = () => {
               <Tabs.Panel className="mt-16">
                 <p className="mb-4 font-medium text-primary-600">Bahnen</p>
                 <Tabs orientation="vertical" defaultIndex={0}>
-                  <Tabs.List>
+                  <Tabs.List key={secondTabLevelActive ? "active" : "inactive"}>
                     {eifelcourseDetails.map(({ name }) => (
                       <Tabs.Tab key={"eifelcourse-" + name}>{name}</Tabs.Tab>
                     ))}
@@ -103,7 +109,7 @@ const Eifelcourse: NextPage = () => {
                       ({ name, description, image, youtubeId }) => (
                         <Tabs.Panel
                           key={"eifelcourse-panel-" + name}
-                          className="flex flex-col gap-12 md:ml-4 lg:ml-16 lg:px-4 xl:px-16"
+                          className="flex flex-col gap-12 max-sm:mt-12 md:ml-4 lg:ml-16 lg:px-4 xl:px-16"
                         >
                           <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
                             <div className="flex flex-1 flex-col gap-3 md:gap-4">
