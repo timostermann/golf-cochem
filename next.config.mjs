@@ -1,3 +1,5 @@
+import { getRedirects } from "./redirects.mjs";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "standalone",
@@ -23,33 +25,7 @@ const nextConfig = {
       },
     ],
   },
-  redirects: async () => [
-    {
-      source: "/category/:slug*",
-      destination: "/clubleben/news",
-      permanent: true,
-    },
-    {
-      source: "/tag/:slug*",
-      destination: "/clubleben/news",
-      permanent: true,
-    },
-    {
-      source: "/events/:slug*",
-      destination: "/",
-      permanent: true,
-    },
-    {
-      source: "/mec-category/:slug*",
-      destination: "/",
-      permanent: true,
-    },
-    {
-      source: "/shop(-2)?/:slug*",
-      destination: "/",
-      permanent: true,
-    },
-  ],
+  redirects: async () => getRedirects(),
 };
 
 export default nextConfig;

@@ -5,6 +5,7 @@
     "coverage",
     "*.cjs",
     "next.config.mjs",
+    "redirects.mjs",
     "**/generated-component-types.d.ts",
     "temp.ts",
     "icon-converter.js"
