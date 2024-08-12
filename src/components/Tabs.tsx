@@ -226,7 +226,7 @@ const TabComponent: ForwardRefRenderFunction<HTMLButtonElement, TabProps> = (
     className={cn(
       "z-10 m-1 rounded-lg transition-colors duration-300",
       {
-        "px-6 py-3 text-lg": orientation === "horizontal",
+        "px-4 py-3 sm:px-6 sm:text-lg": orientation === "horizontal",
         "px-4 py-2 text-start": orientation === "vertical",
         "text-gray-800": isActive && orientation === "horizontal",
         "text-gray-600 hover:text-gray-800":
