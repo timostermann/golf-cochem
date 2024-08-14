@@ -28,7 +28,7 @@ const revalidateHandler: NextApiHandler = async (req, res) => {
     const contentType: string | undefined = req.body?.model;
     const slug: string | undefined = req.body?.entry?.slug;
 
-    if (!contentType || !slug)
+    if (!contentType)
       return res.status(415).json({
         message: "Payload doesn't match supported schema",
       });
@@ -38,6 +38,12 @@ const revalidateHandler: NextApiHandler = async (req, res) => {
     if (contentType === "blogpost") {
       paths.push(`/clubleben/news/${slug}`);
       paths.push("/clubleben/news");
+      paths.push("/");
+    }
+
+    if (contentType === "openingtime") {
+      paths.push("/golfplatz/platzinformationen");
+      paths.push("/");
     }
 
     if (paths.length === 0)
