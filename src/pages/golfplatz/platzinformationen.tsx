@@ -5,6 +5,8 @@ import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
 import { EifelCourse, Golf, MoselCourse, Soccer } from "@/icons";
 import { Meta } from "@/components/Meta";
 import { revalidate } from "@/lib/constants";
+import { fetchApi } from "@/lib/strapi";
+import { type OpeningTime } from "@/lib/dto/openingtime.type";
 
 const Icons = {
   MoselCourse: MoselCourse,
@@ -17,8 +19,8 @@ type PlatzinformationenProps = {
   statusCards: {
     icon: keyof typeof Icons;
     title: string;
-    open: boolean;
-    closedUntil?: string;
+    open?: boolean;
+    until?: string;
   }[];
 };
 
@@ -77,7 +79,7 @@ const Platzinformationen: NextPage<PlatzinformationenProps> = ({
               <StatusCard
                 icon={<Icon />}
                 open={card.open}
-                until={card.closedUntil}
+                until={card.until}
                 className="!shadow-none"
               >
                 {card.title}
@@ -95,29 +97,47 @@ export default Platzinformationen;
 export const getStaticProps: GetStaticProps<
   PlatzinformationenProps
 > = async () => {
+  const statusCardData = await fetchApi<OpeningTime[]>({
+    endpoint: "/openingtimes",
+  });
+
+  const moselCourse = statusCardData.find(
+    (data) => data.name === "Mosel Course",
+  );
+  const eifelCourse = statusCardData.find(
+    (data) => data.name === "Eifel Course",
+  );
+  const footgolf = statusCardData.find((data) => data.name === "Footgolf");
+  const drivingRange = statusCardData.find(
+    (data) => data.name === "Driving Range",
+  );
+
   return {
     props: {
       statusCards: [
         {
           icon: "MoselCourse",
           title: "Mosel Course",
-          open: true,
+          open: moselCourse?.isOpen,
+          until: moselCourse?.until,
         },
         {
           icon: "EifelCourse",
           title: "Eifel Course",
-          open: true,
+          open: eifelCourse?.isOpen,
+          until: eifelCourse?.until,
         },
         {
           icon: "Soccer",
           title: "Footgolf",
-          open: false,
-          closedUntil: "01.03.",
+          open: footgolf?.isOpen,
+          until: footgolf?.until,
         },
         {
           icon: "Golf",
           title: "Driving Range",
-          open: true,
+          open: drivingRange?.isOpen,
+          until: drivingRange?.until,
         },
       ],
     },

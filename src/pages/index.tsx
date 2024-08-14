@@ -456,10 +456,6 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-  const statusCardData = await fetchApi<OpeningTime[]>({
-    endpoint: "/openingtimes",
-  });
-
   const blogPostData = await fetchApi<Blogpost[]>({
     endpoint:
       "/blogposts?populate=titleimage&populate=category&populate=author",
@@ -467,6 +463,10 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
       "pagination[limit]": "3",
       "sort[0]": "createdAt:desc",
     },
+  });
+
+  const statusCardData = await fetchApi<OpeningTime[]>({
+    endpoint: "/openingtimes",
   });
 
   const moselCourse = statusCardData.find(
