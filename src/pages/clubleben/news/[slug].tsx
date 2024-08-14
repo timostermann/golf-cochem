@@ -7,6 +7,7 @@ import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
 import { Meta } from "@/components/Meta";
 import { Markdown } from "@/components/Markdown";
 import { fetchApi } from "@/lib/strapi";
+import { revalidate } from "@/lib/constants";
 
 type NewsArticleProps = {
   article: Blogpost;
@@ -97,6 +98,7 @@ export const getStaticProps: GetStaticProps<NewsArticleProps> = async ({
 }) => {
   if (!params?.slug || Array.isArray(params.slug)) {
     return {
+      revalidate,
       notFound: true,
     };
   }
@@ -114,10 +116,14 @@ export const getStaticProps: GetStaticProps<NewsArticleProps> = async ({
       props: {
         article: blogPostData[0],
       },
+      revalidate,
     };
   }
 
-  return { notFound: true };
+  return {
+    revalidate,
+    notFound: true,
+  };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {

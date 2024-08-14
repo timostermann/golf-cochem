@@ -4,6 +4,7 @@ import { StatusCard } from "@/components/StatusCard";
 import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
 import { EifelCourse, Golf, MoselCourse, Soccer } from "@/icons";
 import { Meta } from "@/components/Meta";
+import { revalidate } from "@/lib/constants";
 
 const Icons = {
   MoselCourse: MoselCourse,
@@ -120,5 +121,6 @@ export const getStaticProps: GetStaticProps<
         },
       ],
     },
+    revalidate,
   };
 };

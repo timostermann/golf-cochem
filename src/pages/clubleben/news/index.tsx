@@ -5,6 +5,7 @@ import { ImageTeaserCard } from "@/components/ImageTeaserCard";
 import { fetchApi } from "@/lib/strapi";
 import { type Blogpost } from "@/lib/dto/blogpost.type";
 import { Meta } from "@/components/Meta";
+import { revalidate } from "@/lib/constants";
 
 type NewsProps = {
   newsArticles: Blogpost[];
@@ -74,5 +75,6 @@ export const getStaticProps: GetStaticProps<NewsProps> = async () => {
     props: {
       newsArticles: blogPostData,
     },
+    revalidate,
   };
 };

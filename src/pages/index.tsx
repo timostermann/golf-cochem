@@ -33,6 +33,7 @@ import { Meta } from "@/components/Meta";
 import { contactInfo } from "@/data/contact.data";
 import { teamMembers } from "@/data/team.data";
 import { type OpeningTime } from "@/lib/dto/openingtime.type";
+import { revalidate } from "@/lib/constants";
 
 const Icons = {
   MoselCourse: MoselCourse,
@@ -509,5 +510,6 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
       ],
       newsArticles: blogPostData,
     },
+    revalidate,
   };
 };
