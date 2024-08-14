@@ -26,18 +26,21 @@ export const Iframe = ({ youtubeId, src, title, className }: IframeProps) => {
     return (
       <div
         className={cn(
-          "relative flex aspect-video flex-col items-center justify-center gap-4 overflow-hidden rounded-lg bg-gray-200 px-6 text-center",
+          "relative flex aspect-video flex-col items-center justify-center gap-3 overflow-hidden rounded-lg bg-gray-200 px-4 text-center xs:gap-4 xs:px-6",
           className,
         )}
       >
-        <p className="max-w-96">
+        <p className="max-w-96 max-xs:text-sm">
           Um dieses Video anzusehen, müssen Sie die Verwendung von
           YouTube-Cookies akzeptieren.
         </p>
-        <Link href="/datenschutz" className="text-primary-600 underline">
+        <Link
+          href="/datenschutz"
+          className="text-primary-600 underline max-xs:text-sm"
+        >
           Mehr Informationen
         </Link>
-        <Button onClick={handleAccept}>
+        <Button onClick={handleAccept} className="max-xs:px-3 max-xs:text-sm">
           Cookies akzeptieren und Video laden
         </Button>
       </div>
