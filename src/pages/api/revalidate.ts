@@ -4,7 +4,6 @@ let lastRevalidation: number;
 
 const revalidateHandler: NextApiHandler = async (req, res) => {
   const REVALIDATION_SECRET = process.env.REVALIDATION_SECRET;
-  console.log(req);
 
   try {
     if (req.method !== "POST")
