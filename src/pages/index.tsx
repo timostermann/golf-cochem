@@ -123,7 +123,10 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
       </Container>
       <Container margin={ContainerMargin.XL} aria-labelledby="intro">
         <div className="grid items-center gap-16 lg:grid-cols-2">
-          <Iframe youtubeId="drNcVxsGVtA" title="Golfclub Cochem/Mosel e.V." />
+          <Iframe
+            youtubeId="drNcVxsGVtA?autoplay=1&mute=1"
+            title="Golfclub Cochem/Mosel e.V."
+          />
           <div className="flex flex-col">
             <p className="mb-3 text-primary-700">Ein erster Eindruck</p>
             <Headline
