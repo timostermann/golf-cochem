@@ -3,7 +3,8 @@
     "opened": "Geöffnet",
     "closed": "Geschlossen",
     "until": "bis",
-    "perYear": "pro Jahr"
+    "perYear": "pro Jahr",
+    "oClock": "Uhr"
   },
   "nav": {
     "mainNavigation": "Hauptnavigation",
