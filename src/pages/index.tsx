@@ -89,8 +89,9 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
         <div className="mt-6 flex w-full flex-col items-center justify-center gap-2 sm:mt-8 sm:flex-row-reverse sm:gap-4">
           <Button
             href="https://www.pccaddie.net/clubs/0495536/app.php?cat=tt_timetable_course"
-            className="w-full sm:w-fit"
+            className="inline-flex w-full justify-center gap-2 pl-4 sm:w-fit"
           >
+            <ArrowTopRight className="mt-px size-5" />
             Startzeit buchen
           </Button>
           <Button
