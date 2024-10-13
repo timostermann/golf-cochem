@@ -1,6 +1,9 @@
 import { type GetStaticProps, type NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import cn from "classnames";
+import { useRouter } from "next/router";
+import { useTranslations } from "next-intl";
 import landscape from "~/public/images/landscape.png";
 import map from "~/public/images/map.jpg";
 import newel from "~/public/images/partners/newel.png";
@@ -9,7 +12,6 @@ import hannus from "~/public/images/partners/hannus.png";
 import pinger from "~/public/images/partners/pinger.png";
 import villa from "~/public/images/partners/villa.png";
 import { Container, ContainerMargin } from "@/components/Container";
-import { StatusCard } from "@/components/StatusCard";
 import { Button, ButtonVariant } from "@/components/Button";
 import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
 import {
@@ -21,6 +23,7 @@ import {
   Soccer,
   ArrowTopRight,
   Download,
+  Temperature,
 } from "@/icons";
 import { Iframe } from "@/components/Iframe";
 import { BorderTeaserCard } from "@/components/BorderTeaserCard";
@@ -38,6 +41,7 @@ import { revalidate } from "@/lib/constants";
 const Icons = {
   MoselCourse: MoselCourse,
   EifelCourse: EifelCourse,
+  Temperature: Temperature,
   Soccer: Soccer,
   Golf: Golf,
 };
@@ -53,13 +57,20 @@ type HomeProps = {
 };
 
 const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
+  const router = useRouter();
+  const t = useTranslations("global");
+
   return (
     <>
       <Meta
         title="Golfclub Cochem/Mosel e.V."
         description="Willkommen im Golfclub Cochem/Mosel e.V. Leidenschaft trifft Gastfreundschaft. Startzeit buchen, Indoor Golf, Platzinformationen und mehr."
       />
-      <Container className="relative" aria-labelledby="hero">
+      <Container
+        className="relative"
+        innerClassName="flex flex-col items-center"
+        aria-labelledby="hero"
+      >
         <Image
           src={landscape}
           aria-hidden
@@ -95,13 +106,6 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
             Startzeit buchen
           </Button>
           <Button
-            href="/golfplatz/indoor"
-            className="w-full sm:w-fit"
-            variant={ButtonVariant.SECONDARY}
-          >
-            Indoor Golf
-          </Button>
-          <Button
             href="/golfplatz/platzinformationen"
             className="w-full sm:w-fit"
             variant={ButtonVariant.SECONDARY}
@@ -109,21 +113,52 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
             Platzinformationen
           </Button>
         </div>
-        <ul className="mb-32 mt-16 flex flex-wrap items-center justify-center gap-2 sm:gap-4 lg:mb-20 lg:mt-32 lg:gap-10">
+        <ul className="relative top-12 flex w-full max-w-[700px] flex-col justify-center gap-2 rounded-lg bg-white shadow-lg drop-shadow-md md:top-16 md:mt-4">
           {statusCards.map((card) => {
             const Icon = Icons[card.icon];
             return (
-              <li key={card.title}>
-                <StatusCard icon={<Icon />} open={card.open} until={card.until}>
+              <li
+                key={card.title}
+                className="flex items-center justify-between px-2 py-3 text-primary-800 first:pt-8 last:pb-8 even:bg-primary-50 xs:px-4 md:px-12 md:py-5"
+              >
+                <div className="flex items-center gap-4 text-sm md:gap-6 md:text-base">
+                  <Icon className="hidden size-7 xs:block md:size-10" />
                   {card.title}
-                </StatusCard>
+                </div>
+                <span
+                  className={cn(
+                    "rounded-2xl px-2 py-1 text-center text-[0.6875rem] sm:px-3 sm:text-xs lg:text-sm",
+                    {
+                      "border border-green-700 bg-green-50 text-green-700":
+                        card.open,
+                      "border border-red-700 bg-red-50 text-red-700":
+                        !card.open,
+                    },
+                  )}
+                >
+                  {card.open ? t("opened") : t("closed")}
+                  {card.until && (
+                    <>
+                      {" "}
+                      {t("until")}{" "}
+                      {new Date(card.until).toLocaleString(router.locale, {
+                        day: "numeric",
+                        month: "numeric",
+                        year: "numeric",
+                        hour: "numeric",
+                        minute: "numeric",
+                      })}{" "}
+                      <span className="hidden xs:inline">{t("oClock")}</span>
+                    </>
+                  )}
+                </span>
               </li>
             );
           })}
         </ul>
       </Container>
       <Container margin={ContainerMargin.XL} aria-labelledby="intro">
-        <div className="grid items-center gap-16 lg:grid-cols-2">
+        <div className="mt-8 grid items-center gap-16 lg:grid-cols-2">
           <Iframe
             youtubeId="drNcVxsGVtA?autoplay=1&mute=1"
             title="Golfclub Cochem/Mosel e.V."
@@ -496,6 +531,12 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
         {
           icon: "EifelCourse",
           title: "Eifel Course",
+          open: eifelCourse?.isOpen,
+          until: eifelCourse?.until,
+        },
+        {
+          icon: "Temperature",
+          title: "Indoorgolf",
           open: eifelCourse?.isOpen,
           until: eifelCourse?.until,
         },
