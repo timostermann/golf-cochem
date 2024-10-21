@@ -3,6 +3,8 @@ import { Meta } from "@/components/Meta";
 import { Container, ContainerMargin } from "@/components/Container";
 import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
 import { Iframe } from "@/components/Iframe";
+import { Button, ButtonVariant } from "@/components/Button";
+import { Download } from "@/icons";
 
 const Events: NextPage = () => (
   <>
@@ -35,6 +37,15 @@ const Events: NextPage = () => (
           <br />
           Melde dich noch heute zu deinem nächsten Turnier an!
         </p>
+        <Button
+          href="/documents/Rahmenausschreibung-GC-Cochem-Mosel-e.V.pdf"
+          className="inline-flex gap-2 pl-4"
+          target="_blank"
+          variant={ButtonVariant.TERTIARY}
+        >
+          <Download className="mt-px size-5" /> Rahmenausschreibung des
+          Golfclubs <span className="sr-only">herunterladen</span>
+        </Button>
       </div>
     </Container>
     <Container
