@@ -124,11 +124,7 @@ const Eifelcourse: NextPage = () => {
                             <Image src={image} alt={"Eifelcourse " + name} />
                           </div>
                           {youtubeId && (
-                            <Iframe
-                              title={name}
-                              youtubeId={youtubeId}
-                              className="-order-1"
-                            />
+                            <Iframe title={name} youtubeId={youtubeId} />
                           )}
                         </Tabs.Panel>
                       ),
