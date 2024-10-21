@@ -39,6 +39,10 @@ export const footerData: FooterProps = {
           href: "/golfanlage/driving-range",
         },
         {
+          label: "Indoorgolf",
+          href: "/golfanlage/indoorgolf",
+        },
+        {
           label: "Platzinformationen",
           href: "/golfanlage/platzinformationen",
         },
@@ -58,6 +62,10 @@ export const footerData: FooterProps = {
         {
           label: "Schnupperkurse",
           href: "/golferlernen/schnupperkurse",
+        },
+        {
+          label: "Jugend",
+          href: "/jugend",
         },
         {
           label: "Elterntraining",
