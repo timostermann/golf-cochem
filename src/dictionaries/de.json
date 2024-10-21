@@ -35,7 +35,8 @@
       "pricings": "Preisübersicht",
       "cooperations": "Kooperationen",
       "hotels": "Hotelempfehlungen",
-      "camping": "Campingplätze"
+      "camping": "Campingplätze",
+      "trainingOffer": "Trainingsangebote"
     },
     "descriptions": {
       "blog": "Erfahre das Neuste aus dem Golfclub Cochem/Mosel e.V.",
@@ -59,7 +60,8 @@
       "pricings": "Aktuelle Preisinformationen zu unseren Angeboten",
       "cooperations": "Unsere Partner und Kooperationen",
       "hotels": "Hotelempfehlungen in der Region",
-      "camping": "Campingplätze in der Umgebung"
+      "camping": "Campingplätze in der Umgebung",
+      "trainingOffer": "Entdecke unsere vielfältigen Trainingsangebote"
     }
   }
 }

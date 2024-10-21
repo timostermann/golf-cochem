@@ -112,6 +112,12 @@ export const headerData: HeaderProps = {
           icon: <GolfBag />,
         },
         {
+          label: "labels.trainingOffer",
+          href: "/golferlernen/trainingsangebot",
+          description: "descriptions.trainingOffer",
+          icon: <Golf />,
+        },
+        {
           label: "labels.parentalTraining",
           href: "/golferlernen/elterntraining",
           description: "descriptions.parentalTraining",

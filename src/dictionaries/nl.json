@@ -35,7 +35,8 @@
       "pricings": "Prijzen",
       "cooperations": "Samenwerkingen",
       "hotels": "Hotel aanbevelingen",
-      "camping": "Campings"
+      "camping": "Campings",
+      "trainingOffer": "Trainingsaanbod"
     },
     "descriptions": {
       "blog": "Lees het laatste nieuws van de Golfclub Cochem/Mosel e.V.",
@@ -58,7 +59,8 @@
       "pricings": "Actuele prijsinformatie voor onze aanbiedingen",
       "cooperations": "Onze partners en samenwerkingen",
       "hotels": "Hotel aanbevelingen in de omgeving",
-      "camping": "Campings in de omgeving"
+      "camping": "Campings in de omgeving",
+      "trainingOffer": "Ontdek onze uitgebreide reeks trainingsprogramma's"
     }
   }
 }
