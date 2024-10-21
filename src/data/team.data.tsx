@@ -94,5 +94,6 @@ export const greenkeepingMembers = [
   {
     name: "Vakant",
     role: "Greenkeeper",
+    image: null,
   },
 ];
