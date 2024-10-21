@@ -298,12 +298,8 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
             <Download className="mt-px size-5" /> Rahmenausschreibung des
             Golfclubs <span className="sr-only">herunterladen</span>
           </Button>
-          <Button
-            href="https://www.pccaddie.net/clubs/0495536/app.php?cat=ts_calendar"
-            className="inline-flex gap-2 pl-4"
-            target="_blank"
-          >
-            <ArrowTopRight className="mt-px size-5" /> Zum Event-Kalender
+          <Button href="/clubleben/events" className="inline-flex gap-2">
+            Zum Event-Kalender
           </Button>
         </div>
       </Container>
