@@ -65,7 +65,8 @@ export const Footer = ({
         <div className="mb-8 mt-12 h-px w-full bg-gray-200" />
         <div className="flex flex-col-reverse gap-4 md:flex-row md:justify-between">
           <p className="text-sm text-gray-500">
-            &copy; {new Date().getFullYear()} Golfclub Cochem/Mosel e.V.
+            &copy; {new Date().getFullYear()} Golfclub Cochem/Mosel e.V. | Icons
+            by Icons8.com
           </p>
           <ul className="flex flex-col gap-2 sm:flex-row sm:gap-4">
             <li>
