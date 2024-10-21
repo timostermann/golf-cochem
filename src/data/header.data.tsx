@@ -40,6 +40,12 @@ export const headerData: HeaderProps = {
           description: "descriptions.teams",
           icon: <Group />,
         },
+        {
+          label: "labels.partner",
+          href: "/clubleben/partner",
+          description: "descriptions.partner",
+          icon: <Group />,
+        },
       ],
     },
     {
@@ -78,8 +84,8 @@ export const headerData: HeaderProps = {
       ],
     },
     {
-      label: "labels.youth",
-      href: "/jugend",
+      label: "labels.indoorgolf",
+      href: "/partner",
     },
     {
       label: "labels.golfCourses",
@@ -111,8 +117,12 @@ export const headerData: HeaderProps = {
       ],
     },
     {
-      label: "labels.partner",
+      label: "labels.footgolf",
       href: "/partner",
+    },
+    {
+      label: "labels.youth",
+      href: "/jugend",
     },
     {
       label: "labels.about",
