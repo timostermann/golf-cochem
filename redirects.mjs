@@ -21,7 +21,7 @@ const redirects = [
   },
   {
     source: "/elterntraining",
-    destination: "/golfkurse/elterntraining",
+    destination: "/golferlernen/elterntraining",
   },
   {
     source: "/golfpartner",
@@ -37,19 +37,19 @@ const redirects = [
   },
   {
     source: "/mosel-course",
-    destination: "/golfplatz/mosel-course",
+    destination: "/golfanlage/mosel-course",
   },
   {
     source: "/eifel-course",
-    destination: "/golfplatz/eifel-course",
+    destination: "/golfanlage/eifel-course",
   },
   {
     source: "/footgolf-3",
-    destination: "/golfplatz/footgolf",
+    destination: "/golfanlage/footgolf",
   },
   {
     source: "/dgv-platzreife",
-    destination: "/golfkurse/platzreife",
+    destination: "/golferlernen/platzreife",
   },
   {
     source: "/kontakt",
@@ -65,7 +65,7 @@ const redirects = [
   },
   {
     source: "/schnupperkurs",
-    destination: "/golfkurse/schnupperkurs",
+    destination: "/golferlernen/schnupperkurs",
   },
   {
     source: "/golf-ag",
@@ -81,7 +81,7 @@ const redirects = [
   },
   {
     source: "/platzinformationen",
-    destination: "/golfplatz/platzinformationen",
+    destination: "/golfanlage/platzinformationen",
   },
 ];
 
@@ -219,7 +219,7 @@ const simpleRedirects = [
   "/5-std-53-min-28-sec",
   "/sample-page",
   "/mens-day",
-  "/golfplatz",
+  "/golfanlage",
   "/golfschule",
   "/kalender",
   "/gaestemeinungen",

@@ -20,48 +20,48 @@ export const footerData: FooterProps = {
       ],
     },
     {
-      title: "Golfplatz",
+      title: "Golfanlage",
       links: [
         {
           label: "Mosel Course",
-          href: "/golfplatz/mosel-course",
+          href: "/golfanlage/mosel-course",
         },
         {
           label: "Eifel Course",
-          href: "/golfplatz/eifel-course",
+          href: "/golfanlage/eifel-course",
         },
         {
           label: "Footgolf",
-          href: "/golfplatz/footgolf",
+          href: "/golfanlage/footgolf",
         },
         {
           label: "Driving Range",
-          href: "/golfplatz/driving-range",
+          href: "/golfanlage/driving-range",
         },
         {
           label: "Platzinformationen",
-          href: "/golfplatz/platzinformationen",
+          href: "/golfanlage/platzinformationen",
         },
       ],
     },
     {
-      title: "Golfkurse",
+      title: "Golf erlenen",
       links: [
         {
           label: "Trainer",
-          href: "/golfkurse/trainer",
+          href: "/golferlernen/trainer",
         },
         {
           label: "DGV Platzreife",
-          href: "/golfkurse/platzreife",
+          href: "/golferlernen/platzreife",
         },
         {
           label: "Schnupperkurse",
-          href: "/golfkurse/schnupperkurse",
+          href: "/golferlernen/schnupperkurse",
         },
         {
           label: "Elterntraining",
-          href: "/golfkurse/elterntraining",
+          href: "/golferlernen/elterntraining",
         },
       ],
     },

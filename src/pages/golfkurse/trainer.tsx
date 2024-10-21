@@ -56,14 +56,14 @@ const Trainer: NextPage = () => (
       <div className="flex flex-col gap-3 xs:flex-row xs:flex-wrap md:gap-4">
         <Button
           variant={ButtonVariant.TERTIARY}
-          href="/golfkurse/schnupperkurse"
+          href="/golferlernen/schnupperkurse"
           className="max-xs:!w-full"
         >
           Schnupperkurse
         </Button>
         <Button
           variant={ButtonVariant.PRIMARY}
-          href="/golfkurse/platzreife"
+          href="/golferlernen/platzreife"
           className="max-xs:!w-full"
         >
           Platzreifekurs

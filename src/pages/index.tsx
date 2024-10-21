@@ -106,13 +106,6 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
             <ArrowTopRight className="mt-px size-5" />
             Startzeit buchen
           </Button>
-          <Button
-            href="/golfplatz/platzinformationen"
-            className="w-full sm:w-fit"
-            variant={ButtonVariant.SECONDARY}
-          >
-            Platzinformationen
-          </Button>
         </div>
         <ul className="relative top-12 flex w-full max-w-[700px] flex-col justify-center gap-2 rounded-lg bg-white shadow-lg drop-shadow-md md:top-16 md:mt-4">
           {statusCards.map((card) => {
@@ -206,7 +199,7 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
                 title="Mosel Course"
                 summary="Professioneller, naturnaher 18-Loch-Platz"
                 linkLabel="Mehr erfahren"
-                href="/golfplatz/mosel-course"
+                href="/golfanlage/mosel-course"
               />
             </li>
             <li>
@@ -214,7 +207,7 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
                 title="Eifel Course"
                 summary="9-Loch Platz, der ohne DGV-Ausweis gespielt werden kann"
                 linkLabel="Mehr erfahren"
-                href="/golfplatz/eifel-course"
+                href="/golfanlage/eifel-course"
               />
             </li>
             <li>
@@ -222,7 +215,7 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
                 title="Footgolf"
                 summary="Der Spaß für die gesamte Familie"
                 linkLabel="Mehr erfahren"
-                href="/golfplatz/footgolf"
+                href="/golfanlage/footgolf"
               />
             </li>
             <li>
@@ -230,7 +223,7 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
                 title="Driving Range"
                 summary="Überdachte Abschlagboxen"
                 linkLabel="Mehr erfahren"
-                href="/golfplatz/driving-range"
+                href="/golfanlage/driving-range"
               />
             </li>
           </ul>
@@ -527,35 +520,35 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
           title: "Mosel Course",
           open: moselCourse?.isOpen,
           until: moselCourse?.until,
-          href: "/golfplatz/mosel-course",
+          href: "/golfanlage/mosel-course",
         },
         {
           icon: "EifelCourse",
           title: "Eifel Course",
           open: eifelCourse?.isOpen,
           until: eifelCourse?.until,
-          href: "/golfplatz/eifel-course",
+          href: "/golfanlage/eifel-course",
         },
         {
           icon: "Temperature",
           title: "Indoorgolf",
           open: eifelCourse?.isOpen,
           until: eifelCourse?.until,
-          href: "/golfplatz/indoor-golf",
+          href: "/golfanlage/indoor-golf",
         },
         {
           icon: "Soccer",
           title: "Footgolf",
           open: footgolf?.isOpen,
           until: footgolf?.until,
-          href: "/golfplatz/footgolf",
+          href: "/golfanlage/footgolf",
         },
         {
           icon: "Golf",
           title: "Driving Range",
           open: drivingRange?.isOpen,
           until: drivingRange?.until,
-          href: "/golfplatz/driving-range",
+          href: "/golfanlage/driving-range",
         },
       ],
       newsArticles: blogPostData,

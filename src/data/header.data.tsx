@@ -13,6 +13,7 @@ import {
   ParentTraining,
   Soccer,
   Team,
+  Temperature,
   Trainer,
 } from "@/icons";
 
@@ -53,64 +54,66 @@ export const headerData: HeaderProps = {
       subItems: [
         {
           label: "labels.moselCourse",
-          href: "/golfplatz/mosel-course",
+          href: "/golfanlage/mosel-course",
           description: "descriptions.moselCourse",
           icon: <MoselCourse />,
         },
         {
           label: "labels.eifelCourse",
-          href: "/golfplatz/eifel-course",
+          href: "/golfanlage/eifel-course",
           description: "descriptions.eifelCourse",
           icon: <EifelCourse />,
         },
         {
           label: "labels.footgolf",
-          href: "/golfplatz/footgolf",
+          href: "/golfanlage/footgolf",
           description: "descriptions.footgolf",
           icon: <Soccer />,
         },
         {
           label: "labels.drivingRange",
-          href: "/golfplatz/driving-range",
+          href: "/golfanlage/driving-range",
           description: "descriptions.drivingRange",
           icon: <Golf />,
         },
         {
+          label: "labels.indoorgolf",
+          href: "/golfanlage/indoorgolf",
+          description: "descriptions.indoorgolf",
+          icon: <Temperature />,
+        },
+        {
           label: "labels.fieldInformation",
-          href: "/golfplatz/platzinformationen",
+          href: "/golfanlage/platzinformationen",
           description: "descriptions.fieldInformation",
           icon: <Greenkeeper />,
         },
       ],
     },
     {
-      label: "labels.indoorgolf",
-      href: "/partner",
-    },
-    {
       label: "labels.golfCourses",
       subItems: [
         {
           label: "labels.trainer",
-          href: "/golfkurse/trainer",
+          href: "/golferlernen/trainer",
           description: "descriptions.trainer",
           icon: <Trainer />,
         },
         {
           label: "labels.license",
-          href: "/golfkurse/platzreife",
+          href: "/golferlernen/platzreife",
           description: "descriptions.license",
           icon: <Certificate />,
         },
         {
           label: "labels.tasterCourse",
-          href: "/golfkurse/schnupperkurse",
+          href: "/golferlernen/schnupperkurse",
           description: "descriptions.tasterCourse",
           icon: <GolfBag />,
         },
         {
           label: "labels.parentalTraining",
-          href: "/golfkurse/elterntraining",
+          href: "/golferlernen/elterntraining",
           description: "descriptions.parentalTraining",
           icon: <ParentTraining />,
         },
@@ -123,6 +126,35 @@ export const headerData: HeaderProps = {
     {
       label: "labels.youth",
       href: "/jugend",
+    },
+    {
+      label: "labels.guests",
+      subItems: [
+        {
+          label: "labels.pricings",
+          href: "/gaeste/preisuebersicht",
+          icon: <Team />,
+          description: "descriptions.pricings",
+        },
+        {
+          label: "labels.cooperations",
+          href: "/gaeste/kooperationen",
+          icon: <Team />,
+          description: "descriptions.cooperations",
+        },
+        {
+          label: "labels.hotels",
+          href: "/gaeste/hotels",
+          icon: <Team />,
+          description: "descriptions.hotels",
+        },
+        {
+          label: "labels.camping",
+          href: "/gaeste/camping",
+          icon: <Team />,
+          description: "descriptions.camping",
+        },
+      ],
     },
     {
       label: "labels.about",

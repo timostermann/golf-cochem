@@ -22,7 +22,7 @@
       "drivingRange": "Driving Range",
       "fieldInformation": "Course Information",
       "youth": "Youth",
-      "golfCourses": "Golf Courses",
+      "golfCourses": "Learn Golf",
       "trainer": "Trainers",
       "license": "DGV License",
       "tasterCourse": "Taster Course",
@@ -30,7 +30,8 @@
       "partner": "Partners",
       "about": "About Us",
       "team": "Team and Board",
-      "contact": "Contact"
+      "contact": "Contact",
+      "guests": "Guests"
     },
     "descriptions": {
       "blog": "Find out the latest from the Golf Club Cochem/Mosel e.V.",

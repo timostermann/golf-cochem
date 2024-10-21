@@ -41,7 +41,7 @@ const revalidateHandler: NextApiHandler = async (req, res) => {
     }
 
     if (contentType === "openingtime") {
-      paths.push("/golfplatz/platzinformationen");
+      paths.push("/golfanlage/platzinformationen");
       paths.push("/");
     }
 

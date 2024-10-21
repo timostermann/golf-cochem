@@ -14,7 +14,7 @@
       "membership": "Mitgliedschaft",
       "teams": "Mannschaften",
       "events": "Events & Turniere",
-      "golfField": "Golfplatz",
+      "golfField": "Golfanlage",
       "moselCourse": "Mosel Course",
       "eifelCourse": "Eifel Course",
       "footgolf": "Footgolf",
@@ -22,7 +22,7 @@
       "drivingRange": "Driving Range",
       "fieldInformation": "Platzinformationen",
       "youth": "Jugend",
-      "golfCourses": "Golfkurse",
+      "golfCourses": "Golf erlernen",
       "trainer": "Trainer",
       "license": "DGV Platzreife",
       "tasterCourse": "Schnupperkurs",
@@ -30,7 +30,8 @@
       "partner": "Partner",
       "about": "Über uns",
       "team": "Team und Vorstand",
-      "contact": "Kontakt"
+      "contact": "Kontakt",
+      "guests": "Gäste"
     },
     "descriptions": {
       "blog": "Erfahre das Neuste aus dem Golfclub Cochem/Mosel e.V.",
@@ -49,7 +50,8 @@
       "parentalTraining": "Kinder und Eltern gemeinsam für den Golfsport begeistern",
       "groupTraining": "Gemeinsam trainieren und Spaß haben",
       "team": "Lerne unser engagiertes Team kennen",
-      "contact": "Fragen? Wir sind jederzeit für dich da!"
+      "contact": "Fragen? Wir sind jederzeit für dich da!",
+      "indoorgolf": "Unser moderner Simulator von TrackMan"
     }
   }
 }
