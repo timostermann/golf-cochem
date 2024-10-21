@@ -31,7 +31,11 @@
       "about": "About Us",
       "team": "Team and Board",
       "contact": "Contact",
-      "guests": "Guests"
+      "guests": "Guests",
+      "pricings": "Pricings",
+      "cooperations": "Cooperations",
+      "hotels": "Hotel Recommendations",
+      "camping": "Campsites"
     },
     "descriptions": {
       "blog": "Find out the latest from the Golf Club Cochem/Mosel e.V.",
@@ -50,7 +54,11 @@
       "parentalTraining": "Engage children and parents in golf together",
       "groupTraining": "Train together and have fun",
       "team": "Meet our dedicated team",
-      "contact": "Questions? We're here for you anytime!"
+      "contact": "Questions? We're here for you anytime!",
+      "pricings": "Current price information for our offers",
+      "cooperations": "Our partners and cooperations",
+      "hotels": "Hotel recommendations in the area",
+      "camping": "Campsites in the area"
     }
   }
 }

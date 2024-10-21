@@ -31,7 +31,11 @@
       "about": "Über uns",
       "team": "Team und Vorstand",
       "contact": "Kontakt",
-      "guests": "Gäste"
+      "guests": "Gäste",
+      "pricings": "Preisübersicht",
+      "cooperations": "Kooperationen",
+      "hotels": "Hotelempfehlungen",
+      "camping": "Campingplätze"
     },
     "descriptions": {
       "blog": "Erfahre das Neuste aus dem Golfclub Cochem/Mosel e.V.",
@@ -51,7 +55,11 @@
       "groupTraining": "Gemeinsam trainieren und Spaß haben",
       "team": "Lerne unser engagiertes Team kennen",
       "contact": "Fragen? Wir sind jederzeit für dich da!",
-      "indoorgolf": "Unser moderner Simulator von TrackMan"
+      "indoorgolf": "Unser moderner Simulator von TrackMan",
+      "pricings": "Aktuelle Preisinformationen zu unseren Angeboten",
+      "cooperations": "Unsere Partner und Kooperationen",
+      "hotels": "Hotelempfehlungen in der Region",
+      "camping": "Campingplätze in der Umgebung"
     }
   }
 }
