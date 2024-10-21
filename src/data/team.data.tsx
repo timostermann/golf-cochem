@@ -90,3 +90,9 @@ export const boardMembers = [
     role: "Pressewart",
   },
 ];
+export const greenkeepingMembers = [
+  {
+    name: "Vakant",
+    role: "Greenkeeper",
+  },
+];

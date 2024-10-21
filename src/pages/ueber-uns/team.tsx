@@ -5,7 +5,11 @@ import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
 import { Tabs } from "@/components/Tabs";
 import { Meta } from "@/components/Meta";
 import { Golf } from "@/icons";
-import { boardMembers, teamMembers } from "@/data/team.data";
+import {
+  boardMembers,
+  greenkeepingMembers,
+  teamMembers,
+} from "@/data/team.data";
 
 const Team: NextPage = () => {
   return (
@@ -39,6 +43,7 @@ const Team: NextPage = () => {
             <Tabs.List>
               <Tabs.Tab>Unser Team</Tabs.Tab>
               <Tabs.Tab>Vorstand</Tabs.Tab>
+              <Tabs.Tab>Greenkeeping</Tabs.Tab>
             </Tabs.List>
             <Tabs.Panels>
               <Tabs.Panel className="mt-16 flex flex-col gap-8 md:flex-row">
@@ -70,6 +75,39 @@ const Team: NextPage = () => {
               <Tabs.Panel className="mt-16 flex flex-col gap-12">
                 <ul className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                   {boardMembers.map((member) => (
+                    <li
+                      key={member.name}
+                      className="flex max-w-96 flex-col gap-1 xl:w-full"
+                    >
+                      <Headline
+                        tag={HeadlineTag.H3}
+                        variant={HeadlineVariant.QUINARY}
+                        className="mt-2 text-primary-800 xl:mt-4"
+                      >
+                        {member.name}
+                      </Headline>
+                      {member.image && (
+                        <Image
+                          src={member.image}
+                          alt=""
+                          className="-order-1 h-72 w-full object-cover"
+                        />
+                      )}
+                      {!member.image && (
+                        <div className="-order-1 flex h-72 w-full items-center justify-center bg-gray-200">
+                          <Golf className="size-20 text-primary-800" />
+                        </div>
+                      )}
+                      <p className="font-light text-primary-600">
+                        {member.role}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </Tabs.Panel>
+              <Tabs.Panel className="mt-16 flex flex-col gap-12">
+                <ul className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+                  {greenkeepingMembers.map((member) => (
                     <li
                       key={member.name}
                       className="flex max-w-96 flex-col gap-1 xl:w-full"
