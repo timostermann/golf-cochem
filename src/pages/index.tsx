@@ -164,7 +164,7 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
               className="mb-8"
               id="intro"
             >
-              Golfclub Cochem e.V. stellt sich vor
+              Golfclub Cochem/Mosel e.V. stellt sich vor
             </Headline>
             <p className="text-gray-500">
               Leidenschaft trifft auf Gastfreundschaft. Willkommen in unserem
@@ -295,7 +295,7 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
             target="_blank"
             variant={ButtonVariant.TERTIARY}
           >
-            <Download className="mt-px size-5" /> Rahmenbedingungen des
+            <Download className="mt-px size-5" /> Rahmenausschreibung des
             Golfclubs <span className="sr-only">herunterladen</span>
           </Button>
           <Button
