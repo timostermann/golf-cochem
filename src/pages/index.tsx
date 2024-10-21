@@ -52,6 +52,7 @@ type HomeProps = {
     title: string;
     open?: boolean;
     until?: string;
+    href: string;
   }[];
   newsArticles: Blogpost[];
 };
@@ -117,42 +118,41 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
           {statusCards.map((card) => {
             const Icon = Icons[card.icon];
             return (
-              <li
-                key={card.title}
-                className="flex items-center justify-between px-2 py-3 text-primary-800 first:pt-8 last:pb-8 even:bg-primary-50 xs:px-4 md:px-12 md:py-5"
-              >
-                <div className="flex items-center gap-4 text-sm md:gap-6 md:text-base">
-                  <Icon className="hidden size-7 xs:block md:size-10" />
-                  {card.title}
-                </div>
-                <span
-                  className={cn(
-                    "rounded-2xl px-2 py-1 text-center text-[0.6875rem] sm:px-3 sm:text-xs lg:text-sm",
-                    {
-                      "border border-green-700 bg-green-50 text-green-700":
-                        card.open,
-                      "border border-red-700 bg-red-50 text-red-700":
-                        !card.open,
-                    },
-                  )}
-                >
-                  {card.open ? t("opened") : t("closed")}
-                  {card.until && (
-                    <>
-                      {" "}
-                      {t("until")}{" "}
-                      {new Date(card.until).toLocaleString(router.locale, {
-                        day: "numeric",
-                        month: "numeric",
-                        year: "numeric",
-                        hour: "numeric",
-                        minute: "numeric",
-                      })}{" "}
-                      <span className="hidden xs:inline">{t("oClock")}</span>
-                    </>
-                  )}
-                </span>
-              </li>
+              <Link key={card.title} href={card.href}>
+                <li className="flex items-center justify-between px-2 py-3 text-primary-800 first:rounded-t-lg first:pt-8 last:rounded-b-lg last:pb-8 even:bg-primary-50 hover:bg-primary-50 xs:px-4 md:px-12 md:py-5">
+                  <div className="flex items-center gap-4 text-sm md:gap-6 md:text-base">
+                    <Icon className="hidden size-7 xs:block md:size-10" />
+                    {card.title}
+                  </div>
+                  <span
+                    className={cn(
+                      "rounded-2xl px-2 py-1 text-center text-[0.6875rem] sm:px-3 sm:text-xs lg:text-sm",
+                      {
+                        "border border-green-700 bg-green-50 text-green-700":
+                          card.open,
+                        "border border-red-700 bg-red-50 text-red-700":
+                          !card.open,
+                      },
+                    )}
+                  >
+                    {card.open ? t("opened") : t("closed")}
+                    {card.until && (
+                      <>
+                        {" "}
+                        {t("until")}{" "}
+                        {new Date(card.until).toLocaleString(router.locale, {
+                          day: "numeric",
+                          month: "numeric",
+                          year: "numeric",
+                          hour: "numeric",
+                          minute: "numeric",
+                        })}{" "}
+                        <span className="hidden xs:inline">{t("oClock")}</span>
+                      </>
+                    )}
+                  </span>
+                </li>
+              </Link>
             );
           })}
         </ul>
@@ -527,30 +527,35 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
           title: "Mosel Course",
           open: moselCourse?.isOpen,
           until: moselCourse?.until,
+          href: "/golfplatz/mosel-course",
         },
         {
           icon: "EifelCourse",
           title: "Eifel Course",
           open: eifelCourse?.isOpen,
           until: eifelCourse?.until,
+          href: "/golfplatz/eifel-course",
         },
         {
           icon: "Temperature",
           title: "Indoorgolf",
           open: eifelCourse?.isOpen,
           until: eifelCourse?.until,
+          href: "/golfplatz/indoor-golf",
         },
         {
           icon: "Soccer",
           title: "Footgolf",
           open: footgolf?.isOpen,
           until: footgolf?.until,
+          href: "/golfplatz/footgolf",
         },
         {
           icon: "Golf",
           title: "Driving Range",
           open: drivingRange?.isOpen,
           until: drivingRange?.until,
+          href: "/golfplatz/driving-range",
         },
       ],
       newsArticles: blogPostData,
