@@ -11,6 +11,8 @@ import { ImageStage } from "@/components/ImageStage";
 import { Meta } from "@/components/Meta";
 import { Container, ContainerMargin } from "@/components/Container";
 import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
+import { Button, ButtonVariant } from "@/components/Button";
+import { Download, ArrowTopRight } from "@/icons";
 
 const Jugend: NextPage = () => (
   <>
@@ -84,6 +86,24 @@ const Jugend: NextPage = () => (
           </Headline>
           <p className="text-primary-700">Driving Range</p>
         </div>
+      </div>
+      <div>
+        <Headline
+          tag={HeadlineTag.H2}
+          variant={HeadlineVariant.QUINARY}
+          id="events"
+          className="mt-12"
+        >
+          Elterntraining
+        </Headline>
+        <p className="mb-8 mt-2 max-w-[768px] text-pretty text-lg text-gray-500">
+          Eltern haben jetzt die Möglichkeit, das Golfspiel parallel zum
+          Training ihrer Kinder zu erlernen. Mit einer exklusiven Elternkarte
+          und der Anleitung eines Trainers können sie gemeinsam mit ihren
+          Kindern in den Golfsport eintauchen – inklusive Ausrüstung und
+          Rangebälle zu einem attraktiven Preis.
+        </p>
+        <Button href="/golferlernen/elterntraining">Zum Elterntraining</Button>
       </div>
     </Container>
     <Container
