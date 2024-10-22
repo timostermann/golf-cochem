@@ -92,7 +92,7 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
             Willkommen im Golfclub
             <wbr /> Cochem/
             <wbr />
-            Mosel e.V
+            Mosel e.V.
           </Headline>
         </div>
         <p className="mt-4 w-full text-lg text-primary-800 sm:mt-6 sm:text-center md:text-xl">
