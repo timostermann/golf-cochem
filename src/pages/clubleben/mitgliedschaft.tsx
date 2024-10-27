@@ -66,13 +66,13 @@ const Mitgliedschaft: NextPage = () => (
       />
     </Container>
     <Container
-      aria-labelledby="faq"
+      aria-labelledby="modell"
       innerClassName="flex flex-col items-center mt-12 sm:mt-20"
     >
       <Headline
         tag={HeadlineTag.H2}
         variant={HeadlineVariant.SECONDARY}
-        id="faq"
+        id="modell"
         className="text-center"
       >
         Unsere Mitgliedschaftsmodelle

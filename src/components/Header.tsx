@@ -71,7 +71,7 @@ export const Header = ({
       {...props}
     >
       <Link
-        className="inline-flex items-center gap-3 font-medium !leading-none text-gray-900 sm:text-lg xl:gap-2 xl:text-base"
+        className="xl:gap- inline-flex items-center gap-3 font-medium !leading-none text-gray-900 sm:text-lg xl:text-base"
         href={homeHref}
       >
         <Image src="/logo.png" alt="" aria-hidden height="37" width="30" />
@@ -112,7 +112,7 @@ export const Header = ({
               ) : (
                 <button
                   className={cn(
-                    "flex h-fit cursor-text items-center gap-2 whitespace-nowrap text-gray-600",
+                    "flex h-fit cursor-text items-center gap-1 whitespace-nowrap text-gray-600",
                     {
                       "text-primary-700": isActiveGroup(item, router),
                     },
