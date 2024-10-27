@@ -215,6 +215,14 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
             </li>
             <li>
               <BorderTeaserCard
+                title="Indoorgolf"
+                summary="Hochmoderne TrackMan-Anlage"
+                linkLabel="Mehr erfahren"
+                href="/golfanlage/indoor"
+              />
+            </li>
+            <li>
+              <BorderTeaserCard
                 title="Footgolf"
                 summary="Der Spaß für die gesamte Familie"
                 linkLabel="Mehr erfahren"

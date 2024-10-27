@@ -48,10 +48,7 @@ const Events: NextPage = () => (
         </Button>
       </div>
     </Container>
-    <Container
-      aria-labelledby="faq"
-      innerClassName="items-center mt-12 sm:mt-20"
-    >
+    <Container innerClassName="items-center mt-12 sm:mt-20">
       <Iframe src="https://www.pccaddie.net/clubs/0495536/app.php?cat=ts_calendar" />
     </Container>
   </>
