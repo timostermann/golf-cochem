@@ -63,7 +63,7 @@ export const Footer = ({
           </ul>
         </div>
         <div className="mb-8 mt-12 h-px w-full bg-gray-200" />
-        <div className="flex flex-col-reverse gap-4 md:flex-row md:justify-between">
+        <div className="flex flex-col-reverse gap-4 lg:flex-row lg:justify-between">
           <p className="text-sm text-gray-500">
             &copy; {new Date().getFullYear()} Golfclub Cochem/Mosel e.V. | Icons
             by Icons8.com
