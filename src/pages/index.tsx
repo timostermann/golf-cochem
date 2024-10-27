@@ -111,8 +111,11 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
           {statusCards.map((card) => {
             const Icon = Icons[card.icon];
             return (
-              <Link key={card.title} href={card.href}>
-                <li className="flex items-center justify-between px-2 py-3 text-primary-800 transition-colors first:rounded-t-lg first:pt-8 last:rounded-b-lg last:pb-8 even:bg-primary-50 hover:bg-primary-50 xs:px-4 md:px-12 md:py-5">
+              <li key={card.title} className="group">
+                <Link
+                  href={card.href}
+                  className="flex items-center justify-between px-2 py-3 text-primary-800 transition-colors even:bg-primary-50 hover:bg-primary-50 group-first:rounded-t-lg group-first:pt-8 group-last:rounded-b-lg group-last:pb-8 xs:px-4 md:px-12 md:py-5"
+                >
                   <div className="flex items-center gap-4 text-sm md:gap-6 md:text-base">
                     <Icon className="hidden size-7 xs:block md:size-10" />
                     {card.title}
@@ -144,8 +147,8 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
                       </>
                     )}
                   </span>
-                </li>
-              </Link>
+                </Link>
+              </li>
             );
           })}
         </ul>
