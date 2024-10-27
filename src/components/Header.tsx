@@ -63,7 +63,7 @@ export const Header = ({
     <Container
       tag="header"
       className={cn(
-        "sticky top-0 z-40 h-[72px] items-center border-b border-gray-100 bg-white shadow-sm lg:h-20",
+        "sticky top-0 z-40 h-[72px] items-center border-b border-gray-100 bg-white shadow-sm xl:h-20",
         className,
       )}
       innerClassName="flex justify-between gap-3"
@@ -71,15 +71,15 @@ export const Header = ({
       {...props}
     >
       <Link
-        className="inline-flex items-center gap-3 font-medium !leading-none text-gray-900 sm:text-lg lg:gap-2 lg:text-base xl:gap-3 xl:text-lg"
+        className="inline-flex items-center gap-3 font-medium !leading-none text-gray-900 sm:text-lg xl:gap-2 xl:text-base"
         href={homeHref}
       >
         <Image src="/logo.png" alt="" aria-hidden height="37" width="30" />
         Golfclub
         <wbr /> Cochem/Mosel&nbsp;e.V.
       </Link>
-      <nav className="hidden lg:flex">
-        <ul className="flex gap-4 xl:gap-8">
+      <nav className="hidden xl:flex">
+        <ul className="flex gap-4">
           {items.map((item, index) => (
             <li
               key={item.label}
@@ -94,7 +94,7 @@ export const Header = ({
                 <Link
                   href={item.href}
                   className={cn(
-                    "flex h-fit items-center whitespace-nowrap text-gray-600 transition-colors hover:text-primary-600 xl:gap-2",
+                    "flex h-fit items-center whitespace-nowrap text-gray-600 transition-colors hover:text-primary-600",
                     {
                       "text-primary-700": isActiveGroup(item, router),
                     },
@@ -179,7 +179,7 @@ export const Header = ({
       <button
         aria-label={t("mainNavigation")}
         className={cn(
-          "relative top-3 h-3 w-5 cursor-pointer items-center justify-center transition-all duration-300 ease-in-out lg:hidden",
+          "relative top-3 h-3 w-5 cursor-pointer items-center justify-center transition-all duration-300 ease-in-out xl:hidden",
         )}
         onClick={() => setIsMenuOpen((prev) => !prev)}
         aria-expanded={isMenuOpen}
@@ -203,7 +203,7 @@ export const Header = ({
       <div className="absolute inset-0 -translate-y-full bg-white" />
       <nav
         className={cn(
-          "absolute left-0 top-full -z-20 h-[calc(100vh-72px)] w-full overflow-y-auto bg-white shadow-md transition-transform duration-500 ease-in-out lg:hidden",
+          "absolute left-0 top-full -z-20 h-[calc(100vh-72px)] w-full overflow-y-auto bg-white shadow-md transition-transform duration-500 ease-in-out xl:hidden",
           {
             "translate-y-0": isMenuOpen,
             "-translate-y-full": !isMenuOpen,
@@ -220,10 +220,10 @@ export const Header = ({
               />
             ))}
           </ul>
-          <LanguageSwitch className="relative left-1/2 w-fit -translate-x-1/2 pb-4 lg:hidden" />
+          <LanguageSwitch className="relative left-1/2 w-fit -translate-x-1/2 pb-4 xl:hidden" />
         </div>
       </nav>
-      <LanguageSwitch className="absolute right-4 top-1 hidden lg:flex" />
+      <LanguageSwitch className="absolute right-4 top-1 hidden xl:flex" />
     </Container>
   );
 };
