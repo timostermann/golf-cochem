@@ -31,6 +31,7 @@ import { ImageInfoCard } from "@/components/ImageInfoCard";
 import { FeatureColumn } from "@/components/FeatureColumn";
 import { Tabs } from "@/components/Tabs";
 import { ContactForm } from "@/components/ContactForm";
+import { WeatherBadge } from "@/components/WeatherBadge";
 
 const Dev: NextPage = () => {
   return (
@@ -73,6 +74,9 @@ const Dev: NextPage = () => {
               className="size-10 text-primary-700"
             />
           ))}
+        </div>
+        <div className="flex gap-4">
+          <WeatherBadge />
         </div>
         <div className="flex gap-4">
           <StatusCard open icon={<Address />}>

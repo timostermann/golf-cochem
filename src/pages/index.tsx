@@ -37,6 +37,7 @@ import { contactInfo } from "@/data/contact.data";
 import { teamMembers } from "@/data/team.data";
 import { type OpeningTime } from "@/lib/dto/openingtime.type";
 import { revalidate } from "@/lib/constants";
+import { WeatherBadge } from "@/components/WeatherBadge";
 
 const Icons = {
   MoselCourse: MoselCourse,
@@ -107,6 +108,7 @@ const Home: NextPage<HomeProps> = ({ statusCards, newsArticles }) => {
             Startzeit buchen
           </Button>
         </div>
+        <WeatherBadge className="right-4 top-4 max-sm:mt-4 sm:absolute" />
         <ul className="relative top-12 flex w-full max-w-[700px] flex-col justify-center gap-2 rounded-lg bg-white shadow-lg drop-shadow-md md:top-16 md:mt-4">
           {statusCards.map((card) => {
             const Icon = Icons[card.icon];
