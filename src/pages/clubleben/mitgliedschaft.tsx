@@ -8,7 +8,15 @@ import { Accordion } from "@/components/Accordion";
 import dgv from "~/public/images/dgv.webp";
 import { Button } from "@/components/Button";
 import { PriceCard } from "@/components/PriceCard";
-import { Golf, MoselCourse, EifelCourse, Calendar, Group, Star } from "@/icons";
+import {
+  Golf,
+  MoselCourse,
+  EifelCourse,
+  Calendar,
+  Group,
+  Star,
+  Download,
+} from "@/icons";
 import { FeatureColumn } from "@/components/FeatureColumn";
 
 const Mitgliedschaft: NextPage = () => (
@@ -53,8 +61,12 @@ const Mitgliedschaft: NextPage = () => (
           <br />
           Auf geht&apos;s, wir freuen uns auf dich!
         </p>
-        <Button href="/clubleben/mitgliedschaft" className="max-lg:hidden">
-          Zum Antragsformular
+        <Button
+          href="/documents/Antragsformular.pdf"
+          className="inline-flex gap-2 pl-4 max-lg:mb-10 max-lg:self-center"
+          target="_blank"
+        >
+          <Download className="mt-px size-5" /> Zum Antragsformular
         </Button>
       </div>
       <Image
