@@ -14,6 +14,7 @@ const getWeatherIcon = (icon: string | null) => {
     case "rain":
     case "sleet":
     case "snow":
+    case "hail":
     case "thunderstorm":
       return <Rain />;
     case "clear-day":
