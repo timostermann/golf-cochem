@@ -67,7 +67,7 @@ export const WeatherBadge = ({
       {...props}
     >
       <span className="sr-only">Aktuell:</span>
-      {degrees} °C
+      {degrees.toLocaleString("de-DE")} °C
       <div className="size-9 rounded-full bg-primary-800 p-2 text-white">
         {getWeatherIcon(icon)}
       </div>
