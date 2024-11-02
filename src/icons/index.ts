@@ -5,6 +5,7 @@ export * from "./Blog";
 export * from "./Calendar";
 export * from "./Certificate";
 export * from "./Check";
+export * from "./CheckCircle";
 export * from "./Chevron";
 export * from "./Contact";
 export * from "./Cloudy";
