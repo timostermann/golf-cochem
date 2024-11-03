@@ -1,6 +1,6 @@
 import { type NextPage } from "next";
 import Image from "next/image";
-import { type ReactNode } from "react";
+import cn from "classnames";
 import { Meta } from "@/components/Meta";
 import { Container, ContainerMargin } from "@/components/Container";
 import { Headline, HeadlineTag, HeadlineVariant } from "@/components/Headline";
@@ -10,11 +10,13 @@ import dgv from "~/public/images/dgv.webp";
 import { Button } from "@/components/Button";
 import { Calendar, Group, Star, Download, CheckCircle } from "@/icons";
 import { FeatureColumn } from "@/components/FeatureColumn";
+import { sanitizeString } from "@/lib/sanitizeString";
+import { membershipData, type MembershipData } from "@/data/membership.data";
 
-const BenefitList = ({ benefits }: { benefits: ReactNode[] }) => (
+const BenefitList = ({ benefits }: Pick<MembershipData, "benefits">) => (
   <ul className="flex flex-col gap-4 md:mt-14">
     {benefits.map((item, index) => (
-      <li key={index} className="flex items-center gap-2">
+      <li key={index} className="flex items-start gap-2">
         <CheckCircle className="size-6 flex-shrink-0 text-green-600/80" />
         <span>{item}</span>
       </li>
@@ -22,11 +24,7 @@ const BenefitList = ({ benefits }: { benefits: ReactNode[] }) => (
   </ul>
 );
 
-const PriceList = ({
-  priceData,
-}: {
-  priceData: { price: number; description: ReactNode }[];
-}) => (
+const PriceList = ({ priceData }: Pick<MembershipData, "priceData">) => (
   <ul className="mt-6 flex w-full flex-col">
     {priceData.map((item, index) => (
       <li
@@ -140,103 +138,41 @@ const Mitgliedschaft: NextPage = () => (
         </li>
       </ul>
     </Container>
-    <Container
-      aria-labelledby="modell"
-      className="bg-gray-50"
-      innerClassName="my-12 sm:my-20"
-      margin={ContainerMargin.NONE}
-    >
-      <Headline
-        tag={HeadlineTag.H2}
-        variant={HeadlineVariant.SECONDARY}
-        id="modell"
-        className="text-center"
+    {membershipData.map((data, index) => (
+      <Container
+        key={data.title}
+        aria-labelledby={`title-${sanitizeString(data.title)}`}
+        className={cn({
+          "bg-gray-50": index % 2 === 0,
+          "bg-white": index % 2 === 1,
+        })}
+        innerClassName="my-12 sm:my-20"
+        margin={ContainerMargin.NONE}
       >
-        Vollmitgliedschaft
-      </Headline>
-      <div className="mt-8 grid grid-cols-1 gap-4 lg:mt-12 lg:grid-cols-2">
-        <BenefitList
-          benefits={[
-            <>
-              <span className="font-bold">Uneingeschränktes Spielrecht</span>{" "}
-              auf Mosel- und Eifelcourse
-            </>,
-            "DGV-Mitgliedsausweis",
-            "Inklusive Handicapführung",
-            "Kostenfreies Spielen auf über 50 Golfanlagen in Deutschland",
-            "(U18) inklusive Basis-Jugendtraining",
-          ]}
-        />
-        <div className="flex w-full flex-col items-center max-lg:mt-12">
-          <Headline tag={HeadlineTag.H3} variant={HeadlineVariant.QUATERNARY}>
-            Dein Beitrag <span className="font-light">(pro Jahr)</span>
-          </Headline>
-          <PriceList
-            priceData={[
-              { price: 1275, description: "Erwachsene" },
-              {
-                price: 795,
-                description: (
-                  <>
-                    Neumitglieder <wbr />
-                    <span className="font-light">
-                      (im ersten Jahr, Vertragslaufzeit: 2 Jahre)
-                    </span>
-                  </>
-                ),
-              },
-              {
-                price: 1020,
-                description: (
-                  <>
-                    Ehepartner/Lebensgefährten{" "}
-                    <span className="font-light">eines Vollmitglieds</span>
-                  </>
-                ),
-              },
-              {
-                price: 775,
-                description: (
-                  <>
-                    Junge Erwachsene{" "}
-                    <span className="font-light">(26-35 Jahre)</span>
-                  </>
-                ),
-              },
-              {
-                price: 390,
-                description: (
-                  <>
-                    Jugend/Student{" "}
-                    <span className="font-light">(18-25 Jahre)</span>
-                  </>
-                ),
-              },
-              {
-                price: 230,
-                description: (
-                  <>
-                    Kinder <span className="font-light">(13-17 Jahre)</span>
-                  </>
-                ),
-              },
-              {
-                price: 90,
-                description: (
-                  <>
-                    Kinder
-                    <span className="font-light"> (bis 12 Jahre)</span>
-                  </>
-                ),
-              },
-            ]}
-          />
+        <Headline
+          tag={HeadlineTag.H2}
+          variant={HeadlineVariant.SECONDARY}
+          id={`title-${sanitizeString(data.title)}`}
+          className="text-center"
+        >
+          {data.title}
+        </Headline>
+        <div className="mt-8 grid grid-cols-1 gap-4 lg:mt-12 lg:grid-cols-2">
+          <BenefitList benefits={data.benefits} />
+          <div className="flex w-full flex-col items-center max-lg:mt-12">
+            <Headline tag={HeadlineTag.H3} variant={HeadlineVariant.QUATERNARY}>
+              Dein Beitrag <span className="font-light">(pro Jahr)</span>
+            </Headline>
+            <PriceList priceData={data.priceData} />
+          </div>
         </div>
-      </div>
-    </Container>
+      </Container>
+    ))}
     <Container
       aria-labelledby="faq"
-      innerClassName="flex flex-col items-center mt-12 sm:mt-20"
+      className="bg-gray-50"
+      innerClassName="flex flex-col items-center my-12 sm:mt-20 bg-gray-50"
+      margin={ContainerMargin.NONE}
     >
       <Headline
         tag={HeadlineTag.H2}
