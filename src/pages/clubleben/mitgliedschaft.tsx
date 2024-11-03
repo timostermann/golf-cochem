@@ -15,7 +15,7 @@ const BenefitList = ({ benefits }: { benefits: ReactNode[] }) => (
   <ul className="flex flex-col gap-4 md:mt-14">
     {benefits.map((item, index) => (
       <li key={index} className="flex items-center gap-2">
-        <CheckCircle className="size-6 text-green-600/80" />
+        <CheckCircle className="size-6 flex-shrink-0 text-green-600/80" />
         <span>{item}</span>
       </li>
     ))}
@@ -31,10 +31,12 @@ const PriceList = ({
     {priceData.map((item, index) => (
       <li
         key={index}
-        className="flex items-center justify-between border-t border-primary-800 p-4 last:border-b"
+        className="flex items-center justify-between gap-4 border-t border-primary-800/70 p-4 last:border-b"
       >
-        <span>{item.description}</span>
-        <span>{item.price.toLocaleString("de-DE")} €</span>
+        <span className="font-medium">{item.description}</span>
+        <span className="whitespace-nowrap font-medium text-primary-800">
+          {item.price.toLocaleString("de-DE")} €
+        </span>
       </li>
     ))}
   </ul>
@@ -152,7 +154,7 @@ const Mitgliedschaft: NextPage = () => (
       >
         Vollmitgliedschaft
       </Headline>
-      <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-12 sm:gap-8 md:grid-cols-2">
+      <div className="mt-8 grid grid-cols-1 gap-4 lg:mt-12 lg:grid-cols-2">
         <BenefitList
           benefits={[
             <>
@@ -165,7 +167,7 @@ const Mitgliedschaft: NextPage = () => (
             "(U18) inklusive Basis-Jugendtraining",
           ]}
         />
-        <div className="flex w-full flex-col items-center">
+        <div className="flex w-full flex-col items-center max-lg:mt-12">
           <Headline tag={HeadlineTag.H3} variant={HeadlineVariant.QUATERNARY}>
             Dein Beitrag <span className="font-light">(pro Jahr)</span>
           </Headline>
@@ -174,17 +176,59 @@ const Mitgliedschaft: NextPage = () => (
               { price: 1275, description: "Erwachsene" },
               {
                 price: 795,
-                description:
-                  "Neumitglieder (im ersten Jahr, Vertragslaufzeit: 2 Jahre)",
+                description: (
+                  <>
+                    Neumitglieder <wbr />
+                    <span className="font-light">
+                      (im ersten Jahr, Vertragslaufzeit: 2 Jahre)
+                    </span>
+                  </>
+                ),
               },
               {
                 price: 1020,
-                description: "Ehepartner/Lebensgefährten eines Vollmitglieds",
+                description: (
+                  <>
+                    Ehepartner/Lebensgefährten{" "}
+                    <span className="font-light">eines Vollmitglieds</span>
+                  </>
+                ),
               },
-              { price: 775, description: "Junge Erwachsene (26-35 Jahre)" },
-              { price: 390, description: "Jugend/Student (18-25 Jahre)" },
-              { price: 230, description: "Kinder (13-17 Jahre)" },
-              { price: 90, description: "Kinder (bis 12 Jahre)" },
+              {
+                price: 775,
+                description: (
+                  <>
+                    Junge Erwachsene{" "}
+                    <span className="font-light">(26-35 Jahre)</span>
+                  </>
+                ),
+              },
+              {
+                price: 390,
+                description: (
+                  <>
+                    Jugend/Student{" "}
+                    <span className="font-light">(18-25 Jahre)</span>
+                  </>
+                ),
+              },
+              {
+                price: 230,
+                description: (
+                  <>
+                    Kinder <span className="font-light">(13-17 Jahre)</span>
+                  </>
+                ),
+              },
+              {
+                price: 90,
+                description: (
+                  <>
+                    Kinder
+                    <span className="font-light"> (bis 12 Jahre)</span>
+                  </>
+                ),
+              },
             ]}
           />
         </div>
